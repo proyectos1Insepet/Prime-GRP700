@@ -1,0 +1,3178 @@
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LCD.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.set_imagen,"ax",%progbits
+  19              		.align	2
+  20              		.global	set_imagen
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	set_imagen, %function
+  24              	set_imagen:
+  25              	.LFB63:
+  26              		.file 1 ".\\LCD.c"
+   1:.\LCD.c       **** ///*
+   2:.\LCD.c       **** //*************************************************************************************************
+   3:.\LCD.c       **** //*                                           GRP550M CODE
+   4:.\LCD.c       **** //*
+   5:.\LCD.c       **** //*                             (c) Copyright 2013; Sistemas Insepet LTDA
+   6:.\LCD.c       **** //*
+   7:.\LCD.c       **** //*               All rights reserved.  Protected by international copyright laws.
+   8:.\LCD.c       **** //*               Knowledge of the source code may NOT be used to develop a similar product.
+   9:.\LCD.c       **** //*               Please help us continue to provide the Embedded community with the finest
+  10:.\LCD.c       **** //*               software available.  Your honesty is greatly appreciated.
+  11:.\LCD.c       **** //*************************************************************************************************
+  12:.\LCD.c       **** //*/
+  13:.\LCD.c       **** //
+  14:.\LCD.c       **** ///*
+  15:.\LCD.c       **** //*************************************************************************************************
+  16:.\LCD.c       **** //*
+  17:.\LCD.c       **** //*                                               GRP550M CODE
+  18:.\LCD.c       **** //*
+  19:.\LCD.c       **** //*                                             CYPRESS PSoC5LP
+  20:.\LCD.c       **** //*                                                with the
+  21:.\LCD.c       **** //*                                            CY8C5969AXI-LP035
+  22:.\LCD.c       **** //*
+  23:.\LCD.c       **** //* Filename      : LCD.c
+  24:.\LCD.c       **** //* Version       : V1.00
+  25:.\LCD.c       **** //* Programmer(s) : 
+  26:.\LCD.c       **** //                  
+  27:.\LCD.c       **** //*************************************************************************************************
+  28:.\LCD.c       **** //*/
+  29:.\LCD.c       **** //
+  30:.\LCD.c       **** ///*
+  31:.\LCD.c       **** //*************************************************************************************************
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 2
+
+
+  32:.\LCD.c       **** //*                                             INCLUDE FILES
+  33:.\LCD.c       **** //*************************************************************************************************
+  34:.\LCD.c       **** //*/
+  35:.\LCD.c       **** 
+  36:.\LCD.c       **** //#include <device.h>
+  37:.\LCD.c       **** #include "VariablesG.h"
+  38:.\LCD.c       **** #include "I2C.h"
+  39:.\LCD.c       **** 
+  40:.\LCD.c       **** /*
+  41:.\LCD.c       **** ***************************************************************************************************
+  42:.\LCD.c       **** *                                        void set_imagen(uint8 lcd, uint16 id)
+  43:.\LCD.c       **** *
+  44:.\LCD.c       **** * Description : 
+  45:.\LCD.c       **** *               
+  46:.\LCD.c       **** *
+  47:.\LCD.c       **** * Argument(s) : none
+  48:.\LCD.c       **** *
+  49:.\LCD.c       **** * Return(s)   : none
+  50:.\LCD.c       **** *
+  51:.\LCD.c       **** * Caller(s)   : 
+  52:.\LCD.c       **** *
+  53:.\LCD.c       **** * Note(s)     : none.
+  54:.\LCD.c       **** ***************************************************************************************************
+  55:.\LCD.c       **** */
+  56:.\LCD.c       **** void set_imagen(uint8 lcd, uint16 id){
+  27              		.loc 1 56 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 38B5     		push	{r3, r4, r5, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 3, -16
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 5, -8
+  37              		.cfi_offset 14, -4
+  38 0002 0446     		mov	r4, r0
+  39 0004 0D46     		mov	r5, r1
+  57:.\LCD.c       ****     if(lcd == 1){
+  40              		.loc 1 57 0
+  41 0006 0128     		cmp	r0, #1
+  42 0008 17D1     		bne	.L2
+  58:.\LCD.c       ****         LCD_1_PutChar(0xAA);
+  43              		.loc 1 58 0
+  44 000a AA20     		movs	r0, #170
+  45              	.LVL1:
+  46 000c FFF7FEFF 		bl	LCD_1_PutChar
+  47              	.LVL2:
+  59:.\LCD.c       ****         LCD_1_PutChar(0x70);
+  48              		.loc 1 59 0
+  49 0010 7020     		movs	r0, #112
+  50 0012 FFF7FEFF 		bl	LCD_1_PutChar
+  51              	.LVL3:
+  60:.\LCD.c       ****         LCD_1_PutChar(((id>>8)&0xFF));
+  52              		.loc 1 60 0
+  53 0016 280A     		lsrs	r0, r5, #8
+  54 0018 FFF7FEFF 		bl	LCD_1_PutChar
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 3
+
+
+  55              	.LVL4:
+  61:.\LCD.c       ****         LCD_1_PutChar((id&0xFF));
+  56              		.loc 1 61 0
+  57 001c E8B2     		uxtb	r0, r5
+  58 001e FFF7FEFF 		bl	LCD_1_PutChar
+  59              	.LVL5:
+  62:.\LCD.c       ****         LCD_1_PutChar(0xCC);
+  60              		.loc 1 62 0
+  61 0022 CC20     		movs	r0, #204
+  62 0024 FFF7FEFF 		bl	LCD_1_PutChar
+  63              	.LVL6:
+  63:.\LCD.c       ****         LCD_1_PutChar(0x33);
+  64              		.loc 1 63 0
+  65 0028 3320     		movs	r0, #51
+  66 002a FFF7FEFF 		bl	LCD_1_PutChar
+  67              	.LVL7:
+  64:.\LCD.c       ****         LCD_1_PutChar(0xC3);
+  68              		.loc 1 64 0
+  69 002e C320     		movs	r0, #195
+  70 0030 FFF7FEFF 		bl	LCD_1_PutChar
+  71              	.LVL8:
+  65:.\LCD.c       ****         LCD_1_PutChar(0x3C);
+  72              		.loc 1 65 0
+  73 0034 3C20     		movs	r0, #60
+  74 0036 FFF7FEFF 		bl	LCD_1_PutChar
+  75              	.LVL9:
+  76              	.L2:
+  66:.\LCD.c       ****     }
+  67:.\LCD.c       ****     if(lcd == 2){
+  77              		.loc 1 67 0
+  78 003a 022C     		cmp	r4, #2
+  79 003c 17D1     		bne	.L1
+  68:.\LCD.c       ****        	LCD_2_PutChar(0xAA);
+  80              		.loc 1 68 0
+  81 003e AA20     		movs	r0, #170
+  82 0040 FFF7FEFF 		bl	LCD_2_PutChar
+  83              	.LVL10:
+  69:.\LCD.c       ****         LCD_2_PutChar(0x70);
+  84              		.loc 1 69 0
+  85 0044 7020     		movs	r0, #112
+  86 0046 FFF7FEFF 		bl	LCD_2_PutChar
+  87              	.LVL11:
+  70:.\LCD.c       ****         LCD_2_PutChar(((id>>8)&0xFF));
+  88              		.loc 1 70 0
+  89 004a 280A     		lsrs	r0, r5, #8
+  90 004c FFF7FEFF 		bl	LCD_2_PutChar
+  91              	.LVL12:
+  71:.\LCD.c       ****         LCD_2_PutChar((id&0xFF));
+  92              		.loc 1 71 0
+  93 0050 E8B2     		uxtb	r0, r5
+  94 0052 FFF7FEFF 		bl	LCD_2_PutChar
+  95              	.LVL13:
+  72:.\LCD.c       ****         LCD_2_PutChar(0xCC);
+  96              		.loc 1 72 0
+  97 0056 CC20     		movs	r0, #204
+  98 0058 FFF7FEFF 		bl	LCD_2_PutChar
+  99              	.LVL14:
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 4
+
+
+  73:.\LCD.c       ****         LCD_2_PutChar(0x33);
+ 100              		.loc 1 73 0
+ 101 005c 3320     		movs	r0, #51
+ 102 005e FFF7FEFF 		bl	LCD_2_PutChar
+ 103              	.LVL15:
+  74:.\LCD.c       ****         LCD_2_PutChar(0xC3);
+ 104              		.loc 1 74 0
+ 105 0062 C320     		movs	r0, #195
+ 106 0064 FFF7FEFF 		bl	LCD_2_PutChar
+ 107              	.LVL16:
+  75:.\LCD.c       ****         LCD_2_PutChar(0x3C);   		 
+ 108              		.loc 1 75 0
+ 109 0068 3C20     		movs	r0, #60
+ 110 006a FFF7FEFF 		bl	LCD_2_PutChar
+ 111              	.LVL17:
+ 112              	.L1:
+ 113 006e 38BD     		pop	{r3, r4, r5, pc}
+ 114              		.cfi_endproc
+ 115              	.LFE63:
+ 116              		.size	set_imagen, .-set_imagen
+ 117              		.section	.text.write_LCD,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	write_LCD
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.type	write_LCD, %function
+ 123              	write_LCD:
+ 124              	.LFB64:
+  76:.\LCD.c       ****     }
+  77:.\LCD.c       **** }
+  78:.\LCD.c       **** 
+  79:.\LCD.c       **** /*
+  80:.\LCD.c       **** ***************************************************************************************************
+  81:.\LCD.c       **** *                                 void write_LCD(uint8 lcd, uint8 dato, uint8 pos)
+  82:.\LCD.c       **** *
+  83:.\LCD.c       **** * Description : 
+  84:.\LCD.c       **** *               
+  85:.\LCD.c       **** *
+  86:.\LCD.c       **** * Argument(s) : none
+  87:.\LCD.c       **** *
+  88:.\LCD.c       **** * Return(s)   : none
+  89:.\LCD.c       **** *
+  90:.\LCD.c       **** * Caller(s)   : 
+  91:.\LCD.c       **** *
+  92:.\LCD.c       **** * Note(s)     : none.
+  93:.\LCD.c       **** ***************************************************************************************************
+  94:.\LCD.c       **** */
+  95:.\LCD.c       **** void write_LCD(uint8 lcd, uint8 dato, uint8 pos){
+ 125              		.loc 1 95 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              	.LVL18:
+ 130 0000 38B5     		push	{r3, r4, r5, lr}
+ 131              		.cfi_def_cfa_offset 16
+ 132              		.cfi_offset 3, -16
+ 133              		.cfi_offset 4, -12
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 5
+
+
+ 134              		.cfi_offset 5, -8
+ 135              		.cfi_offset 14, -4
+ 136 0002 0D46     		mov	r5, r1
+ 137 0004 1446     		mov	r4, r2
+  96:.\LCD.c       ****     if(lcd==1){
+ 138              		.loc 1 96 0
+ 139 0006 0128     		cmp	r0, #1
+ 140 0008 3CD1     		bne	.L6
+  97:.\LCD.c       ****         LCD_1_PutChar(0xAA);
+ 141              		.loc 1 97 0
+ 142 000a AA20     		movs	r0, #170
+ 143              	.LVL19:
+ 144 000c FFF7FEFF 		bl	LCD_1_PutChar
+ 145              	.LVL20:
+  98:.\LCD.c       ****         LCD_1_PutChar(0x98);
+ 146              		.loc 1 98 0
+ 147 0010 9820     		movs	r0, #152
+ 148 0012 FFF7FEFF 		bl	LCD_1_PutChar
+ 149              	.LVL21:
+  99:.\LCD.c       ****         LCD_1_PutChar(0x00);
+ 150              		.loc 1 99 0
+ 151 0016 0020     		movs	r0, #0
+ 152 0018 FFF7FEFF 		bl	LCD_1_PutChar
+ 153              	.LVL22:
+ 100:.\LCD.c       ****         LCD_1_PutChar((0x3F)+(0x19*pos));
+ 154              		.loc 1 100 0
+ 155 001c 04EB8404 		add	r4, r4, r4, lsl #2
+ 156 0020 04EB8404 		add	r4, r4, r4, lsl #2
+ 157 0024 04F13F00 		add	r0, r4, #63
+ 158 0028 C0B2     		uxtb	r0, r0
+ 159 002a FFF7FEFF 		bl	LCD_1_PutChar
+ 160              	.LVL23:
+ 101:.\LCD.c       ****         LCD_1_PutChar(0x00);
+ 161              		.loc 1 101 0
+ 162 002e 0020     		movs	r0, #0
+ 163 0030 FFF7FEFF 		bl	LCD_1_PutChar
+ 164              	.LVL24:
+ 102:.\LCD.c       ****         LCD_1_PutChar(0x23);
+ 165              		.loc 1 102 0
+ 166 0034 2320     		movs	r0, #35
+ 167 0036 FFF7FEFF 		bl	LCD_1_PutChar
+ 168              	.LVL25:
+ 103:.\LCD.c       ****         LCD_1_PutChar(0x24);
+ 169              		.loc 1 103 0
+ 170 003a 2420     		movs	r0, #36
+ 171 003c FFF7FEFF 		bl	LCD_1_PutChar
+ 172              	.LVL26:
+ 104:.\LCD.c       ****         LCD_1_PutChar(0xC5);
+ 173              		.loc 1 104 0
+ 174 0040 C520     		movs	r0, #197
+ 175 0042 FFF7FEFF 		bl	LCD_1_PutChar
+ 176              	.LVL27:
+ 105:.\LCD.c       ****         LCD_1_PutChar(0x02);
+ 177              		.loc 1 105 0
+ 178 0046 0220     		movs	r0, #2
+ 179 0048 FFF7FEFF 		bl	LCD_1_PutChar
+ 180              	.LVL28:
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 6
+
+
+ 106:.\LCD.c       ****         LCD_1_PutChar(0x00);
+ 181              		.loc 1 106 0
+ 182 004c 0020     		movs	r0, #0
+ 183 004e FFF7FEFF 		bl	LCD_1_PutChar
+ 184              	.LVL29:
+ 107:.\LCD.c       ****         LCD_1_PutChar(0x00);
+ 185              		.loc 1 107 0
+ 186 0052 0020     		movs	r0, #0
+ 187 0054 FFF7FEFF 		bl	LCD_1_PutChar
+ 188              	.LVL30:
+ 108:.\LCD.c       ****         LCD_1_PutChar(0xFF);
+ 189              		.loc 1 108 0
+ 190 0058 FF20     		movs	r0, #255
+ 191 005a FFF7FEFF 		bl	LCD_1_PutChar
+ 192              	.LVL31:
+ 109:.\LCD.c       ****         LCD_1_PutChar(0xFF);
+ 193              		.loc 1 109 0
+ 194 005e FF20     		movs	r0, #255
+ 195 0060 FFF7FEFF 		bl	LCD_1_PutChar
+ 196              	.LVL32:
+ 110:.\LCD.c       ****         LCD_1_PutChar(dato);
+ 197              		.loc 1 110 0
+ 198 0064 2846     		mov	r0, r5
+ 199 0066 FFF7FEFF 		bl	LCD_1_PutChar
+ 200              	.LVL33:
+ 111:.\LCD.c       ****         LCD_1_PutChar(0xCC);
+ 201              		.loc 1 111 0
+ 202 006a CC20     		movs	r0, #204
+ 203 006c FFF7FEFF 		bl	LCD_1_PutChar
+ 204              	.LVL34:
+ 112:.\LCD.c       ****         LCD_1_PutChar(0x33);
+ 205              		.loc 1 112 0
+ 206 0070 3320     		movs	r0, #51
+ 207 0072 FFF7FEFF 		bl	LCD_1_PutChar
+ 208              	.LVL35:
+ 113:.\LCD.c       ****         LCD_1_PutChar(0xC3);
+ 209              		.loc 1 113 0
+ 210 0076 C320     		movs	r0, #195
+ 211 0078 FFF7FEFF 		bl	LCD_1_PutChar
+ 212              	.LVL36:
+ 114:.\LCD.c       ****         LCD_1_PutChar(0x3C);
+ 213              		.loc 1 114 0
+ 214 007c 3C20     		movs	r0, #60
+ 215 007e FFF7FEFF 		bl	LCD_1_PutChar
+ 216              	.LVL37:
+ 217 0082 38BD     		pop	{r3, r4, r5, pc}
+ 218              	.LVL38:
+ 219              	.L6:
+ 115:.\LCD.c       ****     }
+ 116:.\LCD.c       ****     else{
+ 117:.\LCD.c       ****         LCD_2_PutChar(0xAA);
+ 220              		.loc 1 117 0
+ 221 0084 AA20     		movs	r0, #170
+ 222              	.LVL39:
+ 223 0086 FFF7FEFF 		bl	LCD_2_PutChar
+ 224              	.LVL40:
+ 118:.\LCD.c       ****         LCD_2_PutChar(0x98);
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 7
+
+
+ 225              		.loc 1 118 0
+ 226 008a 9820     		movs	r0, #152
+ 227 008c FFF7FEFF 		bl	LCD_2_PutChar
+ 228              	.LVL41:
+ 119:.\LCD.c       ****         LCD_2_PutChar(0x00);
+ 229              		.loc 1 119 0
+ 230 0090 0020     		movs	r0, #0
+ 231 0092 FFF7FEFF 		bl	LCD_2_PutChar
+ 232              	.LVL42:
+ 120:.\LCD.c       ****         LCD_2_PutChar((0x3F)+(0x19*pos));
+ 233              		.loc 1 120 0
+ 234 0096 04EB8404 		add	r4, r4, r4, lsl #2
+ 235 009a 04EB8404 		add	r4, r4, r4, lsl #2
+ 236 009e 04F13F00 		add	r0, r4, #63
+ 237 00a2 C0B2     		uxtb	r0, r0
+ 238 00a4 FFF7FEFF 		bl	LCD_2_PutChar
+ 239              	.LVL43:
+ 121:.\LCD.c       ****         LCD_2_PutChar(0x00);
+ 240              		.loc 1 121 0
+ 241 00a8 0020     		movs	r0, #0
+ 242 00aa FFF7FEFF 		bl	LCD_2_PutChar
+ 243              	.LVL44:
+ 122:.\LCD.c       ****         LCD_2_PutChar(0x23);
+ 244              		.loc 1 122 0
+ 245 00ae 2320     		movs	r0, #35
+ 246 00b0 FFF7FEFF 		bl	LCD_2_PutChar
+ 247              	.LVL45:
+ 123:.\LCD.c       ****         LCD_2_PutChar(0x24);
+ 248              		.loc 1 123 0
+ 249 00b4 2420     		movs	r0, #36
+ 250 00b6 FFF7FEFF 		bl	LCD_2_PutChar
+ 251              	.LVL46:
+ 124:.\LCD.c       ****         LCD_2_PutChar(0xC5);
+ 252              		.loc 1 124 0
+ 253 00ba C520     		movs	r0, #197
+ 254 00bc FFF7FEFF 		bl	LCD_2_PutChar
+ 255              	.LVL47:
+ 125:.\LCD.c       ****         LCD_2_PutChar(0x02);
+ 256              		.loc 1 125 0
+ 257 00c0 0220     		movs	r0, #2
+ 258 00c2 FFF7FEFF 		bl	LCD_2_PutChar
+ 259              	.LVL48:
+ 126:.\LCD.c       ****         LCD_2_PutChar(0x00);
+ 260              		.loc 1 126 0
+ 261 00c6 0020     		movs	r0, #0
+ 262 00c8 FFF7FEFF 		bl	LCD_2_PutChar
+ 263              	.LVL49:
+ 127:.\LCD.c       ****         LCD_2_PutChar(0x00);
+ 264              		.loc 1 127 0
+ 265 00cc 0020     		movs	r0, #0
+ 266 00ce FFF7FEFF 		bl	LCD_2_PutChar
+ 267              	.LVL50:
+ 128:.\LCD.c       ****         LCD_2_PutChar(0xFF);
+ 268              		.loc 1 128 0
+ 269 00d2 FF20     		movs	r0, #255
+ 270 00d4 FFF7FEFF 		bl	LCD_2_PutChar
+ 271              	.LVL51:
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 8
+
+
+ 129:.\LCD.c       ****         LCD_2_PutChar(0xFF);
+ 272              		.loc 1 129 0
+ 273 00d8 FF20     		movs	r0, #255
+ 274 00da FFF7FEFF 		bl	LCD_2_PutChar
+ 275              	.LVL52:
+ 130:.\LCD.c       ****         LCD_2_PutChar(dato);
+ 276              		.loc 1 130 0
+ 277 00de 2846     		mov	r0, r5
+ 278 00e0 FFF7FEFF 		bl	LCD_2_PutChar
+ 279              	.LVL53:
+ 131:.\LCD.c       ****         LCD_2_PutChar(0xCC);
+ 280              		.loc 1 131 0
+ 281 00e4 CC20     		movs	r0, #204
+ 282 00e6 FFF7FEFF 		bl	LCD_2_PutChar
+ 283              	.LVL54:
+ 132:.\LCD.c       ****         LCD_2_PutChar(0x33);
+ 284              		.loc 1 132 0
+ 285 00ea 3320     		movs	r0, #51
+ 286 00ec FFF7FEFF 		bl	LCD_2_PutChar
+ 287              	.LVL55:
+ 133:.\LCD.c       ****         LCD_2_PutChar(0xC3);
+ 288              		.loc 1 133 0
+ 289 00f0 C320     		movs	r0, #195
+ 290 00f2 FFF7FEFF 		bl	LCD_2_PutChar
+ 291              	.LVL56:
+ 134:.\LCD.c       ****         LCD_2_PutChar(0x3C);    
+ 292              		.loc 1 134 0
+ 293 00f6 3C20     		movs	r0, #60
+ 294 00f8 FFF7FEFF 		bl	LCD_2_PutChar
+ 295              	.LVL57:
+ 296 00fc 38BD     		pop	{r3, r4, r5, pc}
+ 297              		.cfi_endproc
+ 298              	.LFE64:
+ 299              		.size	write_LCD, .-write_LCD
+ 300              		.comm	rventa2,225,4
+ 301              		.comm	rventa,225,4
+ 302              		.comm	producto,1,1
+ 303              		.comm	grado2,1,1
+ 304              		.comm	grado1,1,1
+ 305              		.comm	modulo,400,4
+ 306              		.comm	w,4,4
+ 307              		.comm	z,4,4
+ 308              		.comm	y,4,4
+ 309              		.comm	x,4,4
+ 310              		.comm	d,4,4
+ 311              		.comm	c,4,4
+ 312              		.comm	b,4,4
+ 313              		.comm	a,4,4
+ 314              		.comm	estado_0,1,1
+ 315              		.comm	Buffer_LCD2,152,4
+ 316              		.comm	Buffer_LCD1,152,4
+ 317              		.comm	no_venta,4,4
+ 318              		.comm	id_corte,2,2
+ 319              		.comm	seleccion_pos2,1,1
+ 320              		.comm	seleccion_pos,1,1
+ 321              		.comm	estado_lcd2,1,1
+ 322              		.comm	estado_lcd1,1,1
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 9
+
+
+ 323              		.comm	imagen,1,1
+ 324              		.comm	no_imprime2,1,1
+ 325              		.comm	no_imprime,1,1
+ 326              		.comm	n_copias,1,4
+ 327              		.comm	a_copias,1,1
+ 328              		.comm	producto4n,11,4
+ 329              		.comm	producto3n,11,4
+ 330              		.comm	producto2n,11,4
+ 331              		.comm	producto1n,11,4
+ 332              		.comm	nombreproducto,1,1
+ 333              		.comm	id_venta,6,4
+ 334              		.comm	copia_recibo2,2,4
+ 335              		.comm	copia_recibo,2,4
+ 336              		.comm	print2,2,4
+ 337              		.comm	print1,2,4
+ 338              		.comm	crc_total,1,1
+ 339              		.comm	pos_ibutton,1,1
+ 340              		.comm	fecha_corte,6,4
+ 341              		.comm	decimalD,1,1
+ 342              		.comm	decimalV,1,1
+ 343              		.comm	tipo_imp,2,4
+ 344              		.comm	bandera,2,4
+ 345              		.comm	ppux10,1,1
+ 346              		.comm	teclado2,1,1
+ 347              		.comm	teclado,1,1
+ 348              		.comm	resultado,14,4
+ 349              		.comm	buffer_i2c,64,4
+ 350              		.comm	producto4b,1,1
+ 351              		.comm	producto3b,1,1
+ 352              		.comm	producto2b,1,1
+ 353              		.comm	producto1b,1,1
+ 354              		.comm	producto4,1,1
+ 355              		.comm	producto3,1,1
+ 356              		.comm	producto2,1,1
+ 357              		.comm	producto1,1,1
+ 358              		.comm	versurt,1,1
+ 359              		.comm	comas2,1,1
+ 360              		.comm	comas1,1,1
+ 361              		.comm	teclas2,1,1
+ 362              		.comm	teclas1,1,1
+ 363              		.comm	cont1,1,1
+ 364              		.comm	flujo_LCD2,1,1
+ 365              		.comm	flujo_LCD,1,1
+ 366 00fe 00BF     		.text
+ 367              	.Letext0:
+ 368              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 369              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 370              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 371              		.file 5 ".\\VariablesG.h"
+ 372              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 373              		.file 7 "Generated_Source\\PSoC5/LCD_1.h"
+ 374              		.file 8 "Generated_Source\\PSoC5/LCD_2.h"
+ 375              		.section	.debug_info,"",%progbits
+ 376              	.Ldebug_info0:
+ 377 0000 7B0C0000 		.4byte	0xc7b
+ 378 0004 0400     		.2byte	0x4
+ 379 0006 00000000 		.4byte	.Ldebug_abbrev0
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 10
+
+
+ 380 000a 04       		.byte	0x4
+ 381 000b 01       		.uleb128 0x1
+ 382 000c F9030000 		.4byte	.LASF108
+ 383 0010 01       		.byte	0x1
+ 384 0011 24000000 		.4byte	.LASF109
+ 385 0015 CA000000 		.4byte	.LASF110
+ 386 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 387 001d 00000000 		.4byte	0
+ 388 0021 00000000 		.4byte	.Ldebug_line0
+ 389 0025 02       		.uleb128 0x2
+ 390 0026 01       		.byte	0x1
+ 391 0027 06       		.byte	0x6
+ 392 0028 97040000 		.4byte	.LASF0
+ 393 002c 02       		.uleb128 0x2
+ 394 002d 01       		.byte	0x1
+ 395 002e 08       		.byte	0x8
+ 396 002f EB030000 		.4byte	.LASF1
+ 397 0033 02       		.uleb128 0x2
+ 398 0034 02       		.byte	0x2
+ 399 0035 05       		.byte	0x5
+ 400 0036 2C030000 		.4byte	.LASF2
+ 401 003a 02       		.uleb128 0x2
+ 402 003b 02       		.byte	0x2
+ 403 003c 07       		.byte	0x7
+ 404 003d A9040000 		.4byte	.LASF3
+ 405 0041 03       		.uleb128 0x3
+ 406 0042 4E000000 		.4byte	.LASF9
+ 407 0046 02       		.byte	0x2
+ 408 0047 3F       		.byte	0x3f
+ 409 0048 4C000000 		.4byte	0x4c
+ 410 004c 02       		.uleb128 0x2
+ 411 004d 04       		.byte	0x4
+ 412 004e 05       		.byte	0x5
+ 413 004f 36030000 		.4byte	.LASF4
+ 414 0053 02       		.uleb128 0x2
+ 415 0054 04       		.byte	0x4
+ 416 0055 07       		.byte	0x7
+ 417 0056 B2030000 		.4byte	.LASF5
+ 418 005a 02       		.uleb128 0x2
+ 419 005b 08       		.byte	0x8
+ 420 005c 05       		.byte	0x5
+ 421 005d 69020000 		.4byte	.LASF6
+ 422 0061 02       		.uleb128 0x2
+ 423 0062 08       		.byte	0x8
+ 424 0063 07       		.byte	0x7
+ 425 0064 7F010000 		.4byte	.LASF7
+ 426 0068 04       		.uleb128 0x4
+ 427 0069 04       		.byte	0x4
+ 428 006a 05       		.byte	0x5
+ 429 006b 696E7400 		.ascii	"int\000"
+ 430 006f 02       		.uleb128 0x2
+ 431 0070 04       		.byte	0x4
+ 432 0071 07       		.byte	0x7
+ 433 0072 33000000 		.4byte	.LASF8
+ 434 0076 03       		.uleb128 0x3
+ 435 0077 CC030000 		.4byte	.LASF10
+ 436 007b 03       		.byte	0x3
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 11
+
+
+ 437 007c 2C       		.byte	0x2c
+ 438 007d 41000000 		.4byte	0x41
+ 439 0081 05       		.uleb128 0x5
+ 440 0082 C5040000 		.4byte	.LASF11
+ 441 0086 04       		.byte	0x4
+ 442 0087 3801     		.2byte	0x138
+ 443 0089 2C000000 		.4byte	0x2c
+ 444 008d 05       		.uleb128 0x5
+ 445 008e 3D020000 		.4byte	.LASF12
+ 446 0092 04       		.byte	0x4
+ 447 0093 3901     		.2byte	0x139
+ 448 0095 3A000000 		.4byte	0x3a
+ 449 0099 05       		.uleb128 0x5
+ 450 009a BD020000 		.4byte	.LASF13
+ 451 009e 04       		.byte	0x4
+ 452 009f 3A01     		.2byte	0x13a
+ 453 00a1 53000000 		.4byte	0x53
+ 454 00a5 02       		.uleb128 0x2
+ 455 00a6 04       		.byte	0x4
+ 456 00a7 04       		.byte	0x4
+ 457 00a8 62010000 		.4byte	.LASF14
+ 458 00ac 02       		.uleb128 0x2
+ 459 00ad 08       		.byte	0x8
+ 460 00ae 04       		.byte	0x4
+ 461 00af CB040000 		.4byte	.LASF15
+ 462 00b3 02       		.uleb128 0x2
+ 463 00b4 01       		.byte	0x1
+ 464 00b5 08       		.byte	0x8
+ 465 00b6 38020000 		.4byte	.LASF16
+ 466 00ba 02       		.uleb128 0x2
+ 467 00bb 04       		.byte	0x4
+ 468 00bc 07       		.byte	0x7
+ 469 00bd A9030000 		.4byte	.LASF17
+ 470 00c1 06       		.uleb128 0x6
+ 471 00c2 2C000000 		.4byte	.LASF28
+ 472 00c6 98       		.byte	0x98
+ 473 00c7 05       		.byte	0x5
+ 474 00c8 90       		.byte	0x90
+ 475 00c9 68010000 		.4byte	0x168
+ 476 00cd 07       		.uleb128 0x7
+ 477 00ce AE020000 		.4byte	.LASF18
+ 478 00d2 05       		.byte	0x5
+ 479 00d3 91       		.byte	0x91
+ 480 00d4 81000000 		.4byte	0x81
+ 481 00d8 00       		.byte	0
+ 482 00d9 08       		.uleb128 0x8
+ 483 00da 706F7300 		.ascii	"pos\000"
+ 484 00de 05       		.byte	0x5
+ 485 00df 92       		.byte	0x92
+ 486 00e0 81000000 		.4byte	0x81
+ 487 00e4 01       		.byte	0x1
+ 488 00e5 07       		.uleb128 0x7
+ 489 00e6 95000000 		.4byte	.LASF19
+ 490 00ea 05       		.byte	0x5
+ 491 00eb 93       		.byte	0x93
+ 492 00ec 81000000 		.4byte	0x81
+ 493 00f0 02       		.byte	0x2
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 12
+
+
+ 494 00f1 07       		.uleb128 0x7
+ 495 00f2 45010000 		.4byte	.LASF20
+ 496 00f6 05       		.byte	0x5
+ 497 00f7 94       		.byte	0x94
+ 498 00f8 81000000 		.4byte	0x81
+ 499 00fc 03       		.byte	0x3
+ 500 00fd 08       		.uleb128 0x8
+ 501 00fe 6B6D00   		.ascii	"km\000"
+ 502 0101 05       		.byte	0x5
+ 503 0102 95       		.byte	0x95
+ 504 0103 68010000 		.4byte	0x168
+ 505 0107 04       		.byte	0x4
+ 506 0108 07       		.uleb128 0x7
+ 507 0109 A3040000 		.4byte	.LASF21
+ 508 010d 05       		.byte	0x5
+ 509 010e 96       		.byte	0x96
+ 510 010f 78010000 		.4byte	0x178
+ 511 0113 0B       		.byte	0xb
+ 512 0114 08       		.uleb128 0x8
+ 513 0115 696400   		.ascii	"id\000"
+ 514 0118 05       		.byte	0x5
+ 515 0119 97       		.byte	0x97
+ 516 011a 78010000 		.4byte	0x178
+ 517 011e 29       		.byte	0x29
+ 518 011f 07       		.uleb128 0x7
+ 519 0120 AC010000 		.4byte	.LASF22
+ 520 0124 05       		.byte	0x5
+ 521 0125 98       		.byte	0x98
+ 522 0126 78010000 		.4byte	0x178
+ 523 012a 47       		.byte	0x47
+ 524 012b 07       		.uleb128 0x7
+ 525 012c D7010000 		.4byte	.LASF23
+ 526 0130 05       		.byte	0x5
+ 527 0131 99       		.byte	0x99
+ 528 0132 78010000 		.4byte	0x178
+ 529 0136 65       		.byte	0x65
+ 530 0137 07       		.uleb128 0x7
+ 531 0138 58000000 		.4byte	.LASF24
+ 532 013c 05       		.byte	0x5
+ 533 013d 9A       		.byte	0x9a
+ 534 013e 81000000 		.4byte	0x81
+ 535 0142 83       		.byte	0x83
+ 536 0143 07       		.uleb128 0x7
+ 537 0144 8A020000 		.4byte	.LASF25
+ 538 0148 05       		.byte	0x5
+ 539 0149 9B       		.byte	0x9b
+ 540 014a 88010000 		.4byte	0x188
+ 541 014e 84       		.byte	0x84
+ 542 014f 07       		.uleb128 0x7
+ 543 0150 00000000 		.4byte	.LASF26
+ 544 0154 05       		.byte	0x5
+ 545 0155 9C       		.byte	0x9c
+ 546 0156 98010000 		.4byte	0x198
+ 547 015a 8E       		.byte	0x8e
+ 548 015b 07       		.uleb128 0x7
+ 549 015c 57020000 		.4byte	.LASF27
+ 550 0160 05       		.byte	0x5
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 13
+
+
+ 551 0161 9D       		.byte	0x9d
+ 552 0162 81000000 		.4byte	0x81
+ 553 0166 97       		.byte	0x97
+ 554 0167 00       		.byte	0
+ 555 0168 09       		.uleb128 0x9
+ 556 0169 81000000 		.4byte	0x81
+ 557 016d 78010000 		.4byte	0x178
+ 558 0171 0A       		.uleb128 0xa
+ 559 0172 BA000000 		.4byte	0xba
+ 560 0176 06       		.byte	0x6
+ 561 0177 00       		.byte	0
+ 562 0178 09       		.uleb128 0x9
+ 563 0179 81000000 		.4byte	0x81
+ 564 017d 88010000 		.4byte	0x188
+ 565 0181 0A       		.uleb128 0xa
+ 566 0182 BA000000 		.4byte	0xba
+ 567 0186 1D       		.byte	0x1d
+ 568 0187 00       		.byte	0
+ 569 0188 09       		.uleb128 0x9
+ 570 0189 81000000 		.4byte	0x81
+ 571 018d 98010000 		.4byte	0x198
+ 572 0191 0A       		.uleb128 0xa
+ 573 0192 BA000000 		.4byte	0xba
+ 574 0196 09       		.byte	0x9
+ 575 0197 00       		.byte	0
+ 576 0198 09       		.uleb128 0x9
+ 577 0199 81000000 		.4byte	0x81
+ 578 019d A8010000 		.4byte	0x1a8
+ 579 01a1 0A       		.uleb128 0xa
+ 580 01a2 BA000000 		.4byte	0xba
+ 581 01a6 08       		.byte	0x8
+ 582 01a7 00       		.byte	0
+ 583 01a8 0B       		.uleb128 0xb
+ 584 01a9 706F7300 		.ascii	"pos\000"
+ 585 01ad 04       		.byte	0x4
+ 586 01ae 05       		.byte	0x5
+ 587 01af A5       		.byte	0xa5
+ 588 01b0 E5010000 		.4byte	0x1e5
+ 589 01b4 08       		.uleb128 0x8
+ 590 01b5 64697200 		.ascii	"dir\000"
+ 591 01b9 05       		.byte	0x5
+ 592 01ba A6       		.byte	0xa6
+ 593 01bb 81000000 		.4byte	0x81
+ 594 01bf 00       		.byte	0
+ 595 01c0 07       		.uleb128 0x7
+ 596 01c1 E7020000 		.4byte	.LASF29
+ 597 01c5 05       		.byte	0x5
+ 598 01c6 A7       		.byte	0xa7
+ 599 01c7 81000000 		.4byte	0x81
+ 600 01cb 01       		.byte	0x1
+ 601 01cc 07       		.uleb128 0x7
+ 602 01cd DB040000 		.4byte	.LASF30
+ 603 01d1 05       		.byte	0x5
+ 604 01d2 A8       		.byte	0xa8
+ 605 01d3 81000000 		.4byte	0x81
+ 606 01d7 02       		.byte	0x2
+ 607 01d8 07       		.uleb128 0x7
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 14
+
+
+ 608 01d9 14000000 		.4byte	.LASF31
+ 609 01dd 05       		.byte	0x5
+ 610 01de A9       		.byte	0xa9
+ 611 01df 81000000 		.4byte	0x81
+ 612 01e3 03       		.byte	0x3
+ 613 01e4 00       		.byte	0
+ 614 01e5 06       		.uleb128 0x6
+ 615 01e6 CD020000 		.4byte	.LASF32
+ 616 01ea E1       		.byte	0xe1
+ 617 01eb 05       		.byte	0x5
+ 618 01ec B3       		.byte	0xb3
+ 619 01ed CA020000 		.4byte	0x2ca
+ 620 01f1 07       		.uleb128 0x7
+ 621 01f2 FC020000 		.4byte	.LASF33
+ 622 01f6 05       		.byte	0x5
+ 623 01f7 B4       		.byte	0xb4
+ 624 01f8 78010000 		.4byte	0x178
+ 625 01fc 00       		.byte	0
+ 626 01fd 08       		.uleb128 0x8
+ 627 01fe 6E697400 		.ascii	"nit\000"
+ 628 0202 05       		.byte	0x5
+ 629 0203 B5       		.byte	0xb5
+ 630 0204 CA020000 		.4byte	0x2ca
+ 631 0208 1E       		.byte	0x1e
+ 632 0209 07       		.uleb128 0x7
+ 633 020a 80020000 		.4byte	.LASF34
+ 634 020e 05       		.byte	0x5
+ 635 020f B6       		.byte	0xb6
+ 636 0210 DA020000 		.4byte	0x2da
+ 637 0214 2D       		.byte	0x2d
+ 638 0215 07       		.uleb128 0x7
+ 639 0216 06020000 		.4byte	.LASF35
+ 640 021a 05       		.byte	0x5
+ 641 021b B7       		.byte	0xb7
+ 642 021c EA020000 		.4byte	0x2ea
+ 643 0220 2F       		.byte	0x2f
+ 644 0221 07       		.uleb128 0x7
+ 645 0222 30010000 		.4byte	.LASF36
+ 646 0226 05       		.byte	0x5
+ 647 0227 B8       		.byte	0xb8
+ 648 0228 78010000 		.4byte	0x178
+ 649 022c 43       		.byte	0x43
+ 650 022d 07       		.uleb128 0x7
+ 651 022e 73010000 		.4byte	.LASF37
+ 652 0232 05       		.byte	0x5
+ 653 0233 B9       		.byte	0xb9
+ 654 0234 78010000 		.4byte	0x178
+ 655 0238 61       		.byte	0x61
+ 656 0239 07       		.uleb128 0x7
+ 657 023a 79010000 		.4byte	.LASF38
+ 658 023e 05       		.byte	0x5
+ 659 023f BA       		.byte	0xba
+ 660 0240 78010000 		.4byte	0x178
+ 661 0244 7F       		.byte	0x7f
+ 662 0245 07       		.uleb128 0x7
+ 663 0246 91040000 		.4byte	.LASF39
+ 664 024a 05       		.byte	0x5
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 15
+
+
+ 665 024b BB       		.byte	0xbb
+ 666 024c FA020000 		.4byte	0x2fa
+ 667 0250 9D       		.byte	0x9d
+ 668 0251 07       		.uleb128 0x7
+ 669 0252 B5000000 		.4byte	.LASF40
+ 670 0256 05       		.byte	0x5
+ 671 0257 BC       		.byte	0xbc
+ 672 0258 DA020000 		.4byte	0x2da
+ 673 025c A0       		.byte	0xa0
+ 674 025d 07       		.uleb128 0x7
+ 675 025e 16010000 		.4byte	.LASF41
+ 676 0262 05       		.byte	0x5
+ 677 0263 BD       		.byte	0xbd
+ 678 0264 81000000 		.4byte	0x81
+ 679 0268 A2       		.byte	0xa2
+ 680 0269 07       		.uleb128 0x7
+ 681 026a 77020000 		.4byte	.LASF42
+ 682 026e 05       		.byte	0x5
+ 683 026f BE       		.byte	0xbe
+ 684 0270 81000000 		.4byte	0x81
+ 685 0274 A3       		.byte	0xa3
+ 686 0275 08       		.uleb128 0x8
+ 687 0276 70707500 		.ascii	"ppu\000"
+ 688 027a 05       		.byte	0x5
+ 689 027b BF       		.byte	0xbf
+ 690 027c 68010000 		.4byte	0x168
+ 691 0280 A4       		.byte	0xa4
+ 692 0281 07       		.uleb128 0x7
+ 693 0282 D4020000 		.4byte	.LASF43
+ 694 0286 05       		.byte	0x5
+ 695 0287 C0       		.byte	0xc0
+ 696 0288 98010000 		.4byte	0x198
+ 697 028c AB       		.byte	0xab
+ 698 028d 07       		.uleb128 0x7
+ 699 028e FE010000 		.4byte	.LASF44
+ 700 0292 05       		.byte	0x5
+ 701 0293 C1       		.byte	0xc1
+ 702 0294 98010000 		.4byte	0x198
+ 703 0298 B4       		.byte	0xb4
+ 704 0299 07       		.uleb128 0x7
+ 705 029a 23020000 		.4byte	.LASF45
+ 706 029e 05       		.byte	0x5
+ 707 029f C2       		.byte	0xc2
+ 708 02a0 0A030000 		.4byte	0x30a
+ 709 02a4 BD       		.byte	0xbd
+ 710 02a5 07       		.uleb128 0x7
+ 711 02a6 0E010000 		.4byte	.LASF46
+ 712 02aa 05       		.byte	0x5
+ 713 02ab C3       		.byte	0xc3
+ 714 02ac 0A030000 		.4byte	0x30a
+ 715 02b0 CA       		.byte	0xca
+ 716 02b1 07       		.uleb128 0x7
+ 717 02b2 00000000 		.4byte	.LASF26
+ 718 02b6 05       		.byte	0x5
+ 719 02b7 C4       		.byte	0xc4
+ 720 02b8 98010000 		.4byte	0x198
+ 721 02bc D7       		.byte	0xd7
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 16
+
+
+ 722 02bd 07       		.uleb128 0x7
+ 723 02be DB040000 		.4byte	.LASF30
+ 724 02c2 05       		.byte	0x5
+ 725 02c3 C5       		.byte	0xc5
+ 726 02c4 81000000 		.4byte	0x81
+ 727 02c8 E0       		.byte	0xe0
+ 728 02c9 00       		.byte	0
+ 729 02ca 09       		.uleb128 0x9
+ 730 02cb 81000000 		.4byte	0x81
+ 731 02cf DA020000 		.4byte	0x2da
+ 732 02d3 0A       		.uleb128 0xa
+ 733 02d4 BA000000 		.4byte	0xba
+ 734 02d8 0E       		.byte	0xe
+ 735 02d9 00       		.byte	0
+ 736 02da 09       		.uleb128 0x9
+ 737 02db 81000000 		.4byte	0x81
+ 738 02df EA020000 		.4byte	0x2ea
+ 739 02e3 0A       		.uleb128 0xa
+ 740 02e4 BA000000 		.4byte	0xba
+ 741 02e8 01       		.byte	0x1
+ 742 02e9 00       		.byte	0
+ 743 02ea 09       		.uleb128 0x9
+ 744 02eb 81000000 		.4byte	0x81
+ 745 02ef FA020000 		.4byte	0x2fa
+ 746 02f3 0A       		.uleb128 0xa
+ 747 02f4 BA000000 		.4byte	0xba
+ 748 02f8 13       		.byte	0x13
+ 749 02f9 00       		.byte	0
+ 750 02fa 09       		.uleb128 0x9
+ 751 02fb 81000000 		.4byte	0x81
+ 752 02ff 0A030000 		.4byte	0x30a
+ 753 0303 0A       		.uleb128 0xa
+ 754 0304 BA000000 		.4byte	0xba
+ 755 0308 02       		.byte	0x2
+ 756 0309 00       		.byte	0
+ 757 030a 09       		.uleb128 0x9
+ 758 030b 81000000 		.4byte	0x81
+ 759 030f 1A030000 		.4byte	0x31a
+ 760 0313 0A       		.uleb128 0xa
+ 761 0314 BA000000 		.4byte	0xba
+ 762 0318 0C       		.byte	0xc
+ 763 0319 00       		.byte	0
+ 764 031a 0C       		.uleb128 0xc
+ 765 031b 67030000 		.4byte	.LASF47
+ 766 031f 01       		.byte	0x1
+ 767 0320 38       		.byte	0x38
+ 768 0321 00000000 		.4byte	.LFB63
+ 769 0325 70000000 		.4byte	.LFE63-.LFB63
+ 770 0329 01       		.uleb128 0x1
+ 771 032a 9C       		.byte	0x9c
+ 772 032b 8D040000 		.4byte	0x48d
+ 773 032f 0D       		.uleb128 0xd
+ 774 0330 6C636400 		.ascii	"lcd\000"
+ 775 0334 01       		.byte	0x1
+ 776 0335 38       		.byte	0x38
+ 777 0336 81000000 		.4byte	0x81
+ 778 033a 00000000 		.4byte	.LLST0
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 17
+
+
+ 779 033e 0D       		.uleb128 0xd
+ 780 033f 696400   		.ascii	"id\000"
+ 781 0342 01       		.byte	0x1
+ 782 0343 38       		.byte	0x38
+ 783 0344 8D000000 		.4byte	0x8d
+ 784 0348 21000000 		.4byte	.LLST1
+ 785 034c 0E       		.uleb128 0xe
+ 786 034d 10000000 		.4byte	.LVL2
+ 787 0351 600C0000 		.4byte	0xc60
+ 788 0355 60030000 		.4byte	0x360
+ 789 0359 0F       		.uleb128 0xf
+ 790 035a 01       		.uleb128 0x1
+ 791 035b 50       		.byte	0x50
+ 792 035c 02       		.uleb128 0x2
+ 793 035d 09       		.byte	0x9
+ 794 035e AA       		.byte	0xaa
+ 795 035f 00       		.byte	0
+ 796 0360 0E       		.uleb128 0xe
+ 797 0361 16000000 		.4byte	.LVL3
+ 798 0365 600C0000 		.4byte	0xc60
+ 799 0369 74030000 		.4byte	0x374
+ 800 036d 0F       		.uleb128 0xf
+ 801 036e 01       		.uleb128 0x1
+ 802 036f 50       		.byte	0x50
+ 803 0370 02       		.uleb128 0x2
+ 804 0371 08       		.byte	0x8
+ 805 0372 70       		.byte	0x70
+ 806 0373 00       		.byte	0
+ 807 0374 0E       		.uleb128 0xe
+ 808 0375 1C000000 		.4byte	.LVL4
+ 809 0379 600C0000 		.4byte	0xc60
+ 810 037d 8A030000 		.4byte	0x38a
+ 811 0381 0F       		.uleb128 0xf
+ 812 0382 01       		.uleb128 0x1
+ 813 0383 50       		.byte	0x50
+ 814 0384 04       		.uleb128 0x4
+ 815 0385 75       		.byte	0x75
+ 816 0386 00       		.sleb128 0
+ 817 0387 38       		.byte	0x38
+ 818 0388 25       		.byte	0x25
+ 819 0389 00       		.byte	0
+ 820 038a 0E       		.uleb128 0xe
+ 821 038b 22000000 		.4byte	.LVL5
+ 822 038f 600C0000 		.4byte	0xc60
+ 823 0393 9E030000 		.4byte	0x39e
+ 824 0397 0F       		.uleb128 0xf
+ 825 0398 01       		.uleb128 0x1
+ 826 0399 50       		.byte	0x50
+ 827 039a 02       		.uleb128 0x2
+ 828 039b 75       		.byte	0x75
+ 829 039c 00       		.sleb128 0
+ 830 039d 00       		.byte	0
+ 831 039e 0E       		.uleb128 0xe
+ 832 039f 28000000 		.4byte	.LVL6
+ 833 03a3 600C0000 		.4byte	0xc60
+ 834 03a7 B2030000 		.4byte	0x3b2
+ 835 03ab 0F       		.uleb128 0xf
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 18
+
+
+ 836 03ac 01       		.uleb128 0x1
+ 837 03ad 50       		.byte	0x50
+ 838 03ae 02       		.uleb128 0x2
+ 839 03af 09       		.byte	0x9
+ 840 03b0 CC       		.byte	0xcc
+ 841 03b1 00       		.byte	0
+ 842 03b2 0E       		.uleb128 0xe
+ 843 03b3 2E000000 		.4byte	.LVL7
+ 844 03b7 600C0000 		.4byte	0xc60
+ 845 03bb C6030000 		.4byte	0x3c6
+ 846 03bf 0F       		.uleb128 0xf
+ 847 03c0 01       		.uleb128 0x1
+ 848 03c1 50       		.byte	0x50
+ 849 03c2 02       		.uleb128 0x2
+ 850 03c3 08       		.byte	0x8
+ 851 03c4 33       		.byte	0x33
+ 852 03c5 00       		.byte	0
+ 853 03c6 0E       		.uleb128 0xe
+ 854 03c7 34000000 		.4byte	.LVL8
+ 855 03cb 600C0000 		.4byte	0xc60
+ 856 03cf DA030000 		.4byte	0x3da
+ 857 03d3 0F       		.uleb128 0xf
+ 858 03d4 01       		.uleb128 0x1
+ 859 03d5 50       		.byte	0x50
+ 860 03d6 02       		.uleb128 0x2
+ 861 03d7 09       		.byte	0x9
+ 862 03d8 C3       		.byte	0xc3
+ 863 03d9 00       		.byte	0
+ 864 03da 0E       		.uleb128 0xe
+ 865 03db 3A000000 		.4byte	.LVL9
+ 866 03df 600C0000 		.4byte	0xc60
+ 867 03e3 EE030000 		.4byte	0x3ee
+ 868 03e7 0F       		.uleb128 0xf
+ 869 03e8 01       		.uleb128 0x1
+ 870 03e9 50       		.byte	0x50
+ 871 03ea 02       		.uleb128 0x2
+ 872 03eb 08       		.byte	0x8
+ 873 03ec 3C       		.byte	0x3c
+ 874 03ed 00       		.byte	0
+ 875 03ee 0E       		.uleb128 0xe
+ 876 03ef 44000000 		.4byte	.LVL10
+ 877 03f3 710C0000 		.4byte	0xc71
+ 878 03f7 02040000 		.4byte	0x402
+ 879 03fb 0F       		.uleb128 0xf
+ 880 03fc 01       		.uleb128 0x1
+ 881 03fd 50       		.byte	0x50
+ 882 03fe 02       		.uleb128 0x2
+ 883 03ff 09       		.byte	0x9
+ 884 0400 AA       		.byte	0xaa
+ 885 0401 00       		.byte	0
+ 886 0402 0E       		.uleb128 0xe
+ 887 0403 4A000000 		.4byte	.LVL11
+ 888 0407 710C0000 		.4byte	0xc71
+ 889 040b 16040000 		.4byte	0x416
+ 890 040f 0F       		.uleb128 0xf
+ 891 0410 01       		.uleb128 0x1
+ 892 0411 50       		.byte	0x50
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 19
+
+
+ 893 0412 02       		.uleb128 0x2
+ 894 0413 08       		.byte	0x8
+ 895 0414 70       		.byte	0x70
+ 896 0415 00       		.byte	0
+ 897 0416 0E       		.uleb128 0xe
+ 898 0417 50000000 		.4byte	.LVL12
+ 899 041b 710C0000 		.4byte	0xc71
+ 900 041f 2C040000 		.4byte	0x42c
+ 901 0423 0F       		.uleb128 0xf
+ 902 0424 01       		.uleb128 0x1
+ 903 0425 50       		.byte	0x50
+ 904 0426 04       		.uleb128 0x4
+ 905 0427 75       		.byte	0x75
+ 906 0428 00       		.sleb128 0
+ 907 0429 38       		.byte	0x38
+ 908 042a 25       		.byte	0x25
+ 909 042b 00       		.byte	0
+ 910 042c 0E       		.uleb128 0xe
+ 911 042d 56000000 		.4byte	.LVL13
+ 912 0431 710C0000 		.4byte	0xc71
+ 913 0435 40040000 		.4byte	0x440
+ 914 0439 0F       		.uleb128 0xf
+ 915 043a 01       		.uleb128 0x1
+ 916 043b 50       		.byte	0x50
+ 917 043c 02       		.uleb128 0x2
+ 918 043d 75       		.byte	0x75
+ 919 043e 00       		.sleb128 0
+ 920 043f 00       		.byte	0
+ 921 0440 0E       		.uleb128 0xe
+ 922 0441 5C000000 		.4byte	.LVL14
+ 923 0445 710C0000 		.4byte	0xc71
+ 924 0449 54040000 		.4byte	0x454
+ 925 044d 0F       		.uleb128 0xf
+ 926 044e 01       		.uleb128 0x1
+ 927 044f 50       		.byte	0x50
+ 928 0450 02       		.uleb128 0x2
+ 929 0451 09       		.byte	0x9
+ 930 0452 CC       		.byte	0xcc
+ 931 0453 00       		.byte	0
+ 932 0454 0E       		.uleb128 0xe
+ 933 0455 62000000 		.4byte	.LVL15
+ 934 0459 710C0000 		.4byte	0xc71
+ 935 045d 68040000 		.4byte	0x468
+ 936 0461 0F       		.uleb128 0xf
+ 937 0462 01       		.uleb128 0x1
+ 938 0463 50       		.byte	0x50
+ 939 0464 02       		.uleb128 0x2
+ 940 0465 08       		.byte	0x8
+ 941 0466 33       		.byte	0x33
+ 942 0467 00       		.byte	0
+ 943 0468 0E       		.uleb128 0xe
+ 944 0469 68000000 		.4byte	.LVL16
+ 945 046d 710C0000 		.4byte	0xc71
+ 946 0471 7C040000 		.4byte	0x47c
+ 947 0475 0F       		.uleb128 0xf
+ 948 0476 01       		.uleb128 0x1
+ 949 0477 50       		.byte	0x50
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 20
+
+
+ 950 0478 02       		.uleb128 0x2
+ 951 0479 09       		.byte	0x9
+ 952 047a C3       		.byte	0xc3
+ 953 047b 00       		.byte	0
+ 954 047c 10       		.uleb128 0x10
+ 955 047d 6E000000 		.4byte	.LVL17
+ 956 0481 710C0000 		.4byte	0xc71
+ 957 0485 0F       		.uleb128 0xf
+ 958 0486 01       		.uleb128 0x1
+ 959 0487 50       		.byte	0x50
+ 960 0488 02       		.uleb128 0x2
+ 961 0489 08       		.byte	0x8
+ 962 048a 3C       		.byte	0x3c
+ 963 048b 00       		.byte	0
+ 964 048c 00       		.byte	0
+ 965 048d 0C       		.uleb128 0xc
+ 966 048e B3020000 		.4byte	.LASF48
+ 967 0492 01       		.byte	0x1
+ 968 0493 5F       		.byte	0x5f
+ 969 0494 00000000 		.4byte	.LFB64
+ 970 0498 FE000000 		.4byte	.LFE64-.LFB64
+ 971 049c 01       		.uleb128 0x1
+ 972 049d 9C       		.byte	0x9c
+ 973 049e 92070000 		.4byte	0x792
+ 974 04a2 0D       		.uleb128 0xd
+ 975 04a3 6C636400 		.ascii	"lcd\000"
+ 976 04a7 01       		.byte	0x1
+ 977 04a8 5F       		.byte	0x5f
+ 978 04a9 81000000 		.4byte	0x81
+ 979 04ad 42000000 		.4byte	.LLST2
+ 980 04b1 11       		.uleb128 0x11
+ 981 04b2 52020000 		.4byte	.LASF49
+ 982 04b6 01       		.byte	0x1
+ 983 04b7 5F       		.byte	0x5f
+ 984 04b8 81000000 		.4byte	0x81
+ 985 04bc 7C000000 		.4byte	.LLST3
+ 986 04c0 0D       		.uleb128 0xd
+ 987 04c1 706F7300 		.ascii	"pos\000"
+ 988 04c5 01       		.byte	0x1
+ 989 04c6 5F       		.byte	0x5f
+ 990 04c7 81000000 		.4byte	0x81
+ 991 04cb B6000000 		.4byte	.LLST4
+ 992 04cf 0E       		.uleb128 0xe
+ 993 04d0 10000000 		.4byte	.LVL20
+ 994 04d4 600C0000 		.4byte	0xc60
+ 995 04d8 E3040000 		.4byte	0x4e3
+ 996 04dc 0F       		.uleb128 0xf
+ 997 04dd 01       		.uleb128 0x1
+ 998 04de 50       		.byte	0x50
+ 999 04df 02       		.uleb128 0x2
+ 1000 04e0 09       		.byte	0x9
+ 1001 04e1 AA       		.byte	0xaa
+ 1002 04e2 00       		.byte	0
+ 1003 04e3 0E       		.uleb128 0xe
+ 1004 04e4 16000000 		.4byte	.LVL21
+ 1005 04e8 600C0000 		.4byte	0xc60
+ 1006 04ec F7040000 		.4byte	0x4f7
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 21
+
+
+ 1007 04f0 0F       		.uleb128 0xf
+ 1008 04f1 01       		.uleb128 0x1
+ 1009 04f2 50       		.byte	0x50
+ 1010 04f3 02       		.uleb128 0x2
+ 1011 04f4 09       		.byte	0x9
+ 1012 04f5 98       		.byte	0x98
+ 1013 04f6 00       		.byte	0
+ 1014 04f7 0E       		.uleb128 0xe
+ 1015 04f8 1C000000 		.4byte	.LVL22
+ 1016 04fc 600C0000 		.4byte	0xc60
+ 1017 0500 0A050000 		.4byte	0x50a
+ 1018 0504 0F       		.uleb128 0xf
+ 1019 0505 01       		.uleb128 0x1
+ 1020 0506 50       		.byte	0x50
+ 1021 0507 01       		.uleb128 0x1
+ 1022 0508 30       		.byte	0x30
+ 1023 0509 00       		.byte	0
+ 1024 050a 0E       		.uleb128 0xe
+ 1025 050b 2E000000 		.4byte	.LVL23
+ 1026 050f 600C0000 		.4byte	0xc60
+ 1027 0513 1E050000 		.4byte	0x51e
+ 1028 0517 0F       		.uleb128 0xf
+ 1029 0518 01       		.uleb128 0x1
+ 1030 0519 50       		.byte	0x50
+ 1031 051a 02       		.uleb128 0x2
+ 1032 051b 74       		.byte	0x74
+ 1033 051c 3F       		.sleb128 63
+ 1034 051d 00       		.byte	0
+ 1035 051e 0E       		.uleb128 0xe
+ 1036 051f 34000000 		.4byte	.LVL24
+ 1037 0523 600C0000 		.4byte	0xc60
+ 1038 0527 31050000 		.4byte	0x531
+ 1039 052b 0F       		.uleb128 0xf
+ 1040 052c 01       		.uleb128 0x1
+ 1041 052d 50       		.byte	0x50
+ 1042 052e 01       		.uleb128 0x1
+ 1043 052f 30       		.byte	0x30
+ 1044 0530 00       		.byte	0
+ 1045 0531 0E       		.uleb128 0xe
+ 1046 0532 3A000000 		.4byte	.LVL25
+ 1047 0536 600C0000 		.4byte	0xc60
+ 1048 053a 45050000 		.4byte	0x545
+ 1049 053e 0F       		.uleb128 0xf
+ 1050 053f 01       		.uleb128 0x1
+ 1051 0540 50       		.byte	0x50
+ 1052 0541 02       		.uleb128 0x2
+ 1053 0542 08       		.byte	0x8
+ 1054 0543 23       		.byte	0x23
+ 1055 0544 00       		.byte	0
+ 1056 0545 0E       		.uleb128 0xe
+ 1057 0546 40000000 		.4byte	.LVL26
+ 1058 054a 600C0000 		.4byte	0xc60
+ 1059 054e 59050000 		.4byte	0x559
+ 1060 0552 0F       		.uleb128 0xf
+ 1061 0553 01       		.uleb128 0x1
+ 1062 0554 50       		.byte	0x50
+ 1063 0555 02       		.uleb128 0x2
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 22
+
+
+ 1064 0556 08       		.byte	0x8
+ 1065 0557 24       		.byte	0x24
+ 1066 0558 00       		.byte	0
+ 1067 0559 0E       		.uleb128 0xe
+ 1068 055a 46000000 		.4byte	.LVL27
+ 1069 055e 600C0000 		.4byte	0xc60
+ 1070 0562 6D050000 		.4byte	0x56d
+ 1071 0566 0F       		.uleb128 0xf
+ 1072 0567 01       		.uleb128 0x1
+ 1073 0568 50       		.byte	0x50
+ 1074 0569 02       		.uleb128 0x2
+ 1075 056a 09       		.byte	0x9
+ 1076 056b C5       		.byte	0xc5
+ 1077 056c 00       		.byte	0
+ 1078 056d 0E       		.uleb128 0xe
+ 1079 056e 4C000000 		.4byte	.LVL28
+ 1080 0572 600C0000 		.4byte	0xc60
+ 1081 0576 80050000 		.4byte	0x580
+ 1082 057a 0F       		.uleb128 0xf
+ 1083 057b 01       		.uleb128 0x1
+ 1084 057c 50       		.byte	0x50
+ 1085 057d 01       		.uleb128 0x1
+ 1086 057e 32       		.byte	0x32
+ 1087 057f 00       		.byte	0
+ 1088 0580 0E       		.uleb128 0xe
+ 1089 0581 52000000 		.4byte	.LVL29
+ 1090 0585 600C0000 		.4byte	0xc60
+ 1091 0589 93050000 		.4byte	0x593
+ 1092 058d 0F       		.uleb128 0xf
+ 1093 058e 01       		.uleb128 0x1
+ 1094 058f 50       		.byte	0x50
+ 1095 0590 01       		.uleb128 0x1
+ 1096 0591 30       		.byte	0x30
+ 1097 0592 00       		.byte	0
+ 1098 0593 0E       		.uleb128 0xe
+ 1099 0594 58000000 		.4byte	.LVL30
+ 1100 0598 600C0000 		.4byte	0xc60
+ 1101 059c A6050000 		.4byte	0x5a6
+ 1102 05a0 0F       		.uleb128 0xf
+ 1103 05a1 01       		.uleb128 0x1
+ 1104 05a2 50       		.byte	0x50
+ 1105 05a3 01       		.uleb128 0x1
+ 1106 05a4 30       		.byte	0x30
+ 1107 05a5 00       		.byte	0
+ 1108 05a6 0E       		.uleb128 0xe
+ 1109 05a7 5E000000 		.4byte	.LVL31
+ 1110 05ab 600C0000 		.4byte	0xc60
+ 1111 05af BA050000 		.4byte	0x5ba
+ 1112 05b3 0F       		.uleb128 0xf
+ 1113 05b4 01       		.uleb128 0x1
+ 1114 05b5 50       		.byte	0x50
+ 1115 05b6 02       		.uleb128 0x2
+ 1116 05b7 09       		.byte	0x9
+ 1117 05b8 FF       		.byte	0xff
+ 1118 05b9 00       		.byte	0
+ 1119 05ba 0E       		.uleb128 0xe
+ 1120 05bb 64000000 		.4byte	.LVL32
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 23
+
+
+ 1121 05bf 600C0000 		.4byte	0xc60
+ 1122 05c3 CE050000 		.4byte	0x5ce
+ 1123 05c7 0F       		.uleb128 0xf
+ 1124 05c8 01       		.uleb128 0x1
+ 1125 05c9 50       		.byte	0x50
+ 1126 05ca 02       		.uleb128 0x2
+ 1127 05cb 09       		.byte	0x9
+ 1128 05cc FF       		.byte	0xff
+ 1129 05cd 00       		.byte	0
+ 1130 05ce 0E       		.uleb128 0xe
+ 1131 05cf 6A000000 		.4byte	.LVL33
+ 1132 05d3 600C0000 		.4byte	0xc60
+ 1133 05d7 E2050000 		.4byte	0x5e2
+ 1134 05db 0F       		.uleb128 0xf
+ 1135 05dc 01       		.uleb128 0x1
+ 1136 05dd 50       		.byte	0x50
+ 1137 05de 02       		.uleb128 0x2
+ 1138 05df 75       		.byte	0x75
+ 1139 05e0 00       		.sleb128 0
+ 1140 05e1 00       		.byte	0
+ 1141 05e2 0E       		.uleb128 0xe
+ 1142 05e3 70000000 		.4byte	.LVL34
+ 1143 05e7 600C0000 		.4byte	0xc60
+ 1144 05eb F6050000 		.4byte	0x5f6
+ 1145 05ef 0F       		.uleb128 0xf
+ 1146 05f0 01       		.uleb128 0x1
+ 1147 05f1 50       		.byte	0x50
+ 1148 05f2 02       		.uleb128 0x2
+ 1149 05f3 09       		.byte	0x9
+ 1150 05f4 CC       		.byte	0xcc
+ 1151 05f5 00       		.byte	0
+ 1152 05f6 0E       		.uleb128 0xe
+ 1153 05f7 76000000 		.4byte	.LVL35
+ 1154 05fb 600C0000 		.4byte	0xc60
+ 1155 05ff 0A060000 		.4byte	0x60a
+ 1156 0603 0F       		.uleb128 0xf
+ 1157 0604 01       		.uleb128 0x1
+ 1158 0605 50       		.byte	0x50
+ 1159 0606 02       		.uleb128 0x2
+ 1160 0607 08       		.byte	0x8
+ 1161 0608 33       		.byte	0x33
+ 1162 0609 00       		.byte	0
+ 1163 060a 0E       		.uleb128 0xe
+ 1164 060b 7C000000 		.4byte	.LVL36
+ 1165 060f 600C0000 		.4byte	0xc60
+ 1166 0613 1E060000 		.4byte	0x61e
+ 1167 0617 0F       		.uleb128 0xf
+ 1168 0618 01       		.uleb128 0x1
+ 1169 0619 50       		.byte	0x50
+ 1170 061a 02       		.uleb128 0x2
+ 1171 061b 09       		.byte	0x9
+ 1172 061c C3       		.byte	0xc3
+ 1173 061d 00       		.byte	0
+ 1174 061e 0E       		.uleb128 0xe
+ 1175 061f 82000000 		.4byte	.LVL37
+ 1176 0623 600C0000 		.4byte	0xc60
+ 1177 0627 32060000 		.4byte	0x632
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 24
+
+
+ 1178 062b 0F       		.uleb128 0xf
+ 1179 062c 01       		.uleb128 0x1
+ 1180 062d 50       		.byte	0x50
+ 1181 062e 02       		.uleb128 0x2
+ 1182 062f 08       		.byte	0x8
+ 1183 0630 3C       		.byte	0x3c
+ 1184 0631 00       		.byte	0
+ 1185 0632 0E       		.uleb128 0xe
+ 1186 0633 8A000000 		.4byte	.LVL40
+ 1187 0637 710C0000 		.4byte	0xc71
+ 1188 063b 46060000 		.4byte	0x646
+ 1189 063f 0F       		.uleb128 0xf
+ 1190 0640 01       		.uleb128 0x1
+ 1191 0641 50       		.byte	0x50
+ 1192 0642 02       		.uleb128 0x2
+ 1193 0643 09       		.byte	0x9
+ 1194 0644 AA       		.byte	0xaa
+ 1195 0645 00       		.byte	0
+ 1196 0646 0E       		.uleb128 0xe
+ 1197 0647 90000000 		.4byte	.LVL41
+ 1198 064b 710C0000 		.4byte	0xc71
+ 1199 064f 5A060000 		.4byte	0x65a
+ 1200 0653 0F       		.uleb128 0xf
+ 1201 0654 01       		.uleb128 0x1
+ 1202 0655 50       		.byte	0x50
+ 1203 0656 02       		.uleb128 0x2
+ 1204 0657 09       		.byte	0x9
+ 1205 0658 98       		.byte	0x98
+ 1206 0659 00       		.byte	0
+ 1207 065a 0E       		.uleb128 0xe
+ 1208 065b 96000000 		.4byte	.LVL42
+ 1209 065f 710C0000 		.4byte	0xc71
+ 1210 0663 6D060000 		.4byte	0x66d
+ 1211 0667 0F       		.uleb128 0xf
+ 1212 0668 01       		.uleb128 0x1
+ 1213 0669 50       		.byte	0x50
+ 1214 066a 01       		.uleb128 0x1
+ 1215 066b 30       		.byte	0x30
+ 1216 066c 00       		.byte	0
+ 1217 066d 0E       		.uleb128 0xe
+ 1218 066e A8000000 		.4byte	.LVL43
+ 1219 0672 710C0000 		.4byte	0xc71
+ 1220 0676 81060000 		.4byte	0x681
+ 1221 067a 0F       		.uleb128 0xf
+ 1222 067b 01       		.uleb128 0x1
+ 1223 067c 50       		.byte	0x50
+ 1224 067d 02       		.uleb128 0x2
+ 1225 067e 74       		.byte	0x74
+ 1226 067f 3F       		.sleb128 63
+ 1227 0680 00       		.byte	0
+ 1228 0681 0E       		.uleb128 0xe
+ 1229 0682 AE000000 		.4byte	.LVL44
+ 1230 0686 710C0000 		.4byte	0xc71
+ 1231 068a 94060000 		.4byte	0x694
+ 1232 068e 0F       		.uleb128 0xf
+ 1233 068f 01       		.uleb128 0x1
+ 1234 0690 50       		.byte	0x50
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 25
+
+
+ 1235 0691 01       		.uleb128 0x1
+ 1236 0692 30       		.byte	0x30
+ 1237 0693 00       		.byte	0
+ 1238 0694 0E       		.uleb128 0xe
+ 1239 0695 B4000000 		.4byte	.LVL45
+ 1240 0699 710C0000 		.4byte	0xc71
+ 1241 069d A8060000 		.4byte	0x6a8
+ 1242 06a1 0F       		.uleb128 0xf
+ 1243 06a2 01       		.uleb128 0x1
+ 1244 06a3 50       		.byte	0x50
+ 1245 06a4 02       		.uleb128 0x2
+ 1246 06a5 08       		.byte	0x8
+ 1247 06a6 23       		.byte	0x23
+ 1248 06a7 00       		.byte	0
+ 1249 06a8 0E       		.uleb128 0xe
+ 1250 06a9 BA000000 		.4byte	.LVL46
+ 1251 06ad 710C0000 		.4byte	0xc71
+ 1252 06b1 BC060000 		.4byte	0x6bc
+ 1253 06b5 0F       		.uleb128 0xf
+ 1254 06b6 01       		.uleb128 0x1
+ 1255 06b7 50       		.byte	0x50
+ 1256 06b8 02       		.uleb128 0x2
+ 1257 06b9 08       		.byte	0x8
+ 1258 06ba 24       		.byte	0x24
+ 1259 06bb 00       		.byte	0
+ 1260 06bc 0E       		.uleb128 0xe
+ 1261 06bd C0000000 		.4byte	.LVL47
+ 1262 06c1 710C0000 		.4byte	0xc71
+ 1263 06c5 D0060000 		.4byte	0x6d0
+ 1264 06c9 0F       		.uleb128 0xf
+ 1265 06ca 01       		.uleb128 0x1
+ 1266 06cb 50       		.byte	0x50
+ 1267 06cc 02       		.uleb128 0x2
+ 1268 06cd 09       		.byte	0x9
+ 1269 06ce C5       		.byte	0xc5
+ 1270 06cf 00       		.byte	0
+ 1271 06d0 0E       		.uleb128 0xe
+ 1272 06d1 C6000000 		.4byte	.LVL48
+ 1273 06d5 710C0000 		.4byte	0xc71
+ 1274 06d9 E3060000 		.4byte	0x6e3
+ 1275 06dd 0F       		.uleb128 0xf
+ 1276 06de 01       		.uleb128 0x1
+ 1277 06df 50       		.byte	0x50
+ 1278 06e0 01       		.uleb128 0x1
+ 1279 06e1 32       		.byte	0x32
+ 1280 06e2 00       		.byte	0
+ 1281 06e3 0E       		.uleb128 0xe
+ 1282 06e4 CC000000 		.4byte	.LVL49
+ 1283 06e8 710C0000 		.4byte	0xc71
+ 1284 06ec F6060000 		.4byte	0x6f6
+ 1285 06f0 0F       		.uleb128 0xf
+ 1286 06f1 01       		.uleb128 0x1
+ 1287 06f2 50       		.byte	0x50
+ 1288 06f3 01       		.uleb128 0x1
+ 1289 06f4 30       		.byte	0x30
+ 1290 06f5 00       		.byte	0
+ 1291 06f6 0E       		.uleb128 0xe
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 26
+
+
+ 1292 06f7 D2000000 		.4byte	.LVL50
+ 1293 06fb 710C0000 		.4byte	0xc71
+ 1294 06ff 09070000 		.4byte	0x709
+ 1295 0703 0F       		.uleb128 0xf
+ 1296 0704 01       		.uleb128 0x1
+ 1297 0705 50       		.byte	0x50
+ 1298 0706 01       		.uleb128 0x1
+ 1299 0707 30       		.byte	0x30
+ 1300 0708 00       		.byte	0
+ 1301 0709 0E       		.uleb128 0xe
+ 1302 070a D8000000 		.4byte	.LVL51
+ 1303 070e 710C0000 		.4byte	0xc71
+ 1304 0712 1D070000 		.4byte	0x71d
+ 1305 0716 0F       		.uleb128 0xf
+ 1306 0717 01       		.uleb128 0x1
+ 1307 0718 50       		.byte	0x50
+ 1308 0719 02       		.uleb128 0x2
+ 1309 071a 09       		.byte	0x9
+ 1310 071b FF       		.byte	0xff
+ 1311 071c 00       		.byte	0
+ 1312 071d 0E       		.uleb128 0xe
+ 1313 071e DE000000 		.4byte	.LVL52
+ 1314 0722 710C0000 		.4byte	0xc71
+ 1315 0726 31070000 		.4byte	0x731
+ 1316 072a 0F       		.uleb128 0xf
+ 1317 072b 01       		.uleb128 0x1
+ 1318 072c 50       		.byte	0x50
+ 1319 072d 02       		.uleb128 0x2
+ 1320 072e 09       		.byte	0x9
+ 1321 072f FF       		.byte	0xff
+ 1322 0730 00       		.byte	0
+ 1323 0731 0E       		.uleb128 0xe
+ 1324 0732 E4000000 		.4byte	.LVL53
+ 1325 0736 710C0000 		.4byte	0xc71
+ 1326 073a 45070000 		.4byte	0x745
+ 1327 073e 0F       		.uleb128 0xf
+ 1328 073f 01       		.uleb128 0x1
+ 1329 0740 50       		.byte	0x50
+ 1330 0741 02       		.uleb128 0x2
+ 1331 0742 75       		.byte	0x75
+ 1332 0743 00       		.sleb128 0
+ 1333 0744 00       		.byte	0
+ 1334 0745 0E       		.uleb128 0xe
+ 1335 0746 EA000000 		.4byte	.LVL54
+ 1336 074a 710C0000 		.4byte	0xc71
+ 1337 074e 59070000 		.4byte	0x759
+ 1338 0752 0F       		.uleb128 0xf
+ 1339 0753 01       		.uleb128 0x1
+ 1340 0754 50       		.byte	0x50
+ 1341 0755 02       		.uleb128 0x2
+ 1342 0756 09       		.byte	0x9
+ 1343 0757 CC       		.byte	0xcc
+ 1344 0758 00       		.byte	0
+ 1345 0759 0E       		.uleb128 0xe
+ 1346 075a F0000000 		.4byte	.LVL55
+ 1347 075e 710C0000 		.4byte	0xc71
+ 1348 0762 6D070000 		.4byte	0x76d
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 27
+
+
+ 1349 0766 0F       		.uleb128 0xf
+ 1350 0767 01       		.uleb128 0x1
+ 1351 0768 50       		.byte	0x50
+ 1352 0769 02       		.uleb128 0x2
+ 1353 076a 08       		.byte	0x8
+ 1354 076b 33       		.byte	0x33
+ 1355 076c 00       		.byte	0
+ 1356 076d 0E       		.uleb128 0xe
+ 1357 076e F6000000 		.4byte	.LVL56
+ 1358 0772 710C0000 		.4byte	0xc71
+ 1359 0776 81070000 		.4byte	0x781
+ 1360 077a 0F       		.uleb128 0xf
+ 1361 077b 01       		.uleb128 0x1
+ 1362 077c 50       		.byte	0x50
+ 1363 077d 02       		.uleb128 0x2
+ 1364 077e 09       		.byte	0x9
+ 1365 077f C3       		.byte	0xc3
+ 1366 0780 00       		.byte	0
+ 1367 0781 10       		.uleb128 0x10
+ 1368 0782 FC000000 		.4byte	.LVL57
+ 1369 0786 710C0000 		.4byte	0xc71
+ 1370 078a 0F       		.uleb128 0xf
+ 1371 078b 01       		.uleb128 0x1
+ 1372 078c 50       		.byte	0x50
+ 1373 078d 02       		.uleb128 0x2
+ 1374 078e 08       		.byte	0x8
+ 1375 078f 3C       		.byte	0x3c
+ 1376 0790 00       		.byte	0
+ 1377 0791 00       		.byte	0
+ 1378 0792 12       		.uleb128 0x12
+ 1379 0793 4C030000 		.4byte	.LASF50
+ 1380 0797 06       		.byte	0x6
+ 1381 0798 5506     		.2byte	0x655
+ 1382 079a 9E070000 		.4byte	0x79e
+ 1383 079e 13       		.uleb128 0x13
+ 1384 079f 76000000 		.4byte	0x76
+ 1385 07a3 14       		.uleb128 0x14
+ 1386 07a4 0D030000 		.4byte	.LASF51
+ 1387 07a8 05       		.byte	0x5
+ 1388 07a9 2F       		.byte	0x2f
+ 1389 07aa 81000000 		.4byte	0x81
+ 1390 07ae 05       		.uleb128 0x5
+ 1391 07af 03       		.byte	0x3
+ 1392 07b0 00000000 		.4byte	flujo_LCD
+ 1393 07b4 14       		.uleb128 0x14
+ 1394 07b5 09000000 		.4byte	.LASF52
+ 1395 07b9 05       		.byte	0x5
+ 1396 07ba 2F       		.byte	0x2f
+ 1397 07bb 81000000 		.4byte	0x81
+ 1398 07bf 05       		.uleb128 0x5
+ 1399 07c0 03       		.byte	0x3
+ 1400 07c1 00000000 		.4byte	flujo_LCD2
+ 1401 07c5 14       		.uleb128 0x14
+ 1402 07c6 A3030000 		.4byte	.LASF53
+ 1403 07ca 05       		.byte	0x5
+ 1404 07cb 60       		.byte	0x60
+ 1405 07cc 81000000 		.4byte	0x81
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 28
+
+
+ 1406 07d0 05       		.uleb128 0x5
+ 1407 07d1 03       		.byte	0x3
+ 1408 07d2 00000000 		.4byte	cont1
+ 1409 07d6 14       		.uleb128 0x14
+ 1410 07d7 BA000000 		.4byte	.LASF54
+ 1411 07db 05       		.byte	0x5
+ 1412 07dc 60       		.byte	0x60
+ 1413 07dd 81000000 		.4byte	0x81
+ 1414 07e1 05       		.uleb128 0x5
+ 1415 07e2 03       		.byte	0x3
+ 1416 07e3 00000000 		.4byte	teclas1
+ 1417 07e7 14       		.uleb128 0x14
+ 1418 07e8 C2000000 		.4byte	.LASF55
+ 1419 07ec 05       		.byte	0x5
+ 1420 07ed 60       		.byte	0x60
+ 1421 07ee 81000000 		.4byte	0x81
+ 1422 07f2 05       		.uleb128 0x5
+ 1423 07f3 03       		.byte	0x3
+ 1424 07f4 00000000 		.4byte	teclas2
+ 1425 07f8 14       		.uleb128 0x14
+ 1426 07f9 59030000 		.4byte	.LASF56
+ 1427 07fd 05       		.byte	0x5
+ 1428 07fe 60       		.byte	0x60
+ 1429 07ff 81000000 		.4byte	0x81
+ 1430 0803 05       		.uleb128 0x5
+ 1431 0804 03       		.byte	0x3
+ 1432 0805 00000000 		.4byte	comas1
+ 1433 0809 14       		.uleb128 0x14
+ 1434 080a 60030000 		.4byte	.LASF57
+ 1435 080e 05       		.byte	0x5
+ 1436 080f 60       		.byte	0x60
+ 1437 0810 81000000 		.4byte	0x81
+ 1438 0814 05       		.uleb128 0x5
+ 1439 0815 03       		.byte	0x3
+ 1440 0816 00000000 		.4byte	comas2
+ 1441 081a 14       		.uleb128 0x14
+ 1442 081b 1C000000 		.4byte	.LASF58
+ 1443 081f 05       		.byte	0x5
+ 1444 0820 61       		.byte	0x61
+ 1445 0821 81000000 		.4byte	0x81
+ 1446 0825 05       		.uleb128 0x5
+ 1447 0826 03       		.byte	0x3
+ 1448 0827 00000000 		.4byte	versurt
+ 1449 082b 14       		.uleb128 0x14
+ 1450 082c 72030000 		.4byte	.LASF59
+ 1451 0830 05       		.byte	0x5
+ 1452 0831 62       		.byte	0x62
+ 1453 0832 81000000 		.4byte	0x81
+ 1454 0836 05       		.uleb128 0x5
+ 1455 0837 03       		.byte	0x3
+ 1456 0838 00000000 		.4byte	producto1
+ 1457 083c 14       		.uleb128 0x14
+ 1458 083d 7C030000 		.4byte	.LASF60
+ 1459 0841 05       		.byte	0x5
+ 1460 0842 62       		.byte	0x62
+ 1461 0843 81000000 		.4byte	0x81
+ 1462 0847 05       		.uleb128 0x5
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 29
+
+
+ 1463 0848 03       		.byte	0x3
+ 1464 0849 00000000 		.4byte	producto2
+ 1465 084d 14       		.uleb128 0x14
+ 1466 084e 86030000 		.4byte	.LASF61
+ 1467 0852 05       		.byte	0x5
+ 1468 0853 62       		.byte	0x62
+ 1469 0854 81000000 		.4byte	0x81
+ 1470 0858 05       		.uleb128 0x5
+ 1471 0859 03       		.byte	0x3
+ 1472 085a 00000000 		.4byte	producto3
+ 1473 085e 14       		.uleb128 0x14
+ 1474 085f 90030000 		.4byte	.LASF62
+ 1475 0863 05       		.byte	0x5
+ 1476 0864 62       		.byte	0x62
+ 1477 0865 81000000 		.4byte	0x81
+ 1478 0869 05       		.uleb128 0x5
+ 1479 086a 03       		.byte	0x3
+ 1480 086b 00000000 		.4byte	producto4
+ 1481 086f 14       		.uleb128 0x14
+ 1482 0870 78000000 		.4byte	.LASF63
+ 1483 0874 05       		.byte	0x5
+ 1484 0875 62       		.byte	0x62
+ 1485 0876 81000000 		.4byte	0x81
+ 1486 087a 05       		.uleb128 0x5
+ 1487 087b 03       		.byte	0x3
+ 1488 087c 00000000 		.4byte	producto1b
+ 1489 0880 14       		.uleb128 0x14
+ 1490 0881 3A010000 		.4byte	.LASF64
+ 1491 0885 05       		.byte	0x5
+ 1492 0886 62       		.byte	0x62
+ 1493 0887 81000000 		.4byte	0x81
+ 1494 088b 05       		.uleb128 0x5
+ 1495 088c 03       		.byte	0x3
+ 1496 088d 00000000 		.4byte	producto2b
+ 1497 0891 14       		.uleb128 0x14
+ 1498 0892 B3010000 		.4byte	.LASF65
+ 1499 0896 05       		.byte	0x5
+ 1500 0897 62       		.byte	0x62
+ 1501 0898 81000000 		.4byte	0x81
+ 1502 089c 05       		.uleb128 0x5
+ 1503 089d 03       		.byte	0x3
+ 1504 089e 00000000 		.4byte	producto3b
+ 1505 08a2 14       		.uleb128 0x14
+ 1506 08a3 0F020000 		.4byte	.LASF66
+ 1507 08a7 05       		.byte	0x5
+ 1508 08a8 62       		.byte	0x62
+ 1509 08a9 81000000 		.4byte	0x81
+ 1510 08ad 05       		.uleb128 0x5
+ 1511 08ae 03       		.byte	0x3
+ 1512 08af 00000000 		.4byte	producto4b
+ 1513 08b3 09       		.uleb128 0x9
+ 1514 08b4 81000000 		.4byte	0x81
+ 1515 08b8 C3080000 		.4byte	0x8c3
+ 1516 08bc 0A       		.uleb128 0xa
+ 1517 08bd BA000000 		.4byte	0xba
+ 1518 08c1 3F       		.byte	0x3f
+ 1519 08c2 00       		.byte	0
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 30
+
+
+ 1520 08c3 14       		.uleb128 0x14
+ 1521 08c4 68010000 		.4byte	.LASF67
+ 1522 08c8 05       		.byte	0x5
+ 1523 08c9 63       		.byte	0x63
+ 1524 08ca B3080000 		.4byte	0x8b3
+ 1525 08ce 05       		.uleb128 0x5
+ 1526 08cf 03       		.byte	0x3
+ 1527 08d0 00000000 		.4byte	buffer_i2c
+ 1528 08d4 09       		.uleb128 0x9
+ 1529 08d5 81000000 		.4byte	0x81
+ 1530 08d9 E4080000 		.4byte	0x8e4
+ 1531 08dd 0A       		.uleb128 0xa
+ 1532 08de BA000000 		.4byte	0xba
+ 1533 08e2 0D       		.byte	0xd
+ 1534 08e3 00       		.byte	0
+ 1535 08e4 14       		.uleb128 0x14
+ 1536 08e5 87040000 		.4byte	.LASF68
+ 1537 08e9 05       		.byte	0x5
+ 1538 08ea 64       		.byte	0x64
+ 1539 08eb D4080000 		.4byte	0x8d4
+ 1540 08ef 05       		.uleb128 0x5
+ 1541 08f0 03       		.byte	0x3
+ 1542 08f1 00000000 		.4byte	resultado
+ 1543 08f5 14       		.uleb128 0x14
+ 1544 08f6 A4010000 		.4byte	.LASF69
+ 1545 08fa 05       		.byte	0x5
+ 1546 08fb 65       		.byte	0x65
+ 1547 08fc 81000000 		.4byte	0x81
+ 1548 0900 05       		.uleb128 0x5
+ 1549 0901 03       		.byte	0x3
+ 1550 0902 00000000 		.4byte	teclado
+ 1551 0906 14       		.uleb128 0x14
+ 1552 0907 61000000 		.4byte	.LASF70
+ 1553 090b 05       		.byte	0x5
+ 1554 090c 65       		.byte	0x65
+ 1555 090d 81000000 		.4byte	0x81
+ 1556 0911 05       		.uleb128 0x5
+ 1557 0912 03       		.byte	0x3
+ 1558 0913 00000000 		.4byte	teclado2
+ 1559 0917 14       		.uleb128 0x14
+ 1560 0918 F5020000 		.4byte	.LASF71
+ 1561 091c 05       		.byte	0x5
+ 1562 091d 66       		.byte	0x66
+ 1563 091e 81000000 		.4byte	0x81
+ 1564 0922 05       		.uleb128 0x5
+ 1565 0923 03       		.byte	0x3
+ 1566 0924 00000000 		.4byte	ppux10
+ 1567 0928 14       		.uleb128 0x14
+ 1568 0929 C4030000 		.4byte	.LASF72
+ 1569 092d 05       		.byte	0x5
+ 1570 092e 67       		.byte	0x67
+ 1571 092f DA020000 		.4byte	0x2da
+ 1572 0933 05       		.uleb128 0x5
+ 1573 0934 03       		.byte	0x3
+ 1574 0935 00000000 		.4byte	bandera
+ 1575 0939 14       		.uleb128 0x14
+ 1576 093a D2040000 		.4byte	.LASF73
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 31
+
+
+ 1577 093e 05       		.byte	0x5
+ 1578 093f 68       		.byte	0x68
+ 1579 0940 DA020000 		.4byte	0x2da
+ 1580 0944 05       		.uleb128 0x5
+ 1581 0945 03       		.byte	0x3
+ 1582 0946 00000000 		.4byte	tipo_imp
+ 1583 094a 14       		.uleb128 0x14
+ 1584 094b BC040000 		.4byte	.LASF74
+ 1585 094f 05       		.byte	0x5
+ 1586 0950 69       		.byte	0x69
+ 1587 0951 81000000 		.4byte	0x81
+ 1588 0955 05       		.uleb128 0x5
+ 1589 0956 03       		.byte	0x3
+ 1590 0957 00000000 		.4byte	decimalV
+ 1591 095b 14       		.uleb128 0x14
+ 1592 095c 27010000 		.4byte	.LASF75
+ 1593 0960 05       		.byte	0x5
+ 1594 0961 6A       		.byte	0x6a
+ 1595 0962 81000000 		.4byte	0x81
+ 1596 0966 05       		.uleb128 0x5
+ 1597 0967 03       		.byte	0x3
+ 1598 0968 00000000 		.4byte	decimalD
+ 1599 096c 09       		.uleb128 0x9
+ 1600 096d 81000000 		.4byte	0x81
+ 1601 0971 7C090000 		.4byte	0x97c
+ 1602 0975 0A       		.uleb128 0xa
+ 1603 0976 BA000000 		.4byte	0xba
+ 1604 097a 05       		.byte	0x5
+ 1605 097b 00       		.byte	0
+ 1606 097c 14       		.uleb128 0x14
+ 1607 097d 2C020000 		.4byte	.LASF76
+ 1608 0981 05       		.byte	0x5
+ 1609 0982 6B       		.byte	0x6b
+ 1610 0983 6C090000 		.4byte	0x96c
+ 1611 0987 05       		.uleb128 0x5
+ 1612 0988 03       		.byte	0x3
+ 1613 0989 00000000 		.4byte	fecha_corte
+ 1614 098d 14       		.uleb128 0x14
+ 1615 098e 20030000 		.4byte	.LASF77
+ 1616 0992 05       		.byte	0x5
+ 1617 0993 6C       		.byte	0x6c
+ 1618 0994 81000000 		.4byte	0x81
+ 1619 0998 05       		.uleb128 0x5
+ 1620 0999 03       		.byte	0x3
+ 1621 099a 00000000 		.4byte	pos_ibutton
+ 1622 099e 14       		.uleb128 0x14
+ 1623 099f 03030000 		.4byte	.LASF78
+ 1624 09a3 05       		.byte	0x5
+ 1625 09a4 6D       		.byte	0x6d
+ 1626 09a5 81000000 		.4byte	0x81
+ 1627 09a9 05       		.uleb128 0x5
+ 1628 09aa 03       		.byte	0x3
+ 1629 09ab 00000000 		.4byte	crc_total
+ 1630 09af 14       		.uleb128 0x14
+ 1631 09b0 44020000 		.4byte	.LASF79
+ 1632 09b4 05       		.byte	0x5
+ 1633 09b5 6E       		.byte	0x6e
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 32
+
+
+ 1634 09b6 DA020000 		.4byte	0x2da
+ 1635 09ba 05       		.uleb128 0x5
+ 1636 09bb 03       		.byte	0x3
+ 1637 09bc 00000000 		.4byte	print1
+ 1638 09c0 14       		.uleb128 0x14
+ 1639 09c1 4B020000 		.4byte	.LASF80
+ 1640 09c5 05       		.byte	0x5
+ 1641 09c6 6E       		.byte	0x6e
+ 1642 09c7 DA020000 		.4byte	0x2da
+ 1643 09cb 05       		.uleb128 0x5
+ 1644 09cc 03       		.byte	0x3
+ 1645 09cd 00000000 		.4byte	print2
+ 1646 09d1 14       		.uleb128 0x14
+ 1647 09d2 3F030000 		.4byte	.LASF81
+ 1648 09d6 05       		.byte	0x5
+ 1649 09d7 6F       		.byte	0x6f
+ 1650 09d8 DA020000 		.4byte	0x2da
+ 1651 09dc 05       		.uleb128 0x5
+ 1652 09dd 03       		.byte	0x3
+ 1653 09de 00000000 		.4byte	copia_recibo
+ 1654 09e2 14       		.uleb128 0x14
+ 1655 09e3 40000000 		.4byte	.LASF82
+ 1656 09e7 05       		.byte	0x5
+ 1657 09e8 70       		.byte	0x70
+ 1658 09e9 DA020000 		.4byte	0x2da
+ 1659 09ed 05       		.uleb128 0x5
+ 1660 09ee 03       		.byte	0x3
+ 1661 09ef 00000000 		.4byte	copia_recibo2
+ 1662 09f3 14       		.uleb128 0x14
+ 1663 09f4 1A020000 		.4byte	.LASF83
+ 1664 09f8 05       		.byte	0x5
+ 1665 09f9 71       		.byte	0x71
+ 1666 09fa 6C090000 		.4byte	0x96c
+ 1667 09fe 05       		.uleb128 0x5
+ 1668 09ff 03       		.byte	0x3
+ 1669 0a00 00000000 		.4byte	id_venta
+ 1670 0a04 14       		.uleb128 0x14
+ 1671 0a05 9F020000 		.4byte	.LASF84
+ 1672 0a09 05       		.byte	0x5
+ 1673 0a0a 72       		.byte	0x72
+ 1674 0a0b 81000000 		.4byte	0x81
+ 1675 0a0f 05       		.uleb128 0x5
+ 1676 0a10 03       		.byte	0x3
+ 1677 0a11 00000000 		.4byte	nombreproducto
+ 1678 0a15 09       		.uleb128 0x9
+ 1679 0a16 81000000 		.4byte	0x81
+ 1680 0a1a 250A0000 		.4byte	0xa25
+ 1681 0a1e 0A       		.uleb128 0xa
+ 1682 0a1f BA000000 		.4byte	0xba
+ 1683 0a23 0A       		.byte	0xa
+ 1684 0a24 00       		.byte	0
+ 1685 0a25 14       		.uleb128 0x14
+ 1686 0a26 8A000000 		.4byte	.LASF85
+ 1687 0a2a 05       		.byte	0x5
+ 1688 0a2b 73       		.byte	0x73
+ 1689 0a2c 150A0000 		.4byte	0xa15
+ 1690 0a30 05       		.uleb128 0x5
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 33
+
+
+ 1691 0a31 03       		.byte	0x3
+ 1692 0a32 00000000 		.4byte	producto1n
+ 1693 0a36 14       		.uleb128 0x14
+ 1694 0a37 4C010000 		.4byte	.LASF86
+ 1695 0a3b 05       		.byte	0x5
+ 1696 0a3c 74       		.byte	0x74
+ 1697 0a3d 150A0000 		.4byte	0xa15
+ 1698 0a41 05       		.uleb128 0x5
+ 1699 0a42 03       		.byte	0x3
+ 1700 0a43 00000000 		.4byte	producto2n
+ 1701 0a47 14       		.uleb128 0x14
+ 1702 0a48 CC010000 		.4byte	.LASF87
+ 1703 0a4c 05       		.byte	0x5
+ 1704 0a4d 75       		.byte	0x75
+ 1705 0a4e 150A0000 		.4byte	0xa15
+ 1706 0a52 05       		.uleb128 0x5
+ 1707 0a53 03       		.byte	0x3
+ 1708 0a54 00000000 		.4byte	producto3n
+ 1709 0a58 14       		.uleb128 0x14
+ 1710 0a59 57010000 		.4byte	.LASF88
+ 1711 0a5d 05       		.byte	0x5
+ 1712 0a5e 76       		.byte	0x76
+ 1713 0a5f 150A0000 		.4byte	0xa15
+ 1714 0a63 05       		.uleb128 0x5
+ 1715 0a64 03       		.byte	0x3
+ 1716 0a65 00000000 		.4byte	producto4n
+ 1717 0a69 14       		.uleb128 0x14
+ 1718 0a6a 17030000 		.4byte	.LASF89
+ 1719 0a6e 05       		.byte	0x5
+ 1720 0a6f 77       		.byte	0x77
+ 1721 0a70 81000000 		.4byte	0x81
+ 1722 0a74 05       		.uleb128 0x5
+ 1723 0a75 03       		.byte	0x3
+ 1724 0a76 00000000 		.4byte	a_copias
+ 1725 0a7a 09       		.uleb128 0x9
+ 1726 0a7b 81000000 		.4byte	0x81
+ 1727 0a7f 8A0A0000 		.4byte	0xa8a
+ 1728 0a83 0A       		.uleb128 0xa
+ 1729 0a84 BA000000 		.4byte	0xba
+ 1730 0a88 00       		.byte	0
+ 1731 0a89 00       		.byte	0
+ 1732 0a8a 14       		.uleb128 0x14
+ 1733 0a8b EC010000 		.4byte	.LASF90
+ 1734 0a8f 05       		.byte	0x5
+ 1735 0a90 78       		.byte	0x78
+ 1736 0a91 7A0A0000 		.4byte	0xa7a
+ 1737 0a95 05       		.uleb128 0x5
+ 1738 0a96 03       		.byte	0x3
+ 1739 0a97 00000000 		.4byte	n_copias
+ 1740 0a9b 14       		.uleb128 0x14
+ 1741 0a9c E0030000 		.4byte	.LASF91
+ 1742 0aa0 05       		.byte	0x5
+ 1743 0aa1 79       		.byte	0x79
+ 1744 0aa2 81000000 		.4byte	0x81
+ 1745 0aa6 05       		.uleb128 0x5
+ 1746 0aa7 03       		.byte	0x3
+ 1747 0aa8 00000000 		.4byte	no_imprime
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 34
+
+
+ 1748 0aac 14       		.uleb128 0x14
+ 1749 0aad D4030000 		.4byte	.LASF92
+ 1750 0ab1 05       		.byte	0x5
+ 1751 0ab2 7A       		.byte	0x7a
+ 1752 0ab3 81000000 		.4byte	0x81
+ 1753 0ab7 05       		.uleb128 0x5
+ 1754 0ab8 03       		.byte	0x3
+ 1755 0ab9 00000000 		.4byte	no_imprime2
+ 1756 0abd 14       		.uleb128 0x14
+ 1757 0abe EE020000 		.4byte	.LASF93
+ 1758 0ac2 05       		.byte	0x5
+ 1759 0ac3 7B       		.byte	0x7b
+ 1760 0ac4 81000000 		.4byte	0x81
+ 1761 0ac8 05       		.uleb128 0x5
+ 1762 0ac9 03       		.byte	0x3
+ 1763 0aca 00000000 		.4byte	imagen
+ 1764 0ace 14       		.uleb128 0x14
+ 1765 0acf 9D000000 		.4byte	.LASF94
+ 1766 0ad3 05       		.byte	0x5
+ 1767 0ad4 7C       		.byte	0x7c
+ 1768 0ad5 81000000 		.4byte	0x81
+ 1769 0ad9 05       		.uleb128 0x5
+ 1770 0ada 03       		.byte	0x3
+ 1771 0adb 00000000 		.4byte	estado_lcd1
+ 1772 0adf 14       		.uleb128 0x14
+ 1773 0ae0 A9000000 		.4byte	.LASF95
+ 1774 0ae4 05       		.byte	0x5
+ 1775 0ae5 7D       		.byte	0x7d
+ 1776 0ae6 81000000 		.4byte	0x81
+ 1777 0aea 05       		.uleb128 0x5
+ 1778 0aeb 03       		.byte	0x3
+ 1779 0aec 00000000 		.4byte	estado_lcd2
+ 1780 0af0 14       		.uleb128 0x14
+ 1781 0af1 BE010000 		.4byte	.LASF96
+ 1782 0af5 05       		.byte	0x5
+ 1783 0af6 7E       		.byte	0x7e
+ 1784 0af7 81000000 		.4byte	0x81
+ 1785 0afb 05       		.uleb128 0x5
+ 1786 0afc 03       		.byte	0x3
+ 1787 0afd 00000000 		.4byte	seleccion_pos
+ 1788 0b01 14       		.uleb128 0x14
+ 1789 0b02 DD010000 		.4byte	.LASF97
+ 1790 0b06 05       		.byte	0x5
+ 1791 0b07 7F       		.byte	0x7f
+ 1792 0b08 81000000 		.4byte	0x81
+ 1793 0b0c 05       		.uleb128 0x5
+ 1794 0b0d 03       		.byte	0x3
+ 1795 0b0e 00000000 		.4byte	seleccion_pos2
+ 1796 0b12 14       		.uleb128 0x14
+ 1797 0b13 C4020000 		.4byte	.LASF98
+ 1798 0b17 05       		.byte	0x5
+ 1799 0b18 80       		.byte	0x80
+ 1800 0b19 8D000000 		.4byte	0x8d
+ 1801 0b1d 05       		.uleb128 0x5
+ 1802 0b1e 03       		.byte	0x3
+ 1803 0b1f 00000000 		.4byte	id_corte
+ 1804 0b23 14       		.uleb128 0x14
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 35
+
+
+ 1805 0b24 F5010000 		.4byte	.LASF99
+ 1806 0b28 05       		.byte	0x5
+ 1807 0b29 83       		.byte	0x83
+ 1808 0b2a 340B0000 		.4byte	0xb34
+ 1809 0b2e 05       		.uleb128 0x5
+ 1810 0b2f 03       		.byte	0x3
+ 1811 0b30 00000000 		.4byte	no_venta
+ 1812 0b34 13       		.uleb128 0x13
+ 1813 0b35 68000000 		.4byte	0x68
+ 1814 0b39 14       		.uleb128 0x14
+ 1815 0b3a DB020000 		.4byte	.LASF100
+ 1816 0b3e 05       		.byte	0x5
+ 1817 0b3f 9F       		.byte	0x9f
+ 1818 0b40 C1000000 		.4byte	0xc1
+ 1819 0b44 05       		.uleb128 0x5
+ 1820 0b45 03       		.byte	0x3
+ 1821 0b46 00000000 		.4byte	Buffer_LCD1
+ 1822 0b4a 14       		.uleb128 0x14
+ 1823 0b4b 5D020000 		.4byte	.LASF101
+ 1824 0b4f 05       		.byte	0x5
+ 1825 0b50 A0       		.byte	0xa0
+ 1826 0b51 C1000000 		.4byte	0xc1
+ 1827 0b55 05       		.uleb128 0x5
+ 1828 0b56 03       		.byte	0x3
+ 1829 0b57 00000000 		.4byte	Buffer_LCD2
+ 1830 0b5b 14       		.uleb128 0x14
+ 1831 0b5c 9A030000 		.4byte	.LASF102
+ 1832 0b60 05       		.byte	0x5
+ 1833 0b61 A3       		.byte	0xa3
+ 1834 0b62 81000000 		.4byte	0x81
+ 1835 0b66 05       		.uleb128 0x5
+ 1836 0b67 03       		.byte	0x3
+ 1837 0b68 00000000 		.4byte	estado_0
+ 1838 0b6c 15       		.uleb128 0x15
+ 1839 0b6d 6100     		.ascii	"a\000"
+ 1840 0b6f 05       		.byte	0x5
+ 1841 0b70 AE       		.byte	0xae
+ 1842 0b71 A8010000 		.4byte	0x1a8
+ 1843 0b75 05       		.uleb128 0x5
+ 1844 0b76 03       		.byte	0x3
+ 1845 0b77 00000000 		.4byte	a
+ 1846 0b7b 15       		.uleb128 0x15
+ 1847 0b7c 6200     		.ascii	"b\000"
+ 1848 0b7e 05       		.byte	0x5
+ 1849 0b7f AF       		.byte	0xaf
+ 1850 0b80 A8010000 		.4byte	0x1a8
+ 1851 0b84 05       		.uleb128 0x5
+ 1852 0b85 03       		.byte	0x3
+ 1853 0b86 00000000 		.4byte	b
+ 1854 0b8a 15       		.uleb128 0x15
+ 1855 0b8b 6300     		.ascii	"c\000"
+ 1856 0b8d 05       		.byte	0x5
+ 1857 0b8e B0       		.byte	0xb0
+ 1858 0b8f A8010000 		.4byte	0x1a8
+ 1859 0b93 05       		.uleb128 0x5
+ 1860 0b94 03       		.byte	0x3
+ 1861 0b95 00000000 		.4byte	c
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 36
+
+
+ 1862 0b99 15       		.uleb128 0x15
+ 1863 0b9a 6400     		.ascii	"d\000"
+ 1864 0b9c 05       		.byte	0x5
+ 1865 0b9d B1       		.byte	0xb1
+ 1866 0b9e A8010000 		.4byte	0x1a8
+ 1867 0ba2 05       		.uleb128 0x5
+ 1868 0ba3 03       		.byte	0x3
+ 1869 0ba4 00000000 		.4byte	d
+ 1870 0ba8 15       		.uleb128 0x15
+ 1871 0ba9 7800     		.ascii	"x\000"
+ 1872 0bab 05       		.byte	0x5
+ 1873 0bac C7       		.byte	0xc7
+ 1874 0bad 99000000 		.4byte	0x99
+ 1875 0bb1 05       		.uleb128 0x5
+ 1876 0bb2 03       		.byte	0x3
+ 1877 0bb3 00000000 		.4byte	x
+ 1878 0bb7 15       		.uleb128 0x15
+ 1879 0bb8 7900     		.ascii	"y\000"
+ 1880 0bba 05       		.byte	0x5
+ 1881 0bbb C7       		.byte	0xc7
+ 1882 0bbc 99000000 		.4byte	0x99
+ 1883 0bc0 05       		.uleb128 0x5
+ 1884 0bc1 03       		.byte	0x3
+ 1885 0bc2 00000000 		.4byte	y
+ 1886 0bc6 15       		.uleb128 0x15
+ 1887 0bc7 7A00     		.ascii	"z\000"
+ 1888 0bc9 05       		.byte	0x5
+ 1889 0bca C7       		.byte	0xc7
+ 1890 0bcb 99000000 		.4byte	0x99
+ 1891 0bcf 05       		.uleb128 0x5
+ 1892 0bd0 03       		.byte	0x3
+ 1893 0bd1 00000000 		.4byte	z
+ 1894 0bd5 15       		.uleb128 0x15
+ 1895 0bd6 7700     		.ascii	"w\000"
+ 1896 0bd8 05       		.byte	0x5
+ 1897 0bd9 C7       		.byte	0xc7
+ 1898 0bda 99000000 		.4byte	0x99
+ 1899 0bde 05       		.uleb128 0x5
+ 1900 0bdf 03       		.byte	0x3
+ 1901 0be0 00000000 		.4byte	w
+ 1902 0be4 09       		.uleb128 0x9
+ 1903 0be5 81000000 		.4byte	0x81
+ 1904 0be9 FA0B0000 		.4byte	0xbfa
+ 1905 0bed 0A       		.uleb128 0xa
+ 1906 0bee BA000000 		.4byte	0xba
+ 1907 0bf2 01       		.byte	0x1
+ 1908 0bf3 0A       		.uleb128 0xa
+ 1909 0bf4 BA000000 		.4byte	0xba
+ 1910 0bf8 C7       		.byte	0xc7
+ 1911 0bf9 00       		.byte	0
+ 1912 0bfa 14       		.uleb128 0x14
+ 1913 0bfb 71000000 		.4byte	.LASF103
+ 1914 0bff 05       		.byte	0x5
+ 1915 0c00 C8       		.byte	0xc8
+ 1916 0c01 E40B0000 		.4byte	0xbe4
+ 1917 0c05 05       		.uleb128 0x5
+ 1918 0c06 03       		.byte	0x3
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 37
+
+
+ 1919 0c07 00000000 		.4byte	modulo
+ 1920 0c0b 14       		.uleb128 0x14
+ 1921 0c0c 83000000 		.4byte	.LASF104
+ 1922 0c10 05       		.byte	0x5
+ 1923 0c11 C9       		.byte	0xc9
+ 1924 0c12 81000000 		.4byte	0x81
+ 1925 0c16 05       		.uleb128 0x5
+ 1926 0c17 03       		.byte	0x3
+ 1927 0c18 00000000 		.4byte	grado1
+ 1928 0c1c 14       		.uleb128 0x14
+ 1929 0c1d 6A000000 		.4byte	.LASF105
+ 1930 0c21 05       		.byte	0x5
+ 1931 0c22 C9       		.byte	0xc9
+ 1932 0c23 81000000 		.4byte	0x81
+ 1933 0c27 05       		.uleb128 0x5
+ 1934 0c28 03       		.byte	0x3
+ 1935 0c29 00000000 		.4byte	grado2
+ 1936 0c2d 14       		.uleb128 0x14
+ 1937 0c2e 77020000 		.4byte	.LASF42
+ 1938 0c32 05       		.byte	0x5
+ 1939 0c33 C9       		.byte	0xc9
+ 1940 0c34 81000000 		.4byte	0x81
+ 1941 0c38 05       		.uleb128 0x5
+ 1942 0c39 03       		.byte	0x3
+ 1943 0c3a 00000000 		.4byte	producto
+ 1944 0c3e 14       		.uleb128 0x14
+ 1945 0c3f E4040000 		.4byte	.LASF106
+ 1946 0c43 05       		.byte	0x5
+ 1947 0c44 CB       		.byte	0xcb
+ 1948 0c45 E5010000 		.4byte	0x1e5
+ 1949 0c49 05       		.uleb128 0x5
+ 1950 0c4a 03       		.byte	0x3
+ 1951 0c4b 00000000 		.4byte	rventa
+ 1952 0c4f 14       		.uleb128 0x14
+ 1953 0c50 1F010000 		.4byte	.LASF107
+ 1954 0c54 05       		.byte	0x5
+ 1955 0c55 CC       		.byte	0xcc
+ 1956 0c56 E5010000 		.4byte	0x1e5
+ 1957 0c5a 05       		.uleb128 0x5
+ 1958 0c5b 03       		.byte	0x3
+ 1959 0c5c 00000000 		.4byte	rventa2
+ 1960 0c60 16       		.uleb128 0x16
+ 1961 0c61 96010000 		.4byte	.LASF111
+ 1962 0c65 07       		.byte	0x7
+ 1963 0c66 9F       		.byte	0x9f
+ 1964 0c67 710C0000 		.4byte	0xc71
+ 1965 0c6b 17       		.uleb128 0x17
+ 1966 0c6c 81000000 		.4byte	0x81
+ 1967 0c70 00       		.byte	0
+ 1968 0c71 18       		.uleb128 0x18
+ 1969 0c72 91020000 		.4byte	.LASF112
+ 1970 0c76 08       		.byte	0x8
+ 1971 0c77 9F       		.byte	0x9f
+ 1972 0c78 17       		.uleb128 0x17
+ 1973 0c79 81000000 		.4byte	0x81
+ 1974 0c7d 00       		.byte	0
+ 1975 0c7e 00       		.byte	0
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 38
+
+
+ 1976              		.section	.debug_abbrev,"",%progbits
+ 1977              	.Ldebug_abbrev0:
+ 1978 0000 01       		.uleb128 0x1
+ 1979 0001 11       		.uleb128 0x11
+ 1980 0002 01       		.byte	0x1
+ 1981 0003 25       		.uleb128 0x25
+ 1982 0004 0E       		.uleb128 0xe
+ 1983 0005 13       		.uleb128 0x13
+ 1984 0006 0B       		.uleb128 0xb
+ 1985 0007 03       		.uleb128 0x3
+ 1986 0008 0E       		.uleb128 0xe
+ 1987 0009 1B       		.uleb128 0x1b
+ 1988 000a 0E       		.uleb128 0xe
+ 1989 000b 55       		.uleb128 0x55
+ 1990 000c 17       		.uleb128 0x17
+ 1991 000d 11       		.uleb128 0x11
+ 1992 000e 01       		.uleb128 0x1
+ 1993 000f 10       		.uleb128 0x10
+ 1994 0010 17       		.uleb128 0x17
+ 1995 0011 00       		.byte	0
+ 1996 0012 00       		.byte	0
+ 1997 0013 02       		.uleb128 0x2
+ 1998 0014 24       		.uleb128 0x24
+ 1999 0015 00       		.byte	0
+ 2000 0016 0B       		.uleb128 0xb
+ 2001 0017 0B       		.uleb128 0xb
+ 2002 0018 3E       		.uleb128 0x3e
+ 2003 0019 0B       		.uleb128 0xb
+ 2004 001a 03       		.uleb128 0x3
+ 2005 001b 0E       		.uleb128 0xe
+ 2006 001c 00       		.byte	0
+ 2007 001d 00       		.byte	0
+ 2008 001e 03       		.uleb128 0x3
+ 2009 001f 16       		.uleb128 0x16
+ 2010 0020 00       		.byte	0
+ 2011 0021 03       		.uleb128 0x3
+ 2012 0022 0E       		.uleb128 0xe
+ 2013 0023 3A       		.uleb128 0x3a
+ 2014 0024 0B       		.uleb128 0xb
+ 2015 0025 3B       		.uleb128 0x3b
+ 2016 0026 0B       		.uleb128 0xb
+ 2017 0027 49       		.uleb128 0x49
+ 2018 0028 13       		.uleb128 0x13
+ 2019 0029 00       		.byte	0
+ 2020 002a 00       		.byte	0
+ 2021 002b 04       		.uleb128 0x4
+ 2022 002c 24       		.uleb128 0x24
+ 2023 002d 00       		.byte	0
+ 2024 002e 0B       		.uleb128 0xb
+ 2025 002f 0B       		.uleb128 0xb
+ 2026 0030 3E       		.uleb128 0x3e
+ 2027 0031 0B       		.uleb128 0xb
+ 2028 0032 03       		.uleb128 0x3
+ 2029 0033 08       		.uleb128 0x8
+ 2030 0034 00       		.byte	0
+ 2031 0035 00       		.byte	0
+ 2032 0036 05       		.uleb128 0x5
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 39
+
+
+ 2033 0037 16       		.uleb128 0x16
+ 2034 0038 00       		.byte	0
+ 2035 0039 03       		.uleb128 0x3
+ 2036 003a 0E       		.uleb128 0xe
+ 2037 003b 3A       		.uleb128 0x3a
+ 2038 003c 0B       		.uleb128 0xb
+ 2039 003d 3B       		.uleb128 0x3b
+ 2040 003e 05       		.uleb128 0x5
+ 2041 003f 49       		.uleb128 0x49
+ 2042 0040 13       		.uleb128 0x13
+ 2043 0041 00       		.byte	0
+ 2044 0042 00       		.byte	0
+ 2045 0043 06       		.uleb128 0x6
+ 2046 0044 13       		.uleb128 0x13
+ 2047 0045 01       		.byte	0x1
+ 2048 0046 03       		.uleb128 0x3
+ 2049 0047 0E       		.uleb128 0xe
+ 2050 0048 0B       		.uleb128 0xb
+ 2051 0049 0B       		.uleb128 0xb
+ 2052 004a 3A       		.uleb128 0x3a
+ 2053 004b 0B       		.uleb128 0xb
+ 2054 004c 3B       		.uleb128 0x3b
+ 2055 004d 0B       		.uleb128 0xb
+ 2056 004e 01       		.uleb128 0x1
+ 2057 004f 13       		.uleb128 0x13
+ 2058 0050 00       		.byte	0
+ 2059 0051 00       		.byte	0
+ 2060 0052 07       		.uleb128 0x7
+ 2061 0053 0D       		.uleb128 0xd
+ 2062 0054 00       		.byte	0
+ 2063 0055 03       		.uleb128 0x3
+ 2064 0056 0E       		.uleb128 0xe
+ 2065 0057 3A       		.uleb128 0x3a
+ 2066 0058 0B       		.uleb128 0xb
+ 2067 0059 3B       		.uleb128 0x3b
+ 2068 005a 0B       		.uleb128 0xb
+ 2069 005b 49       		.uleb128 0x49
+ 2070 005c 13       		.uleb128 0x13
+ 2071 005d 38       		.uleb128 0x38
+ 2072 005e 0B       		.uleb128 0xb
+ 2073 005f 00       		.byte	0
+ 2074 0060 00       		.byte	0
+ 2075 0061 08       		.uleb128 0x8
+ 2076 0062 0D       		.uleb128 0xd
+ 2077 0063 00       		.byte	0
+ 2078 0064 03       		.uleb128 0x3
+ 2079 0065 08       		.uleb128 0x8
+ 2080 0066 3A       		.uleb128 0x3a
+ 2081 0067 0B       		.uleb128 0xb
+ 2082 0068 3B       		.uleb128 0x3b
+ 2083 0069 0B       		.uleb128 0xb
+ 2084 006a 49       		.uleb128 0x49
+ 2085 006b 13       		.uleb128 0x13
+ 2086 006c 38       		.uleb128 0x38
+ 2087 006d 0B       		.uleb128 0xb
+ 2088 006e 00       		.byte	0
+ 2089 006f 00       		.byte	0
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 40
+
+
+ 2090 0070 09       		.uleb128 0x9
+ 2091 0071 01       		.uleb128 0x1
+ 2092 0072 01       		.byte	0x1
+ 2093 0073 49       		.uleb128 0x49
+ 2094 0074 13       		.uleb128 0x13
+ 2095 0075 01       		.uleb128 0x1
+ 2096 0076 13       		.uleb128 0x13
+ 2097 0077 00       		.byte	0
+ 2098 0078 00       		.byte	0
+ 2099 0079 0A       		.uleb128 0xa
+ 2100 007a 21       		.uleb128 0x21
+ 2101 007b 00       		.byte	0
+ 2102 007c 49       		.uleb128 0x49
+ 2103 007d 13       		.uleb128 0x13
+ 2104 007e 2F       		.uleb128 0x2f
+ 2105 007f 0B       		.uleb128 0xb
+ 2106 0080 00       		.byte	0
+ 2107 0081 00       		.byte	0
+ 2108 0082 0B       		.uleb128 0xb
+ 2109 0083 13       		.uleb128 0x13
+ 2110 0084 01       		.byte	0x1
+ 2111 0085 03       		.uleb128 0x3
+ 2112 0086 08       		.uleb128 0x8
+ 2113 0087 0B       		.uleb128 0xb
+ 2114 0088 0B       		.uleb128 0xb
+ 2115 0089 3A       		.uleb128 0x3a
+ 2116 008a 0B       		.uleb128 0xb
+ 2117 008b 3B       		.uleb128 0x3b
+ 2118 008c 0B       		.uleb128 0xb
+ 2119 008d 01       		.uleb128 0x1
+ 2120 008e 13       		.uleb128 0x13
+ 2121 008f 00       		.byte	0
+ 2122 0090 00       		.byte	0
+ 2123 0091 0C       		.uleb128 0xc
+ 2124 0092 2E       		.uleb128 0x2e
+ 2125 0093 01       		.byte	0x1
+ 2126 0094 3F       		.uleb128 0x3f
+ 2127 0095 19       		.uleb128 0x19
+ 2128 0096 03       		.uleb128 0x3
+ 2129 0097 0E       		.uleb128 0xe
+ 2130 0098 3A       		.uleb128 0x3a
+ 2131 0099 0B       		.uleb128 0xb
+ 2132 009a 3B       		.uleb128 0x3b
+ 2133 009b 0B       		.uleb128 0xb
+ 2134 009c 27       		.uleb128 0x27
+ 2135 009d 19       		.uleb128 0x19
+ 2136 009e 11       		.uleb128 0x11
+ 2137 009f 01       		.uleb128 0x1
+ 2138 00a0 12       		.uleb128 0x12
+ 2139 00a1 06       		.uleb128 0x6
+ 2140 00a2 40       		.uleb128 0x40
+ 2141 00a3 18       		.uleb128 0x18
+ 2142 00a4 9742     		.uleb128 0x2117
+ 2143 00a6 19       		.uleb128 0x19
+ 2144 00a7 01       		.uleb128 0x1
+ 2145 00a8 13       		.uleb128 0x13
+ 2146 00a9 00       		.byte	0
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 41
+
+
+ 2147 00aa 00       		.byte	0
+ 2148 00ab 0D       		.uleb128 0xd
+ 2149 00ac 05       		.uleb128 0x5
+ 2150 00ad 00       		.byte	0
+ 2151 00ae 03       		.uleb128 0x3
+ 2152 00af 08       		.uleb128 0x8
+ 2153 00b0 3A       		.uleb128 0x3a
+ 2154 00b1 0B       		.uleb128 0xb
+ 2155 00b2 3B       		.uleb128 0x3b
+ 2156 00b3 0B       		.uleb128 0xb
+ 2157 00b4 49       		.uleb128 0x49
+ 2158 00b5 13       		.uleb128 0x13
+ 2159 00b6 02       		.uleb128 0x2
+ 2160 00b7 17       		.uleb128 0x17
+ 2161 00b8 00       		.byte	0
+ 2162 00b9 00       		.byte	0
+ 2163 00ba 0E       		.uleb128 0xe
+ 2164 00bb 898201   		.uleb128 0x4109
+ 2165 00be 01       		.byte	0x1
+ 2166 00bf 11       		.uleb128 0x11
+ 2167 00c0 01       		.uleb128 0x1
+ 2168 00c1 31       		.uleb128 0x31
+ 2169 00c2 13       		.uleb128 0x13
+ 2170 00c3 01       		.uleb128 0x1
+ 2171 00c4 13       		.uleb128 0x13
+ 2172 00c5 00       		.byte	0
+ 2173 00c6 00       		.byte	0
+ 2174 00c7 0F       		.uleb128 0xf
+ 2175 00c8 8A8201   		.uleb128 0x410a
+ 2176 00cb 00       		.byte	0
+ 2177 00cc 02       		.uleb128 0x2
+ 2178 00cd 18       		.uleb128 0x18
+ 2179 00ce 9142     		.uleb128 0x2111
+ 2180 00d0 18       		.uleb128 0x18
+ 2181 00d1 00       		.byte	0
+ 2182 00d2 00       		.byte	0
+ 2183 00d3 10       		.uleb128 0x10
+ 2184 00d4 898201   		.uleb128 0x4109
+ 2185 00d7 01       		.byte	0x1
+ 2186 00d8 11       		.uleb128 0x11
+ 2187 00d9 01       		.uleb128 0x1
+ 2188 00da 31       		.uleb128 0x31
+ 2189 00db 13       		.uleb128 0x13
+ 2190 00dc 00       		.byte	0
+ 2191 00dd 00       		.byte	0
+ 2192 00de 11       		.uleb128 0x11
+ 2193 00df 05       		.uleb128 0x5
+ 2194 00e0 00       		.byte	0
+ 2195 00e1 03       		.uleb128 0x3
+ 2196 00e2 0E       		.uleb128 0xe
+ 2197 00e3 3A       		.uleb128 0x3a
+ 2198 00e4 0B       		.uleb128 0xb
+ 2199 00e5 3B       		.uleb128 0x3b
+ 2200 00e6 0B       		.uleb128 0xb
+ 2201 00e7 49       		.uleb128 0x49
+ 2202 00e8 13       		.uleb128 0x13
+ 2203 00e9 02       		.uleb128 0x2
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 42
+
+
+ 2204 00ea 17       		.uleb128 0x17
+ 2205 00eb 00       		.byte	0
+ 2206 00ec 00       		.byte	0
+ 2207 00ed 12       		.uleb128 0x12
+ 2208 00ee 34       		.uleb128 0x34
+ 2209 00ef 00       		.byte	0
+ 2210 00f0 03       		.uleb128 0x3
+ 2211 00f1 0E       		.uleb128 0xe
+ 2212 00f2 3A       		.uleb128 0x3a
+ 2213 00f3 0B       		.uleb128 0xb
+ 2214 00f4 3B       		.uleb128 0x3b
+ 2215 00f5 05       		.uleb128 0x5
+ 2216 00f6 49       		.uleb128 0x49
+ 2217 00f7 13       		.uleb128 0x13
+ 2218 00f8 3F       		.uleb128 0x3f
+ 2219 00f9 19       		.uleb128 0x19
+ 2220 00fa 3C       		.uleb128 0x3c
+ 2221 00fb 19       		.uleb128 0x19
+ 2222 00fc 00       		.byte	0
+ 2223 00fd 00       		.byte	0
+ 2224 00fe 13       		.uleb128 0x13
+ 2225 00ff 35       		.uleb128 0x35
+ 2226 0100 00       		.byte	0
+ 2227 0101 49       		.uleb128 0x49
+ 2228 0102 13       		.uleb128 0x13
+ 2229 0103 00       		.byte	0
+ 2230 0104 00       		.byte	0
+ 2231 0105 14       		.uleb128 0x14
+ 2232 0106 34       		.uleb128 0x34
+ 2233 0107 00       		.byte	0
+ 2234 0108 03       		.uleb128 0x3
+ 2235 0109 0E       		.uleb128 0xe
+ 2236 010a 3A       		.uleb128 0x3a
+ 2237 010b 0B       		.uleb128 0xb
+ 2238 010c 3B       		.uleb128 0x3b
+ 2239 010d 0B       		.uleb128 0xb
+ 2240 010e 49       		.uleb128 0x49
+ 2241 010f 13       		.uleb128 0x13
+ 2242 0110 3F       		.uleb128 0x3f
+ 2243 0111 19       		.uleb128 0x19
+ 2244 0112 02       		.uleb128 0x2
+ 2245 0113 18       		.uleb128 0x18
+ 2246 0114 00       		.byte	0
+ 2247 0115 00       		.byte	0
+ 2248 0116 15       		.uleb128 0x15
+ 2249 0117 34       		.uleb128 0x34
+ 2250 0118 00       		.byte	0
+ 2251 0119 03       		.uleb128 0x3
+ 2252 011a 08       		.uleb128 0x8
+ 2253 011b 3A       		.uleb128 0x3a
+ 2254 011c 0B       		.uleb128 0xb
+ 2255 011d 3B       		.uleb128 0x3b
+ 2256 011e 0B       		.uleb128 0xb
+ 2257 011f 49       		.uleb128 0x49
+ 2258 0120 13       		.uleb128 0x13
+ 2259 0121 3F       		.uleb128 0x3f
+ 2260 0122 19       		.uleb128 0x19
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 43
+
+
+ 2261 0123 02       		.uleb128 0x2
+ 2262 0124 18       		.uleb128 0x18
+ 2263 0125 00       		.byte	0
+ 2264 0126 00       		.byte	0
+ 2265 0127 16       		.uleb128 0x16
+ 2266 0128 2E       		.uleb128 0x2e
+ 2267 0129 01       		.byte	0x1
+ 2268 012a 3F       		.uleb128 0x3f
+ 2269 012b 19       		.uleb128 0x19
+ 2270 012c 03       		.uleb128 0x3
+ 2271 012d 0E       		.uleb128 0xe
+ 2272 012e 3A       		.uleb128 0x3a
+ 2273 012f 0B       		.uleb128 0xb
+ 2274 0130 3B       		.uleb128 0x3b
+ 2275 0131 0B       		.uleb128 0xb
+ 2276 0132 27       		.uleb128 0x27
+ 2277 0133 19       		.uleb128 0x19
+ 2278 0134 3C       		.uleb128 0x3c
+ 2279 0135 19       		.uleb128 0x19
+ 2280 0136 01       		.uleb128 0x1
+ 2281 0137 13       		.uleb128 0x13
+ 2282 0138 00       		.byte	0
+ 2283 0139 00       		.byte	0
+ 2284 013a 17       		.uleb128 0x17
+ 2285 013b 05       		.uleb128 0x5
+ 2286 013c 00       		.byte	0
+ 2287 013d 49       		.uleb128 0x49
+ 2288 013e 13       		.uleb128 0x13
+ 2289 013f 00       		.byte	0
+ 2290 0140 00       		.byte	0
+ 2291 0141 18       		.uleb128 0x18
+ 2292 0142 2E       		.uleb128 0x2e
+ 2293 0143 01       		.byte	0x1
+ 2294 0144 3F       		.uleb128 0x3f
+ 2295 0145 19       		.uleb128 0x19
+ 2296 0146 03       		.uleb128 0x3
+ 2297 0147 0E       		.uleb128 0xe
+ 2298 0148 3A       		.uleb128 0x3a
+ 2299 0149 0B       		.uleb128 0xb
+ 2300 014a 3B       		.uleb128 0x3b
+ 2301 014b 0B       		.uleb128 0xb
+ 2302 014c 27       		.uleb128 0x27
+ 2303 014d 19       		.uleb128 0x19
+ 2304 014e 3C       		.uleb128 0x3c
+ 2305 014f 19       		.uleb128 0x19
+ 2306 0150 00       		.byte	0
+ 2307 0151 00       		.byte	0
+ 2308 0152 00       		.byte	0
+ 2309              		.section	.debug_loc,"",%progbits
+ 2310              	.Ldebug_loc0:
+ 2311              	.LLST0:
+ 2312 0000 00000000 		.4byte	.LVL0
+ 2313 0004 0C000000 		.4byte	.LVL1
+ 2314 0008 0100     		.2byte	0x1
+ 2315 000a 50       		.byte	0x50
+ 2316 000b 0C000000 		.4byte	.LVL1
+ 2317 000f 70000000 		.4byte	.LFE63
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 44
+
+
+ 2318 0013 0400     		.2byte	0x4
+ 2319 0015 F3       		.byte	0xf3
+ 2320 0016 01       		.uleb128 0x1
+ 2321 0017 50       		.byte	0x50
+ 2322 0018 9F       		.byte	0x9f
+ 2323 0019 00000000 		.4byte	0
+ 2324 001d 00000000 		.4byte	0
+ 2325              	.LLST1:
+ 2326 0021 00000000 		.4byte	.LVL0
+ 2327 0025 0F000000 		.4byte	.LVL2-1
+ 2328 0029 0100     		.2byte	0x1
+ 2329 002b 51       		.byte	0x51
+ 2330 002c 0F000000 		.4byte	.LVL2-1
+ 2331 0030 70000000 		.4byte	.LFE63
+ 2332 0034 0400     		.2byte	0x4
+ 2333 0036 F3       		.byte	0xf3
+ 2334 0037 01       		.uleb128 0x1
+ 2335 0038 51       		.byte	0x51
+ 2336 0039 9F       		.byte	0x9f
+ 2337 003a 00000000 		.4byte	0
+ 2338 003e 00000000 		.4byte	0
+ 2339              	.LLST2:
+ 2340 0042 00000000 		.4byte	.LVL18
+ 2341 0046 0C000000 		.4byte	.LVL19
+ 2342 004a 0100     		.2byte	0x1
+ 2343 004c 50       		.byte	0x50
+ 2344 004d 0C000000 		.4byte	.LVL19
+ 2345 0051 84000000 		.4byte	.LVL38
+ 2346 0055 0400     		.2byte	0x4
+ 2347 0057 F3       		.byte	0xf3
+ 2348 0058 01       		.uleb128 0x1
+ 2349 0059 50       		.byte	0x50
+ 2350 005a 9F       		.byte	0x9f
+ 2351 005b 84000000 		.4byte	.LVL38
+ 2352 005f 86000000 		.4byte	.LVL39
+ 2353 0063 0100     		.2byte	0x1
+ 2354 0065 50       		.byte	0x50
+ 2355 0066 86000000 		.4byte	.LVL39
+ 2356 006a FE000000 		.4byte	.LFE64
+ 2357 006e 0400     		.2byte	0x4
+ 2358 0070 F3       		.byte	0xf3
+ 2359 0071 01       		.uleb128 0x1
+ 2360 0072 50       		.byte	0x50
+ 2361 0073 9F       		.byte	0x9f
+ 2362 0074 00000000 		.4byte	0
+ 2363 0078 00000000 		.4byte	0
+ 2364              	.LLST3:
+ 2365 007c 00000000 		.4byte	.LVL18
+ 2366 0080 0F000000 		.4byte	.LVL20-1
+ 2367 0084 0100     		.2byte	0x1
+ 2368 0086 51       		.byte	0x51
+ 2369 0087 0F000000 		.4byte	.LVL20-1
+ 2370 008b 84000000 		.4byte	.LVL38
+ 2371 008f 0400     		.2byte	0x4
+ 2372 0091 F3       		.byte	0xf3
+ 2373 0092 01       		.uleb128 0x1
+ 2374 0093 51       		.byte	0x51
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 45
+
+
+ 2375 0094 9F       		.byte	0x9f
+ 2376 0095 84000000 		.4byte	.LVL38
+ 2377 0099 89000000 		.4byte	.LVL40-1
+ 2378 009d 0100     		.2byte	0x1
+ 2379 009f 51       		.byte	0x51
+ 2380 00a0 89000000 		.4byte	.LVL40-1
+ 2381 00a4 FE000000 		.4byte	.LFE64
+ 2382 00a8 0400     		.2byte	0x4
+ 2383 00aa F3       		.byte	0xf3
+ 2384 00ab 01       		.uleb128 0x1
+ 2385 00ac 51       		.byte	0x51
+ 2386 00ad 9F       		.byte	0x9f
+ 2387 00ae 00000000 		.4byte	0
+ 2388 00b2 00000000 		.4byte	0
+ 2389              	.LLST4:
+ 2390 00b6 00000000 		.4byte	.LVL18
+ 2391 00ba 0F000000 		.4byte	.LVL20-1
+ 2392 00be 0100     		.2byte	0x1
+ 2393 00c0 52       		.byte	0x52
+ 2394 00c1 0F000000 		.4byte	.LVL20-1
+ 2395 00c5 84000000 		.4byte	.LVL38
+ 2396 00c9 0400     		.2byte	0x4
+ 2397 00cb F3       		.byte	0xf3
+ 2398 00cc 01       		.uleb128 0x1
+ 2399 00cd 52       		.byte	0x52
+ 2400 00ce 9F       		.byte	0x9f
+ 2401 00cf 84000000 		.4byte	.LVL38
+ 2402 00d3 89000000 		.4byte	.LVL40-1
+ 2403 00d7 0100     		.2byte	0x1
+ 2404 00d9 52       		.byte	0x52
+ 2405 00da 89000000 		.4byte	.LVL40-1
+ 2406 00de FE000000 		.4byte	.LFE64
+ 2407 00e2 0400     		.2byte	0x4
+ 2408 00e4 F3       		.byte	0xf3
+ 2409 00e5 01       		.uleb128 0x1
+ 2410 00e6 52       		.byte	0x52
+ 2411 00e7 9F       		.byte	0x9f
+ 2412 00e8 00000000 		.4byte	0
+ 2413 00ec 00000000 		.4byte	0
+ 2414              		.section	.debug_aranges,"",%progbits
+ 2415 0000 24000000 		.4byte	0x24
+ 2416 0004 0200     		.2byte	0x2
+ 2417 0006 00000000 		.4byte	.Ldebug_info0
+ 2418 000a 04       		.byte	0x4
+ 2419 000b 00       		.byte	0
+ 2420 000c 0000     		.2byte	0
+ 2421 000e 0000     		.2byte	0
+ 2422 0010 00000000 		.4byte	.LFB63
+ 2423 0014 70000000 		.4byte	.LFE63-.LFB63
+ 2424 0018 00000000 		.4byte	.LFB64
+ 2425 001c FE000000 		.4byte	.LFE64-.LFB64
+ 2426 0020 00000000 		.4byte	0
+ 2427 0024 00000000 		.4byte	0
+ 2428              		.section	.debug_ranges,"",%progbits
+ 2429              	.Ldebug_ranges0:
+ 2430 0000 00000000 		.4byte	.LFB63
+ 2431 0004 70000000 		.4byte	.LFE63
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 46
+
+
+ 2432 0008 00000000 		.4byte	.LFB64
+ 2433 000c FE000000 		.4byte	.LFE64
+ 2434 0010 00000000 		.4byte	0
+ 2435 0014 00000000 		.4byte	0
+ 2436              		.section	.debug_line,"",%progbits
+ 2437              	.Ldebug_line0:
+ 2438 0000 CC010000 		.section	.debug_str,"MS",%progbits,1
+ 2438      02007001 
+ 2438      00000201 
+ 2438      FB0E0D00 
+ 2438      01010101 
+ 2439              	.LASF26:
+ 2440 0000 70617373 		.ascii	"password\000"
+ 2440      776F7264 
+ 2440      00
+ 2441              	.LASF52:
+ 2442 0009 666C756A 		.ascii	"flujo_LCD2\000"
+ 2442      6F5F4C43 
+ 2442      443200
+ 2443              	.LASF31:
+ 2444 0014 66756E63 		.ascii	"funcion\000"
+ 2444      696F6E00 
+ 2445              	.LASF58:
+ 2446 001c 76657273 		.ascii	"versurt\000"
+ 2446      75727400 
+ 2447              	.LASF109:
+ 2448 0024 2E5C4C43 		.ascii	".\\LCD.c\000"
+ 2448      442E6300 
+ 2449              	.LASF28:
+ 2450 002c 62756666 		.ascii	"buffer\000"
+ 2450      657200
+ 2451              	.LASF8:
+ 2452 0033 756E7369 		.ascii	"unsigned int\000"
+ 2452      676E6564 
+ 2452      20696E74 
+ 2452      00
+ 2453              	.LASF82:
+ 2454 0040 636F7069 		.ascii	"copia_recibo2\000"
+ 2454      615F7265 
+ 2454      6369626F 
+ 2454      3200
+ 2455              	.LASF9:
+ 2456 004e 5F5F696E 		.ascii	"__int32_t\000"
+ 2456      7433325F 
+ 2456      7400
+ 2457              	.LASF24:
+ 2458 0058 706F7376 		.ascii	"posventa\000"
+ 2458      656E7461 
+ 2458      00
+ 2459              	.LASF70:
+ 2460 0061 7465636C 		.ascii	"teclado2\000"
+ 2460      61646F32 
+ 2460      00
+ 2461              	.LASF105:
+ 2462 006a 67726164 		.ascii	"grado2\000"
+ 2462      6F3200
+ 2463              	.LASF103:
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 47
+
+
+ 2464 0071 6D6F6475 		.ascii	"modulo\000"
+ 2464      6C6F00
+ 2465              	.LASF63:
+ 2466 0078 70726F64 		.ascii	"producto1b\000"
+ 2466      7563746F 
+ 2466      316200
+ 2467              	.LASF104:
+ 2468 0083 67726164 		.ascii	"grado1\000"
+ 2468      6F3100
+ 2469              	.LASF85:
+ 2470 008a 70726F64 		.ascii	"producto1n\000"
+ 2470      7563746F 
+ 2470      316E00
+ 2471              	.LASF19:
+ 2472 0095 636F6D61 		.ascii	"comando\000"
+ 2472      6E646F00 
+ 2473              	.LASF94:
+ 2474 009d 65737461 		.ascii	"estado_lcd1\000"
+ 2474      646F5F6C 
+ 2474      63643100 
+ 2475              	.LASF95:
+ 2476 00a9 65737461 		.ascii	"estado_lcd2\000"
+ 2476      646F5F6C 
+ 2476      63643200 
+ 2477              	.LASF40:
+ 2478 00b5 686F7261 		.ascii	"hora\000"
+ 2478      00
+ 2479              	.LASF54:
+ 2480 00ba 7465636C 		.ascii	"teclas1\000"
+ 2480      61733100 
+ 2481              	.LASF55:
+ 2482 00c2 7465636C 		.ascii	"teclas2\000"
+ 2482      61733200 
+ 2483              	.LASF110:
+ 2484 00ca 433A5C55 		.ascii	"C:\\Users\\Recepcion\\Documents\\Prime GRP700\\Work"
+ 2484      73657273 
+ 2484      5C526563 
+ 2484      65706369 
+ 2484      6F6E5C44 
+ 2485 00f8 73706163 		.ascii	"space01\\PGRP700.cydsn\000"
+ 2485      6530315C 
+ 2485      50475250 
+ 2485      3730302E 
+ 2485      63796473 
+ 2486              	.LASF46:
+ 2487 010e 7464696E 		.ascii	"tdinero\000"
+ 2487      65726F00 
+ 2488              	.LASF41:
+ 2489 0116 706F7369 		.ascii	"posicion\000"
+ 2489      63696F6E 
+ 2489      00
+ 2490              	.LASF107:
+ 2491 011f 7276656E 		.ascii	"rventa2\000"
+ 2491      74613200 
+ 2492              	.LASF75:
+ 2493 0127 64656369 		.ascii	"decimalD\000"
+ 2493      6D616C44 
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 48
+
+
+ 2493      00
+ 2494              	.LASF36:
+ 2495 0130 64697265 		.ascii	"direccion\000"
+ 2495      6363696F 
+ 2495      6E00
+ 2496              	.LASF64:
+ 2497 013a 70726F64 		.ascii	"producto2b\000"
+ 2497      7563746F 
+ 2497      326200
+ 2498              	.LASF20:
+ 2499 0145 70726573 		.ascii	"preset\000"
+ 2499      657400
+ 2500              	.LASF86:
+ 2501 014c 70726F64 		.ascii	"producto2n\000"
+ 2501      7563746F 
+ 2501      326E00
+ 2502              	.LASF88:
+ 2503 0157 70726F64 		.ascii	"producto4n\000"
+ 2503      7563746F 
+ 2503      346E00
+ 2504              	.LASF14:
+ 2505 0162 666C6F61 		.ascii	"float\000"
+ 2505      7400
+ 2506              	.LASF67:
+ 2507 0168 62756666 		.ascii	"buffer_i2c\000"
+ 2507      65725F69 
+ 2507      326300
+ 2508              	.LASF37:
+ 2509 0173 6C656D61 		.ascii	"lema1\000"
+ 2509      3100
+ 2510              	.LASF38:
+ 2511 0179 6C656D61 		.ascii	"lema2\000"
+ 2511      3200
+ 2512              	.LASF7:
+ 2513 017f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2513      206C6F6E 
+ 2513      6720756E 
+ 2513      7369676E 
+ 2513      65642069 
+ 2514              	.LASF111:
+ 2515 0196 4C43445F 		.ascii	"LCD_1_PutChar\000"
+ 2515      315F5075 
+ 2515      74436861 
+ 2515      7200
+ 2516              	.LASF69:
+ 2517 01a4 7465636C 		.ascii	"teclado\000"
+ 2517      61646F00 
+ 2518              	.LASF22:
+ 2519 01ac 6375656E 		.ascii	"cuenta\000"
+ 2519      746100
+ 2520              	.LASF65:
+ 2521 01b3 70726F64 		.ascii	"producto3b\000"
+ 2521      7563746F 
+ 2521      336200
+ 2522              	.LASF96:
+ 2523 01be 73656C65 		.ascii	"seleccion_pos\000"
+ 2523      6363696F 
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 49
+
+
+ 2523      6E5F706F 
+ 2523      7300
+ 2524              	.LASF87:
+ 2525 01cc 70726F64 		.ascii	"producto3n\000"
+ 2525      7563746F 
+ 2525      336E00
+ 2526              	.LASF23:
+ 2527 01d7 706C6163 		.ascii	"placa\000"
+ 2527      6100
+ 2528              	.LASF97:
+ 2529 01dd 73656C65 		.ascii	"seleccion_pos2\000"
+ 2529      6363696F 
+ 2529      6E5F706F 
+ 2529      733200
+ 2530              	.LASF90:
+ 2531 01ec 6E5F636F 		.ascii	"n_copias\000"
+ 2531      70696173 
+ 2531      00
+ 2532              	.LASF99:
+ 2533 01f5 6E6F5F76 		.ascii	"no_venta\000"
+ 2533      656E7461 
+ 2533      00
+ 2534              	.LASF44:
+ 2535 01fe 766F6C75 		.ascii	"volumen\000"
+ 2535      6D656E00 
+ 2536              	.LASF35:
+ 2537 0206 74656C65 		.ascii	"telefono\000"
+ 2537      666F6E6F 
+ 2537      00
+ 2538              	.LASF66:
+ 2539 020f 70726F64 		.ascii	"producto4b\000"
+ 2539      7563746F 
+ 2539      346200
+ 2540              	.LASF83:
+ 2541 021a 69645F76 		.ascii	"id_venta\000"
+ 2541      656E7461 
+ 2541      00
+ 2542              	.LASF45:
+ 2543 0223 74766F6C 		.ascii	"tvolumen\000"
+ 2543      756D656E 
+ 2543      00
+ 2544              	.LASF76:
+ 2545 022c 66656368 		.ascii	"fecha_corte\000"
+ 2545      615F636F 
+ 2545      72746500 
+ 2546              	.LASF16:
+ 2547 0238 63686172 		.ascii	"char\000"
+ 2547      00
+ 2548              	.LASF12:
+ 2549 023d 75696E74 		.ascii	"uint16\000"
+ 2549      313600
+ 2550              	.LASF79:
+ 2551 0244 7072696E 		.ascii	"print1\000"
+ 2551      743100
+ 2552              	.LASF80:
+ 2553 024b 7072696E 		.ascii	"print2\000"
+ 2553      743200
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 50
+
+
+ 2554              	.LASF49:
+ 2555 0252 6461746F 		.ascii	"dato\000"
+ 2555      00
+ 2556              	.LASF27:
+ 2557 0257 7475726E 		.ascii	"turno\000"
+ 2557      6F00
+ 2558              	.LASF101:
+ 2559 025d 42756666 		.ascii	"Buffer_LCD2\000"
+ 2559      65725F4C 
+ 2559      43443200 
+ 2560              	.LASF6:
+ 2561 0269 6C6F6E67 		.ascii	"long long int\000"
+ 2561      206C6F6E 
+ 2561      6720696E 
+ 2561      7400
+ 2562              	.LASF42:
+ 2563 0277 70726F64 		.ascii	"producto\000"
+ 2563      7563746F 
+ 2563      00
+ 2564              	.LASF34:
+ 2565 0280 636F6E66 		.ascii	"configppu\000"
+ 2565      69677070 
+ 2565      7500
+ 2566              	.LASF25:
+ 2567 028a 63656475 		.ascii	"cedula\000"
+ 2567      6C6100
+ 2568              	.LASF112:
+ 2569 0291 4C43445F 		.ascii	"LCD_2_PutChar\000"
+ 2569      325F5075 
+ 2569      74436861 
+ 2569      7200
+ 2570              	.LASF84:
+ 2571 029f 6E6F6D62 		.ascii	"nombreproducto\000"
+ 2571      72657072 
+ 2571      6F647563 
+ 2571      746F00
+ 2572              	.LASF18:
+ 2573 02ae 73697A65 		.ascii	"size\000"
+ 2573      00
+ 2574              	.LASF48:
+ 2575 02b3 77726974 		.ascii	"write_LCD\000"
+ 2575      655F4C43 
+ 2575      4400
+ 2576              	.LASF13:
+ 2577 02bd 75696E74 		.ascii	"uint32\000"
+ 2577      333200
+ 2578              	.LASF98:
+ 2579 02c4 69645F63 		.ascii	"id_corte\000"
+ 2579      6F727465 
+ 2579      00
+ 2580              	.LASF32:
+ 2581 02cd 72656369 		.ascii	"recibo\000"
+ 2581      626F00
+ 2582              	.LASF43:
+ 2583 02d4 64696E65 		.ascii	"dinero\000"
+ 2583      726F00
+ 2584              	.LASF100:
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 51
+
+
+ 2585 02db 42756666 		.ascii	"Buffer_LCD1\000"
+ 2585      65725F4C 
+ 2585      43443100 
+ 2586              	.LASF29:
+ 2587 02e7 65737461 		.ascii	"estado\000"
+ 2587      646F00
+ 2588              	.LASF93:
+ 2589 02ee 696D6167 		.ascii	"imagen\000"
+ 2589      656E00
+ 2590              	.LASF71:
+ 2591 02f5 70707578 		.ascii	"ppux10\000"
+ 2591      313000
+ 2592              	.LASF33:
+ 2593 02fc 6E6F6D62 		.ascii	"nombre\000"
+ 2593      726500
+ 2594              	.LASF78:
+ 2595 0303 6372635F 		.ascii	"crc_total\000"
+ 2595      746F7461 
+ 2595      6C00
+ 2596              	.LASF51:
+ 2597 030d 666C756A 		.ascii	"flujo_LCD\000"
+ 2597      6F5F4C43 
+ 2597      4400
+ 2598              	.LASF89:
+ 2599 0317 615F636F 		.ascii	"a_copias\000"
+ 2599      70696173 
+ 2599      00
+ 2600              	.LASF77:
+ 2601 0320 706F735F 		.ascii	"pos_ibutton\000"
+ 2601      69627574 
+ 2601      746F6E00 
+ 2602              	.LASF2:
+ 2603 032c 73686F72 		.ascii	"short int\000"
+ 2603      7420696E 
+ 2603      7400
+ 2604              	.LASF4:
+ 2605 0336 6C6F6E67 		.ascii	"long int\000"
+ 2605      20696E74 
+ 2605      00
+ 2606              	.LASF81:
+ 2607 033f 636F7069 		.ascii	"copia_recibo\000"
+ 2607      615F7265 
+ 2607      6369626F 
+ 2607      00
+ 2608              	.LASF50:
+ 2609 034c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2609      52784275 
+ 2609      66666572 
+ 2609      00
+ 2610              	.LASF56:
+ 2611 0359 636F6D61 		.ascii	"comas1\000"
+ 2611      733100
+ 2612              	.LASF57:
+ 2613 0360 636F6D61 		.ascii	"comas2\000"
+ 2613      733200
+ 2614              	.LASF47:
+ 2615 0367 7365745F 		.ascii	"set_imagen\000"
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 52
+
+
+ 2615      696D6167 
+ 2615      656E00
+ 2616              	.LASF59:
+ 2617 0372 70726F64 		.ascii	"producto1\000"
+ 2617      7563746F 
+ 2617      3100
+ 2618              	.LASF60:
+ 2619 037c 70726F64 		.ascii	"producto2\000"
+ 2619      7563746F 
+ 2619      3200
+ 2620              	.LASF61:
+ 2621 0386 70726F64 		.ascii	"producto3\000"
+ 2621      7563746F 
+ 2621      3300
+ 2622              	.LASF62:
+ 2623 0390 70726F64 		.ascii	"producto4\000"
+ 2623      7563746F 
+ 2623      3400
+ 2624              	.LASF102:
+ 2625 039a 65737461 		.ascii	"estado_0\000"
+ 2625      646F5F30 
+ 2625      00
+ 2626              	.LASF53:
+ 2627 03a3 636F6E74 		.ascii	"cont1\000"
+ 2627      3100
+ 2628              	.LASF17:
+ 2629 03a9 73697A65 		.ascii	"sizetype\000"
+ 2629      74797065 
+ 2629      00
+ 2630              	.LASF5:
+ 2631 03b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2631      20756E73 
+ 2631      69676E65 
+ 2631      6420696E 
+ 2631      7400
+ 2632              	.LASF72:
+ 2633 03c4 62616E64 		.ascii	"bandera\000"
+ 2633      65726100 
+ 2634              	.LASF10:
+ 2635 03cc 696E7433 		.ascii	"int32_t\000"
+ 2635      325F7400 
+ 2636              	.LASF92:
+ 2637 03d4 6E6F5F69 		.ascii	"no_imprime2\000"
+ 2637      6D707269 
+ 2637      6D653200 
+ 2638              	.LASF91:
+ 2639 03e0 6E6F5F69 		.ascii	"no_imprime\000"
+ 2639      6D707269 
+ 2639      6D6500
+ 2640              	.LASF1:
+ 2641 03eb 756E7369 		.ascii	"unsigned char\000"
+ 2641      676E6564 
+ 2641      20636861 
+ 2641      7200
+ 2642              	.LASF108:
+ 2643 03f9 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2643      4320342E 
+ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccuDSV9l.s 			page 53
+
+
+ 2643      392E3320 
+ 2643      32303135 
+ 2643      30333033 
+ 2644 042c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2644      20726576 
+ 2644      6973696F 
+ 2644      6E203232 
+ 2644      31323230 
+ 2645 045f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2645      66756E63 
+ 2645      74696F6E 
+ 2645      2D736563 
+ 2645      74696F6E 
+ 2646              	.LASF68:
+ 2647 0487 72657375 		.ascii	"resultado\000"
+ 2647      6C746164 
+ 2647      6F00
+ 2648              	.LASF39:
+ 2649 0491 66656368 		.ascii	"fecha\000"
+ 2649      6100
+ 2650              	.LASF0:
+ 2651 0497 7369676E 		.ascii	"signed char\000"
+ 2651      65642063 
+ 2651      68617200 
+ 2652              	.LASF21:
+ 2653 04a3 76616C6F 		.ascii	"valor\000"
+ 2653      7200
+ 2654              	.LASF3:
+ 2655 04a9 73686F72 		.ascii	"short unsigned int\000"
+ 2655      7420756E 
+ 2655      7369676E 
+ 2655      65642069 
+ 2655      6E7400
+ 2656              	.LASF74:
+ 2657 04bc 64656369 		.ascii	"decimalV\000"
+ 2657      6D616C56 
+ 2657      00
+ 2658              	.LASF11:
+ 2659 04c5 75696E74 		.ascii	"uint8\000"
+ 2659      3800
+ 2660              	.LASF15:
+ 2661 04cb 646F7562 		.ascii	"double\000"
+ 2661      6C6500
+ 2662              	.LASF73:
+ 2663 04d2 7469706F 		.ascii	"tipo_imp\000"
+ 2663      5F696D70 
+ 2663      00
+ 2664              	.LASF30:
+ 2665 04db 6D616E67 		.ascii	"manguera\000"
+ 2665      75657261 
+ 2665      00
+ 2666              	.LASF106:
+ 2667 04e4 7276656E 		.ascii	"rventa\000"
+ 2667      746100
+ 2668              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

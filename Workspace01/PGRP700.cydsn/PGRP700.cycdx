@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
+  <block name="IB2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="IB1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Surtidor" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
+    <block name="RXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <register name="RX_Surtidor_RX_ADDRESS1" address="0x4000642E" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_Surtidor_RX_ADDRESS2" address="0x4000643E" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="TX_Surtidor_TX_DATA" address="0x40006445" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="RX_Surtidor_RX_DATA" address="0x4000644E" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="TX_Surtidor_TX_STATUS" address="0x40006465" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="Surtidor_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="Surtidor_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="Surtidor_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="Surtidor_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" />
+    </register>
+    <register name="RX_Surtidor_RX_STATUS" address="0x4000646D" bitWidth="8" desc="RX status register" hidden="false">
+      <field name="Surtidor_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="Surtidor_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="Surtidor_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="Surtidor_RX_STS_STOP_ERROR" from="3" to="3" access="R" resetVal="" desc="" />
+      <field name="Surtidor_RX_STS_OVERRUN" from="4" to="4" access="R" resetVal="" desc="" />
+      <field name="Surtidor_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" />
+      <field name="Surtidor_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" />
+    </register>
+  </block>
+  <block name="Tx_TW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rx_TW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SDA_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SCL_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_WP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="I2C_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="BusClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="or_ff" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_scl_out" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="OneTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="OneTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="or_udb" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Bufoe_sda" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_timeout_clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="or_udb_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Bufoe_scl" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_scl_in" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_sda_in" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_sda_out" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Vmux_interrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="I2C_FF" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="I2C_IRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <register name="I2C_1_FF_XCFG" address="0x400049C8" bitWidth="8" desc="Extended Configuration Register: I2C_XCFG" hidden="false">
+      <field name="csr_clk_en" from="7" to="7" access="RW" resetVal="" desc="" />
+      <field name="i2c_on" from="6" to="6" access="RW" resetVal="" desc="" />
+      <field name="ready_to_sleep" from="5" to="5" access="R" resetVal="" desc="" />
+      <field name="force_nack" from="4" to="4" access="RW" resetVal="" desc="" />
+      <field name="hw_addr_en" from="0" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF_ADDR" address="0x400049CA" bitWidth="8" desc="Slave Adddress Register: I2C_ADR" hidden="false">
+      <field name="slave_address" from="6" to="0" access="RW" resetVal="" desc="This register holds the slave's 7-bit address." />
+    </register>
+    <register name="I2C_1_FF_CFG" address="0x400049D6" bitWidth="8" desc="Configuration Register: I2C_CFG" hidden="false">
+      <field name="sio_select" from="7" to="7" access="RW" resetVal="" desc="" />
+      <field name="pselect" from="6" to="6" access="RW" resetVal="" desc="" />
+      <field name="bus_error_ie" from="5" to="5" access="RW" resetVal="" desc="" />
+      <field name="stop_ie" from="4" to="4" access="RW" resetVal="" desc="" />
+      <field name="clock_rate" from="2" to="2" access="RW" resetVal="" desc="" />
+      <field name="en_mstr" from="1" to="1" access="RW" resetVal="" desc="" />
+      <field name="en_slave" from="0" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF_CSR" address="0x400049D7" bitWidth="8" desc="Control and Status Register: I2C_CSR" hidden="false">
+      <field name="bus_error" from="7" to="7" access="RW" resetVal="" desc="" />
+      <field name="lost_arb" from="6" to="6" access="RW" resetVal="" desc="" />
+      <field name="stop_status" from="5" to="5" access="RW" resetVal="" desc="" />
+      <field name="ack" from="4" to="4" access="RW" resetVal="" desc="" />
+      <field name="address" from="3" to="3" access="RW" resetVal="" desc="" />
+      <field name="transmit" from="2" to="2" access="RW" resetVal="" desc="" />
+      <field name="lrb" from="1" to="1" access="RW" resetVal="" desc="" />
+      <field name="byte_complete" from="0" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF_DATA" address="0x400049D8" bitWidth="8" desc="Data Register: I2C_D" hidden="false">
+      <field name="data" from="7" to="0" access="RW" resetVal="" desc="This register provides read/write access to the Shift register." />
+    </register>
+    <register name="I2C_1_FF_MCSR" address="0x400049D9" bitWidth="8" desc="Master Control and Status Register: I2C_MCSR" hidden="false">
+      <field name="stop_gen" from="4" to="4" access="RW" resetVal="" desc="" />
+      <field name="bus_busy" from="3" to="3" access="R" resetVal="" desc="" />
+      <field name="master_mode" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="restart_gen" from="1" to="1" access="RW" resetVal="" desc="" />
+      <field name="start_gen" from="0" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF__CLK_DIV1" address="0x400049DB" bitWidth="8" desc="Divider of BUS_CLK low part: I2C_CLK_DIV1" hidden="false">
+      <field name="Div" from="7" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF__CLK_DIV2" address="0x400049DC" bitWidth="8" desc="Divider high part: I2C_CLK_DIV1" hidden="false">
+      <field name="Div" from="1" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF__TMOUT_CSR" address="0x400049DD" bitWidth="8" desc="Extended Configuration Register: I2C_TMOUT_CSR" hidden="false">
+      <field name="sda_pin_status" from="4" to="4" access="RW" resetVal="" desc="" />
+      <field name="scl_pin_status" from="3" to="3" access="RW" resetVal="" desc="" />
+      <field name="i2c_timeout_int_enable" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="i2c_sda_timeout_enable" from="1" to="1" access="RW" resetVal="" desc="" />
+      <field name="i2c_scl_timeout_enable" from="0" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF__TMOUT_SR" address="0x400049DE" bitWidth="8" desc="Extended Configuration Register: I2C_TMOUT_SR" hidden="false">
+      <field name="sda_tmout_status" from="1" to="1" access="RW" resetVal="" desc="" />
+      <field name="scl_tmout_status" from="0" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF__TMOUT_CFG0" address="0x400049DF" bitWidth="8" desc="Extended Configuration Register: TMOUT_CFG0" hidden="false">
+      <field name="timeout_period_lowbyte" from="7" to="0" access="RW" resetVal="" desc="" />
+    </register>
+    <register name="I2C_1_FF__TMOUT_CFG1" address="0x400049E0" bitWidth="8" desc="Extended Configuration Register: TMOUT_CFG1" hidden="false">
+      <field name="timeout_period_highnibble" from="3" to="0" access="RW" resetVal="" desc="" />
+    </register>
+  </block>
+  <block name="Rx_LCD_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LCD_1" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
+    <block name="RXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <register name="RX_LCD_1_RX_STATUS" address="0x4000646A" bitWidth="8" desc="RX status register" hidden="false">
+      <field name="LCD_1_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="LCD_1_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="LCD_1_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="LCD_1_RX_STS_STOP_ERROR" from="3" to="3" access="R" resetVal="" desc="" />
+      <field name="LCD_1_RX_STS_OVERRUN" from="4" to="4" access="R" resetVal="" desc="" />
+      <field name="LCD_1_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" />
+      <field name="LCD_1_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" />
+    </register>
+    <register name="RX_LCD_1_RX_ADDRESS1" address="0x40006528" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_LCD_1_RX_ADDRESS2" address="0x40006538" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="TX_LCD_1_TX_DATA" address="0x40006545" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="RX_LCD_1_RX_DATA" address="0x40006548" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="TX_LCD_1_TX_STATUS" address="0x40006565" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="LCD_1_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="LCD_1_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="LCD_1_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="LCD_1_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" />
+    </register>
+  </block>
+  <block name="Tx_LCD_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rx_Print" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Tx_Print" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Impresora" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
+    <block name="RXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <register name="RX_Impresora_RX_ADDRESS1" address="0x4000642B" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_Impresora_RX_ADDRESS2" address="0x4000643B" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="TX_Impresora_TX_DATA" address="0x40006449" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="RX_Impresora_RX_DATA" address="0x4000644B" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="TX_Impresora_TX_STATUS" address="0x40006467" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="Impresora_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="Impresora_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="Impresora_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="Impresora_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" />
+    </register>
+    <register name="RX_Impresora_RX_STATUS" address="0x4000646C" bitWidth="8" desc="RX status register" hidden="false">
+      <field name="Impresora_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="Impresora_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="Impresora_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="Impresora_RX_STS_STOP_ERROR" from="3" to="3" access="R" resetVal="" desc="" />
+      <field name="Impresora_RX_STS_OVERRUN" from="4" to="4" access="R" resetVal="" desc="" />
+      <field name="Impresora_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" />
+      <field name="Impresora_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" />
+    </register>
+  </block>
+  <block name="Tx_LCD_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LCD_2" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
+    <block name="RXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <register name="TX_LCD_2_TX_DATA" address="0x40006447" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="RX_LCD_2_RX_STATUS" address="0x40006464" bitWidth="8" desc="RX status register" hidden="false">
+      <field name="LCD_2_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="LCD_2_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="LCD_2_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="LCD_2_RX_STS_STOP_ERROR" from="3" to="3" access="R" resetVal="" desc="" />
+      <field name="LCD_2_RX_STS_OVERRUN" from="4" to="4" access="R" resetVal="" desc="" />
+      <field name="LCD_2_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" />
+      <field name="LCD_2_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" />
+    </register>
+    <register name="RX_LCD_2_RX_ADDRESS1" address="0x40006529" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_LCD_2_RX_ADDRESS2" address="0x40006539" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="RX_LCD_2_RX_DATA" address="0x40006549" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="TX_LCD_2_TX_STATUS" address="0x40006564" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="LCD_2_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" />
+      <field name="LCD_2_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" />
+      <field name="LCD_2_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" />
+      <field name="LCD_2_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" />
+    </register>
+  </block>
+  <block name="Rx_LCD_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+</blockRegMap>
