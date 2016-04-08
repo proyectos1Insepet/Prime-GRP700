@@ -40,12 +40,17 @@
           <File BuildType="BUILD" Toolchain="">.\protocolo.c</File>
           <File BuildType="BUILD" Toolchain="">.\LCD.c</File>
           <File BuildType="BUILD" Toolchain="">.\I2C.c</File>
+          <File BuildType="BUILD" Toolchain="">.\ibuton.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Print.c</File>
           <File BuildType="BUILD" Toolchain="">.\cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">.\Protocolo.h</File>
           <File BuildType="BUILD" Toolchain="">.\VariablesG.h</File>
           <File BuildType="BUILD" Toolchain="">.\device.h</File>
           <File BuildType="BUILD" Toolchain="">.\LCD.h</File>
           <File BuildType="BUILD" Toolchain="">.\I2C.h</File>
+          <File BuildType="BUILD" Toolchain="">.\ibutton.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Print.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Logos.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\Generated_Source\PSoC5">

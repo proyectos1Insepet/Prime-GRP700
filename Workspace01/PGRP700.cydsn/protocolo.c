@@ -36,7 +36,7 @@
 
 #include "VariablesG.h"
 #include "I2C.h"
-//#include "Print.h"
+#include "Print.h"
 #include <string.h>
 
 /*
@@ -351,1253 +351,1253 @@ uint8 venta(uint8 val){
     }
 }
 
-///*
-//*********************************************************************************************************
-//*                                         uint8 get_totales(uint8 dir)
-//*
-//* Description : 
-//*               
-//*
-//* Argument(s) : none
-//*
-//* Return(s)   : none
-//*
-//* Caller(s)   : 
-//*
-//* Note(s)     : none.
-//*********************************************************************************************************
-//*/
-//uint8 get_totales(uint8 dir,uint8 val){ 
-//	uint8 corte[25], minuendo[14],sustraendo[14]; 
-//    Surtidor_PutChar(0x50|dir);
-//
-//    CyDelay(1000);
-//	switch(Surtidor_GetRxBufferSize()){
-//		case 34:
-//			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[33]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-//				rventa.manguera=(Surtidor_rxBuffer[2]&0x0F)+1;			
-//				for(x=0;x<=7;x++){												
-//					rventa.tvolumen[x]=(Surtidor_rxBuffer[x+4]&0x0F);
-//				}
-//				for(x=0;x<=7;x++){
-//					rventa.tdinero[x]=(Surtidor_rxBuffer[x+13]&0x0F);
-//				}
-//				for(z=0;z<=7;z++){
-//					corte[z+1]=rventa.tvolumen[z];
-//				}
-//				for(z=9;z<=16;z++){
-//					corte[z]=rventa.tdinero[z-9];
-//				}
-//				corte[0]=16;				
-//				if(((rventa.manguera==(corriente&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(corriente2&0x0F))&&(dir==lado.b.dir))){				//TOTAL CORRIENTE
-//					for(x=0;x<=5;x++){									
-//						write_psoc1(val,msn_tc[x]);
-//					}
-//					write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto1n[x]);
-//					}
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(8,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(192,25);
-//					}
-//					else{
-//						leer_eeprom(281,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=8;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+8];
-//					}
-//					minuendo[0]=8;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);
-//					if(dir==lado.a.dir){
-//						write_eeprom(192,corte);	
-//						write_eeprom(512,resultado);
-//					}
-//					else{
-//						write_eeprom(281,corte);
-//						write_eeprom(551,resultado);
-//					}
-//				}
-//				if(((rventa.manguera==(diesel&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(diesel2&0x0F))&&(dir==lado.b.dir))){		//TOTALES DIESEL
-//					for(x=0;x<=5;x++){									
-//						write_psoc1(val,msn_tc[x]);
-//					}
-//					write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto2n[x]);
-//					}                    
-//					write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(8,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(217,25);
-//					}
-//					else{
-//						leer_eeprom(320,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=8;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+8];
-//					}
-//					minuendo[0]=8;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);				
-//					if(dir==lado.a.dir){
-//						write_eeprom(217,corte);
-//						write_eeprom(538,resultado);
-//					}
-//					else{
-//						write_eeprom(320,corte);
-//						write_eeprom(576,resultado);
-//					}				
-//				}
-//				if(((rventa.manguera==(extra&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(extra2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//					for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto3n[x]);
-//					    }
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(8,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(256,25);
-//					}
-//					else{
-//						leer_eeprom(345,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=8;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+8];
-//					}
-//					minuendo[0]=8;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);							
-//					if(dir==lado.a.dir){
-//						write_eeprom(256,corte);
-//						write_eeprom(525,resultado);
-//					}
-//					else{
-//						write_eeprom(345,corte);
-//						write_eeprom(589,resultado);
-//					}					
-//				}
-//                
-//                if(((rventa.manguera==(kero&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(kero2&0x0F))&&(dir==lado.b.dir))){					//TOTALES KERO
-//					for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto4n[x]);
-//					    }
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(8,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(1096,25);
-//					}
-//					else{
-//						leer_eeprom(1054,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=8;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+8];
-//					}
-//					minuendo[0]=8;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);							
-//					if(dir==lado.a.dir){
-//						write_eeprom(1096,corte);
-//						write_eeprom(1038,resultado);
-//					}
-//					else{
-//						write_eeprom(1054,corte);
-//						write_eeprom(1081,resultado);
-//					}					
-//				}
-//				
-//				Surtidor_ClearRxBuffer();
-//				return 1;
-//			}
-//			else{
-//				return 0;
-//			}
-//		break;
-//
-//		case 64:
-//			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[63]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-//				for(y=0;y<=30;y+=30){
-//					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
-//					for(x=0;x<=7;x++){
-//						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);
-//					}
-//					for(x=0;x<=7;x++){
-//						rventa.tdinero[x]=(Surtidor_rxBuffer[y+13+x]&0x0F);
-//                        
-//					}
-//					for(z=0;z<=7;z++){
-//						corte[z+1]=rventa.tvolumen[z];
-//					}
-//					for(z=9;z<=16;z++){
-//						corte[z]=rventa.tdinero[z-9];
-//					}
-//					corte[0]=16;							
-//					if(((rventa.manguera==(corriente&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(corriente2&0x0F))&&(dir==lado.b.dir))){				//TOTAL CORRIENTE
-//						for(x=0;x<=5;x++){									
-//							write_psoc1(val,msn_tc[x]);
-//						}
-//						write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto1n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(192,25);
-//						}
-//						else{
-//							leer_eeprom(281,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);
-//						if(dir==lado.a.dir){
-//							write_eeprom(192,corte);	
-//							write_eeprom(512,resultado);
-//						}
-//						else{
-//							write_eeprom(281,corte);
-//							write_eeprom(551,resultado);
-//						}
-//					}
-//					if(((rventa.manguera==(diesel&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(diesel2&0x0F))&&(dir==lado.b.dir))){					//TOTALES DIESEL
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto2n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(217,25);
-//						}
-//						else{
-//							leer_eeprom(320,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);				
-//						if(dir==lado.a.dir){
-//							write_eeprom(217,corte);
-//							write_eeprom(538,resultado);
-//						}
-//						else{
-//							write_eeprom(320,corte);
-//							write_eeprom(576,resultado);
-//						}				
-//					}
-//					if(((rventa.manguera==(extra&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(extra2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto3n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(256,25);
-//						}
-//						else{
-//							leer_eeprom(345,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//							write_eeprom(256,corte);
-//							write_eeprom(525,resultado);
-//						}
-//						else{
-//							write_eeprom(345,corte);
-//							write_eeprom(589,resultado);
-//						}					
-//					}	
-//                    
-//                    if(((rventa.manguera==(kero&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(kero2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto4n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(1096,25);
-//						}
-//						else{
-//							leer_eeprom(1054,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//						    write_eeprom(1096,corte);
-//						    write_eeprom(1038,resultado);
-//					    }
-//					    else{
-//						    write_eeprom(1054,corte);
-//						    write_eeprom(1081,resultado);
-//						}					
-//					}
-//				}
-//				Surtidor_ClearRxBuffer();
-//				return 2;					
-//			}			
-//			else{
-//				return 0;
-//			}
-//		break;
-//		
-//		case 94:
-//			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[93]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-//				for(y=0;y<=60;y+=30){
-//					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
-//					for(x=0;x<=7;x++){
-//						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);						
-//					}
-//					for(x=0;x<=7;x++){
-//						rventa.tdinero[x]=(Surtidor_rxBuffer[y+13+x]&0x0F);					
-//					}
-//					for(z=0;z<=7;z++){
-//						corte[z+1]=rventa.tvolumen[z];
-//					}
-//					for(z=9;z<=16;z++){
-//						corte[z]=rventa.tdinero[z-9];
-//					}
-//					corte[0]=16;		
-//					if(((rventa.manguera==(corriente&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(corriente2&0x0F))&&(dir==lado.b.dir))){				//TOTAL CORRIENTE
-//						for(x=0;x<=5;x++){									
-//							write_psoc1(val,msn_tc[x]);
-//						}
-//						write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto1n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(192,25);
-//						}
-//						else{
-//							leer_eeprom(281,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);
-//						if(dir==lado.a.dir){
-//							write_eeprom(192,corte);	
-//							write_eeprom(512,resultado);
-//						}
-//						else{
-//							write_eeprom(281,corte);
-//							write_eeprom(551,resultado);
-//						}
-//					}
-//					if(((rventa.manguera==(diesel&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(diesel2&0x0F))&&(dir==lado.b.dir))){					//TOTALES DIESEL
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto2n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(217,25);
-//						}
-//						else{
-//							leer_eeprom(320,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);				
-//						if(dir==lado.a.dir){
-//							write_eeprom(217,corte);
-//							write_eeprom(538,resultado);
-//						}
-//						else{
-//							write_eeprom(320,corte);
-//							write_eeprom(576,resultado);
-//						}				
-//					}
-//					if(((rventa.manguera==(extra&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(extra2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto3n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(256,25);
-//						}
-//						else{
-//							leer_eeprom(345,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//							write_eeprom(256,corte);
-//							write_eeprom(525,resultado);
-//						}
-//						else{
-//							write_eeprom(345,corte);
-//							write_eeprom(589,resultado);
-//						}					
-//					}
-//                    
-//                    if(((rventa.manguera==(kero&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(kero2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto4n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(8,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(1096,25);
-//						}
-//						else{
-//							leer_eeprom(1054,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=8;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+8];
-//						}
-//						minuendo[0]=8;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//						    write_eeprom(1096,corte);
-//						    write_eeprom(1038,resultado);
-//					    }
-//					    else{
-//						    write_eeprom(1054,corte);
-//						    write_eeprom(1081,resultado);
-//						}					
-//					}
-//                    
-//				}
-//				Surtidor_ClearRxBuffer();
-//				return 3;					
-//			}			
-//			else{
-//				return 0;
-//			}			
-//		break;
-//
-//		case 46:
-//			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[45]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-//				rventa.manguera=(Surtidor_rxBuffer[2]&0xF0)+1;
-//				for(x=0;x<=11;x++){
-//					rventa.tvolumen[x]=(Surtidor_rxBuffer[x+4]&0x0F);
-//				}
-//				for(x=0;x<=11;x++){
-//					rventa.tdinero[x]=(Surtidor_rxBuffer[x+17]&0x0F);
-//				}
-//				for(z=0;z<=11;z++){
-//					corte[z+1]=rventa.tvolumen[z];
-//				}
-//				for(z=13;z<=24;z++){
-//					corte[z]=rventa.tdinero[z-13];
-//				}
-//				corte[0]=24;				
-//				if(((rventa.manguera==(corriente&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(corriente2&0x0F))&&(dir==lado.b.dir))){				//TOTAL CORRIENTE
-//					for(x=0;x<=5;x++){									
-//						write_psoc1(val,msn_tc[x]);
-//					}
-//					write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto1n[x]);
-//					}
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(12,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(192,25);
-//					}
-//					else{
-//						leer_eeprom(281,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=12;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+12];
-//					}
-//					minuendo[0]=12;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);
-//					if(dir==lado.a.dir){
-//						write_eeprom(192,corte);	
-//						write_eeprom(512,resultado);
-//					}
-//					else{
-//						write_eeprom(281,corte);
-//						write_eeprom(551,resultado);
-//					}
-//				}
-//				if(((rventa.manguera==(diesel&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(diesel2&0x0F))&&(dir==lado.b.dir))){					//TOTALES DIESEL
-//					for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto2n[x]);
-//					    }
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(12,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(217,25);
-//					}
-//					else{
-//						leer_eeprom(320,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=12;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+12];
-//					}
-//					minuendo[0]=12;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);				
-//					if(dir==lado.a.dir){
-//						write_eeprom(217,corte);
-//						write_eeprom(538,resultado);
-//					}
-//					else{
-//						write_eeprom(320,corte);
-//						write_eeprom(576,resultado);
-//					}				
-//				}
-//				if(((rventa.manguera==(extra&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(extra2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//					for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto3n[x]);
-//					    }
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(12,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(256,25);
-//					}
-//					else{
-//						leer_eeprom(345,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=12;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+12];
-//					}
-//					minuendo[0]=12;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);							
-//					if(dir==lado.a.dir){
-//						write_eeprom(256,corte);
-//						write_eeprom(525,resultado);
-//					}
-//					else{
-//						write_eeprom(345,corte);
-//						write_eeprom(589,resultado);
-//					}					
-//				}
-//                
-//                if(((rventa.manguera==(kero&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(kero2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//					for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                    for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto4n[x]);
-//					    }
-//                    write_psoc1(val,10);
-//					for(x=0;x<=14;x++){									
-//						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//					}
-//					write_psoc1(val,10);
-//					print_totalesac(12,val);	
-//					for(x=0;x<=16;x++){												
-//						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//					}
-//					write_psoc1(val,10);
-//					if(dir==lado.a.dir){
-//						leer_eeprom(1096,25);
-//					}
-//					else{
-//						leer_eeprom(1054,25);
-//					}
-//					print_totales(val);
-//					for(z=1;z<=12;z++){
-//						minuendo[z]=rventa.tdinero[z-1];
-//						sustraendo[z]=buffer_i2c[z+12];
-//					}
-//					minuendo[0]=12;
-//					operacion(2,minuendo,sustraendo);
-//					for(x=0;x<=17;x++){									
-//						write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//					}
-//					print_valor(resultado,val);							
-//					if(dir==lado.a.dir){
-//						write_eeprom(1096,corte);
-//						write_eeprom(1038,resultado);
-//					}
-//					else{
-//						write_eeprom(1054,corte);
-//						write_eeprom(1081,resultado);
-//				    }						
-//				}
-//				Surtidor_ClearRxBuffer();
-//				return 1;
-//			}
-//			else{
-//				return 0;
-//			}			
-//		break;
-//		
-//		case 88:
-//			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[87]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-//				for(y=0;y<=42;y+=42){
-//					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
-//					for(x=0;x<=11;x++){
-//						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);
-//					}
-//					for(x=0;x<=11;x++){
-//						rventa.tdinero[x]=(Surtidor_rxBuffer[y+17+x]&0x0F);
-//					}
-//					for(z=0;z<=11;z++){
-//						corte[z+1]=rventa.tvolumen[z];
-//					}
-//					for(z=13;z<=24;z++){
-//						corte[z]=rventa.tdinero[z-13];
-//					}
-//					corte[0]=24;				
-//					if(((rventa.manguera==(corriente&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(corriente2&0x0F))&&(dir==lado.b.dir))){				//TOTAL CORRIENTE
-//						for(x=0;x<=5;x++){									
-//							write_psoc1(val,msn_tc[x]);
-//						}
-//                        for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto1n[x]);
-//					    }
-//                        write_psoc1(val,10);						
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(192,25);
-//						}
-//						else{
-//							leer_eeprom(281,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);
-//						if(dir==lado.a.dir){
-//							write_eeprom(192,corte);	
-//							write_eeprom(512,resultado);
-//						}
-//						else{
-//							write_eeprom(281,corte);
-//							write_eeprom(551,resultado);
-//						}
-//					}
-//					if(((rventa.manguera==(diesel&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(diesel2&0x0F))&&(dir==lado.b.dir))){					//TOTALES DIESEL
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto2n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(217,25);
-//						}
-//						else{
-//							leer_eeprom(320,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);				
-//						if(dir==lado.a.dir){
-//							write_eeprom(217,corte);
-//							write_eeprom(538,resultado);
-//						}
-//						else{
-//							write_eeprom(320,corte);
-//							write_eeprom(576,resultado);
-//						}				
-//					}
-//					if(((rventa.manguera==(extra&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(extra2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto3n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(256,25);
-//						}
-//						else{
-//							leer_eeprom(345,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//							write_eeprom(256,corte);
-//							write_eeprom(525,resultado);
-//						}
-//						else{
-//							write_eeprom(345,corte);
-//							write_eeprom(589,resultado);
-//						}					
-//					}
-//                    
-//                    
-//                    if(((rventa.manguera==(kero&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(kero2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto4n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(1096,25);
-//						}
-//						else{
-//							leer_eeprom(1054,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//						    write_eeprom(1096,corte);
-//						    write_eeprom(1038,resultado);
-//					    }
-//					    else{
-//						    write_eeprom(1054,corte);
-//						    write_eeprom(1081,resultado);
-//				        }					
-//					}
-//				}
-//				Surtidor_ClearRxBuffer();
-//				return 2;					
-//			}			
-//			else{
-//				return 0;
-//			}			
-//		break;
-//		
-//		case 130:
-//			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[129]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-//				for(y=0;y<=84;y+=42){
-//					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
-//					for(x=0;x<=11;x++){
-//						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);
-//					}
-//					for(x=0;x<=11;x++){
-//						rventa.tdinero[x]=(Surtidor_rxBuffer[y+17+x]&0x0F);
-//					}
-//					for(z=0;z<=11;z++){
-//						corte[z+1]=rventa.tvolumen[z];
-//					}
-//					for(z=13;z<=24;z++){
-//						corte[z]=rventa.tdinero[z-13];
-//					}
-//					corte[0]=24;				
-//					if(((rventa.manguera==(corriente&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(corriente2&0x0F))&&(dir==lado.b.dir))){				//TOTAL CORRIENTE
-//						for(x=0;x<=5;x++){									
-//							write_psoc1(val,msn_tc[x]);
-//						}
-//						write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						write_psoc1(val,producto1n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(192,25);
-//						}
-//						else{
-//							leer_eeprom(281,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);
-//						if(dir==lado.a.dir){
-//							write_eeprom(192,corte);	
-//							write_eeprom(512,resultado);
-//						}
-//						else{
-//							write_eeprom(281,corte);
-//							write_eeprom(551,resultado);
-//						}
-//					}
-//					if(((rventa.manguera==(diesel&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(diesel2&0x0F))&&(dir==lado.b.dir))){					//TOTALES DIESEL
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto2n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(217,25);
-//						}
-//						else{
-//							leer_eeprom(320,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);				
-//						if(dir==lado.a.dir){
-//							write_eeprom(217,corte);
-//							write_eeprom(538,resultado);
-//						}
-//						else{
-//							write_eeprom(320,corte);
-//							write_eeprom(576,resultado);
-//						}				
-//					}
-//					if(((rventa.manguera==(extra&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(extra2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto3n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(256,25);
-//						}
-//						else{
-//							leer_eeprom(345,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//							write_eeprom(256,corte);
-//							write_eeprom(525,resultado);
-//						}
-//						else{
-//							write_eeprom(345,corte);
-//							write_eeprom(589,resultado);
-//						}					
-//					}
-//                    
-//                    if(((rventa.manguera==(kero&0x0F))&&(dir==lado.a.dir))||((rventa.manguera==(kero2&0x0F))&&(dir==lado.b.dir))){					//TOTALES EXTRA
-//						for(x=0;x<=5;x++){									
-//						    write_psoc1(val,msn_tc[x]);
-//					    }
-//					    write_psoc1(val,10);
-//                        for(x=0;x<=10;x++){									
-//						    write_psoc1(val,producto4n[x]);
-//					    }
-//                        write_psoc1(val,10);
-//						for(x=0;x<=14;x++){									
-//							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
-//						}
-//						write_psoc1(val,10);
-//						print_totalesac(12,val);	
-//						for(x=0;x<=16;x++){												
-//							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
-//						}
-//						write_psoc1(val,10);
-//						if(dir==lado.a.dir){
-//							leer_eeprom(1096,25);
-//						}
-//						else{
-//							leer_eeprom(1054,25);
-//						}
-//						print_totales(val);
-//						for(z=1;z<=12;z++){
-//							minuendo[z]=rventa.tdinero[z-1];
-//							sustraendo[z]=buffer_i2c[z+12];
-//						}
-//						minuendo[0]=12;
-//						operacion(2,minuendo,sustraendo);
-//						for(x=0;x<=17;x++){									
-//							write_psoc1(val,msn_tventas[x]);				//Total de ventas
-//						}
-//						print_valor(resultado,val);							
-//						if(dir==lado.a.dir){
-//						    write_eeprom(1096,corte);
-//						    write_eeprom(1038,resultado);
-//					    }
-//					    else{
-//						    write_eeprom(1054,corte);
-//						    write_eeprom(1081,resultado);
-//				        }					
-//					}
-//				}
-//				Surtidor_ClearRxBuffer();
-//				return 3;					
-//			}			
-//			else{
-//				return 0;
-//			}			
-//		break;
-//			
-//		default:
-//            for(x=0;x<15;x++){									
-//				write_psoc1(val,msn_totalcero[x]);				//Total de ventas
-//			}
-//			return 0;	
-//		break;	
-//	}		
-//}
+/*
+*********************************************************************************************************
+*                                         uint8 get_totales(uint8 dir)
+*
+* Description : 
+*               
+*
+* Argument(s) : none
+*
+* Return(s)   : none
+*
+* Caller(s)   : 
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+uint8 get_totales(uint8 dir,uint8 val){ 
+	uint8 corte[25], minuendo[14],sustraendo[14]; 
+    Surtidor_PutChar(0x50|dir);
+
+    CyDelay(1000);
+	switch(Surtidor_GetRxBufferSize()){
+		case 34:
+			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[33]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
+				rventa.manguera=(Surtidor_rxBuffer[2]&0x0F)+1;			
+				for(x=0;x<=7;x++){												
+					rventa.tvolumen[x]=(Surtidor_rxBuffer[x+4]&0x0F);
+				}
+				for(x=0;x<=7;x++){
+					rventa.tdinero[x]=(Surtidor_rxBuffer[x+13]&0x0F);
+				}
+				for(z=0;z<=7;z++){
+					corte[z+1]=rventa.tvolumen[z];
+				}
+				for(z=9;z<=16;z++){
+					corte[z]=rventa.tdinero[z-9];
+				}
+				corte[0]=16;				
+				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL PRODUCTO1
+					for(x=0;x<=5;x++){									
+						write_psoc1(val,msn_tc[x]);
+					}
+					write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						write_psoc1(val,producto1n[x]);
+					}
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(8,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(192,25);
+					}
+					else{
+						leer_eeprom(281,25);
+					}
+					print_totales(val);
+					for(z=1;z<=8;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+8];
+					}
+					minuendo[0]=8;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);
+					if(dir==a.dir){
+						write_eeprom(192,corte);	
+						write_eeprom(512,resultado);
+					}
+					else{
+						write_eeprom(281,corte);
+						write_eeprom(551,resultado);
+					}
+				}
+				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){		//TOTALES PRODUCTO 2
+					for(x=0;x<=5;x++){									
+						write_psoc1(val,msn_tc[x]);
+					}
+					write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						write_psoc1(val,producto2n[x]);
+					}                    
+					write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(8,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(217,25);
+					}
+					else{
+						leer_eeprom(320,25);
+					}
+					print_totales(val);
+					for(z=1;z<=8;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+8];
+					}
+					minuendo[0]=8;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);				
+					if(dir==a.dir){
+						write_eeprom(217,corte);
+						write_eeprom(538,resultado);
+					}
+					else{
+						write_eeprom(320,corte);
+						write_eeprom(576,resultado);
+					}				
+				}
+				if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+					for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto3n[x]);
+					    }
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(8,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(256,25);
+					}
+					else{
+						leer_eeprom(345,25);
+					}
+					print_totales(val);
+					for(z=1;z<=8;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+8];
+					}
+					minuendo[0]=8;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);							
+					if(dir==a.dir){
+						write_eeprom(256,corte);
+						write_eeprom(525,resultado);
+					}
+					else{
+						write_eeprom(345,corte);
+						write_eeprom(589,resultado);
+					}					
+				}
+                
+                if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto4
+					for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto4n[x]);
+					    }
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(8,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(1096,25);
+					}
+					else{
+						leer_eeprom(1054,25);
+					}
+					print_totales(val);
+					for(z=1;z<=8;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+8];
+					}
+					minuendo[0]=8;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);							
+					if(dir==a.dir){
+						write_eeprom(1096,corte);
+						write_eeprom(1038,resultado);
+					}
+					else{
+						write_eeprom(1054,corte);
+						write_eeprom(1081,resultado);
+					}					
+				}
+				
+				Surtidor_ClearRxBuffer();
+				return 1;
+			}
+			else{
+				return 0;
+			}
+		break;
+
+		case 64:
+			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[63]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
+				for(y=0;y<=30;y+=30){
+					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
+					for(x=0;x<=7;x++){
+						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);
+					}
+					for(x=0;x<=7;x++){
+						rventa.tdinero[x]=(Surtidor_rxBuffer[y+13+x]&0x0F);
+                        
+					}
+					for(z=0;z<=7;z++){
+						corte[z+1]=rventa.tvolumen[z];
+					}
+					for(z=9;z<=16;z++){
+						corte[z]=rventa.tdinero[z-9];
+					}
+					corte[0]=16;							
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+						for(x=0;x<=5;x++){									
+							write_psoc1(val,msn_tc[x]);
+						}
+						write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						write_psoc1(val,producto1n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(192,25);
+						}
+						else{
+							leer_eeprom(281,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);
+						if(dir==a.dir){
+							write_eeprom(192,corte);	
+							write_eeprom(512,resultado);
+						}
+						else{
+							write_eeprom(281,corte);
+							write_eeprom(551,resultado);
+						}
+					}
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto2n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(217,25);
+						}
+						else{
+							leer_eeprom(320,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);				
+						if(dir==a.dir){
+							write_eeprom(217,corte);
+							write_eeprom(538,resultado);
+						}
+						else{
+							write_eeprom(320,corte);
+							write_eeprom(576,resultado);
+						}				
+					}
+					if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto3n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(256,25);
+						}
+						else{
+							leer_eeprom(345,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+							write_eeprom(256,corte);
+							write_eeprom(525,resultado);
+						}
+						else{
+							write_eeprom(345,corte);
+							write_eeprom(589,resultado);
+						}					
+					}	
+                    
+                    if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto4n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(1096,25);
+						}
+						else{
+							leer_eeprom(1054,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+						    write_eeprom(1096,corte);
+						    write_eeprom(1038,resultado);
+					    }
+					    else{
+						    write_eeprom(1054,corte);
+						    write_eeprom(1081,resultado);
+						}					
+					}
+				}
+				Surtidor_ClearRxBuffer();
+				return 2;					
+			}			
+			else{
+				return 0;
+			}
+		break;
+		
+		case 94:
+			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[93]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
+				for(y=0;y<=60;y+=30){
+					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
+					for(x=0;x<=7;x++){
+						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);						
+					}
+					for(x=0;x<=7;x++){
+						rventa.tdinero[x]=(Surtidor_rxBuffer[y+13+x]&0x0F);					
+					}
+					for(z=0;z<=7;z++){
+						corte[z+1]=rventa.tvolumen[z];
+					}
+					for(z=9;z<=16;z++){
+						corte[z]=rventa.tdinero[z-9];
+					}
+					corte[0]=16;		
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+						for(x=0;x<=5;x++){									
+							write_psoc1(val,msn_tc[x]);
+						}
+						write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						write_psoc1(val,producto1n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(192,25);
+						}
+						else{
+							leer_eeprom(281,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);
+						if(dir==a.dir){
+							write_eeprom(192,corte);	
+							write_eeprom(512,resultado);
+						}
+						else{
+							write_eeprom(281,corte);
+							write_eeprom(551,resultado);
+						}
+					}
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto2n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(217,25);
+						}
+						else{
+							leer_eeprom(320,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);				
+						if(dir==a.dir){
+							write_eeprom(217,corte);
+							write_eeprom(538,resultado);
+						}
+						else{
+							write_eeprom(320,corte);
+							write_eeprom(576,resultado);
+						}				
+					}
+					if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto3n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(256,25);
+						}
+						else{
+							leer_eeprom(345,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+							write_eeprom(256,corte);
+							write_eeprom(525,resultado);
+						}
+						else{
+							write_eeprom(345,corte);
+							write_eeprom(589,resultado);
+						}					
+					}
+                    
+                    if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto4n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(8,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(1096,25);
+						}
+						else{
+							leer_eeprom(1054,25);
+						}
+						print_totales(val);
+						for(z=1;z<=8;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+8];
+						}
+						minuendo[0]=8;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+						    write_eeprom(1096,corte);
+						    write_eeprom(1038,resultado);
+					    }
+					    else{
+						    write_eeprom(1054,corte);
+						    write_eeprom(1081,resultado);
+						}					
+					}
+                    
+				}
+				Surtidor_ClearRxBuffer();
+				return 3;					
+			}			
+			else{
+				return 0;
+			}			
+		break;
+
+		case 46:
+			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[45]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
+				rventa.manguera=(Surtidor_rxBuffer[2]&0xF0)+1;
+				for(x=0;x<=11;x++){
+					rventa.tvolumen[x]=(Surtidor_rxBuffer[x+4]&0x0F);
+				}
+				for(x=0;x<=11;x++){
+					rventa.tdinero[x]=(Surtidor_rxBuffer[x+17]&0x0F);
+				}
+				for(z=0;z<=11;z++){
+					corte[z+1]=rventa.tvolumen[z];
+				}
+				for(z=13;z<=24;z++){
+					corte[z]=rventa.tdinero[z-13];
+				}
+				corte[0]=24;				
+				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+					for(x=0;x<=5;x++){									
+						write_psoc1(val,msn_tc[x]);
+					}
+					write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						write_psoc1(val,producto1n[x]);
+					}
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(12,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(192,25);
+					}
+					else{
+						leer_eeprom(281,25);
+					}
+					print_totales(val);
+					for(z=1;z<=12;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+12];
+					}
+					minuendo[0]=12;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);
+					if(dir==a.dir){
+						write_eeprom(192,corte);	
+						write_eeprom(512,resultado);
+					}
+					else{
+						write_eeprom(281,corte);
+						write_eeprom(551,resultado);
+					}
+				}
+				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+					for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto2n[x]);
+					    }
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(12,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(217,25);
+					}
+					else{
+						leer_eeprom(320,25);
+					}
+					print_totales(val);
+					for(z=1;z<=12;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+12];
+					}
+					minuendo[0]=12;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);				
+					if(dir==a.dir){
+						write_eeprom(217,corte);
+						write_eeprom(538,resultado);
+					}
+					else{
+						write_eeprom(320,corte);
+						write_eeprom(576,resultado);
+					}				
+				}
+				if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+					for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto3n[x]);
+					    }
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(12,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(256,25);
+					}
+					else{
+						leer_eeprom(345,25);
+					}
+					print_totales(val);
+					for(z=1;z<=12;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+12];
+					}
+					minuendo[0]=12;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);							
+					if(dir==a.dir){
+						write_eeprom(256,corte);
+						write_eeprom(525,resultado);
+					}
+					else{
+						write_eeprom(345,corte);
+						write_eeprom(589,resultado);
+					}					
+				}
+                
+                if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+					for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                    for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto4n[x]);
+					    }
+                    write_psoc1(val,10);
+					for(x=0;x<=14;x++){									
+						write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+					}
+					write_psoc1(val,10);
+					print_totalesac(12,val);	
+					for(x=0;x<=16;x++){												
+						write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+					}
+					write_psoc1(val,10);
+					if(dir==a.dir){
+						leer_eeprom(1096,25);
+					}
+					else{
+						leer_eeprom(1054,25);
+					}
+					print_totales(val);
+					for(z=1;z<=12;z++){
+						minuendo[z]=rventa.tdinero[z-1];
+						sustraendo[z]=buffer_i2c[z+12];
+					}
+					minuendo[0]=12;
+					operacion(2,minuendo,sustraendo);
+					for(x=0;x<=17;x++){									
+						write_psoc1(val,msn_tventas[x]);				//Total de ventas
+					}
+					print_valor(resultado,val);							
+					if(dir==a.dir){
+						write_eeprom(1096,corte);
+						write_eeprom(1038,resultado);
+					}
+					else{
+						write_eeprom(1054,corte);
+						write_eeprom(1081,resultado);
+				    }						
+				}
+				Surtidor_ClearRxBuffer();
+				return 1;
+			}
+			else{
+				return 0;
+			}			
+		break;
+		
+		case 88:
+			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[87]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
+				for(y=0;y<=42;y+=42){
+					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
+					for(x=0;x<=11;x++){
+						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);
+					}
+					for(x=0;x<=11;x++){
+						rventa.tdinero[x]=(Surtidor_rxBuffer[y+17+x]&0x0F);
+					}
+					for(z=0;z<=11;z++){
+						corte[z+1]=rventa.tvolumen[z];
+					}
+					for(z=13;z<=24;z++){
+						corte[z]=rventa.tdinero[z-13];
+					}
+					corte[0]=24;				
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+						for(x=0;x<=5;x++){									
+							write_psoc1(val,msn_tc[x]);
+						}
+                        for(x=0;x<=10;x++){									
+						write_psoc1(val,producto1n[x]);
+					    }
+                        write_psoc1(val,10);						
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(192,25);
+						}
+						else{
+							leer_eeprom(281,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);
+						if(dir==a.dir){
+							write_eeprom(192,corte);	
+							write_eeprom(512,resultado);
+						}
+						else{
+							write_eeprom(281,corte);
+							write_eeprom(551,resultado);
+						}
+					}
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto2n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(217,25);
+						}
+						else{
+							leer_eeprom(320,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);				
+						if(dir==a.dir){
+							write_eeprom(217,corte);
+							write_eeprom(538,resultado);
+						}
+						else{
+							write_eeprom(320,corte);
+							write_eeprom(576,resultado);
+						}				
+					}
+					if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto3n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(256,25);
+						}
+						else{
+							leer_eeprom(345,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+							write_eeprom(256,corte);
+							write_eeprom(525,resultado);
+						}
+						else{
+							write_eeprom(345,corte);
+							write_eeprom(589,resultado);
+						}					
+					}
+                    
+                    
+                    if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto4n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(1096,25);
+						}
+						else{
+							leer_eeprom(1054,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+						    write_eeprom(1096,corte);
+						    write_eeprom(1038,resultado);
+					    }
+					    else{
+						    write_eeprom(1054,corte);
+						    write_eeprom(1081,resultado);
+				        }					
+					}
+				}
+				Surtidor_ClearRxBuffer();
+				return 2;					
+			}			
+			else{
+				return 0;
+			}			
+		break;
+		
+		case 130:
+			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[129]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
+				for(y=0;y<=84;y+=42){
+					rventa.manguera=(Surtidor_rxBuffer[y+2]&0x0F)+1;
+					for(x=0;x<=11;x++){
+						rventa.tvolumen[x]=(Surtidor_rxBuffer[y+4+x]&0x0F);
+					}
+					for(x=0;x<=11;x++){
+						rventa.tdinero[x]=(Surtidor_rxBuffer[y+17+x]&0x0F);
+					}
+					for(z=0;z<=11;z++){
+						corte[z+1]=rventa.tvolumen[z];
+					}
+					for(z=13;z<=24;z++){
+						corte[z]=rventa.tdinero[z-13];
+					}
+					corte[0]=24;				
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+						for(x=0;x<=5;x++){									
+							write_psoc1(val,msn_tc[x]);
+						}
+						write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						write_psoc1(val,producto1n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(192,25);
+						}
+						else{
+							leer_eeprom(281,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);
+						if(dir==a.dir){
+							write_eeprom(192,corte);	
+							write_eeprom(512,resultado);
+						}
+						else{
+							write_eeprom(281,corte);
+							write_eeprom(551,resultado);
+						}
+					}
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto2n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(217,25);
+						}
+						else{
+							leer_eeprom(320,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);				
+						if(dir==a.dir){
+							write_eeprom(217,corte);
+							write_eeprom(538,resultado);
+						}
+						else{
+							write_eeprom(320,corte);
+							write_eeprom(576,resultado);
+						}				
+					}
+					if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto3n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(256,25);
+						}
+						else{
+							leer_eeprom(345,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+							write_eeprom(256,corte);
+							write_eeprom(525,resultado);
+						}
+						else{
+							write_eeprom(345,corte);
+							write_eeprom(589,resultado);
+						}					
+					}
+                    
+                    if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+						for(x=0;x<=5;x++){									
+						    write_psoc1(val,msn_tc[x]);
+					    }
+					    write_psoc1(val,10);
+                        for(x=0;x<=10;x++){									
+						    write_psoc1(val,producto4n[x]);
+					    }
+                        write_psoc1(val,10);
+						for(x=0;x<=14;x++){									
+							write_psoc1(val,msn_lecact[x]);				//LECTURA ACTUAL
+						}
+						write_psoc1(val,10);
+						print_totalesac(12,val);	
+						for(x=0;x<=16;x++){												
+							write_psoc1(val,msn_lecaan[x]);				//LECTURA ANTERIOR
+						}
+						write_psoc1(val,10);
+						if(dir==a.dir){
+							leer_eeprom(1096,25);
+						}
+						else{
+							leer_eeprom(1054,25);
+						}
+						print_totales(val);
+						for(z=1;z<=12;z++){
+							minuendo[z]=rventa.tdinero[z-1];
+							sustraendo[z]=buffer_i2c[z+12];
+						}
+						minuendo[0]=12;
+						operacion(2,minuendo,sustraendo);
+						for(x=0;x<=17;x++){									
+							write_psoc1(val,msn_tventas[x]);				//Total de ventas
+						}
+						print_valor(resultado,val);							
+						if(dir==a.dir){
+						    write_eeprom(1096,corte);
+						    write_eeprom(1038,resultado);
+					    }
+					    else{
+						    write_eeprom(1054,corte);
+						    write_eeprom(1081,resultado);
+				        }					
+					}
+				}
+				Surtidor_ClearRxBuffer();
+				return 3;					
+			}			
+			else{
+				return 0;
+			}			
+		break;
+			
+		default:
+            for(x=0;x<15;x++){									
+				write_psoc1(val,msn_totalcero[x]);				//Total de ventas
+			}
+			return 0;	
+		break;	
+	}		
+}
 
 /*
 *********************************************************************************************************
@@ -1778,97 +1778,96 @@ uint8 programar(uint8 dir, uint8 grado, uint8 *valor, uint8 preset){
 		return 0;	
 	}
 }
-///*
-//*********************************************************************************************************
-//*                                         uint8 cambiar precio(uint8 dir)
-//*
-//* Description : 
-//*               
-//*
-//* Argument(s) : none
-//*
-//* Return(s)   : none
-//*
-//* Caller(s)   : 
-//*
-//* Note(s)     : none.
-//*********************************************************************************************************
-//*/
-//uint8 cambiar_precio(uint8 dir){
-//	uint8 buffer[15]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},size;
-//	if(versurt!=7){
-//		buffer[0]=0xFF;
-//		buffer[1]=0xE5;
-//		buffer[2]=0xF4;
-//		buffer[3]=0xF6;
-//		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
-//		buffer[5]=0xF7;	
-//		if(ppux10==0){
-//			for(x=6;x<(6+teclas1);x++){
-//				buffer[x]=(0xE0|(Buffer_LCD1.valor[teclas1-(x-6)]&0x0F));
-//			}
-//		}
-//		else{
-//			teclas1=teclas1-1;
-//			for(x=6;x<(6+teclas1);x++){
-//				buffer[x]=(0xE0|(Buffer_LCD1.valor[teclas1-(x-6)]&0x0F));
-//			}	
-//		}
-//		for(y=x;y<=9;y++){
-//			buffer[y]=0xE0;	
-//		}
-//		buffer[10]=0xFB;
-//		for(x=0;x<=10;x++){
-//			buffer[11]+=(buffer[x]&0x0F);	
-//		}
-//		buffer[11]=(((~buffer[11])+1)&0x0F)|0xE0;
-//		buffer[12]=0xF0;
-//		size=12;
-//	}
-//	if(versurt==7){
-//		buffer[0]=0xFF;
-//		buffer[1]=0xE3;
-//		buffer[2]=0xF4;
-//		buffer[3]=0xF6;
-//		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
-//		buffer[5]=0xF7;		
-//		for(x=6;x<(6+teclas1);x++){
-//			buffer[x]=(0xE0|(Buffer_LCD1.valor[teclas1-(x-6)]&0x0F));
-//		}	
-//		for(y=x;y<=11;y++){
-//			buffer[y]=0xE0;	
-//		}		
-//		buffer[12]=0xFB;
-//		for(x=0;x<=12;x++){
-//			buffer[13]+=(buffer[x]&0x0F);	
-//		}
-//		buffer[13]=(((~buffer[13])+1)&0x0F)|0xE0;
-//		buffer[14]=0xF0;
-//		size=14;
-//	}	
-//	Surtidor_PutChar(0x20|dir);	
-//    CyDelay(100);
-//    if(Surtidor_GetRxBufferSize()>=1){
-//		if(Surtidor_ReadRxData()==(0xD0|dir)){
-//            Surtidor_ClearRxBuffer();
-//            for(x=0;x<=size;x++){
-//               	Surtidor_PutChar(buffer[x]); 	
-//            }
-//			CyDelay(50);
-//			if(get_estado(dir)==0){
-//				return 0;
-//			}
-//			else{
-//				return 1;
-//			}
-//		}
-//		else{
-//			return 0;
-//		}
-//	}
-//	else{
-//		return 0;	
-//	}
-//}
-///* [] END OF FILE */
-//
+/*
+*********************************************************************************************************
+*                                         uint8 cambiar precio(uint8 dir)
+*
+* Description : 
+*               
+*
+* Argument(s) : none
+*
+* Return(s)   : none
+*
+* Caller(s)   : 
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+uint8 cambiar_precio(uint8 dir){
+	uint8 buffer[15]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},size;
+	if(versurt!=7){
+		buffer[0]=0xFF;
+		buffer[1]=0xE5;
+		buffer[2]=0xF4;
+		buffer[3]=0xF6;
+		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
+		buffer[5]=0xF7;	
+		if(ppux10==0){
+			for(x=6;x<(6+teclas1);x++){
+				buffer[x]=(0xE0|(Buffer_LCD1.valor[teclas1-(x-6)]&0x0F));
+			}
+		}
+		else{
+			teclas1=teclas1-1;
+			for(x=6;x<(6+teclas1);x++){
+				buffer[x]=(0xE0|(Buffer_LCD1.valor[teclas1-(x-6)]&0x0F));
+			}	
+		}
+		for(y=x;y<=9;y++){
+			buffer[y]=0xE0;	
+		}
+		buffer[10]=0xFB;
+		for(x=0;x<=10;x++){
+			buffer[11]+=(buffer[x]&0x0F);	
+		}
+		buffer[11]=(((~buffer[11])+1)&0x0F)|0xE0;
+		buffer[12]=0xF0;
+		size=12;
+	}
+	if(versurt==7){
+		buffer[0]=0xFF;
+		buffer[1]=0xE3;
+		buffer[2]=0xF4;
+		buffer[3]=0xF6;
+		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
+		buffer[5]=0xF7;		
+		for(x=6;x<(6+teclas1);x++){
+			buffer[x]=(0xE0|(Buffer_LCD1.valor[teclas1-(x-6)]&0x0F));
+		}	
+		for(y=x;y<=11;y++){
+			buffer[y]=0xE0;	
+		}		
+		buffer[12]=0xFB;
+		for(x=0;x<=12;x++){
+			buffer[13]+=(buffer[x]&0x0F);	
+		}
+		buffer[13]=(((~buffer[13])+1)&0x0F)|0xE0;
+		buffer[14]=0xF0;
+		size=14;
+	}	
+	Surtidor_PutChar(0x20|dir);	
+    CyDelay(100);
+    if(Surtidor_GetRxBufferSize()>=1){
+		if(Surtidor_ReadRxData()==(0xD0|dir)){
+            Surtidor_ClearRxBuffer();
+            for(x=0;x<=size;x++){
+               	Surtidor_PutChar(buffer[x]); 	
+            }
+			CyDelay(50);
+			if(get_estado(dir)==0){
+				return 0;
+			}
+			else{
+				return 1;
+			}
+		}
+		else{
+			return 0;
+		}
+	}
+	else{
+		return 0;	
+	}
+}
+/* [] END OF FILE */

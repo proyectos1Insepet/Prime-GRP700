@@ -125,7 +125,12 @@ uint8 estado_lcd1;                                                     //Estado 
 uint8 estado_lcd2;                                                     //Estado LCD2 1 ocupado, 0 libre
 uint8 seleccion_pos;                                                   //Selecion de posicion en LCD 1 POS A, 2 POS B
 uint8 seleccion_pos2;                                                  //Selecion de posicion en LCD 1 POS A, 2 POS B
+uint8 venta_activa;
+uint8 venta_activa2;
+uint8 flujo_pos;
+uint8 flujo_pos2;
 uint16 id_corte;														//consecutivo del corte
+
 
 
 volatile int no_venta;													//Consecutivo de Venta entero	 
