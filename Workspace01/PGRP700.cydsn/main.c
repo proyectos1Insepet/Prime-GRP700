@@ -128,7 +128,7 @@ void init(void){
 	for(x=0;x<=buffer_i2c[0];x++){
 		rventa.lema2[x]=buffer_i2c[x];
 	}	
-	leer_eeprom(449,2);                     
+	leer_eeprom(451,2);                     
 	if(buffer_i2c[0]==1){                               //Grados de los productos
 		producto1=buffer_i2c[1];
 	}
@@ -136,7 +136,7 @@ void init(void){
 	if(buffer_i2c[0]==1){
 		producto2=buffer_i2c[1];
 	}
-	leer_eeprom(451,2);
+	leer_eeprom(449,2);
 	if(buffer_i2c[0]==1){
 		producto3=buffer_i2c[1];
 	}
@@ -151,11 +151,11 @@ void init(void){
 		 versurt=(buffer_i2c[1]&0x0f);
 	}
     
-    leer_eeprom(634,2);                                //Grados productos 2do lado
+    leer_eeprom(636,2);                                //Grados productos 2do lado
 	if(buffer_i2c[0]==1){
 		producto1b=buffer_i2c[1];
 	}
-	leer_eeprom(636,2);
+	leer_eeprom(634,2);
 	if(buffer_i2c[0]==1){
 		producto3b = buffer_i2c[1];
 	}
@@ -250,15 +250,7 @@ void init(void){
 		for(x=0;x<=buffer_i2c[0];x++){
 			id_venta[x]=buffer_i2c[x]; 
 		}
-	}
-    
-    leer_eeprom(1012,2);										//Tipo impresora
-	if(buffer_i2c[0]==1){
-		for(x=0;x<=buffer_i2c[0];x++){
-			tipo_imp[x]=buffer_i2c[x]; 
-		}
-	}
-    
+	}          
 	else{
 		id_venta[0]=5;	
 		id_venta[1]='0';
@@ -267,6 +259,12 @@ void init(void){
 		id_venta[4]='0';
 		id_venta[5]='0';
 		write_eeprom(978,id_venta);
+	}
+	leer_eeprom(1012,2);										//Tipo impresora
+	if(buffer_i2c[0]==1){
+		for(x=0;x<=buffer_i2c[0];x++){
+			tipo_imp[x]=buffer_i2c[x]; 
+		}
 	}
 	no_venta=((id_venta[5]&0x0F)*10000)+((id_venta[4]&0x0F)*1000)+((id_venta[3]&0x0F)*100)+((id_venta[2]&0x0F)*10)+((id_venta[1]&0x0F));
 
@@ -425,7 +423,7 @@ void polling_pos1(void){
                 if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
                     switch(LCD_1_rxBuffer[3]){
                         case 0x5C:
-                            set_imagen(1,73);  //Seleccion de tipo de venta
+                            set_imagen(1,73);        //Seleccion de tipo de venta
                             flujo_LCD = 2;
                         break;
                         
@@ -605,15 +603,16 @@ void polling_pos1(void){
 			break;
 		    }
             if(get_estado(a.dir)==7){													//Espera a que este en listo el equipo				
-			CyDelay(50);		
+			CyDelay(50);
+            grado1=estado_ex(a.dir);
 			if((Buffer_LCD1.preset&0x02)==0x02||(Buffer_LCD1.preset&0x01)==0x01){		//Dependiendo del preset hace la programación
-				if(programar(a.dir,producto1,Buffer_LCD1.valor,(Buffer_LCD1.preset&0x03))==0){
+				if(programar(a.dir,grado1,Buffer_LCD1.valor,(Buffer_LCD1.preset&0x03))==0){
 					set_imagen(1,46);
 					flujo_LCD=0;
 					break;
 				}					
 			}			
-			grado1=estado_ex(a.dir);			
+			grado1=estado_ex(a.dir);		//Manejo de grados?, como	
 			Surtidor_PutChar(0x10|a.dir);									//Autoriza el surtidor
 			set_imagen(1,8);            
             flujo_LCD=7;
@@ -647,15 +646,13 @@ void polling_pos1(void){
 				CyDelay(100);                  //Termino venta
 				if(venta(a.dir)==1 && no_imprime == 0){	
 		            set_imagen(1,57);
-                    venta_activa = 0;
-                    //seleccion_pos = 1;
+                    venta_activa = 0;                    
                     CyDelay(20);               //Finaliza venta con impresión de recibo                      
                     flujo_LCD=13;
 				}
                 if(venta(a.dir)==1 && no_imprime == 1){	
 		            set_imagen(1,12);         //Finaliza venta sin impresión de recibo
-                    venta_activa = 0;
-                    //seleccion_pos = 1;
+                    venta_activa = 0;                    
                     CyDelay(500);                    
                     set_imagen(1,46);
                     flujo_LCD=0;
@@ -671,8 +668,7 @@ void polling_pos1(void){
             case 0x09:
                 CyDelay(50);
                 set_imagen(1,46);
-                flujo_LCD = 0;
-                //seleccion_pos = 2;
+                flujo_LCD = 0;                
             break;    
              			 	
          }		
@@ -718,10 +714,11 @@ void polling_pos1(void){
                         teclas1--;
                     }
                 }
-                if(LCD_1_rxBuffer[3]==0x0C){                                        //Enter pasa a imprimir
+                if(LCD_1_rxBuffer[3]==0x0C){                                        //Enter pasa a venta y guarda los datos de recibo
                     if(teclas1>=1){ 
                         set_imagen(1,5);
-                        Buffer_LCD1.placa[0]=teclas1;                                                
+                        Buffer_LCD1.placa[0]=teclas1; 
+                        Buffer_LCD1.posventa=1;
                         flujo_LCD=4;
                     }
                 }
@@ -761,8 +758,81 @@ void polling_pos1(void){
          } 		 	
         break;
         
+        case 11:		
+		if(read_memory_ibutton(1,1)>=6){
+			CyDelay(10);
+			if(read_memory_ibutton(1,0x21)>=6){
+		        if(touch_present(1)==1){
+		            LCD_1_PutChar(0x33);
+		            if(touch_write(1,0x33)){
+		                for(z=0;z<=7;z++){
+		                    Buffer_LCD1.id[z]=touch_read_byte(1);
+		                }				
+						set_imagen(1,19);  //Id correctamente reconocida
+						Buffer_LCD1.preset|=0x04;
+						CyDelay(500);
+						set_imagen(1,14); 
+						teclas1=0;
+						Buffer_LCD1.km[0]=0; //Pedir Kilometraje
+						flujo_LCD = 12;
+					}
+				}	
+			}
+		}
+	    if(LCD_1_GetRxBufferSize()==8){
+	        if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+	            switch(LCD_1_rxBuffer[3]){
+	                case 0x3B:
+	                 set_imagen(1,73); //Kilometraje
+	                 flujo_LCD = 2;	                 
+	                break; 
+	            }
+	        }
+	        CyDelay(100);            
+	        LCD_1_ClearRxBuffer();
+	    }
+        break;
+        
+        case 12:
+         if(LCD_1_GetRxBufferSize()==8){
+            if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+                if(teclas1<=5){
+                    if(LCD_1_rxBuffer[3]<=9){
+                        teclas1++;                    
+                        Buffer_LCD1.km[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);
+                    }
+                    if(LCD_1_rxBuffer[3]==0x0A){            //Comando de 0
+                        teclas1++;                    
+                        Buffer_LCD1.km[teclas1]=0x30;
+                        write_LCD(1,0x30,teclas1);
+                    }                     
+                }
+                if(LCD_1_rxBuffer[3]==0x0B){				//Cancelar
+                    if(teclas1==0){
+                        set_imagen(1,5);
+						flujo_LCD = 4;
+                    }
+                    else{
+                        write_LCD(1,0x20,teclas1);
+                        teclas1--;
+                    }
+                }
+                if(LCD_1_rxBuffer[3]==0x0C){				//Enter
+                    if(teclas1>=1 && Buffer_LCD1.km[1]!=0x30){                       
+                        set_imagen(1,5);
+                        Buffer_LCD1.km[0]=teclas1;   
+                        flujo_LCD = 4;                                           
+                    }
+                }
+            }
+            CyDelay(100);            
+            LCD_1_ClearRxBuffer();
+         } 
+        break;
+        
         case 13:
-			imprimir(print1[1], producto1,0,a.dir);  //Imprime recibo sin copia
+			imprimir(print1[1], grado1,0,a.dir);  //Imprime recibo sin copia
 			if(copia_recibo[1]==0){
 				set_imagen(1,12);
 				CyDelay(700);
@@ -795,9 +865,9 @@ void polling_pos1(void){
                     case 0x5D:  							     //Cambiar Precio
                                         
                       set_imagen(1,92);
-                      Precio_LCD(1,0x00,0xD6,429);               // primer producto  
+                      Precio_LCD(1,0x00,0xD6,429);               // primer producto   segundo campo en el lcd
 					  Precio_LCD(1,0x00,0x89,435);               // segundo producto 			  
-                      Precio_LCD(1,0x01,0x24,423);               // tercer producto 
+                      Precio_LCD(1,0x01,0x24,423);               // segundo producto 
                       Precio_LCD(1,0x01,0x78,1000);              //cuarto producto 
                       flujo_LCD = 19; 
                       
@@ -1115,7 +1185,7 @@ void polling_pos1(void){
                     case 0x7F:		
                       set_imagen(1,6);   
                       teclas1=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=producto3;	
+					  rventa.producto=producto1;	
 					  write_LCD(1,'$',teclas1);							 	 //Producto 1	                               
                       flujo_LCD = 26; 
                     break;
@@ -1131,7 +1201,7 @@ void polling_pos1(void){
                     case 0x81:  
                       set_imagen(1,6);			
                       teclas1=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto1;
+					  rventa.producto=producto3;
 					  write_LCD(1,'$',teclas1);						//Producto 3
                       flujo_LCD = 26;	
                     break;
@@ -2292,11 +2362,11 @@ void polling_pos1(void){
                         set_imagen(1,57);	
 						Buffer_LCD1.valor[0]=teclas1;
 						if(rventa.producto==1){
-							producto1=Buffer_LCD1.valor[1];
+							producto3=Buffer_LCD1.valor[1];
 							write_eeprom(449,Buffer_LCD1.valor);							
 						}
 						if(rventa.producto==2){
-							producto3=Buffer_LCD1.valor[1];
+							producto1=Buffer_LCD1.valor[1];
 							write_eeprom(451,Buffer_LCD1.valor);							
 						}
 						if(rventa.producto==3){
@@ -2318,13 +2388,216 @@ void polling_pos1(void){
          }		
 		break;
         
+        case 32:
+         if(LCD_1_GetRxBufferSize()==8){
+            if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+                switch(LCD_1_rxBuffer[3]){
+                    case 0x84:								 	//Biomax	
+					  bandera[0]=1;
+					  bandera[1]=0;                        
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+					    set_imagen(1,112);
+                        flujo_LCD = 14;
+												  
+					  }
+                    break;
+                    
+                    case 0x86:  								//Terpel
+					  bandera[0]=1;
+					  bandera[1]=11;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+						set_imagen(1,112);				
+                        flujo_LCD = 14;
+					  }
+                    break;
+                    
+                    case 0x88:  								//ESSO
+					  bandera[0]=1;
+					  bandera[1]=4;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  	
+					    set_imagen(1,112);
+                        flujo_LCD=14;					  													  
+					  }
+                    break;
+                    
+                    case 0x89:                         			//Texaco                     
+					  bandera[0]=1;
+					  bandera[1]=12;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+						set_imagen(1,112);
+						flujo_LCD = 14;						  
+					  }
+                      CyDelay(100);            
+                      LCD_1_ClearRxBuffer();
+                    break;   
+
+                    case 0x8B:                         			//Petrobras                    
+					  bandera[0]=1;
+					  bandera[1]=9;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+						set_imagen(1,112);
+                        flujo_LCD=14;												  
+					  }
+                    break; 
+					
+                    case 0x8A:                         			//Mobil                    
+					  bandera[0]=1;
+					  bandera[1]=8;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+					    set_imagen(1,112);
+                        flujo_LCD=14;
+						}						  
+					  }
+                    break; 	
+					
+                    case 0x85:                         			//Brio                    
+					  bandera[0]=1;
+					  bandera[1]=1;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  					  	
+						set_imagen(1,112);											  
+                        flujo_LCD=14;	
+					  }
+                    break; 
+					
+                    case 0x87:                         			//Gulf                   
+					  bandera[0]=1;
+					  bandera[1]=6;
+					  write_eeprom(455,bandera);                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  					  
+						set_imagen(1,112);
+						flujo_LCD=14;						  
+					  
+                    break; 	
+					
+                    case 0x98:                         			//Petromil                 
+					  bandera[0]=1;
+					  bandera[1]=14;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  	
+						set_imagen(1,112);
+                        flujo_LCD=14;					  													  
+					  }
+                    break; 
+					
+                    case 0x99:                         			//Zeus                
+					  bandera[0]=1;
+					  bandera[1]=13;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);
+                        set_imagen(1,112);
+					  	flujo_LCD=14;					  																			  
+					  }
+                    break; 					
+					
+                    case 0xA0:                         			//Ecospetrol                
+					  bandera[0]=1;
+					  bandera[1]=3;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+						set_imagen(1,112);
+						flujo_LCD=14;						  
+					  }
+                    break;
+					
+                    case 0xA1:                         			//Exito               
+					  bandera[0]=1;
+					  bandera[1]=5;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  	
+					    set_imagen(1,112);
+						flujo_LCD=14;					  							  
+					  }
+                    break;
+					
+                    case 0xA2:                         			//Mineroil               
+					  bandera[0]=1;
+					  bandera[1]=7;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+						set_imagen(1,112);
+						flujo_LCD=14;						  
+					  }
+                    break;
+					
+                    case 0xA3:                         			//Plus               
+					  bandera[0]=1;
+					  bandera[1]=10;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  						  	
+						set_imagen(1,112);
+						flujo_LCD=14;						  
+					  }
+                    break;	
+					
+                    case 0x97:                         			//Cencosur               
+					  bandera[0]=1;
+					  bandera[1]=2;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  	
+						set_imagen(1,112);
+						flujo_LCD=14;						  
+					  }
+                    break;
+					
+                    case 0x94:                         			//Sin Bandera               
+					  bandera[0]=0;
+					  bandera[1]=0;
+					  if(write_eeprom(455,bandera)==1){                               	 
+                    	set_imagen(1,60); 
+					  	CyDelay(500);					  	
+						set_imagen(1,112);
+						flujo_LCD=14;						  
+					  }
+                    break;					
+					
+                    case 0x7E:									//ir a menu
+					  bandera[0]=0;
+					  bandera[1]=0;
+					  if(write_eeprom(455,bandera)==1){                               	                         
+							set_imagen(1,112);
+						flujo_LCD=14;						  
+					  }	
+					  else{
+						set_imagen(1,46);
+	                	flujo_LCD = 0;
+					  }
+                    break;					
+                					
+            }
+            CyDelay(100);            
+            LCD_1_ClearRxBuffer();
+         }					
+		break;	
+        
         case 33:
          if(LCD_1_GetRxBufferSize()==8){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
                 if(LCD_1_rxBuffer[3] == 0x0A)
                 {
                     for(z=1;z<=(n_copias[0]&0x0F);z++){
-                        imprimir(print1[1],producto1,1,a.dir);   //Impresión de número de copias por configuración
+                        imprimir(print1[1],grado1,1,a.dir);   //Impresión de número de copias por configuración
                         CyDelay(500);
                     }
                     set_imagen(1,12);					
@@ -2342,13 +2615,7 @@ void polling_pos1(void){
             CyDelay(100);            
             LCD_1_ClearRxBuffer();
          }	
-		for(x = 0; x < 10; x++ ){
-            CyDelay(600);            
-        }
-        set_imagen(1,12);
-		CyDelay(700);               //Confirman NO, muestra imagen y sale
-        set_imagen(1,46);
-        flujo_LCD = 0;
+		
         
 		break;
         
@@ -2915,7 +3182,7 @@ void polling_pos2(void){
                             set_imagen(1,6);                   
                             teclas1=0;                           //Inicia el contador de teclas                                         
                             write_LCD(1,'$',0);
-					        Buffer_LCD1.preset|=2;
+					        Buffer_LCD2.preset|=2;
                             flujo_LCD2 = 5;   
                         break;
                     
@@ -2924,7 +3191,7 @@ void polling_pos2(void){
                             teclas1=0;       
                             comas1=0;
                             write_LCD(1,'G',0);
-					        Buffer_LCD1.preset|=1;				 // Preset por volumen
+					        Buffer_LCD2.preset|=1;				 // Preset por volumen
                             flujo_LCD2 = 5;   
                         break;
                     
@@ -2960,18 +3227,18 @@ void polling_pos2(void){
                 if(teclas1<=(versurt-1)){
                     if(LCD_1_rxBuffer[3]<=9){
                         teclas1++;
-                        Buffer_LCD1.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        Buffer_LCD2.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
                         write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);
                     }
                     if(LCD_1_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas1++;
-                        Buffer_LCD1.valor[teclas1]=0x30;
+                        Buffer_LCD2.valor[teclas1]=0x30;
                         write_LCD(1,0x30,teclas1);
                     }  
                     if(LCD_1_rxBuffer[3]==0x51){            	//Comando de Coma
                         if(teclas1>=1 && comas1==0){
                             teclas1++;
-                            Buffer_LCD1.valor[teclas1]=0x2C;
+                            Buffer_LCD2.valor[teclas1]=0x2C;
                             write_LCD(1,0x2C,teclas1);
                             comas1=1;
                         }
@@ -2993,7 +3260,7 @@ void polling_pos2(void){
                 if(LCD_1_rxBuffer[3]==0x0C){					//Enter
                     if(teclas1>=1){
                         set_imagen(1,7);
-						Buffer_LCD1.valor[0]=teclas1;
+						Buffer_LCD2.valor[0]=teclas1;
                         flujo_LCD2=6;                                                 				
                     }
                     
@@ -3017,9 +3284,10 @@ void polling_pos2(void){
 			break;
 		    }
             if(get_estado(b.dir)==7){													//Espera a que este en listo el equipo				
-			CyDelay(50);		
-			if((Buffer_LCD1.preset&0x02)==0x02||(Buffer_LCD1.preset&0x01)==0x01){		//Dependiendo del preset hace la programación
-				if(programar(b.dir,producto1,Buffer_LCD1.valor,(Buffer_LCD1.preset&0x03))==0){
+			CyDelay(50);
+            grado2=estado_ex(b.dir);
+			if((Buffer_LCD2.preset&0x02)==0x02||(Buffer_LCD2.preset&0x01)==0x01){		//Dependiendo del preset hace la programación
+				if(programar(b.dir,grado2,Buffer_LCD2.valor,(Buffer_LCD2.preset&0x03))==0){
 					set_imagen(1,46);
 					flujo_LCD2 = 0;
 					break;
@@ -3040,13 +3308,13 @@ void polling_pos2(void){
 		 switch(get_estado(b.dir)){
 	        case 0x0B:                     //Termino venta            
 				CyDelay(100);
-				if(venta(b.dir)==1 && no_imprime == 0){	
+				if(venta(b.dir)==1 && no_imprime2 == 0){	
 		            set_imagen(1,57);
                     venta_activa2 = 0;                    
                     CyDelay(20);
                     flujo_LCD2 = 13;
 				}
-                if(venta(b.dir)==1 && no_imprime == 1){	
+                if(venta(b.dir)==1 && no_imprime2 == 1){	
 		            set_imagen(1,12);         //Finaliza venta sin impresión de recibo
                     venta_activa2 = 0;                    
                     CyDelay(500);
@@ -3057,13 +3325,13 @@ void polling_pos2(void){
 				
 	        case 0x0A:                         
 				CyDelay(100);                  //Termino venta
-				if(venta(b.dir)==1 && no_imprime == 0){	
+				if(venta(b.dir)==1 && no_imprime2 == 0){	
 		            set_imagen(1,57);
                     venta_activa2 = 0;                    
                     CyDelay(20);               //Finaliza venta con impresión de recibo
                     flujo_LCD2 = 13;
 				}
-                if(venta(b.dir)==1 && no_imprime == 1){	
+                if(venta(b.dir)==1 && no_imprime2 == 1){	
 		            set_imagen(1,12);         //Finaliza venta sin impresión de recibo
                     venta_activa2 = 0;                    
                     CyDelay(500);
@@ -3093,24 +3361,24 @@ void polling_pos2(void){
                 if(teclas1<=6){
                     if(LCD_1_rxBuffer[3]<=9){
                         teclas1++;
-                        Buffer_LCD1.placa[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        Buffer_LCD2.placa[teclas1]=LCD_1_rxBuffer[3]+0x30;
                         write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);                        
                     }
                     if(LCD_1_rxBuffer[3]==0x0A){                                        //Comando de 0
                         teclas1++;                        
-                        Buffer_LCD1.placa[teclas1]=0x30;
+                        Buffer_LCD2.placa[teclas1]=0x30;
                         write_LCD(1,0x30,teclas1);                        
                     }  
                     if(LCD_1_rxBuffer[3]==0x6A){                                        //Comando de -
                         teclas1++;                        
-                        Buffer_LCD1.placa[teclas1]='-';
+                        Buffer_LCD2.placa[teclas1]='-';
                         write_LCD(1,'-',teclas1);                        
                     } 					
                     if(LCD_1_rxBuffer[3]>=0x1B && LCD_1_rxBuffer[3]<=0x42){            //Comando de Letra
                         for(x=0;x<=25;x++){                                            //Compara el dato que llego con un vector que tiene todas las letras     
                             if(LCD_1_rxBuffer[3]==letras[x]){
                                 teclas1++;                            
-                                Buffer_LCD1.placa[teclas1]=x+0x41;
+                                Buffer_LCD2.placa[teclas1]=x+0x41;
                                 write_LCD(1,(x+0x41),teclas1);                            
                             }
                         }
@@ -3119,7 +3387,7 @@ void polling_pos2(void){
                 if(LCD_1_rxBuffer[3]==0x0B){                                        //Borrar - Cancelar
                     if(teclas1==0){                                                 //Si no tiene nada pasa a pedir impresion
                         set_imagen(1,46);                        
-                        Buffer_LCD1.placa[0]=0;						
+                        Buffer_LCD2.placa[0]=0;						
                         flujo_LCD2 = 0;
                     }
                     else{
@@ -3130,7 +3398,8 @@ void polling_pos2(void){
                 if(LCD_1_rxBuffer[3]==0x0C){                                        //Enter pasa a imprimir
                     if(teclas1>=1){ 
                         set_imagen(1,5);
-                        Buffer_LCD1.placa[0]=teclas1;                                                
+                        Buffer_LCD2.placa[0]=teclas1;    
+                        Buffer_LCD2.posventa=1;
                         flujo_LCD2 = 4;
                     }
                 }
@@ -3148,13 +3417,13 @@ void polling_pos2(void){
                     case 0x39:                          //Si pide impresión                         
                         set_imagen(1,10);               //Pasa a pedir placa
                         teclas1 = 0;                                              
-                        no_imprime = 0;
+                        no_imprime2 = 0;
                         flujo_LCD2 = 9;                       
                     break; 
                     
                     case 0x38:                          //Pide venta sin impresión
                         set_imagen(1,5);	            //Pasa a preset de venta
-                        no_imprime = 1;
+                        no_imprime2 = 1;
                         flujo_LCD2 = 4;                    
                     break;  
                     
@@ -3170,6 +3439,94 @@ void polling_pos2(void){
          } 		 	
         break; 
         
+        case 11:		
+		if(read_memory_ibutton(1,1)>=6){
+			CyDelay(10);
+			if(read_memory_ibutton(1,0x21)>=6){
+		        if(touch_present(1)==1){
+		            LCD_1_PutChar(0x33);
+		            if(touch_write(1,0x33)){
+		                for(z=0;z<=7;z++){
+		                    Buffer_LCD2.id[z]=touch_read_byte(1);
+		                }				
+						set_imagen(1,19);  //Id correctamente reconocida
+						Buffer_LCD2.preset|=0x04;
+						CyDelay(500);
+						set_imagen(1,14); 
+						teclas1=0;
+						Buffer_LCD2.km[0]=0; //Pedir Kilometraje
+						flujo_LCD2 = 12;
+					}
+				}	
+			}
+		}
+	    if(LCD_1_GetRxBufferSize()==8){
+	        if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+	            switch(LCD_1_rxBuffer[3]){
+	                case 0x3B:
+	                 set_imagen(1,73); //Kilometraje
+	                 flujo_LCD2 = 2;	                 
+	                break; 
+	            }
+	        }
+	        CyDelay(100);            
+	        LCD_1_ClearRxBuffer();
+	    }
+        break;
+        
+        case 12:
+         if(LCD_1_GetRxBufferSize()==8){
+            if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+                if(teclas1<=5){
+                    if(LCD_1_rxBuffer[3]<=9){
+                        teclas1++;                    
+                        Buffer_LCD2.km[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);
+                    }
+                    if(LCD_1_rxBuffer[3]==0x0A){            //Comando de 0
+                        teclas1++;                    
+                        Buffer_LCD2.km[teclas1]=0x30;
+                        write_LCD(1,0x30,teclas1);
+                    }                     
+                }
+                if(LCD_1_rxBuffer[3]==0x0B){				//Cancelar
+                    if(teclas1==0){
+                        set_imagen(1,5);
+						flujo_LCD2 = 4;
+                    }
+                    else{
+                        write_LCD(1,0x20,teclas1);
+                        teclas1--;
+                    }
+                }
+                if(LCD_1_rxBuffer[3]==0x0C){				//Enter
+                    if(teclas1>=1 && Buffer_LCD2.km[1]!=0x30){                       
+                        set_imagen(1,5);
+                        Buffer_LCD2.km[0]=teclas1;   
+                        flujo_LCD2 = 4;                                           
+                    }
+                }
+            }
+            CyDelay(100);            
+            LCD_1_ClearRxBuffer();
+         } 
+        break;
+        
+        case 13:
+			imprimir(print2[1], grado2,0,b.dir);
+			if(copia_recibo2[1]==0){
+				set_imagen(1,12);				
+				CyDelay(700);
+                set_imagen(1,46);
+                flujo_LCD2 = 0;
+			}
+			else{
+				set_imagen(1,49);					
+				teclas2=0;					
+                flujo_LCD2=33;
+			}
+        break; 
+        
         case 14:
          if(LCD_1_GetRxBufferSize()==8){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
@@ -3183,9 +3540,9 @@ void polling_pos2(void){
                     
                     case 0x5D:  							//Cambiar Precio                                        
                         set_imagen(1,92);
-                        Precio_LCD(1,0x00,0xD6,429); // primer producto  
-					    Precio_LCD(1,0x00,0x89,435); // segundo producto 			  
-                        Precio_LCD(1,0x01,0x24,423); // tercer producto 
+                        Precio_LCD(1,0x00,0xD6,429); // segundo campo en lcd  
+					    Precio_LCD(1,0x00,0x89,423); // primer campo en el lcd			  
+                        Precio_LCD(1,0x01,0x24,435); // tercer producto 
                         Precio_LCD(1,0x01,0x78,1000); //cuarto producto 
                         flujo_LCD2 = 19;                       
                     break;
@@ -3259,12 +3616,12 @@ void polling_pos2(void){
                 }
                 if(teclas1<=7){
                     if(LCD_1_rxBuffer[3]<=9){
-                        Buffer_LCD1.password[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        Buffer_LCD2.password[teclas1]=LCD_1_rxBuffer[3]+0x30;
                         write_LCD(1,'*',teclas1);
 						teclas1++;
                     }
                     if(LCD_1_rxBuffer[3]==0x0A){            	//Comando de 0
-                        Buffer_LCD1.password[teclas1]=0x30;
+                        Buffer_LCD2.password[teclas1]=0x30;
                         write_LCD(1,'*',teclas1);
                         teclas1++;						
                     }                     
@@ -3285,7 +3642,7 @@ void polling_pos2(void){
                     if(teclas1>=1){
 						y=0;
 						for(x=0;x<teclas1;x++){						
-							if(rventa.password[x+1]==(Buffer_LCD1.password[x]-0x30)){
+							if(rventa.password[x+1]==(Buffer_LCD2.password[x]-0x30)){
 								y++;
 							}
 							else{
@@ -3302,7 +3659,7 @@ void polling_pos2(void){
 						else{
 							y=0;
 							for(x=0;x<teclas1;x++){						
-								if(puk[x]==Buffer_LCD1.password[x]){
+								if(puk[x]==Buffer_LCD2.password[x]){
 									y++;
 								}
 							}
@@ -3333,7 +3690,7 @@ void polling_pos2(void){
                     case 0x7F:		
                       set_imagen(1,6);   
                       teclas1=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=producto3;	
+					  rventa.producto=producto1;	
 					  write_LCD(1,'$',teclas1);					 //Producto 1	                               
                       flujo_LCD2 = 26; 
                     break;
@@ -3349,7 +3706,7 @@ void polling_pos2(void){
                     case 0x81:  
                       set_imagen(1,6);			
                       teclas1=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto1;
+					  rventa.producto=producto3;
 					  write_LCD(1,'$',teclas1);						//Producto 3
                       flujo_LCD2 = 26;	
                     break;
@@ -3451,10 +3808,10 @@ void polling_pos2(void){
                 switch(LCD_1_rxBuffer[3]){
                     case 0x7F:								 	 //Configurar Productos	                                                      
                       set_imagen(1,88); 
-					  Grado_LCD(1,0x00,0x73,451); // primer producto 449
-					  Grado_LCD(1,0x00,0xCF,453); // segundo producto			  
-                      Grado_LCD(1,0x01,0x29,449); // tercer producto
-                      Grado_LCD(1,0x01,0x7B,1006); //cuarto producto
+					  Grado_LCD(1,0x00,0x73,636); // primer producto 
+					  Grado_LCD(1,0x00,0xCF,638); // segundo producto			  
+                      Grado_LCD(1,0x01,0x29,634); // tercer producto
+                      Grado_LCD(1,0x01,0x7B,1008); //cuarto producto
                       flujo_LCD2 = 28;   
                     break;
                     
@@ -3549,12 +3906,12 @@ void polling_pos2(void){
                 if(teclas1<=0){
                     if(LCD_1_rxBuffer[3]<=9){
                         teclas1++;
-                        Buffer_LCD1.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        Buffer_LCD2.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
                         write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);
                     }
                     if(LCD_1_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas1++;
-                        Buffer_LCD1.valor[teclas1]=0x30;
+                        Buffer_LCD2.valor[teclas1]=0x30;
                         write_LCD(1,0x30,teclas1);
                     }                    
                 }
@@ -3565,7 +3922,7 @@ void polling_pos2(void){
                     }
                     else{
                         write_LCD(1,0x20,(teclas1));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD1.valor[teclas1]==0x2C){
+                        if(Buffer_LCD2.valor[teclas1]==0x2C){
                             comas1=0;
                         }
                         teclas1--;
@@ -3574,22 +3931,22 @@ void polling_pos2(void){
                 if(LCD_1_rxBuffer[3]==0x0C){					//Enter
                     if(teclas1==1){                        
                         set_imagen(1,57);	
-						Buffer_LCD1.valor[0]=teclas1;
-						if(rventa.producto==1){
-							producto1=Buffer_LCD1.valor[1];
-							write_eeprom(449,Buffer_LCD1.valor);							
-						}
+						Buffer_LCD2.valor[0]=teclas1;
 						if(rventa.producto==2){
-							producto3=Buffer_LCD1.valor[1];
-							write_eeprom(451,Buffer_LCD1.valor);							
+							producto1b=Buffer_LCD2.valor[1];
+							write_eeprom(636,Buffer_LCD2.valor);							
+						}
+						if(rventa.producto==1){
+							producto3b=Buffer_LCD2.valor[1];
+							write_eeprom(634,Buffer_LCD2.valor);							
 						}
 						if(rventa.producto==3){
-							producto2=Buffer_LCD1.valor[1];
-							write_eeprom(453,Buffer_LCD1.valor);							
+							producto2b=Buffer_LCD2.valor[1];
+							write_eeprom(638,Buffer_LCD2.valor);							
 						}
                         if(rventa.producto==4){
-							producto4=Buffer_LCD1.valor[1];
-							write_eeprom(1006,Buffer_LCD1.valor);							
+							producto4b=Buffer_LCD2.valor[1];
+							write_eeprom(1008,Buffer_LCD2.valor);							
 						}
 						CyDelay(500);						
 					    set_imagen(1,112);
@@ -3602,6 +3959,32 @@ void polling_pos2(void){
          }		
 		break;
         
+        case 33:
+         if(LCD_1_GetRxBufferSize()==8){
+            if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+                if(LCD_1_rxBuffer[3] == 0x0A)
+                {
+                    for(z=1;z<=(n_copias[0]&0x0F);z++){
+                        imprimir(print2[1],grado2,1,b.dir);
+                        CyDelay(500);
+                    }                    
+                    set_imagen(1,12);
+                    CyDelay(700);
+                    set_imagen(1,46);
+                    flujo_LCD2=0;
+                }
+                else{
+					set_imagen(1,12);					      // Si presionan NO o cualquier otro touch
+				    CyDelay(700);
+                    set_imagen(1,46);
+                    flujo_LCD2=0;
+                }                             
+            }
+            CyDelay(100);            
+            LCD_1_ClearRxBuffer();
+         }	
+			 
+		break;
        
         
         
