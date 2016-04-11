@@ -696,23 +696,23 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	for(x=0;x<10;x++){										//PRODUCTO								
 		write_psoc1(val,msn_producto[x]);
 	}
-    if(((producto==(producto1&0x0f))&&(pos==a.dir))||((producto==(producto1b&0x0f))&&(pos==b.dir))){
-		for(x=0;x<=10;x++){																			
-			write_psoc1(val,producto1n[x]);
+    if(((producto==(producto3&0x0f))&&(pos==a.dir))||((producto==(producto3b&0x0f))&&(pos==b.dir))){
+		for(x=0;x<10;x++){																			
+			write_psoc1(val,producto3n[x]);
 		}
     }
     if(((producto==(producto2&0x0f))&&(pos==a.dir))||((producto==(producto2b&0x0f))&&(pos==b.dir))){
-		for(x=0;x<=10;x++){																		
+		for(x=0;x<10;x++){																		
 			write_psoc1(val,producto2n[x]);
 		} 
     }
-    if(((producto==(producto3&0x0f))&&(pos==a.dir))||((producto==(producto3b&0x0f))&&(pos==b.dir))){
-		for(x=0;x<=10;x++){																			
-			write_psoc1(val,producto2n[x]);
+    if(((producto==(producto1&0x0f))&&(pos==a.dir))||((producto==(producto1b&0x0f))&&(pos==b.dir))){
+		for(x=0;x<10;x++){																			
+			write_psoc1(val,producto1n[x]);
 		} 
     }
     if(((producto==(producto4&0x0f))&&(pos==a.dir))||((producto==(producto4b&0x0f))&&(pos==b.dir))){
-		for(x=0;x<=10;x++){																			
+		for(x=0;x<10;x++){																			
 			write_psoc1(val,producto4n[x]);
 		} 
     }
@@ -818,7 +818,7 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 		    write_psoc1(val,48);	
 	    }
 	}
-	if(pos==a.dir){											//PLACA
+	if(pos == a.dir){											//PLACA
 		if(Buffer_LCD1.posventa==1){
 			write_psoc1(val,10);	
 			for(x=0;x<10;x++){																		
