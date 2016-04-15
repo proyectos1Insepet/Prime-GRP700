@@ -44,7 +44,7 @@
 #define iprotector11    26
 #define iprotector12    27
 
-uint8 flujo_LCD,flujo_LCD2;/*
+uint8 flujo_LCD,flujo_LCD2,flujo_LCD3,flujo_LCD4;/*
 0   Inicio de protector
 1   Mantiene el protector se verifica en la Int del puerto de la LCD
 2   Pasa a pantalla inicial de opciones y limpia el buffer
@@ -121,14 +121,16 @@ uint8 n_copias [1];
 uint8 no_imprime;
 uint8 no_imprime2;
 uint8 imagen;
+uint8 flujo_pos;
+uint8 flujo_pos2;
+uint8 flujo_pos3;
+uint8 flujo_pos4;
 uint8 estado_lcd1;                                                     //Estado LCD1 1 ocupado, 0 libre
 uint8 estado_lcd2;                                                     //Estado LCD2 1 ocupado, 0 libre
 uint8 seleccion_pos;                                                   //Selecion de posicion en LCD 1 POS A, 2 POS B
 uint8 seleccion_pos2;                                                  //Selecion de posicion en LCD 1 POS A, 2 POS B
-uint8 venta_activa;
-uint8 venta_activa2;
-uint8 flujo_pos;
-uint8 flujo_pos2;
+uint8 venta_activa,venta_activa3;
+uint8 venta_activa2,venta_activa4;
 uint16 id_corte;														//consecutivo del corte
 
 
@@ -163,7 +165,8 @@ struct buffer{
 };
 struct buffer Buffer_LCD1;
 struct buffer Buffer_LCD2;
-
+struct buffer Buffer_LCD3;
+struct buffer Buffer_LCD4;
 /**********************************************/
 uint8 estado_0;
 
@@ -203,7 +206,7 @@ struct recibo{
 };
 uint32 x,y,z,w;   //Variables Genericas para ciclos
 uint8  modulo[2][200];  //Datos que llegan del CDG 0 pos, 1 estado, 2-99 datos
-uint8  grado1, grado2,producto;
+uint8  grado1, grado2, grado3, grado4,producto;
 //struct surtidor lado;   //lado del surtidor
 struct recibo rventa;   //datos de la venta, la estacion y totales
 struct recibo rventa2;   //datos de la venta, la estacion y totales

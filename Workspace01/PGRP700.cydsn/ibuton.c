@@ -75,6 +75,26 @@ uint8 touch_present(uint8 ibutton){
 	        return 0;
 	    } 
 	}
+    if(ibutton==3){
+	    IB1_Write(0);
+	    CyDelayUs(500);
+	    IB1_Write(1);
+	    CyDelayUs(5);
+
+	    if(!IB1_Read()){
+	        return 0;
+	    }
+
+	    CyDelayUs(65);
+	    present=!IB1_Read();
+	    CyDelayUs(240);
+	    if(present){
+	        return 1;
+	    }
+	    else{
+	        return 0;
+	    } 
+	}
 	else{
 	    IB2_Write(0);
 	    CyDelayUs(500);
@@ -281,6 +301,59 @@ uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
 			return check;	
 		}
 	}
+    
+    if(ibutton==3){
+		if(touch_present(3)==1){				
+			CyDelay(200);
+			if(touch_present(3)==1){
+				CyDelay(200);
+				touch_write(1,0xCC);
+				touch_write(1,0xF0);	
+				touch_write(1,pos);
+				touch_write(1,0x00);
+				if(pos==1){
+	                Buffer_LCD2.placa[0]=touch_read_byte(1);
+					if((Buffer_LCD2.placa[0]!=0xFF)&&(Buffer_LCD1.placa[0]<=30)){
+						check++;
+					}	
+					else{
+						return 0;
+					}
+					for(i=1;i<=Buffer_LCD2.placa[0];i++){
+		                Buffer_LCD2.placa[i]=touch_read_byte(1);
+						if(Buffer_LCD2.placa[i]!=0xFF){
+							check++;
+						}
+					}
+					return check;
+				}
+				else{
+	                Buffer_LCD2.cuenta[0]=touch_read_byte(1);
+					if((Buffer_LCD2.cuenta[0]!=0xFF)&&(Buffer_LCD2.cuenta[0]<=30)){
+						check++;
+					}
+					else{
+						return 0;
+					}
+					for(i=1;i<=Buffer_LCD2.cuenta[0];i++){
+		                Buffer_LCD2.cuenta[i]=touch_read_byte(1);
+						if(Buffer_LCD2.cuenta[i]!=0xFF){
+							check++;
+						}
+					}
+					return check;				
+				}
+			}
+			else{
+				return check;
+			}
+		}
+		else{
+			return check;	
+		}
+	}
+    
+    
 	else{
 		if(touch_present(2)==1){				
 			CyDelay(200);

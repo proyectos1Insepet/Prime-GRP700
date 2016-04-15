@@ -176,25 +176,27 @@ void operacion(uint8 tipo, uint8 *valor1, uint8 *valor2){
 void print_logo_k(uint8 val, uint8 logo){
 	uint16 i;
 	switch(logo){
-		case 0:
+        case 0:
+        break;
+		case 15:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,biomax[i]);			
 			}
 		break;
 
-		case 1:
+		case 14:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,brio[i]);			
 			}
 		break;			
 
-		case 2:
+		case 7:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,cencosud[i]);			
 			}
 		break;	
 			
-		case 3:
+		case 10:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,ecospetrol[i]);			
 			}
@@ -206,61 +208,61 @@ void print_logo_k(uint8 val, uint8 logo){
 			}
 		break;
 			
-		case 5:
-//			for(i=0;i<=944;i++){
-//        		write_psoc1(val,exito[i]);			
-//			}
+		case 3:
+			for(i=0;i<=944;i++){
+        		write_psoc1(val,exito[i]);			
+			}
 		break;
 			
-		case 6:
+		case 9:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,National[i]);			
 			}
 		break;	
 			
-		case 7:
+		case 8:
 			for(i=0;i<=944;i++){
         		write_psoc1(val,mineroil[i]);			
 			}
 		break;	
 			
-		case 8:
+		case 5:
 			for(i=0;i<=944;i++){
         		write_psoc1(val,mobil[i]);			
 			}
 		break;	
 			
-		case 9:
+		case 13:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,petrobras[i]);			
 			}
 		break;
 			
-		case 10:
+		case 12:
 			for(i=0;i<=755;i++){
         		write_psoc1(val,plus[i]);			
 			}
 		break;	
 			
-		case 11:
+		case 2:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,terpel[i]);			
 			}
 		break;
 			
-		case 12:
+		case 1:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,texaco[i]);			
 			}
 		break;	
 			
-		case 13:
+		case 6:
 			for(i=0;i<=755;i++){
         		write_psoc1(val,zeus[i]);			
 			}
 		break;
 			
-		case 14:
+		case 11:
 			for(i=0;i<=1511;i++){
         		write_psoc1(val,petromil[i]);			
 			}
@@ -295,25 +297,29 @@ void print_logo_k(uint8 val, uint8 logo){
 void print_logo_p(uint8 val, uint8 logo){
 	uint16 i;
 	switch(logo){
-		case 0:
+        
+        case 0:
+        break;
+        
+		case 15:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,biomax1[i]);			
 			}
 		break;
 
-		case 1:
+		case 14:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,brio1[i]);			
 			}
 		break;			
 
-		case 2:
+		case 7:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,cencosud1[i]);			
 			}
 		break;	
 			
-		case 3:
+		case 10:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,ecospetrol1[i]);			
 			}
@@ -325,61 +331,61 @@ void print_logo_p(uint8 val, uint8 logo){
 			}
 		break;
 			
-		case 5:
-//			for(i=0;i<=943;i++){
-//        		write_psoc1(val,exito[i]);			
-//			}
+		case 3:
+			for(i=0;i<=943;i++){
+        		write_psoc1(val,exito[i]);			
+			}
 		break;
 			
-		case 6:
+		case 9:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,National1[i]);			
 			}
 		break;	
 			
-		case 7:
+		case 8:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,mineroil1[i]);			
 			}
 		break;	
 			
-		case 8:
+		case 5:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,mobil1[i]);			
 			}
 		break;	
 			
-		case 9:
+		case 13:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,petrobras1[i]);			
 			}
 		break;
 			
-		case 10:
+		case 12:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,plus1[i]);			
 			}
 		break;	
 			
-		case 11:
+		case 2:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,terpel1[i]);			
 			}
 		break;
 			
-		case 12:
+		case 1:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,texaco1[i]);			
 			}
 		break;	
 			
-		case 13:
+		case 6:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,zeus1[i]);			
 			}
 		break;
 			
-		case 14:
+		case 11:
 			for(i=0;i<=943;i++){
         		write_psoc1(val,petromil1[i]);			
 			}
@@ -874,7 +880,7 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 			}	
 		}
 	}
-	else{															//DATOS PLACA LCD 2
+	if(pos == b.dir){															//DATOS PLACA LCD 2
 		if(Buffer_LCD2.posventa==1){
 			write_psoc1(val,10);	
 			for(x=0;x<=10;x++){																		
