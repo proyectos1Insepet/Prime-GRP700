@@ -1,6 +1,6 @@
 -- Project:   PGRP700
--- Generated: 04/05/2016 12:03:32
--- PSoC Creator  3.3 SP1
+-- Generated: 04/18/2016 08:42:58
+-- PSoC Creator  3.3 CP2
 
 ENTITY PGRP700 IS
     PORT(

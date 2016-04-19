@@ -869,8 +869,8 @@ void polling_pos1(void){
                                         
                       set_imagen(1,92);
                       Precio_LCD(1,0x00,0xD6,429);               // primer producto   segundo campo en el lcd
-					  Precio_LCD(1,0x00,0x89,435);               // segundo producto 			  
-                      Precio_LCD(1,0x01,0x24,423);               // segundo producto 
+					  Precio_LCD(1,0x00,0x89,423);               // segundo producto 			  
+                      Precio_LCD(1,0x01,0x24,435);               // segundo producto 
                       Precio_LCD(1,0x01,0x78,1000);              //cuarto producto 
                       flujo_LCD = 19; 
                       
@@ -4191,18 +4191,18 @@ void polling_pos3(void){
                 if(teclas2<=(versurt-1)){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;
-                        Buffer_LCD3.valor[teclas1]=LCD_2_rxBuffer[3]+0x30;
+                        Buffer_LCD3.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
                         write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas2++;
-                        Buffer_LCD3.valor[teclas1]=0x30;
+                        Buffer_LCD3.valor[teclas2]=0x30;
                         write_LCD(2,0x30,teclas2);
                     }  
                     if(LCD_2_rxBuffer[3]==0x51){            	//Comando de Coma
                         if(teclas2>=1 && comas2==0){
                             teclas2++;
-                            Buffer_LCD2.valor[teclas2]=0x2C;
+                            Buffer_LCD3.valor[teclas2]=0x2C;
                             write_LCD(2,0x2C,teclas2);
                             comas2=1;
                         }
@@ -4254,18 +4254,18 @@ void polling_pos3(void){
             LCD_2_ClearRxBuffer();
 			break;
 		    }
-            if(get_estado(a.dir)==7){													//Espera a que este en listo el equipo				
+            if(get_estado(c.dir)==7){													//Espera a que este en listo el equipo				
 			CyDelay(50);
-            grado3=estado_ex(a.dir);
+            grado3=estado_ex(c.dir);
 			if((Buffer_LCD3.preset&0x02)==0x02||(Buffer_LCD3.preset&0x01)==0x01){		//Dependiendo del preset hace la programación
-				if(programar(a.dir,grado3,Buffer_LCD3.valor,(Buffer_LCD3.preset&0x03))==0){
+				if(programar(c.dir,grado3,Buffer_LCD3.valor,(Buffer_LCD3.preset&0x03))==0){
 					set_imagen(2,46);
 					flujo_LCD3 = 0;
 					break;
 				}					
 			}			
-			grado3 = estado_ex(a.dir);		//Manejo de grados?, como	
-			Surtidor_PutChar(0x10|a.dir);									//Autoriza el surtidor
+			grado3 = estado_ex(c.dir);		//Manejo de grados?, como	
+			Surtidor_PutChar(0x10|c.dir);									//Autoriza el surtidor
 			set_imagen(2,8);            
             flujo_LCD3 = 7;
             flujo_pos3 = flujo_LCD3;
@@ -4276,16 +4276,16 @@ void polling_pos3(void){
             
         case 7:
 		 CyDelay(50);
-		 switch(get_estado(a.dir)){
+		 switch(get_estado(c.dir)){
 	        case 0x0B:                     //Termino venta            
 				CyDelay(100);
-				if(venta(a.dir)==1 && no_imprime == 0){	
+				if(venta(c.dir)==1 && no_imprime == 0){	
 		            set_imagen(2,57);                     
                     venta_activa3 = 0;                    
                     CyDelay(20);
                     flujo_LCD3 = 13;                   
 				}
-                if(venta(a.dir)==1 && no_imprime == 1){	
+                if(venta(c.dir)==1 && no_imprime == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa3 = 0;                    
                     CyDelay(500);
@@ -4296,13 +4296,13 @@ void polling_pos3(void){
 				
 	        case 0x0A:                         
 				CyDelay(100);                  //Termino venta
-				if(venta(a.dir)==1 && no_imprime == 0){	
+				if(venta(c.dir)==1 && no_imprime == 0){	
 		            set_imagen(2,57);
                     venta_activa3 = 0;                    
                     CyDelay(20);               //Finaliza venta con impresión de recibo                      
                     flujo_LCD3 = 13;
 				}
-                if(venta(a.dir)==1 && no_imprime == 1){	
+                if(venta(c.dir)==1 && no_imprime == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa3 = 0;                    
                     CyDelay(500);                    
@@ -4485,7 +4485,7 @@ void polling_pos3(void){
         break;
         
         case 13:
-			imprimir(print1[1], grado3,0,a.dir);  //Imprime recibo sin copia
+			imprimir(print1[1], grado3,0,c.dir);  //Imprime recibo sin copia
 			if(copia_recibo[1]==0){
 				set_imagen(2,12);
 				CyDelay(700);
@@ -4515,8 +4515,8 @@ void polling_pos3(void){
                                         
                       set_imagen(2,92);
                       Precio_LCD(2,0x00,0xD6,429);               // primer producto   segundo campo en el lcd
-					  Precio_LCD(2,0x00,0x89,435);               // segundo producto 			  
-                      Precio_LCD(2,0x01,0x24,423);               // segundo producto 
+					  Precio_LCD(2,0x00,0x89,423);               // segundo producto 			  
+                      Precio_LCD(2,0x01,0x24,435);               // segundo producto 
                       Precio_LCD(2,0x01,0x78,1000);              //cuarto producto 
                       flujo_LCD3 = 19; 
                       
@@ -4716,12 +4716,12 @@ void polling_pos3(void){
                 if(teclas2<=6){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;
-                        Buffer_LCD3.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
+                        Buffer_LCD1.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
                         write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas2++;
-                        Buffer_LCD2.valor[teclas2]=0x30;
+                        Buffer_LCD1.valor[teclas2]=0x30;
                         write_LCD(2,0x30,teclas2);
                     }                               
                 }
@@ -4732,7 +4732,7 @@ void polling_pos3(void){
                     }
                     else{
                         write_LCD(2,0x20,(teclas2));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD3.valor[teclas2]==0x2C){
+                        if(Buffer_LCD1.valor[teclas2]==0x2C){
                             comas2=0;
                         }
                         teclas2--;
@@ -4742,21 +4742,21 @@ void polling_pos3(void){
                     if(teclas2>=4){
                         flujo_LCD3 = 6;                         
                         set_imagen(2,57);	
-						Buffer_LCD3.valor[0]=teclas2;					
-						if(cambiar_precio(a.dir)!=0){ 	
+						Buffer_LCD1.valor[0]=teclas2;					
+						if(cambiar_precio(c.dir)!=0){ 	
 							if(rventa.producto==producto1){
-								write_eeprom(423,Buffer_LCD3.valor);	//429						
+								write_eeprom(423,Buffer_LCD1.valor);	//429						
 							}
                             if(rventa.producto==producto3){
-								write_eeprom(435,Buffer_LCD3.valor); //423							
+								write_eeprom(435,Buffer_LCD1.valor); //423							
 							}
 							if(rventa.producto==producto2){
-								write_eeprom(429,Buffer_LCD3.valor);	//435						
+								write_eeprom(429,Buffer_LCD1.valor);	//435						
 							}
                             
 							
                             if(rventa.producto==producto4){
-								write_eeprom(1000,Buffer_LCD3.valor);							
+								write_eeprom(1000,Buffer_LCD1.valor);							
 							}
 	                        set_imagen(2,60);	
 							CyDelay(500);														
@@ -4940,7 +4940,7 @@ void polling_pos3(void){
                 if(LCD_2_rxBuffer[3] == 0x0A)
                 {
                     for(z=1;z<=(n_copias[0]&0x0F);z++){
-                        imprimir(print1[1],grado1,1,a.dir);   //Impresión de número de copias por configuración
+                        imprimir(print1[1],grado1,1,c.dir);   //Impresión de número de copias por configuración
                         CyDelay(500);
                     }
                     set_imagen(2,12);					
@@ -5215,18 +5215,18 @@ void polling_pos4(void){
             LCD_2_ClearRxBuffer();
 			break;
 		    }
-            if(get_estado(b.dir)==7){													//Espera a que este en listo el equipo				
+            if(get_estado(d.dir)==7){													//Espera a que este en listo el equipo				
 			CyDelay(50);
-            grado4=estado_ex(b.dir);
+            grado4=estado_ex(d.dir);
 			if((Buffer_LCD4.preset&0x02)==0x02||(Buffer_LCD4.preset&0x01)==0x01){		//Dependiendo del preset hace la programación
-				if(programar(b.dir,grado4,Buffer_LCD4.valor,(Buffer_LCD4.preset&0x03))==0){
+				if(programar(d.dir,grado4,Buffer_LCD4.valor,(Buffer_LCD4.preset&0x03))==0){
 					set_imagen(2,46);
 					flujo_LCD4 = 0;
 					break;
 				}					
 			}			
-			grado4=estado_ex(b.dir);			
-			Surtidor_PutChar(0x10|b.dir);									//Autoriza el surtidor
+			grado4=estado_ex(d.dir);			
+			Surtidor_PutChar(0x10|d.dir);									//Autoriza el surtidor
 			set_imagen(2,8);
             flujo_LCD4 = 7;	
             flujo_pos4 = flujo_LCD4;
@@ -5237,16 +5237,16 @@ void polling_pos4(void){
             
         case 7:
 		 CyDelay(50);
-		 switch(get_estado(b.dir)){
+		 switch(get_estado(d.dir)){
 	        case 0x0B:                     //Termino venta            
 				CyDelay(100);
-				if(venta(b.dir)==1 && no_imprime2 == 0){	
+				if(venta(d.dir)==1 && no_imprime2 == 0){	
 		            set_imagen(2,57);
                     venta_activa4 = 0;                    
                     CyDelay(20);
                     flujo_LCD4 = 13;
 				}
-                if(venta(b.dir)==1 && no_imprime2 == 1){	
+                if(venta(d.dir)==1 && no_imprime2 == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa4 = 0;                    
                     CyDelay(500);
@@ -5257,13 +5257,13 @@ void polling_pos4(void){
 				
 	        case 0x0A:                         
 				CyDelay(100);                  //Termino venta
-				if(venta(b.dir)==1 && no_imprime2 == 0){	
+				if(venta(d.dir)==1 && no_imprime2 == 0){	
 		            set_imagen(2,57);
                     venta_activa4 = 0;                    
                     CyDelay(20);               //Finaliza venta con impresión de recibo
                     flujo_LCD4 = 13;
 				}
-                if(venta(b.dir)==1 && no_imprime2 == 1){	
+                if(venta(d.dir)==1 && no_imprime2 == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa4 = 0;                    
                     CyDelay(500);
@@ -5446,7 +5446,7 @@ void polling_pos4(void){
         break;
         
         case 13:
-			imprimir(print2[1], grado2,0,b.dir);
+			imprimir(print2[1], grado2,0,d.dir);
 			if(copia_recibo2[1]==0){
 				set_imagen(2,12);				
 				CyDelay(700);
@@ -5675,12 +5675,12 @@ void polling_pos4(void){
                 if(teclas2<=6){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;
-                        Buffer_LCD4.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
+                        Buffer_LCD1.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
                         write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas2++;
-                        Buffer_LCD4.valor[teclas2]=0x30;
+                        Buffer_LCD1.valor[teclas2]=0x30;
                         write_LCD(2,0x30,teclas2);
                     }                               
                 }
@@ -5691,7 +5691,7 @@ void polling_pos4(void){
                     }
                     else{
                         write_LCD(2,0x20,(teclas2));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD4.valor[teclas2]==0x2C){
+                        if(Buffer_LCD1.valor[teclas2]==0x2C){
                             comas2=0;
                         }
                         teclas2--;
@@ -5701,21 +5701,21 @@ void polling_pos4(void){
                     if(teclas2>=4){
                         flujo_LCD4 = 6;                         
                         set_imagen(2,57);	
-						Buffer_LCD4.valor[0]=teclas2;					
-						if(cambiar_precio(b.dir)!=0){ 	
+						Buffer_LCD1.valor[0]=teclas2;					
+						if(cambiar_precio(d.dir)!=0){ 	
 							if(rventa.producto==producto1){
-								write_eeprom(423,Buffer_LCD4.valor);	//429						
+								write_eeprom(423,Buffer_LCD1.valor);	//429						
 							}
                             if(rventa.producto==producto3){
-								write_eeprom(435,Buffer_LCD4.valor); //423							
+								write_eeprom(435,Buffer_LCD1.valor); //423							
 							}
 							if(rventa.producto==producto2){
-								write_eeprom(429,Buffer_LCD4.valor);	//435						
+								write_eeprom(429,Buffer_LCD1.valor);	//435						
 							}
                             
 							
                             if(rventa.producto==producto4){
-								write_eeprom(1000,Buffer_LCD4.valor);							
+								write_eeprom(1000,Buffer_LCD1.valor);							
 							}
 	                        set_imagen(2,60);	
 							CyDelay(500);														

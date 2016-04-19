@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
   29:.\I2C.c       **** 
   30:.\I2C.c       **** 
   31:.\I2C.c       **** /*
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 2
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 2
 
 
   32:.\I2C.c       **** ***************************************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
   51              		.loc 1 61 0
   52 0012 E0B9     		cbnz	r0, .L5
   62:.\I2C.c       ****     	{
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 3
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 3
 
 
   63:.\I2C.c       ****             status = I2C_1_MasterWriteByte(i);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
   58:.\I2C.c       ****         I2C_1_MasterClearStatus();
   90              		.loc 1 58 0 is_stmt 0 discriminator 1
   91 0046 022C     		cmp	r4, #2
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 4
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 4
 
 
   92 0048 DDD9     		bls	.L4
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
   91:.\I2C.c       **** *
   92:.\I2C.c       **** * Description : 
   93:.\I2C.c       **** *               
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 5
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 5
 
 
   94:.\I2C.c       **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  115:.\I2C.c       ****             }
  116:.\I2C.c       **** 			else{
  117:.\I2C.c       **** 		        I2C_1_MasterSendStop(); 										/* Send Stop */
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 6
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 6
 
 
  164              		.loc 1 117 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  200              	.LVL33:
  201              	.L15:
  130:.\I2C.c       **** 		}		
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 7
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 7
 
 
  202              		.loc 1 130 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  153:.\I2C.c       **** uint8 write_hora( void ){
  235              		.loc 1 153 0
  236              		.cfi_startproc
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 8
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 8
 
 
  237              		@ args = 0, pretend = 0, frame = 8
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  271              		.loc 1 164 0
  272 002e 02AB     		add	r3, sp, #8
  273 0030 2344     		add	r3, r3, r4
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 9
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 9
 
 
  274 0032 13F8040C 		ldrb	r0, [r3, #-4]	@ zero_extendqisi2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  320              		.global	write_fecha
  321              		.thumb
  322              		.thumb_func
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 10
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 10
 
 
  323              		.type	write_fecha, %function
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  202:.\I2C.c       ****     status = I2C_1_MasterSendStart(0x68, I2C_1_WRITE_XFER_MODE);
  352              		.loc 1 202 0
  353 0028 6820     		movs	r0, #104
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 11
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 11
 
 
  354 002a 0021     		movs	r1, #0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  389 0050 FFF7FEFF 		bl	I2C_1_MasterSendStop
  390              	.LVL63:
  218:.\I2C.c       **** 	return 1;
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 12
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 12
 
 
  391              		.loc 1 218 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  424              	.LVL66:
  425 0000 30B5     		push	{r4, r5, lr}
  426              		.cfi_def_cfa_offset 12
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 13
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 13
 
 
  427              		.cfi_offset 4, -12
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  265:.\I2C.c       ****     }
  266:.\I2C.c       ****     else{
  267:.\I2C.c       **** 		return 0;
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 14
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 14
 
 
  455              		.loc 1 267 0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  501 0054 0134     		adds	r4, r4, #1
  502              	.LVL85:
  503 0056 E4B2     		uxtb	r4, r4
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 15
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 15
 
 
  504              	.LVL86:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  549              		.type	leer_eeprom, %function
  550              	leer_eeprom:
  551              	.LFB68:
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 16
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 16
 
 
  274:.\I2C.c       **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  298:.\I2C.c       ****     if(I2C_1_MSTR_NO_ERROR == status)								 		/* Check if transfer completed without errors */
  582              		.loc 1 298 0
  583 001e 78B1     		cbz	r0, .L55
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 17
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 17
 
 
  299:.\I2C.c       **** 	{
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  618 0048 FFF7FEFF 		bl	I2C_1_MasterSendStop
  619              	.LVL106:
  314:.\I2C.c       ****     CyDelay(50);
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 18
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 18
 
 
  620              		.loc 1 314 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  661              	.LVL116:
  326:.\I2C.c       **** 	CyDelay(6);	
  662              		.loc 1 326 0
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 19
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 19
 
 
  663 0080 0620     		movs	r0, #6
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  696              		@ frame_needed = 0, uses_anonymous_args = 0
  697              	.LVL121:
  698 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 20
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 20
 
 
  699              		.cfi_def_cfa_offset 8
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  355:.\I2C.c       ****         {
  733              		.loc 1 355 0 discriminator 2
  734 002c 0134     		adds	r4, r4, #1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 21
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 21
 
 
  735              	.LVL128:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  783              		.comm	estado_0,1,1
  784              		.comm	Buffer_LCD4,152,4
  785              		.comm	Buffer_LCD3,152,4
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 22
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 22
 
 
  786              		.comm	Buffer_LCD2,152,4
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  840              		.comm	teclas2,1,1
  841              		.comm	teclas1,1,1
  842              		.comm	cont1,1,1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 23
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 23
 
 
  843              		.comm	flujo_LCD4,1,1
@@ -1342,29 +1342,29 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  861 0006 00000000 		.4byte	.Ldebug_abbrev0
  862 000a 04       		.byte	0x4
  863 000b 01       		.uleb128 0x1
- 864 000c 22050000 		.4byte	.LASF135
+ 864 000c 26050000 		.4byte	.LASF135
  865 0010 01       		.byte	0x1
- 866 0011 D6050000 		.4byte	.LASF136
- 867 0015 E8000000 		.4byte	.LASF137
+ 866 0011 DA050000 		.4byte	.LASF136
+ 867 0015 89000000 		.4byte	.LASF137
  868 0019 00000000 		.4byte	.Ldebug_ranges0+0
  869 001d 00000000 		.4byte	0
  870 0021 00000000 		.4byte	.Ldebug_line0
  871 0025 02       		.uleb128 0x2
  872 0026 01       		.byte	0x1
  873 0027 06       		.byte	0x6
- 874 0028 DE050000 		.4byte	.LASF0
+ 874 0028 E2050000 		.4byte	.LASF0
  875 002c 02       		.uleb128 0x2
  876 002d 01       		.byte	0x1
  877 002e 08       		.byte	0x8
- 878 002f 14050000 		.4byte	.LASF1
+ 878 002f 18050000 		.4byte	.LASF1
  879 0033 02       		.uleb128 0x2
  880 0034 02       		.byte	0x2
  881 0035 05       		.byte	0x5
- 882 0036 1F040000 		.4byte	.LASF2
+ 882 0036 23040000 		.4byte	.LASF2
  883 003a 02       		.uleb128 0x2
  884 003b 02       		.byte	0x2
  885 003c 07       		.byte	0x7
- 886 003d F0050000 		.4byte	.LASF3
+ 886 003d F4050000 		.4byte	.LASF3
  887 0041 03       		.uleb128 0x3
  888 0042 51000000 		.4byte	.LASF9
  889 0046 02       		.byte	0x2
@@ -1373,22 +1373,22 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  892 004c 02       		.uleb128 0x2
  893 004d 04       		.byte	0x4
  894 004e 05       		.byte	0x5
- 895 004f 57040000 		.4byte	.LASF4
+ 895 004f 5B040000 		.4byte	.LASF4
  896 0053 02       		.uleb128 0x2
  897 0054 04       		.byte	0x4
  898 0055 07       		.byte	0x7
- 899 0056 DB040000 		.4byte	.LASF5
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 24
+ 899 0056 DF040000 		.4byte	.LASF5
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 24
 
 
  900 005a 02       		.uleb128 0x2
  901 005b 08       		.byte	0x8
  902 005c 05       		.byte	0x5
- 903 005d 2E030000 		.4byte	.LASF6
+ 903 005d 32030000 		.4byte	.LASF6
  904 0061 02       		.uleb128 0x2
  905 0062 08       		.byte	0x8
  906 0063 07       		.byte	0x7
- 907 0064 E8010000 		.4byte	.LASF7
+ 907 0064 EC010000 		.4byte	.LASF7
  908 0068 04       		.uleb128 0x4
  909 0069 04       		.byte	0x4
  910 006a 05       		.byte	0x5
@@ -1398,47 +1398,47 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  914 0071 07       		.byte	0x7
  915 0072 36000000 		.4byte	.LASF8
  916 0076 03       		.uleb128 0x3
- 917 0077 F5040000 		.4byte	.LASF10
+ 917 0077 F9040000 		.4byte	.LASF10
  918 007b 03       		.byte	0x3
  919 007c 2C       		.byte	0x2c
  920 007d 41000000 		.4byte	0x41
  921 0081 05       		.uleb128 0x5
- 922 0082 0C060000 		.4byte	.LASF11
+ 922 0082 10060000 		.4byte	.LASF11
  923 0086 04       		.byte	0x4
  924 0087 3801     		.2byte	0x138
  925 0089 2C000000 		.4byte	0x2c
  926 008d 05       		.uleb128 0x5
- 927 008e E6020000 		.4byte	.LASF12
+ 927 008e EA020000 		.4byte	.LASF12
  928 0092 04       		.byte	0x4
  929 0093 3901     		.2byte	0x139
  930 0095 3A000000 		.4byte	0x3a
  931 0099 05       		.uleb128 0x5
- 932 009a 84030000 		.4byte	.LASF13
+ 932 009a 88030000 		.4byte	.LASF13
  933 009e 04       		.byte	0x4
  934 009f 3A01     		.2byte	0x13a
  935 00a1 53000000 		.4byte	0x53
  936 00a5 02       		.uleb128 0x2
  937 00a6 04       		.byte	0x4
  938 00a7 04       		.byte	0x4
- 939 00a8 A1010000 		.4byte	.LASF14
+ 939 00a8 A5010000 		.4byte	.LASF14
  940 00ac 02       		.uleb128 0x2
  941 00ad 08       		.byte	0x8
  942 00ae 04       		.byte	0x4
- 943 00af 12060000 		.4byte	.LASF15
+ 943 00af 16060000 		.4byte	.LASF15
  944 00b3 02       		.uleb128 0x2
  945 00b4 01       		.byte	0x1
  946 00b5 08       		.byte	0x8
- 947 00b6 C3020000 		.4byte	.LASF16
+ 947 00b6 C7020000 		.4byte	.LASF16
  948 00ba 02       		.uleb128 0x2
  949 00bb 04       		.byte	0x4
  950 00bc 07       		.byte	0x7
- 951 00bd D2040000 		.4byte	.LASF17
+ 951 00bd D6040000 		.4byte	.LASF17
  952 00c1 06       		.uleb128 0x6
  953 00c2 81000000 		.4byte	0x81
  954 00c6 D1000000 		.4byte	0xd1
  955 00ca 07       		.uleb128 0x7
  956 00cb BA000000 		.4byte	0xba
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 25
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 25
 
 
  957 00cf 03       		.byte	0x3
@@ -1450,7 +1450,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  963 00d8 97       		.byte	0x97
  964 00d9 78010000 		.4byte	0x178
  965 00dd 09       		.uleb128 0x9
- 966 00de 7F030000 		.4byte	.LASF18
+ 966 00de 83030000 		.4byte	.LASF18
  967 00e2 05       		.byte	0x5
  968 00e3 98       		.byte	0x98
  969 00e4 81000000 		.4byte	0x81
@@ -1462,13 +1462,13 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  975 00f0 81000000 		.4byte	0x81
  976 00f4 01       		.byte	0x1
  977 00f5 09       		.uleb128 0x9
- 978 00f6 A6000000 		.4byte	.LASF19
+ 978 00f6 EE000000 		.4byte	.LASF19
  979 00fa 05       		.byte	0x5
  980 00fb 9A       		.byte	0x9a
  981 00fc 81000000 		.4byte	0x81
  982 0100 02       		.byte	0x2
  983 0101 09       		.uleb128 0x9
- 984 0102 84010000 		.4byte	.LASF20
+ 984 0102 88010000 		.4byte	.LASF20
  985 0106 05       		.byte	0x5
  986 0107 9B       		.byte	0x9b
  987 0108 81000000 		.4byte	0x81
@@ -1480,7 +1480,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  993 0113 78010000 		.4byte	0x178
  994 0117 04       		.byte	0x4
  995 0118 09       		.uleb128 0x9
- 996 0119 EA050000 		.4byte	.LASF21
+ 996 0119 EE050000 		.4byte	.LASF21
  997 011d 05       		.byte	0x5
  998 011e 9D       		.byte	0x9d
  999 011f 88010000 		.4byte	0x188
@@ -1492,16 +1492,16 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1005 012a 88010000 		.4byte	0x188
  1006 012e 29       		.byte	0x29
  1007 012f 09       		.uleb128 0x9
- 1008 0130 07020000 		.4byte	.LASF22
+ 1008 0130 0B020000 		.4byte	.LASF22
  1009 0134 05       		.byte	0x5
  1010 0135 9F       		.byte	0x9f
  1011 0136 88010000 		.4byte	0x188
  1012 013a 47       		.byte	0x47
  1013 013b 09       		.uleb128 0x9
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 26
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 26
 
 
- 1014 013c 3F020000 		.4byte	.LASF23
+ 1014 013c 43020000 		.4byte	.LASF23
  1015 0140 05       		.byte	0x5
  1016 0141 A0       		.byte	0xa0
  1017 0142 88010000 		.4byte	0x188
@@ -1513,7 +1513,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1023 014e 81000000 		.4byte	0x81
  1024 0152 83       		.byte	0x83
  1025 0153 09       		.uleb128 0x9
- 1026 0154 54030000 		.4byte	.LASF25
+ 1026 0154 58030000 		.4byte	.LASF25
  1027 0158 05       		.byte	0x5
  1028 0159 A2       		.byte	0xa2
  1029 015a 98010000 		.4byte	0x198
@@ -1525,7 +1525,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1035 0166 A8010000 		.4byte	0x1a8
  1036 016a 8E       		.byte	0x8e
  1037 016b 09       		.uleb128 0x9
- 1038 016c 07030000 		.4byte	.LASF27
+ 1038 016c 0B030000 		.4byte	.LASF27
  1039 0170 05       		.byte	0x5
  1040 0171 A4       		.byte	0xa4
  1041 0172 81000000 		.4byte	0x81
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1068 01b1 07       		.uleb128 0x7
  1069 01b2 BA000000 		.4byte	0xba
  1070 01b6 08       		.byte	0x8
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 27
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 27
 
 
  1071 01b7 00       		.byte	0
@@ -1575,13 +1575,13 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1082 01cb 81000000 		.4byte	0x81
  1083 01cf 00       		.byte	0
  1084 01d0 09       		.uleb128 0x9
- 1085 01d1 B7030000 		.4byte	.LASF29
+ 1085 01d1 BB030000 		.4byte	.LASF29
  1086 01d5 05       		.byte	0x5
  1087 01d6 AF       		.byte	0xaf
  1088 01d7 81000000 		.4byte	0x81
  1089 01db 01       		.byte	0x1
  1090 01dc 09       		.uleb128 0x9
- 1091 01dd 2F060000 		.4byte	.LASF30
+ 1091 01dd 33060000 		.4byte	.LASF30
  1092 01e1 05       		.byte	0x5
  1093 01e2 B0       		.byte	0xb0
  1094 01e3 81000000 		.4byte	0x81
@@ -1594,13 +1594,13 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1101 01f3 03       		.byte	0x3
  1102 01f4 00       		.byte	0
  1103 01f5 08       		.uleb128 0x8
- 1104 01f6 9D030000 		.4byte	.LASF32
+ 1104 01f6 A1030000 		.4byte	.LASF32
  1105 01fa E1       		.byte	0xe1
  1106 01fb 05       		.byte	0x5
  1107 01fc BB       		.byte	0xbb
  1108 01fd DA020000 		.4byte	0x2da
  1109 0201 09       		.uleb128 0x9
- 1110 0202 F0030000 		.4byte	.LASF33
+ 1110 0202 F4030000 		.4byte	.LASF33
  1111 0206 05       		.byte	0x5
  1112 0207 BC       		.byte	0xbc
  1113 0208 88010000 		.4byte	0x188
@@ -1612,58 +1612,58 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1119 0214 DA020000 		.4byte	0x2da
  1120 0218 1E       		.byte	0x1e
  1121 0219 09       		.uleb128 0x9
- 1122 021a 45030000 		.4byte	.LASF34
+ 1122 021a 49030000 		.4byte	.LASF34
  1123 021e 05       		.byte	0x5
  1124 021f BE       		.byte	0xbe
  1125 0220 EA020000 		.4byte	0x2ea
  1126 0224 2D       		.byte	0x2d
  1127 0225 09       		.uleb128 0x9
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 28
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 28
 
 
- 1128 0226 86020000 		.4byte	.LASF35
+ 1128 0226 8A020000 		.4byte	.LASF35
  1129 022a 05       		.byte	0x5
  1130 022b BF       		.byte	0xbf
  1131 022c FA020000 		.4byte	0x2fa
  1132 0230 2F       		.byte	0x2f
  1133 0231 09       		.uleb128 0x9
- 1134 0232 63010000 		.4byte	.LASF36
+ 1134 0232 67010000 		.4byte	.LASF36
  1135 0236 05       		.byte	0x5
  1136 0237 C0       		.byte	0xc0
  1137 0238 88010000 		.4byte	0x188
  1138 023c 43       		.byte	0x43
  1139 023d 09       		.uleb128 0x9
- 1140 023e B2010000 		.4byte	.LASF37
+ 1140 023e B6010000 		.4byte	.LASF37
  1141 0242 05       		.byte	0x5
  1142 0243 C1       		.byte	0xc1
  1143 0244 88010000 		.4byte	0x188
  1144 0248 61       		.byte	0x61
  1145 0249 09       		.uleb128 0x9
- 1146 024a B8010000 		.4byte	.LASF38
+ 1146 024a BC010000 		.4byte	.LASF38
  1147 024e 05       		.byte	0x5
  1148 024f C2       		.byte	0xc2
  1149 0250 88010000 		.4byte	0x188
  1150 0254 7F       		.byte	0x7f
  1151 0255 09       		.uleb128 0x9
- 1152 0256 BA050000 		.4byte	.LASF39
+ 1152 0256 BE050000 		.4byte	.LASF39
  1153 025a 05       		.byte	0x5
  1154 025b C3       		.byte	0xc3
  1155 025c 0A030000 		.4byte	0x30a
  1156 0260 9D       		.byte	0x9d
  1157 0261 09       		.uleb128 0x9
- 1158 0262 D3000000 		.4byte	.LASF40
+ 1158 0262 1B010000 		.4byte	.LASF40
  1159 0266 05       		.byte	0x5
  1160 0267 C4       		.byte	0xc4
  1161 0268 EA020000 		.4byte	0x2ea
  1162 026c A0       		.byte	0xa0
  1163 026d 09       		.uleb128 0x9
- 1164 026e 34010000 		.4byte	.LASF41
+ 1164 026e 38010000 		.4byte	.LASF41
  1165 0272 05       		.byte	0x5
  1166 0273 C5       		.byte	0xc5
  1167 0274 81000000 		.4byte	0x81
  1168 0278 A2       		.byte	0xa2
  1169 0279 09       		.uleb128 0x9
- 1170 027a 3C030000 		.4byte	.LASF42
+ 1170 027a 40030000 		.4byte	.LASF42
  1171 027e 05       		.byte	0x5
  1172 027f C6       		.byte	0xc6
  1173 0280 81000000 		.4byte	0x81
@@ -1675,28 +1675,28 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1179 028c 78010000 		.4byte	0x178
  1180 0290 A4       		.byte	0xa4
  1181 0291 09       		.uleb128 0x9
- 1182 0292 A4030000 		.4byte	.LASF43
+ 1182 0292 A8030000 		.4byte	.LASF43
  1183 0296 05       		.byte	0x5
  1184 0297 C8       		.byte	0xc8
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 29
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 29
 
 
  1185 0298 A8010000 		.4byte	0x1a8
  1186 029c AB       		.byte	0xab
  1187 029d 09       		.uleb128 0x9
- 1188 029e 7E020000 		.4byte	.LASF44
+ 1188 029e 82020000 		.4byte	.LASF44
  1189 02a2 05       		.byte	0x5
  1190 02a3 C9       		.byte	0xc9
  1191 02a4 A8010000 		.4byte	0x1a8
  1192 02a8 B4       		.byte	0xb4
  1193 02a9 09       		.uleb128 0x9
- 1194 02aa A3020000 		.4byte	.LASF45
+ 1194 02aa A7020000 		.4byte	.LASF45
  1195 02ae 05       		.byte	0x5
  1196 02af CA       		.byte	0xca
  1197 02b0 1A030000 		.4byte	0x31a
  1198 02b4 BD       		.byte	0xbd
  1199 02b5 09       		.uleb128 0x9
- 1200 02b6 2C010000 		.4byte	.LASF46
+ 1200 02b6 30010000 		.4byte	.LASF46
  1201 02ba 05       		.byte	0x5
  1202 02bb CB       		.byte	0xcb
  1203 02bc 1A030000 		.4byte	0x31a
@@ -1708,7 +1708,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1209 02c8 A8010000 		.4byte	0x1a8
  1210 02cc D7       		.byte	0xd7
  1211 02cd 09       		.uleb128 0x9
- 1212 02ce 2F060000 		.4byte	.LASF30
+ 1212 02ce 33060000 		.4byte	.LASF30
  1213 02d2 05       		.byte	0x5
  1214 02d3 CD       		.byte	0xcd
  1215 02d4 81000000 		.4byte	0x81
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1239 030a 06       		.uleb128 0x6
  1240 030b 81000000 		.4byte	0x81
  1241 030f 1A030000 		.4byte	0x31a
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 30
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 30
 
 
  1242 0313 07       		.uleb128 0x7
@@ -1753,7 +1753,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1251 0328 0C       		.byte	0xc
  1252 0329 00       		.byte	0
  1253 032a 0C       		.uleb128 0xc
- 1254 032b 18030000 		.4byte	.LASF48
+ 1254 032b 1C030000 		.4byte	.LASF48
  1255 032f 01       		.byte	0x1
  1256 0330 38       		.byte	0x38
  1257 0331 81000000 		.4byte	0x81
@@ -1763,7 +1763,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1261 033e 9C       		.byte	0x9c
  1262 033f DD030000 		.4byte	0x3dd
  1263 0343 0D       		.uleb128 0xd
- 1264 0344 00030000 		.4byte	.LASF47
+ 1264 0344 04030000 		.4byte	.LASF47
  1265 0348 01       		.byte	0x1
  1266 0349 39       		.byte	0x39
  1267 034a 81000000 		.4byte	0x81
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1296 0386 6F0E0000 		.4byte	0xe6f
  1297 038a 95030000 		.4byte	0x395
  1298 038e 11       		.uleb128 0x11
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 31
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 31
 
 
  1299 038f 01       		.uleb128 0x1
@@ -1844,7 +1844,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1339 03d8 840E0000 		.4byte	0xe84
  1340 03dc 00       		.byte	0
  1341 03dd 0C       		.uleb128 0xc
- 1342 03de 0D030000 		.4byte	.LASF49
+ 1342 03de 11030000 		.4byte	.LASF49
  1343 03e2 01       		.byte	0x1
  1344 03e3 68       		.byte	0x68
  1345 03e4 81000000 		.4byte	0x81
@@ -1854,11 +1854,11 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1349 03f1 9C       		.byte	0x9c
  1350 03f2 90040000 		.4byte	0x490
  1351 03f6 0D       		.uleb128 0xd
- 1352 03f7 00030000 		.4byte	.LASF47
+ 1352 03f7 04030000 		.4byte	.LASF47
  1353 03fb 01       		.byte	0x1
  1354 03fc 69       		.byte	0x69
  1355 03fd 81000000 		.4byte	0x81
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 32
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 32
 
 
  1356 0401 74000000 		.4byte	.LLST2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1410 0471 11       		.uleb128 0x11
  1411 0472 01       		.uleb128 0x1
  1412 0473 51       		.byte	0x51
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 33
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 33
 
 
  1413 0474 01       		.uleb128 0x1
@@ -1938,7 +1938,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1427 048b 840E0000 		.4byte	0xe84
  1428 048f 00       		.byte	0
  1429 0490 12       		.uleb128 0x12
- 1430 0491 14040000 		.4byte	.LASF51
+ 1430 0491 18040000 		.4byte	.LASF51
  1431 0495 01       		.byte	0x1
  1432 0496 99       		.byte	0x99
  1433 0497 81000000 		.4byte	0x81
@@ -1948,13 +1948,13 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1437 04a4 9C       		.byte	0x9c
  1438 04a5 1A050000 		.4byte	0x51a
  1439 04a9 0D       		.uleb128 0xd
- 1440 04aa 00030000 		.4byte	.LASF47
+ 1440 04aa 04030000 		.4byte	.LASF47
  1441 04ae 01       		.byte	0x1
  1442 04af 9A       		.byte	0x9a
  1443 04b0 81000000 		.4byte	0x81
  1444 04b4 E8000000 		.4byte	.LLST4
  1445 04b8 13       		.uleb128 0x13
- 1446 04b9 FB020000 		.4byte	.LASF50
+ 1446 04b9 FF020000 		.4byte	.LASF50
  1447 04bd 01       		.byte	0x1
  1448 04be 9A       		.byte	0x9a
  1449 04bf 0A030000 		.4byte	0x30a
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1467 04ea 01       		.uleb128 0x1
  1468 04eb 51       		.byte	0x51
  1469 04ec 01       		.uleb128 0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 34
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 34
 
 
  1470 04ed 30       		.byte	0x30
@@ -2012,7 +2012,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1498 0515 840E0000 		.4byte	0xe84
  1499 0519 00       		.byte	0
  1500 051a 12       		.uleb128 0x12
- 1501 051b 7A040000 		.4byte	.LASF52
+ 1501 051b 7E040000 		.4byte	.LASF52
  1502 051f 01       		.byte	0x1
  1503 0520 C3       		.byte	0xc3
  1504 0521 81000000 		.4byte	0x81
@@ -2022,13 +2022,13 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1508 052e 9C       		.byte	0x9c
  1509 052f A4050000 		.4byte	0x5a4
  1510 0533 0D       		.uleb128 0xd
- 1511 0534 00030000 		.4byte	.LASF47
+ 1511 0534 04030000 		.4byte	.LASF47
  1512 0538 01       		.byte	0x1
  1513 0539 C4       		.byte	0xc4
  1514 053a 81000000 		.4byte	0x81
  1515 053e 45010000 		.4byte	.LLST6
  1516 0542 13       		.uleb128 0x13
- 1517 0543 FB020000 		.4byte	.LASF50
+ 1517 0543 FF020000 		.4byte	.LASF50
  1518 0547 01       		.byte	0x1
  1519 0548 C4       		.byte	0xc4
  1520 0549 C1000000 		.4byte	0xc1
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1524 0550 0E       		.uleb128 0xe
  1525 0551 6900     		.ascii	"i\000"
  1526 0553 01       		.byte	0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 35
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 35
 
 
  1527 0554 C4       		.byte	0xc4
@@ -2086,7 +2086,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1569 059f 840E0000 		.4byte	0xe84
  1570 05a3 00       		.byte	0
  1571 05a4 12       		.uleb128 0x12
- 1572 05a5 C6000000 		.4byte	.LASF53
+ 1572 05a5 0E010000 		.4byte	.LASF53
  1573 05a9 01       		.byte	0x1
  1574 05aa EE       		.byte	0xee
  1575 05ab 81000000 		.4byte	0x81
@@ -2096,28 +2096,28 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1579 05b8 9C       		.byte	0x9c
  1580 05b9 9D060000 		.4byte	0x69d
  1581 05bd 14       		.uleb128 0x14
- 1582 05be 4F030000 		.4byte	.LASF54
+ 1582 05be 53030000 		.4byte	.LASF54
  1583 05c2 01       		.byte	0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 36
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 36
 
 
  1584 05c3 EE       		.byte	0xee
  1585 05c4 8D000000 		.4byte	0x8d
  1586 05c8 A2010000 		.4byte	.LLST8
  1587 05cc 14       		.uleb128 0x14
- 1588 05cd EA050000 		.4byte	.LASF21
+ 1588 05cd EE050000 		.4byte	.LASF21
  1589 05d1 01       		.byte	0x1
  1590 05d2 EE       		.byte	0xee
  1591 05d3 9D060000 		.4byte	0x69d
  1592 05d7 C0010000 		.4byte	.LLST9
  1593 05db 0D       		.uleb128 0xd
- 1594 05dc 00030000 		.4byte	.LASF47
+ 1594 05dc 04030000 		.4byte	.LASF47
  1595 05e0 01       		.byte	0x1
  1596 05e1 EF       		.byte	0xef
  1597 05e2 81000000 		.4byte	0x81
  1598 05e6 DE010000 		.4byte	.LLST10
  1599 05ea 13       		.uleb128 0x13
- 1600 05eb FB020000 		.4byte	.LASF50
+ 1600 05eb FF020000 		.4byte	.LASF50
  1601 05ef 01       		.byte	0x1
  1602 05f0 EF       		.byte	0xef
  1603 05f1 C1000000 		.4byte	0xc1
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1638 0636 02       		.uleb128 0x2
  1639 0637 08       		.byte	0x8
  1640 0638 54       		.byte	0x54
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 37
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 37
 
 
  1641 0639 00       		.byte	0
@@ -2218,12 +2218,12 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1695 069c 00       		.byte	0
  1696 069d 16       		.uleb128 0x16
  1697 069e 04       		.byte	0x4
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 38
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 38
 
 
  1698 069f 81000000 		.4byte	0x81
  1699 06a3 17       		.uleb128 0x17
- 1700 06a4 D6030000 		.4byte	.LASF55
+ 1700 06a4 DA030000 		.4byte	.LASF55
  1701 06a8 01       		.byte	0x1
  1702 06a9 2301     		.2byte	0x123
  1703 06ab 81000000 		.4byte	0x81
@@ -2233,25 +2233,25 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1707 06b8 9C       		.byte	0x9c
  1708 06b9 D1070000 		.4byte	0x7d1
  1709 06bd 18       		.uleb128 0x18
- 1710 06be 4F030000 		.4byte	.LASF54
+ 1710 06be 53030000 		.4byte	.LASF54
  1711 06c2 01       		.byte	0x1
  1712 06c3 2301     		.2byte	0x123
  1713 06c5 8D000000 		.4byte	0x8d
  1714 06c9 67020000 		.4byte	.LLST12
  1715 06cd 18       		.uleb128 0x18
- 1716 06ce 7F030000 		.4byte	.LASF18
+ 1716 06ce 83030000 		.4byte	.LASF18
  1717 06d2 01       		.byte	0x1
  1718 06d3 2301     		.2byte	0x123
  1719 06d5 81000000 		.4byte	0x81
  1720 06d9 A9020000 		.4byte	.LLST13
  1721 06dd 19       		.uleb128 0x19
- 1722 06de 00030000 		.4byte	.LASF47
+ 1722 06de 04030000 		.4byte	.LASF47
  1723 06e2 01       		.byte	0x1
  1724 06e3 2401     		.2byte	0x124
  1725 06e5 8D000000 		.4byte	0x8d
  1726 06e9 CA020000 		.4byte	.LLST14
  1727 06ed 1A       		.uleb128 0x1a
- 1728 06ee FB020000 		.4byte	.LASF50
+ 1728 06ee FF020000 		.4byte	.LASF50
  1729 06f2 01       		.byte	0x1
  1730 06f3 2401     		.2byte	0x124
  1731 06f5 D1070000 		.4byte	0x7d1
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1752 0724 30       		.byte	0x30
  1753 0725 11       		.uleb128 0x11
  1754 0726 01       		.uleb128 0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 39
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 39
 
 
  1755 0727 50       		.byte	0x50
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1809 0787 01       		.uleb128 0x1
  1810 0788 51       		.byte	0x51
  1811 0789 01       		.uleb128 0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 40
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 40
 
 
  1812 078a 31       		.byte	0x31
@@ -2390,7 +2390,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1858 07df 03       		.byte	0x3
  1859 07e0 00       		.byte	0
  1860 07e1 17       		.uleb128 0x17
- 1861 07e2 78010000 		.4byte	.LASF56
+ 1861 07e2 7C010000 		.4byte	.LASF56
  1862 07e6 01       		.byte	0x1
  1863 07e7 5B01     		.2byte	0x15b
  1864 07e9 81000000 		.4byte	0x81
@@ -2398,30 +2398,30 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1866 07f1 46000000 		.4byte	.LFE69-.LFB69
  1867 07f5 01       		.uleb128 0x1
  1868 07f6 9C       		.byte	0x9c
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 41
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 41
 
 
  1869 07f7 8E080000 		.4byte	0x88e
  1870 07fb 18       		.uleb128 0x18
- 1871 07fc C5040000 		.4byte	.LASF57
+ 1871 07fc C9040000 		.4byte	.LASF57
  1872 0800 01       		.byte	0x1
  1873 0801 5B01     		.2byte	0x15b
  1874 0803 81000000 		.4byte	0x81
  1875 0807 56030000 		.4byte	.LLST16
  1876 080b 18       		.uleb128 0x18
- 1877 080c EA050000 		.4byte	.LASF21
+ 1877 080c EE050000 		.4byte	.LASF21
  1878 0810 01       		.byte	0x1
  1879 0811 5B01     		.2byte	0x15b
  1880 0813 81000000 		.4byte	0x81
  1881 0817 75030000 		.4byte	.LLST17
  1882 081b 19       		.uleb128 0x19
- 1883 081c 00030000 		.4byte	.LASF47
+ 1883 081c 04030000 		.4byte	.LASF47
  1884 0820 01       		.byte	0x1
  1885 0821 5C01     		.2byte	0x15c
  1886 0823 81000000 		.4byte	0x81
  1887 0827 94030000 		.4byte	.LLST18
  1888 082b 1A       		.uleb128 0x1a
- 1889 082c FB020000 		.4byte	.LASF50
+ 1889 082c FF020000 		.4byte	.LASF50
  1890 0830 01       		.byte	0x1
  1891 0831 5C01     		.2byte	0x15c
  1892 0833 EA020000 		.4byte	0x2ea
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1923 0872 84080000 		.4byte	0x884
  1924 0876 11       		.uleb128 0x11
  1925 0877 01       		.uleb128 0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 42
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 42
 
 
  1926 0878 50       		.byte	0x50
@@ -2478,14 +2478,14 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1940 0889 840E0000 		.4byte	0xe84
  1941 088d 00       		.byte	0
  1942 088e 1C       		.uleb128 0x1c
- 1943 088f 6D040000 		.4byte	.LASF58
+ 1943 088f 71040000 		.4byte	.LASF58
  1944 0893 06       		.byte	0x6
  1945 0894 5506     		.2byte	0x655
  1946 0896 9A080000 		.4byte	0x89a
  1947 089a 1D       		.uleb128 0x1d
  1948 089b 76000000 		.4byte	0x76
  1949 089f 1E       		.uleb128 0x1e
- 1950 08a0 01040000 		.4byte	.LASF59
+ 1950 08a0 05040000 		.4byte	.LASF59
  1951 08a4 05       		.byte	0x5
  1952 08a5 2F       		.byte	0x2f
  1953 08a6 81000000 		.4byte	0x81
@@ -2501,7 +2501,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1963 08bc 03       		.byte	0x3
  1964 08bd 00000000 		.4byte	flujo_LCD2
  1965 08c1 1E       		.uleb128 0x1e
- 1966 08c2 B8020000 		.4byte	.LASF61
+ 1966 08c2 BC020000 		.4byte	.LASF61
  1967 08c6 05       		.byte	0x5
  1968 08c7 2F       		.byte	0x2f
  1969 08c8 81000000 		.4byte	0x81
@@ -2517,8 +2517,8 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1979 08de 03       		.byte	0x3
  1980 08df 00000000 		.4byte	flujo_LCD4
  1981 08e3 1E       		.uleb128 0x1e
- 1982 08e4 CC040000 		.4byte	.LASF63
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 43
+ 1982 08e4 D0040000 		.4byte	.LASF63
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 43
 
 
  1983 08e8 05       		.byte	0x5
@@ -2528,7 +2528,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1987 08ef 03       		.byte	0x3
  1988 08f0 00000000 		.4byte	cont1
  1989 08f4 1E       		.uleb128 0x1e
- 1990 08f5 D8000000 		.4byte	.LASF64
+ 1990 08f5 20010000 		.4byte	.LASF64
  1991 08f9 05       		.byte	0x5
  1992 08fa 60       		.byte	0x60
  1993 08fb 81000000 		.4byte	0x81
@@ -2536,7 +2536,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  1995 0900 03       		.byte	0x3
  1996 0901 00000000 		.4byte	teclas1
  1997 0905 1E       		.uleb128 0x1e
- 1998 0906 E0000000 		.4byte	.LASF65
+ 1998 0906 28010000 		.4byte	.LASF65
  1999 090a 05       		.byte	0x5
  2000 090b 60       		.byte	0x60
  2001 090c 81000000 		.4byte	0x81
@@ -2544,7 +2544,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2003 0911 03       		.byte	0x3
  2004 0912 00000000 		.4byte	teclas2
  2005 0916 1E       		.uleb128 0x1e
- 2006 0917 86040000 		.4byte	.LASF66
+ 2006 0917 8A040000 		.4byte	.LASF66
  2007 091b 05       		.byte	0x5
  2008 091c 60       		.byte	0x60
  2009 091d 81000000 		.4byte	0x81
@@ -2552,7 +2552,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2011 0922 03       		.byte	0x3
  2012 0923 00000000 		.4byte	comas1
  2013 0927 1E       		.uleb128 0x1e
- 2014 0928 8D040000 		.4byte	.LASF67
+ 2014 0928 91040000 		.4byte	.LASF67
  2015 092c 05       		.byte	0x5
  2016 092d 60       		.byte	0x60
  2017 092e 81000000 		.4byte	0x81
@@ -2568,7 +2568,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2027 0944 03       		.byte	0x3
  2028 0945 00000000 		.4byte	versurt
  2029 0949 1E       		.uleb128 0x1e
- 2030 094a 94040000 		.4byte	.LASF69
+ 2030 094a 98040000 		.4byte	.LASF69
  2031 094e 05       		.byte	0x5
  2032 094f 62       		.byte	0x62
  2033 0950 81000000 		.4byte	0x81
@@ -2576,9 +2576,9 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2035 0955 03       		.byte	0x3
  2036 0956 00000000 		.4byte	producto1
  2037 095a 1E       		.uleb128 0x1e
- 2038 095b 9E040000 		.4byte	.LASF70
+ 2038 095b A2040000 		.4byte	.LASF70
  2039 095f 05       		.byte	0x5
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 44
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 44
 
 
  2040 0960 62       		.byte	0x62
@@ -2587,7 +2587,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2043 0966 03       		.byte	0x3
  2044 0967 00000000 		.4byte	producto2
  2045 096b 1E       		.uleb128 0x1e
- 2046 096c A8040000 		.4byte	.LASF71
+ 2046 096c AC040000 		.4byte	.LASF71
  2047 0970 05       		.byte	0x5
  2048 0971 62       		.byte	0x62
  2049 0972 81000000 		.4byte	0x81
@@ -2595,7 +2595,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2051 0977 03       		.byte	0x3
  2052 0978 00000000 		.4byte	producto3
  2053 097c 1E       		.uleb128 0x1e
- 2054 097d B2040000 		.4byte	.LASF72
+ 2054 097d B6040000 		.4byte	.LASF72
  2055 0981 05       		.byte	0x5
  2056 0982 62       		.byte	0x62
  2057 0983 81000000 		.4byte	0x81
@@ -2603,7 +2603,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2059 0988 03       		.byte	0x3
  2060 0989 00000000 		.4byte	producto4
  2061 098d 1E       		.uleb128 0x1e
- 2062 098e 89000000 		.4byte	.LASF73
+ 2062 098e D1000000 		.4byte	.LASF73
  2063 0992 05       		.byte	0x5
  2064 0993 62       		.byte	0x62
  2065 0994 81000000 		.4byte	0x81
@@ -2611,7 +2611,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2067 0999 03       		.byte	0x3
  2068 099a 00000000 		.4byte	producto1b
  2069 099e 1E       		.uleb128 0x1e
- 2070 099f 6D010000 		.4byte	.LASF74
+ 2070 099f 71010000 		.4byte	.LASF74
  2071 09a3 05       		.byte	0x5
  2072 09a4 62       		.byte	0x62
  2073 09a5 81000000 		.4byte	0x81
@@ -2619,7 +2619,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2075 09aa 03       		.byte	0x3
  2076 09ab 00000000 		.4byte	producto2b
  2077 09af 1E       		.uleb128 0x1e
- 2078 09b0 0E020000 		.4byte	.LASF75
+ 2078 09b0 12020000 		.4byte	.LASF75
  2079 09b4 05       		.byte	0x5
  2080 09b5 62       		.byte	0x62
  2081 09b6 81000000 		.4byte	0x81
@@ -2627,7 +2627,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2083 09bb 03       		.byte	0x3
  2084 09bc 00000000 		.4byte	producto3b
  2085 09c0 1E       		.uleb128 0x1e
- 2086 09c1 8F020000 		.4byte	.LASF76
+ 2086 09c1 93020000 		.4byte	.LASF76
  2087 09c5 05       		.byte	0x5
  2088 09c6 62       		.byte	0x62
  2089 09c7 81000000 		.4byte	0x81
@@ -2638,14 +2638,14 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2094 09d2 81000000 		.4byte	0x81
  2095 09d6 E1090000 		.4byte	0x9e1
  2096 09da 07       		.uleb128 0x7
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 45
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 45
 
 
  2097 09db BA000000 		.4byte	0xba
  2098 09df 3F       		.byte	0x3f
  2099 09e0 00       		.byte	0
  2100 09e1 1E       		.uleb128 0x1e
- 2101 09e2 A7010000 		.4byte	.LASF77
+ 2101 09e2 AB010000 		.4byte	.LASF77
  2102 09e6 05       		.byte	0x5
  2103 09e7 63       		.byte	0x63
  2104 09e8 D1090000 		.4byte	0x9d1
@@ -2660,7 +2660,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2113 0a00 0D       		.byte	0xd
  2114 0a01 00       		.byte	0
  2115 0a02 1E       		.uleb128 0x1e
- 2116 0a03 B0050000 		.4byte	.LASF78
+ 2116 0a03 B4050000 		.4byte	.LASF78
  2117 0a07 05       		.byte	0x5
  2118 0a08 64       		.byte	0x64
  2119 0a09 F2090000 		.4byte	0x9f2
@@ -2668,7 +2668,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2121 0a0e 03       		.byte	0x3
  2122 0a0f 00000000 		.4byte	resultado
  2123 0a13 1E       		.uleb128 0x1e
- 2124 0a14 FF010000 		.4byte	.LASF79
+ 2124 0a14 03020000 		.4byte	.LASF79
  2125 0a18 05       		.byte	0x5
  2126 0a19 65       		.byte	0x65
  2127 0a1a 81000000 		.4byte	0x81
@@ -2684,7 +2684,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2137 0a30 03       		.byte	0x3
  2138 0a31 00000000 		.4byte	teclado2
  2139 0a35 1E       		.uleb128 0x1e
- 2140 0a36 E9030000 		.4byte	.LASF81
+ 2140 0a36 ED030000 		.4byte	.LASF81
  2141 0a3a 05       		.byte	0x5
  2142 0a3b 66       		.byte	0x66
  2143 0a3c 81000000 		.4byte	0x81
@@ -2692,18 +2692,18 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2145 0a41 03       		.byte	0x3
  2146 0a42 00000000 		.4byte	ppux10
  2147 0a46 1E       		.uleb128 0x1e
- 2148 0a47 ED040000 		.4byte	.LASF82
+ 2148 0a47 F1040000 		.4byte	.LASF82
  2149 0a4b 05       		.byte	0x5
  2150 0a4c 67       		.byte	0x67
  2151 0a4d EA020000 		.4byte	0x2ea
  2152 0a51 05       		.uleb128 0x5
  2153 0a52 03       		.byte	0x3
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 46
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 46
 
 
  2154 0a53 00000000 		.4byte	bandera
  2155 0a57 1E       		.uleb128 0x1e
- 2156 0a58 26060000 		.4byte	.LASF83
+ 2156 0a58 2A060000 		.4byte	.LASF83
  2157 0a5c 05       		.byte	0x5
  2158 0a5d 68       		.byte	0x68
  2159 0a5e EA020000 		.4byte	0x2ea
@@ -2711,7 +2711,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2161 0a63 03       		.byte	0x3
  2162 0a64 00000000 		.4byte	tipo_imp
  2163 0a68 1E       		.uleb128 0x1e
- 2164 0a69 03060000 		.4byte	.LASF84
+ 2164 0a69 07060000 		.4byte	.LASF84
  2165 0a6d 05       		.byte	0x5
  2166 0a6e 69       		.byte	0x69
  2167 0a6f 81000000 		.4byte	0x81
@@ -2719,7 +2719,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2169 0a74 03       		.byte	0x3
  2170 0a75 00000000 		.4byte	decimalV
  2171 0a79 1E       		.uleb128 0x1e
- 2172 0a7a 5A010000 		.4byte	.LASF85
+ 2172 0a7a 5E010000 		.4byte	.LASF85
  2173 0a7e 05       		.byte	0x5
  2174 0a7f 6A       		.byte	0x6a
  2175 0a80 81000000 		.4byte	0x81
@@ -2734,7 +2734,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2184 0a98 05       		.byte	0x5
  2185 0a99 00       		.byte	0
  2186 0a9a 1E       		.uleb128 0x1e
- 2187 0a9b AC020000 		.4byte	.LASF86
+ 2187 0a9b B0020000 		.4byte	.LASF86
  2188 0a9f 05       		.byte	0x5
  2189 0aa0 6B       		.byte	0x6b
  2190 0aa1 8A0A0000 		.4byte	0xa8a
@@ -2742,7 +2742,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2192 0aa6 03       		.byte	0x3
  2193 0aa7 00000000 		.4byte	fecha_corte
  2194 0aab 1E       		.uleb128 0x1e
- 2195 0aac D2020000 		.4byte	.LASF87
+ 2195 0aac D6020000 		.4byte	.LASF87
  2196 0ab0 05       		.byte	0x5
  2197 0ab1 6C       		.byte	0x6c
  2198 0ab2 81000000 		.4byte	0x81
@@ -2750,7 +2750,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2200 0ab7 03       		.byte	0x3
  2201 0ab8 00000000 		.4byte	pos_ibutton
  2202 0abc 1E       		.uleb128 0x1e
- 2203 0abd F7030000 		.4byte	.LASF88
+ 2203 0abd FB030000 		.4byte	.LASF88
  2204 0ac1 05       		.byte	0x5
  2205 0ac2 6D       		.byte	0x6d
  2206 0ac3 81000000 		.4byte	0x81
@@ -2758,10 +2758,10 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2208 0ac8 03       		.byte	0x3
  2209 0ac9 00000000 		.4byte	crc_total
  2210 0acd 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 47
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 47
 
 
- 2211 0ace ED020000 		.4byte	.LASF89
+ 2211 0ace F1020000 		.4byte	.LASF89
  2212 0ad2 05       		.byte	0x5
  2213 0ad3 6E       		.byte	0x6e
  2214 0ad4 EA020000 		.4byte	0x2ea
@@ -2769,7 +2769,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2216 0ad9 03       		.byte	0x3
  2217 0ada 00000000 		.4byte	print1
  2218 0ade 1E       		.uleb128 0x1e
- 2219 0adf F4020000 		.4byte	.LASF90
+ 2219 0adf F8020000 		.4byte	.LASF90
  2220 0ae3 05       		.byte	0x5
  2221 0ae4 6E       		.byte	0x6e
  2222 0ae5 EA020000 		.4byte	0x2ea
@@ -2777,7 +2777,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2224 0aea 03       		.byte	0x3
  2225 0aeb 00000000 		.4byte	print2
  2226 0aef 1E       		.uleb128 0x1e
- 2227 0af0 60040000 		.4byte	.LASF91
+ 2227 0af0 64040000 		.4byte	.LASF91
  2228 0af4 05       		.byte	0x5
  2229 0af5 6F       		.byte	0x6f
  2230 0af6 EA020000 		.4byte	0x2ea
@@ -2793,7 +2793,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2240 0b0c 03       		.byte	0x3
  2241 0b0d 00000000 		.4byte	copia_recibo2
  2242 0b11 1E       		.uleb128 0x1e
- 2243 0b12 9A020000 		.4byte	.LASF93
+ 2243 0b12 9E020000 		.4byte	.LASF93
  2244 0b16 05       		.byte	0x5
  2245 0b17 71       		.byte	0x71
  2246 0b18 8A0A0000 		.4byte	0xa8a
@@ -2801,7 +2801,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2248 0b1d 03       		.byte	0x3
  2249 0b1e 00000000 		.4byte	id_venta
  2250 0b22 1E       		.uleb128 0x1e
- 2251 0b23 70030000 		.4byte	.LASF94
+ 2251 0b23 74030000 		.4byte	.LASF94
  2252 0b27 05       		.byte	0x5
  2253 0b28 72       		.byte	0x72
  2254 0b29 81000000 		.4byte	0x81
@@ -2816,9 +2816,9 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2263 0b41 0A       		.byte	0xa
  2264 0b42 00       		.byte	0
  2265 0b43 1E       		.uleb128 0x1e
- 2266 0b44 9B000000 		.4byte	.LASF95
+ 2266 0b44 E3000000 		.4byte	.LASF95
  2267 0b48 05       		.byte	0x5
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 48
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 48
 
 
  2268 0b49 73       		.byte	0x73
@@ -2827,7 +2827,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2271 0b4f 03       		.byte	0x3
  2272 0b50 00000000 		.4byte	producto1n
  2273 0b54 1E       		.uleb128 0x1e
- 2274 0b55 8B010000 		.4byte	.LASF96
+ 2274 0b55 8F010000 		.4byte	.LASF96
  2275 0b59 05       		.byte	0x5
  2276 0b5a 74       		.byte	0x74
  2277 0b5b 330B0000 		.4byte	0xb33
@@ -2835,7 +2835,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2279 0b60 03       		.byte	0x3
  2280 0b61 00000000 		.4byte	producto2n
  2281 0b65 1E       		.uleb128 0x1e
- 2282 0b66 34020000 		.4byte	.LASF97
+ 2282 0b66 38020000 		.4byte	.LASF97
  2283 0b6a 05       		.byte	0x5
  2284 0b6b 75       		.byte	0x75
  2285 0b6c 330B0000 		.4byte	0xb33
@@ -2843,7 +2843,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2287 0b71 03       		.byte	0x3
  2288 0b72 00000000 		.4byte	producto3n
  2289 0b76 1E       		.uleb128 0x1e
- 2290 0b77 96010000 		.4byte	.LASF98
+ 2290 0b77 9A010000 		.4byte	.LASF98
  2291 0b7b 05       		.byte	0x5
  2292 0b7c 76       		.byte	0x76
  2293 0b7d 330B0000 		.4byte	0xb33
@@ -2851,7 +2851,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2295 0b82 03       		.byte	0x3
  2296 0b83 00000000 		.4byte	producto4n
  2297 0b87 1E       		.uleb128 0x1e
- 2298 0b88 0B040000 		.4byte	.LASF99
+ 2298 0b88 0F040000 		.4byte	.LASF99
  2299 0b8c 05       		.byte	0x5
  2300 0b8d 77       		.byte	0x77
  2301 0b8e 81000000 		.4byte	0x81
@@ -2866,7 +2866,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2310 0ba6 00       		.byte	0
  2311 0ba7 00       		.byte	0
  2312 0ba8 1E       		.uleb128 0x1e
- 2313 0ba9 54020000 		.4byte	.LASF100
+ 2313 0ba9 58020000 		.4byte	.LASF100
  2314 0bad 05       		.byte	0x5
  2315 0bae 78       		.byte	0x78
  2316 0baf 980B0000 		.4byte	0xb98
@@ -2874,18 +2874,18 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2318 0bb4 03       		.byte	0x3
  2319 0bb5 00000000 		.4byte	n_copias
  2320 0bb9 1E       		.uleb128 0x1e
- 2321 0bba 09050000 		.4byte	.LASF101
+ 2321 0bba 0D050000 		.4byte	.LASF101
  2322 0bbe 05       		.byte	0x5
  2323 0bbf 79       		.byte	0x79
  2324 0bc0 81000000 		.4byte	0x81
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 49
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 49
 
 
  2325 0bc4 05       		.uleb128 0x5
  2326 0bc5 03       		.byte	0x3
  2327 0bc6 00000000 		.4byte	no_imprime
  2328 0bca 1E       		.uleb128 0x1e
- 2329 0bcb FD040000 		.4byte	.LASF102
+ 2329 0bcb 01050000 		.4byte	.LASF102
  2330 0bcf 05       		.byte	0x5
  2331 0bd0 7A       		.byte	0x7a
  2332 0bd1 81000000 		.4byte	0x81
@@ -2893,7 +2893,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2334 0bd6 03       		.byte	0x3
  2335 0bd7 00000000 		.4byte	no_imprime2
  2336 0bdb 1E       		.uleb128 0x1e
- 2337 0bdc E2030000 		.4byte	.LASF103
+ 2337 0bdc E6030000 		.4byte	.LASF103
  2338 0be0 05       		.byte	0x5
  2339 0be1 7B       		.byte	0x7b
  2340 0be2 81000000 		.4byte	0x81
@@ -2901,7 +2901,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2342 0be7 03       		.byte	0x3
  2343 0be8 00000000 		.4byte	imagen
  2344 0bec 1E       		.uleb128 0x1e
- 2345 0bed C8020000 		.4byte	.LASF104
+ 2345 0bed CC020000 		.4byte	.LASF104
  2346 0bf1 05       		.byte	0x5
  2347 0bf2 7C       		.byte	0x7c
  2348 0bf3 81000000 		.4byte	0x81
@@ -2909,7 +2909,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2350 0bf8 03       		.byte	0x3
  2351 0bf9 00000000 		.4byte	flujo_pos
  2352 0bfd 1E       		.uleb128 0x1e
- 2353 0bfe 5D020000 		.4byte	.LASF105
+ 2353 0bfe 61020000 		.4byte	.LASF105
  2354 0c02 05       		.byte	0x5
  2355 0c03 7D       		.byte	0x7d
  2356 0c04 81000000 		.4byte	0x81
@@ -2917,7 +2917,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2358 0c09 03       		.byte	0x3
  2359 0c0a 00000000 		.4byte	flujo_pos2
  2360 0c0e 1E       		.uleb128 0x1e
- 2361 0c0f 68020000 		.4byte	.LASF106
+ 2361 0c0f 6C020000 		.4byte	.LASF106
  2362 0c13 05       		.byte	0x5
  2363 0c14 7E       		.byte	0x7e
  2364 0c15 81000000 		.4byte	0x81
@@ -2925,7 +2925,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2366 0c1a 03       		.byte	0x3
  2367 0c1b 00000000 		.4byte	flujo_pos3
  2368 0c1f 1E       		.uleb128 0x1e
- 2369 0c20 73020000 		.4byte	.LASF107
+ 2369 0c20 77020000 		.4byte	.LASF107
  2370 0c24 05       		.byte	0x5
  2371 0c25 7F       		.byte	0x7f
  2372 0c26 81000000 		.4byte	0x81
@@ -2933,18 +2933,18 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2374 0c2b 03       		.byte	0x3
  2375 0c2c 00000000 		.4byte	flujo_pos4
  2376 0c30 1E       		.uleb128 0x1e
- 2377 0c31 AE000000 		.4byte	.LASF108
+ 2377 0c31 F6000000 		.4byte	.LASF108
  2378 0c35 05       		.byte	0x5
  2379 0c36 80       		.byte	0x80
  2380 0c37 81000000 		.4byte	0x81
  2381 0c3b 05       		.uleb128 0x5
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 50
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 50
 
 
  2382 0c3c 03       		.byte	0x3
  2383 0c3d 00000000 		.4byte	estado_lcd1
  2384 0c41 1E       		.uleb128 0x1e
- 2385 0c42 BA000000 		.4byte	.LASF109
+ 2385 0c42 02010000 		.4byte	.LASF109
  2386 0c46 05       		.byte	0x5
  2387 0c47 81       		.byte	0x81
  2388 0c48 81000000 		.4byte	0x81
@@ -2952,7 +2952,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2390 0c4d 03       		.byte	0x3
  2391 0c4e 00000000 		.4byte	estado_lcd2
  2392 0c52 1E       		.uleb128 0x1e
- 2393 0c53 26020000 		.4byte	.LASF110
+ 2393 0c53 2A020000 		.4byte	.LASF110
  2394 0c57 05       		.byte	0x5
  2395 0c58 82       		.byte	0x82
  2396 0c59 81000000 		.4byte	0x81
@@ -2960,7 +2960,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2398 0c5e 03       		.byte	0x3
  2399 0c5f 00000000 		.4byte	seleccion_pos
  2400 0c63 1E       		.uleb128 0x1e
- 2401 0c64 45020000 		.4byte	.LASF111
+ 2401 0c64 49020000 		.4byte	.LASF111
  2402 0c68 05       		.byte	0x5
  2403 0c69 83       		.byte	0x83
  2404 0c6a 81000000 		.4byte	0x81
@@ -2968,7 +2968,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2406 0c6f 03       		.byte	0x3
  2407 0c70 00000000 		.4byte	seleccion_pos2
  2408 0c74 1E       		.uleb128 0x1e
- 2409 0c75 19020000 		.4byte	.LASF112
+ 2409 0c75 1D020000 		.4byte	.LASF112
  2410 0c79 05       		.byte	0x5
  2411 0c7a 84       		.byte	0x84
  2412 0c7b 81000000 		.4byte	0x81
@@ -2976,7 +2976,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2414 0c80 03       		.byte	0x3
  2415 0c81 00000000 		.4byte	venta_activa
  2416 0c85 1E       		.uleb128 0x1e
- 2417 0c86 CC010000 		.4byte	.LASF113
+ 2417 0c86 D0010000 		.4byte	.LASF113
  2418 0c8a 05       		.byte	0x5
  2419 0c8b 84       		.byte	0x84
  2420 0c8c 81000000 		.4byte	0x81
@@ -2984,7 +2984,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2422 0c91 03       		.byte	0x3
  2423 0c92 00000000 		.4byte	venta_activa3
  2424 0c96 1E       		.uleb128 0x1e
- 2425 0c97 BE010000 		.4byte	.LASF114
+ 2425 0c97 C2010000 		.4byte	.LASF114
  2426 0c9b 05       		.byte	0x5
  2427 0c9c 85       		.byte	0x85
  2428 0c9d 81000000 		.4byte	0x81
@@ -2992,18 +2992,18 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2430 0ca2 03       		.byte	0x3
  2431 0ca3 00000000 		.4byte	venta_activa2
  2432 0ca7 1E       		.uleb128 0x1e
- 2433 0ca8 DA010000 		.4byte	.LASF115
+ 2433 0ca8 DE010000 		.4byte	.LASF115
  2434 0cac 05       		.byte	0x5
  2435 0cad 85       		.byte	0x85
  2436 0cae 81000000 		.4byte	0x81
  2437 0cb2 05       		.uleb128 0x5
  2438 0cb3 03       		.byte	0x3
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 51
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 51
 
 
  2439 0cb4 00000000 		.4byte	venta_activa4
  2440 0cb8 1E       		.uleb128 0x1e
- 2441 0cb9 8B030000 		.4byte	.LASF116
+ 2441 0cb9 8F030000 		.4byte	.LASF116
  2442 0cbd 05       		.byte	0x5
  2443 0cbe 86       		.byte	0x86
  2444 0cbf 8D000000 		.4byte	0x8d
@@ -3011,7 +3011,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2446 0cc4 03       		.byte	0x3
  2447 0cc5 00000000 		.4byte	id_corte
  2448 0cc9 1E       		.uleb128 0x1e
- 2449 0cca 94030000 		.4byte	.LASF117
+ 2449 0cca 98030000 		.4byte	.LASF117
  2450 0cce 05       		.byte	0x5
  2451 0ccf 8A       		.byte	0x8a
  2452 0cd0 DA0C0000 		.4byte	0xcda
@@ -3021,7 +3021,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2456 0cda 1D       		.uleb128 0x1d
  2457 0cdb 68000000 		.4byte	0x68
  2458 0cdf 1E       		.uleb128 0x1e
- 2459 0ce0 AB030000 		.4byte	.LASF118
+ 2459 0ce0 AF030000 		.4byte	.LASF118
  2460 0ce4 05       		.byte	0x5
  2461 0ce5 A6       		.byte	0xa6
  2462 0ce6 D1000000 		.4byte	0xd1
@@ -3029,7 +3029,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2464 0ceb 03       		.byte	0x3
  2465 0cec 00000000 		.4byte	Buffer_LCD1
  2466 0cf0 1E       		.uleb128 0x1e
- 2467 0cf1 22030000 		.4byte	.LASF119
+ 2467 0cf1 26030000 		.4byte	.LASF119
  2468 0cf5 05       		.byte	0x5
  2469 0cf6 A7       		.byte	0xa7
  2470 0cf7 D1000000 		.4byte	0xd1
@@ -3037,7 +3037,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2472 0cfc 03       		.byte	0x3
  2473 0cfd 00000000 		.4byte	Buffer_LCD2
  2474 0d01 1E       		.uleb128 0x1e
- 2475 0d02 BE030000 		.4byte	.LASF120
+ 2475 0d02 C2030000 		.4byte	.LASF120
  2476 0d06 05       		.byte	0x5
  2477 0d07 A8       		.byte	0xa8
  2478 0d08 D1000000 		.4byte	0xd1
@@ -3045,7 +3045,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2480 0d0d 03       		.byte	0x3
  2481 0d0e 00000000 		.4byte	Buffer_LCD3
  2482 0d12 1E       		.uleb128 0x1e
- 2483 0d13 CA030000 		.4byte	.LASF121
+ 2483 0d13 CE030000 		.4byte	.LASF121
  2484 0d17 05       		.byte	0x5
  2485 0d18 A9       		.byte	0xa9
  2486 0d19 D1000000 		.4byte	0xd1
@@ -3053,12 +3053,12 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2488 0d1e 03       		.byte	0x3
  2489 0d1f 00000000 		.4byte	Buffer_LCD4
  2490 0d23 1E       		.uleb128 0x1e
- 2491 0d24 BC040000 		.4byte	.LASF122
+ 2491 0d24 C0040000 		.4byte	.LASF122
  2492 0d28 05       		.byte	0x5
  2493 0d29 AB       		.byte	0xab
  2494 0d2a 81000000 		.4byte	0x81
  2495 0d2e 05       		.uleb128 0x5
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 52
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 52
 
 
  2496 0d2f 03       		.byte	0x3
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2550 0d93 99000000 		.4byte	0x99
  2551 0d97 05       		.uleb128 0x5
  2552 0d98 03       		.byte	0x3
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 53
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 53
 
 
  2553 0d99 00000000 		.4byte	z
@@ -3149,7 +3149,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2578 0dce 03       		.byte	0x3
  2579 0dcf 00000000 		.4byte	modulo
  2580 0dd3 1E       		.uleb128 0x1e
- 2581 0dd4 94000000 		.4byte	.LASF124
+ 2581 0dd4 DC000000 		.4byte	.LASF124
  2582 0dd8 05       		.byte	0x5
  2583 0dd9 D1       		.byte	0xd1
  2584 0dda 81000000 		.4byte	0x81
@@ -3178,13 +3178,13 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2607 0e0c D1       		.byte	0xd1
  2608 0e0d 81000000 		.4byte	0x81
  2609 0e11 05       		.uleb128 0x5
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 54
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 54
 
 
  2610 0e12 03       		.byte	0x3
  2611 0e13 00000000 		.4byte	grado4
  2612 0e17 1E       		.uleb128 0x1e
- 2613 0e18 3C030000 		.4byte	.LASF42
+ 2613 0e18 40030000 		.4byte	.LASF42
  2614 0e1c 05       		.byte	0x5
  2615 0e1d D1       		.byte	0xd1
  2616 0e1e 81000000 		.4byte	0x81
@@ -3192,7 +3192,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2618 0e23 03       		.byte	0x3
  2619 0e24 00000000 		.4byte	producto
  2620 0e28 1E       		.uleb128 0x1e
- 2621 0e29 38060000 		.4byte	.LASF128
+ 2621 0e29 3C060000 		.4byte	.LASF128
  2622 0e2d 05       		.byte	0x5
  2623 0e2e D3       		.byte	0xd3
  2624 0e2f F5010000 		.4byte	0x1f5
@@ -3200,7 +3200,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2626 0e34 03       		.byte	0x3
  2627 0e35 00000000 		.4byte	rventa
  2628 0e39 1E       		.uleb128 0x1e
- 2629 0e3a 52010000 		.4byte	.LASF129
+ 2629 0e3a 56010000 		.4byte	.LASF129
  2630 0e3e 05       		.byte	0x5
  2631 0e3f D4       		.byte	0xd4
  2632 0e40 F5010000 		.4byte	0x1f5
@@ -3208,12 +3208,12 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2634 0e45 03       		.byte	0x3
  2635 0e46 00000000 		.4byte	rventa2
  2636 0e4a 20       		.uleb128 0x20
- 2637 0e4b 29040000 		.4byte	.LASF132
+ 2637 0e4b 2D040000 		.4byte	.LASF132
  2638 0e4f 07       		.byte	0x7
  2639 0e50 BD       		.byte	0xbd
  2640 0e51 81000000 		.4byte	0x81
  2641 0e55 21       		.uleb128 0x21
- 2642 0e56 41040000 		.4byte	.LASF130
+ 2642 0e56 45040000 		.4byte	.LASF130
  2643 0e5a 07       		.byte	0x7
  2644 0e5b CA       		.byte	0xca
  2645 0e5c 81000000 		.4byte	0x81
@@ -3224,7 +3224,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2650 0e6a 81000000 		.4byte	0x81
  2651 0e6e 00       		.byte	0
  2652 0e6f 21       		.uleb128 0x21
- 2653 0e70 C0050000 		.4byte	.LASF131
+ 2653 0e70 C4050000 		.4byte	.LASF131
  2654 0e74 07       		.byte	0x7
  2655 0e75 CF       		.byte	0xcf
  2656 0e76 81000000 		.4byte	0x81
@@ -3233,15 +3233,15 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2659 0e7f 81000000 		.4byte	0x81
  2660 0e83 00       		.byte	0
  2661 0e84 20       		.uleb128 0x20
- 2662 0e85 3D010000 		.4byte	.LASF133
+ 2662 0e85 41010000 		.4byte	.LASF133
  2663 0e89 07       		.byte	0x7
  2664 0e8a CE       		.byte	0xce
  2665 0e8b 81000000 		.4byte	0x81
  2666 0e8f 23       		.uleb128 0x23
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 55
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 55
 
 
- 2667 0e90 DE020000 		.4byte	.LASF138
+ 2667 0e90 E2020000 		.4byte	.LASF138
  2668 0e94 08       		.byte	0x8
  2669 0e95 77       		.byte	0x77
  2670 0e96 A00E0000 		.4byte	0xea0
@@ -3249,7 +3249,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2672 0e9b 99000000 		.4byte	0x99
  2673 0e9f 00       		.byte	0
  2674 0ea0 21       		.uleb128 0x21
- 2675 0ea1 5B030000 		.4byte	.LASF134
+ 2675 0ea1 5F030000 		.4byte	.LASF134
  2676 0ea5 07       		.byte	0x7
  2677 0ea6 D0       		.byte	0xd0
  2678 0ea7 81000000 		.4byte	0x81
@@ -3258,7 +3258,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2681 0eb0 81000000 		.4byte	0x81
  2682 0eb4 00       		.byte	0
  2683 0eb5 24       		.uleb128 0x24
- 2684 0eb6 19060000 		.4byte	.LASF139
+ 2684 0eb6 1D060000 		.4byte	.LASF139
  2685 0eba 09       		.byte	0x9
  2686 0ebb 28       		.byte	0x28
  2687 0ebc 22       		.uleb128 0x22
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2721 001c 00       		.byte	0
  2722 001d 00       		.byte	0
  2723 001e 03       		.uleb128 0x3
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 56
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 56
 
 
  2724 001f 16       		.uleb128 0x16
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2778 0055 08       		.uleb128 0x8
  2779 0056 13       		.uleb128 0x13
  2780 0057 01       		.byte	0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 57
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 57
 
 
  2781 0058 03       		.uleb128 0x3
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2835 008e 13       		.uleb128 0x13
  2836 008f 00       		.byte	0
  2837 0090 00       		.byte	0
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 58
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 58
 
 
  2838 0091 0C       		.uleb128 0xc
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2892 00c8 00       		.byte	0
  2893 00c9 0F       		.uleb128 0xf
  2894 00ca 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 59
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 59
 
 
  2895 00cd 00       		.byte	0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  2949 0109 13       		.uleb128 0x13
  2950 010a 34       		.uleb128 0x34
  2951 010b 00       		.byte	0
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 60
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 60
 
 
  2952 010c 03       		.uleb128 0x3
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3006 0144 3B       		.uleb128 0x3b
  3007 0145 05       		.uleb128 0x5
  3008 0146 27       		.uleb128 0x27
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 61
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 61
 
 
  3009 0147 19       		.uleb128 0x19
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3063 017e 49       		.uleb128 0x49
  3064 017f 13       		.uleb128 0x13
  3065 0180 02       		.uleb128 0x2
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 62
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 62
 
 
  3066 0181 18       		.uleb128 0x18
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3120 01b7 19       		.uleb128 0x19
  3121 01b8 02       		.uleb128 0x2
  3122 01b9 18       		.uleb128 0x18
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 63
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 63
 
 
  3123 01ba 00       		.byte	0
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3177 01f0 19       		.uleb128 0x19
  3178 01f1 01       		.uleb128 0x1
  3179 01f2 13       		.uleb128 0x13
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 64
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 64
 
 
  3180 01f3 00       		.byte	0
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3234 000f 1F000000 		.4byte	.LVL6-1
  3235 0013 0100     		.2byte	0x1
  3236 0015 50       		.byte	0x50
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 65
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 65
 
 
  3237 0016 2E000000 		.4byte	.LVL8
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3291 00aa 50       		.byte	0x50
  3292 00ab 56000000 		.4byte	.LVL37
  3293 00af 58000000 		.4byte	.LVL38
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 66
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 66
 
 
  3294 00b3 0100     		.2byte	0x1
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3348              	.LLST6:
  3349 0145 30000000 		.4byte	.LVL54
  3350 0149 34000000 		.4byte	.LVL55
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 67
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 67
 
 
  3351 014d 0100     		.2byte	0x1
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3405 01de 22000000 		.4byte	.LVL71
  3406 01e2 26000000 		.4byte	.LVL72
  3407 01e6 0100     		.2byte	0x1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 68
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 68
 
 
  3408 01e8 50       		.byte	0x50
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3462 027c 50       		.byte	0x50
  3463 027d 15000000 		.4byte	.LVL96-1
  3464 0281 8C000000 		.4byte	.LVL119
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 69
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 69
 
 
  3465 0285 0200     		.2byte	0x2
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3519 02f7 FF       		.byte	0xff
  3520 02f8 1A       		.byte	0x1a
  3521 02f9 9F       		.byte	0x9f
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 70
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 70
 
 
  3522 02fa 5A000000 		.4byte	.LVL108
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3576 037d 0100     		.2byte	0x1
  3577 037f 51       		.byte	0x51
  3578 0380 0F000000 		.4byte	.LVL122-1
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 71
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 71
 
 
  3579 0384 46000000 		.4byte	.LFE69
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3633 0028 00000000 		.4byte	.LFB66
  3634 002c 64000000 		.4byte	.LFE66-.LFB66
  3635 0030 00000000 		.4byte	.LFB67
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 72
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 72
 
 
  3636 0034 7C000000 		.4byte	.LFE67-.LFB67
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3677 0036 756E7369 		.ascii	"unsigned int\000"
  3677      676E6564 
  3677      20696E74 
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 73
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 73
 
 
  3677      00
@@ -4351,534 +4351,534 @@ ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 1
  3692              	.LASF123:
  3693 0082 6D6F6475 		.ascii	"modulo\000"
  3693      6C6F00
- 3694              	.LASF73:
- 3695 0089 70726F64 		.ascii	"producto1b\000"
- 3695      7563746F 
- 3695      316200
- 3696              	.LASF124:
- 3697 0094 67726164 		.ascii	"grado1\000"
- 3697      6F3100
- 3698              	.LASF95:
- 3699 009b 70726F64 		.ascii	"producto1n\000"
- 3699      7563746F 
- 3699      316E00
- 3700              	.LASF19:
- 3701 00a6 636F6D61 		.ascii	"comando\000"
- 3701      6E646F00 
- 3702              	.LASF108:
- 3703 00ae 65737461 		.ascii	"estado_lcd1\000"
- 3703      646F5F6C 
- 3703      63643100 
- 3704              	.LASF109:
- 3705 00ba 65737461 		.ascii	"estado_lcd2\000"
- 3705      646F5F6C 
- 3705      63643200 
- 3706              	.LASF53:
- 3707 00c6 77726974 		.ascii	"write_eeprom\000"
- 3707      655F6565 
- 3707      70726F6D 
- 3707      00
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 74
+ 3694              	.LASF137:
+ 3695 0089 433A5C55 		.ascii	"C:\\Users\\diego\\Documents\\Insepet\\Prime-GRP700\\"
+ 3695      73657273 
+ 3695      5C646965 
+ 3695      676F5C44 
+ 3695      6F63756D 
+ 3696 00b7 576F726B 		.ascii	"Workspace01\\PGRP700.cydsn\000"
+ 3696      73706163 
+ 3696      6530315C 
+ 3696      50475250 
+ 3696      3730302E 
+ 3697              	.LASF73:
+ 3698 00d1 70726F64 		.ascii	"producto1b\000"
+ 3698      7563746F 
+ 3698      316200
+ 3699              	.LASF124:
+ 3700 00dc 67726164 		.ascii	"grado1\000"
+ 3700      6F3100
+ 3701              	.LASF95:
+ 3702 00e3 70726F64 		.ascii	"producto1n\000"
+ 3702      7563746F 
+ 3702      316E00
+ 3703              	.LASF19:
+ 3704 00ee 636F6D61 		.ascii	"comando\000"
+ 3704      6E646F00 
+ 3705              	.LASF108:
+ 3706 00f6 65737461 		.ascii	"estado_lcd1\000"
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 74
 
 
- 3708              	.LASF40:
- 3709 00d3 686F7261 		.ascii	"hora\000"
- 3709      00
- 3710              	.LASF64:
- 3711 00d8 7465636C 		.ascii	"teclas1\000"
- 3711      61733100 
- 3712              	.LASF65:
- 3713 00e0 7465636C 		.ascii	"teclas2\000"
- 3713      61733200 
- 3714              	.LASF137:
- 3715 00e8 433A5C55 		.ascii	"C:\\Users\\Recepcion\\Documents\\Prime GRP700\\Work"
- 3715      73657273 
- 3715      5C526563 
- 3715      65706369 
- 3715      6F6E5C44 
- 3716 0116 73706163 		.ascii	"space01\\PGRP700.cydsn\000"
- 3716      6530315C 
- 3716      50475250 
- 3716      3730302E 
- 3716      63796473 
+ 3706      646F5F6C 
+ 3706      63643100 
+ 3707              	.LASF109:
+ 3708 0102 65737461 		.ascii	"estado_lcd2\000"
+ 3708      646F5F6C 
+ 3708      63643200 
+ 3709              	.LASF53:
+ 3710 010e 77726974 		.ascii	"write_eeprom\000"
+ 3710      655F6565 
+ 3710      70726F6D 
+ 3710      00
+ 3711              	.LASF40:
+ 3712 011b 686F7261 		.ascii	"hora\000"
+ 3712      00
+ 3713              	.LASF64:
+ 3714 0120 7465636C 		.ascii	"teclas1\000"
+ 3714      61733100 
+ 3715              	.LASF65:
+ 3716 0128 7465636C 		.ascii	"teclas2\000"
+ 3716      61733200 
  3717              	.LASF46:
- 3718 012c 7464696E 		.ascii	"tdinero\000"
+ 3718 0130 7464696E 		.ascii	"tdinero\000"
  3718      65726F00 
  3719              	.LASF41:
- 3720 0134 706F7369 		.ascii	"posicion\000"
+ 3720 0138 706F7369 		.ascii	"posicion\000"
  3720      63696F6E 
  3720      00
  3721              	.LASF133:
- 3722 013d 4932435F 		.ascii	"I2C_1_MasterSendStop\000"
+ 3722 0141 4932435F 		.ascii	"I2C_1_MasterSendStop\000"
  3722      315F4D61 
  3722      73746572 
  3722      53656E64 
  3722      53746F70 
  3723              	.LASF129:
- 3724 0152 7276656E 		.ascii	"rventa2\000"
+ 3724 0156 7276656E 		.ascii	"rventa2\000"
  3724      74613200 
  3725              	.LASF85:
- 3726 015a 64656369 		.ascii	"decimalD\000"
+ 3726 015e 64656369 		.ascii	"decimalD\000"
  3726      6D616C44 
  3726      00
  3727              	.LASF36:
- 3728 0163 64697265 		.ascii	"direccion\000"
+ 3728 0167 64697265 		.ascii	"direccion\000"
  3728      6363696F 
  3728      6E00
  3729              	.LASF74:
- 3730 016d 70726F64 		.ascii	"producto2b\000"
+ 3730 0171 70726F64 		.ascii	"producto2b\000"
  3730      7563746F 
  3730      326200
  3731              	.LASF56:
- 3732 0178 77726974 		.ascii	"write_psoc1\000"
+ 3732 017c 77726974 		.ascii	"write_psoc1\000"
  3732      655F7073 
  3732      6F633100 
  3733              	.LASF20:
- 3734 0184 70726573 		.ascii	"preset\000"
+ 3734 0188 70726573 		.ascii	"preset\000"
  3734      657400
  3735              	.LASF96:
- 3736 018b 70726F64 		.ascii	"producto2n\000"
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 75
+ 3736 018f 70726F64 		.ascii	"producto2n\000"
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 75
 
 
  3736      7563746F 
  3736      326E00
  3737              	.LASF98:
- 3738 0196 70726F64 		.ascii	"producto4n\000"
+ 3738 019a 70726F64 		.ascii	"producto4n\000"
  3738      7563746F 
  3738      346E00
  3739              	.LASF14:
- 3740 01a1 666C6F61 		.ascii	"float\000"
+ 3740 01a5 666C6F61 		.ascii	"float\000"
  3740      7400
  3741              	.LASF77:
- 3742 01a7 62756666 		.ascii	"buffer_i2c\000"
+ 3742 01ab 62756666 		.ascii	"buffer_i2c\000"
  3742      65725F69 
  3742      326300
  3743              	.LASF37:
- 3744 01b2 6C656D61 		.ascii	"lema1\000"
+ 3744 01b6 6C656D61 		.ascii	"lema1\000"
  3744      3100
  3745              	.LASF38:
- 3746 01b8 6C656D61 		.ascii	"lema2\000"
+ 3746 01bc 6C656D61 		.ascii	"lema2\000"
  3746      3200
  3747              	.LASF114:
- 3748 01be 76656E74 		.ascii	"venta_activa2\000"
+ 3748 01c2 76656E74 		.ascii	"venta_activa2\000"
  3748      615F6163 
  3748      74697661 
  3748      3200
  3749              	.LASF113:
- 3750 01cc 76656E74 		.ascii	"venta_activa3\000"
+ 3750 01d0 76656E74 		.ascii	"venta_activa3\000"
  3750      615F6163 
  3750      74697661 
  3750      3300
  3751              	.LASF115:
- 3752 01da 76656E74 		.ascii	"venta_activa4\000"
+ 3752 01de 76656E74 		.ascii	"venta_activa4\000"
  3752      615F6163 
  3752      74697661 
  3752      3400
  3753              	.LASF7:
- 3754 01e8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3754 01ec 6C6F6E67 		.ascii	"long long unsigned int\000"
  3754      206C6F6E 
  3754      6720756E 
  3754      7369676E 
  3754      65642069 
  3755              	.LASF79:
- 3756 01ff 7465636C 		.ascii	"teclado\000"
+ 3756 0203 7465636C 		.ascii	"teclado\000"
  3756      61646F00 
  3757              	.LASF22:
- 3758 0207 6375656E 		.ascii	"cuenta\000"
+ 3758 020b 6375656E 		.ascii	"cuenta\000"
  3758      746100
  3759              	.LASF75:
- 3760 020e 70726F64 		.ascii	"producto3b\000"
+ 3760 0212 70726F64 		.ascii	"producto3b\000"
  3760      7563746F 
  3760      336200
  3761              	.LASF112:
- 3762 0219 76656E74 		.ascii	"venta_activa\000"
+ 3762 021d 76656E74 		.ascii	"venta_activa\000"
  3762      615F6163 
  3762      74697661 
  3762      00
  3763              	.LASF110:
- 3764 0226 73656C65 		.ascii	"seleccion_pos\000"
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 76
+ 3764 022a 73656C65 		.ascii	"seleccion_pos\000"
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 76
 
 
  3764      6363696F 
  3764      6E5F706F 
  3764      7300
  3765              	.LASF97:
- 3766 0234 70726F64 		.ascii	"producto3n\000"
+ 3766 0238 70726F64 		.ascii	"producto3n\000"
  3766      7563746F 
  3766      336E00
  3767              	.LASF23:
- 3768 023f 706C6163 		.ascii	"placa\000"
+ 3768 0243 706C6163 		.ascii	"placa\000"
  3768      6100
  3769              	.LASF111:
- 3770 0245 73656C65 		.ascii	"seleccion_pos2\000"
+ 3770 0249 73656C65 		.ascii	"seleccion_pos2\000"
  3770      6363696F 
  3770      6E5F706F 
  3770      733200
  3771              	.LASF100:
- 3772 0254 6E5F636F 		.ascii	"n_copias\000"
+ 3772 0258 6E5F636F 		.ascii	"n_copias\000"
  3772      70696173 
  3772      00
  3773              	.LASF105:
- 3774 025d 666C756A 		.ascii	"flujo_pos2\000"
+ 3774 0261 666C756A 		.ascii	"flujo_pos2\000"
  3774      6F5F706F 
  3774      733200
  3775              	.LASF106:
- 3776 0268 666C756A 		.ascii	"flujo_pos3\000"
+ 3776 026c 666C756A 		.ascii	"flujo_pos3\000"
  3776      6F5F706F 
  3776      733300
  3777              	.LASF107:
- 3778 0273 666C756A 		.ascii	"flujo_pos4\000"
+ 3778 0277 666C756A 		.ascii	"flujo_pos4\000"
  3778      6F5F706F 
  3778      733400
  3779              	.LASF44:
- 3780 027e 766F6C75 		.ascii	"volumen\000"
+ 3780 0282 766F6C75 		.ascii	"volumen\000"
  3780      6D656E00 
  3781              	.LASF35:
- 3782 0286 74656C65 		.ascii	"telefono\000"
+ 3782 028a 74656C65 		.ascii	"telefono\000"
  3782      666F6E6F 
  3782      00
  3783              	.LASF76:
- 3784 028f 70726F64 		.ascii	"producto4b\000"
+ 3784 0293 70726F64 		.ascii	"producto4b\000"
  3784      7563746F 
  3784      346200
  3785              	.LASF93:
- 3786 029a 69645F76 		.ascii	"id_venta\000"
+ 3786 029e 69645F76 		.ascii	"id_venta\000"
  3786      656E7461 
  3786      00
  3787              	.LASF45:
- 3788 02a3 74766F6C 		.ascii	"tvolumen\000"
+ 3788 02a7 74766F6C 		.ascii	"tvolumen\000"
  3788      756D656E 
  3788      00
  3789              	.LASF86:
- 3790 02ac 66656368 		.ascii	"fecha_corte\000"
+ 3790 02b0 66656368 		.ascii	"fecha_corte\000"
  3790      615F636F 
  3790      72746500 
  3791              	.LASF61:
- 3792 02b8 666C756A 		.ascii	"flujo_LCD3\000"
+ 3792 02bc 666C756A 		.ascii	"flujo_LCD3\000"
  3792      6F5F4C43 
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 77
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 77
 
 
  3792      443300
  3793              	.LASF16:
- 3794 02c3 63686172 		.ascii	"char\000"
+ 3794 02c7 63686172 		.ascii	"char\000"
  3794      00
  3795              	.LASF104:
- 3796 02c8 666C756A 		.ascii	"flujo_pos\000"
+ 3796 02cc 666C756A 		.ascii	"flujo_pos\000"
  3796      6F5F706F 
  3796      7300
  3797              	.LASF87:
- 3798 02d2 706F735F 		.ascii	"pos_ibutton\000"
+ 3798 02d6 706F735F 		.ascii	"pos_ibutton\000"
  3798      69627574 
  3798      746F6E00 
  3799              	.LASF138:
- 3800 02de 43794465 		.ascii	"CyDelay\000"
+ 3800 02e2 43794465 		.ascii	"CyDelay\000"
  3800      6C617900 
  3801              	.LASF12:
- 3802 02e6 75696E74 		.ascii	"uint16\000"
+ 3802 02ea 75696E74 		.ascii	"uint16\000"
  3802      313600
  3803              	.LASF89:
- 3804 02ed 7072696E 		.ascii	"print1\000"
+ 3804 02f1 7072696E 		.ascii	"print1\000"
  3804      743100
  3805              	.LASF90:
- 3806 02f4 7072696E 		.ascii	"print2\000"
+ 3806 02f8 7072696E 		.ascii	"print2\000"
  3806      743200
  3807              	.LASF50:
- 3808 02fb 6461746F 		.ascii	"dato\000"
+ 3808 02ff 6461746F 		.ascii	"dato\000"
  3808      00
  3809              	.LASF47:
- 3810 0300 73746174 		.ascii	"status\000"
+ 3810 0304 73746174 		.ascii	"status\000"
  3810      757300
  3811              	.LASF27:
- 3812 0307 7475726E 		.ascii	"turno\000"
+ 3812 030b 7475726E 		.ascii	"turno\000"
  3812      6F00
  3813              	.LASF49:
- 3814 030d 6C656572 		.ascii	"leer_fecha\000"
+ 3814 0311 6C656572 		.ascii	"leer_fecha\000"
  3814      5F666563 
  3814      686100
  3815              	.LASF48:
- 3816 0318 6C656572 		.ascii	"leer_hora\000"
+ 3816 031c 6C656572 		.ascii	"leer_hora\000"
  3816      5F686F72 
  3816      6100
  3817              	.LASF119:
- 3818 0322 42756666 		.ascii	"Buffer_LCD2\000"
+ 3818 0326 42756666 		.ascii	"Buffer_LCD2\000"
  3818      65725F4C 
  3818      43443200 
  3819              	.LASF6:
- 3820 032e 6C6F6E67 		.ascii	"long long int\000"
+ 3820 0332 6C6F6E67 		.ascii	"long long int\000"
  3820      206C6F6E 
  3820      6720696E 
  3820      7400
  3821              	.LASF42:
- 3822 033c 70726F64 		.ascii	"producto\000"
+ 3822 0340 70726F64 		.ascii	"producto\000"
  3822      7563746F 
  3822      00
  3823              	.LASF34:
- 3824 0345 636F6E66 		.ascii	"configppu\000"
+ 3824 0349 636F6E66 		.ascii	"configppu\000"
  3824      69677070 
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 78
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 78
 
 
  3824      7500
  3825              	.LASF54:
- 3826 034f 70616765 		.ascii	"page\000"
+ 3826 0353 70616765 		.ascii	"page\000"
  3826      00
  3827              	.LASF25:
- 3828 0354 63656475 		.ascii	"cedula\000"
+ 3828 0358 63656475 		.ascii	"cedula\000"
  3828      6C6100
  3829              	.LASF134:
- 3830 035b 4932435F 		.ascii	"I2C_1_MasterReadByte\000"
+ 3830 035f 4932435F 		.ascii	"I2C_1_MasterReadByte\000"
  3830      315F4D61 
  3830      73746572 
  3830      52656164 
  3830      42797465 
  3831              	.LASF94:
- 3832 0370 6E6F6D62 		.ascii	"nombreproducto\000"
+ 3832 0374 6E6F6D62 		.ascii	"nombreproducto\000"
  3832      72657072 
  3832      6F647563 
  3832      746F00
  3833              	.LASF18:
- 3834 037f 73697A65 		.ascii	"size\000"
+ 3834 0383 73697A65 		.ascii	"size\000"
  3834      00
  3835              	.LASF13:
- 3836 0384 75696E74 		.ascii	"uint32\000"
+ 3836 0388 75696E74 		.ascii	"uint32\000"
  3836      333200
  3837              	.LASF116:
- 3838 038b 69645F63 		.ascii	"id_corte\000"
+ 3838 038f 69645F63 		.ascii	"id_corte\000"
  3838      6F727465 
  3838      00
  3839              	.LASF117:
- 3840 0394 6E6F5F76 		.ascii	"no_venta\000"
+ 3840 0398 6E6F5F76 		.ascii	"no_venta\000"
  3840      656E7461 
  3840      00
  3841              	.LASF32:
- 3842 039d 72656369 		.ascii	"recibo\000"
+ 3842 03a1 72656369 		.ascii	"recibo\000"
  3842      626F00
  3843              	.LASF43:
- 3844 03a4 64696E65 		.ascii	"dinero\000"
+ 3844 03a8 64696E65 		.ascii	"dinero\000"
  3844      726F00
  3845              	.LASF118:
- 3846 03ab 42756666 		.ascii	"Buffer_LCD1\000"
+ 3846 03af 42756666 		.ascii	"Buffer_LCD1\000"
  3846      65725F4C 
  3846      43443100 
  3847              	.LASF29:
- 3848 03b7 65737461 		.ascii	"estado\000"
+ 3848 03bb 65737461 		.ascii	"estado\000"
  3848      646F00
  3849              	.LASF120:
- 3850 03be 42756666 		.ascii	"Buffer_LCD3\000"
+ 3850 03c2 42756666 		.ascii	"Buffer_LCD3\000"
  3850      65725F4C 
  3850      43443300 
  3851              	.LASF121:
- 3852 03ca 42756666 		.ascii	"Buffer_LCD4\000"
+ 3852 03ce 42756666 		.ascii	"Buffer_LCD4\000"
  3852      65725F4C 
  3852      43443400 
  3853              	.LASF55:
- 3854 03d6 6C656572 		.ascii	"leer_eeprom\000"
+ 3854 03da 6C656572 		.ascii	"leer_eeprom\000"
  3854      5F656570 
  3854      726F6D00 
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 79
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 79
 
 
  3855              	.LASF103:
- 3856 03e2 696D6167 		.ascii	"imagen\000"
+ 3856 03e6 696D6167 		.ascii	"imagen\000"
  3856      656E00
  3857              	.LASF81:
- 3858 03e9 70707578 		.ascii	"ppux10\000"
+ 3858 03ed 70707578 		.ascii	"ppux10\000"
  3858      313000
  3859              	.LASF33:
- 3860 03f0 6E6F6D62 		.ascii	"nombre\000"
+ 3860 03f4 6E6F6D62 		.ascii	"nombre\000"
  3860      726500
  3861              	.LASF88:
- 3862 03f7 6372635F 		.ascii	"crc_total\000"
+ 3862 03fb 6372635F 		.ascii	"crc_total\000"
  3862      746F7461 
  3862      6C00
  3863              	.LASF59:
- 3864 0401 666C756A 		.ascii	"flujo_LCD\000"
+ 3864 0405 666C756A 		.ascii	"flujo_LCD\000"
  3864      6F5F4C43 
  3864      4400
  3865              	.LASF99:
- 3866 040b 615F636F 		.ascii	"a_copias\000"
+ 3866 040f 615F636F 		.ascii	"a_copias\000"
  3866      70696173 
  3866      00
  3867              	.LASF51:
- 3868 0414 77726974 		.ascii	"write_hora\000"
+ 3868 0418 77726974 		.ascii	"write_hora\000"
  3868      655F686F 
  3868      726100
  3869              	.LASF2:
- 3870 041f 73686F72 		.ascii	"short int\000"
+ 3870 0423 73686F72 		.ascii	"short int\000"
  3870      7420696E 
  3870      7400
  3871              	.LASF132:
- 3872 0429 4932435F 		.ascii	"I2C_1_MasterClearStatus\000"
+ 3872 042d 4932435F 		.ascii	"I2C_1_MasterClearStatus\000"
  3872      315F4D61 
  3872      73746572 
  3872      436C6561 
  3872      72537461 
  3873              	.LASF130:
- 3874 0441 4932435F 		.ascii	"I2C_1_MasterSendStart\000"
+ 3874 0445 4932435F 		.ascii	"I2C_1_MasterSendStart\000"
  3874      315F4D61 
  3874      73746572 
  3874      53656E64 
  3874      53746172 
  3875              	.LASF4:
- 3876 0457 6C6F6E67 		.ascii	"long int\000"
+ 3876 045b 6C6F6E67 		.ascii	"long int\000"
  3876      20696E74 
  3876      00
  3877              	.LASF91:
- 3878 0460 636F7069 		.ascii	"copia_recibo\000"
+ 3878 0464 636F7069 		.ascii	"copia_recibo\000"
  3878      615F7265 
  3878      6369626F 
  3878      00
  3879              	.LASF58:
- 3880 046d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3880 0471 49544D5F 		.ascii	"ITM_RxBuffer\000"
  3880      52784275 
  3880      66666572 
  3880      00
  3881              	.LASF52:
- 3882 047a 77726974 		.ascii	"write_fecha\000"
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 80
+ 3882 047e 77726974 		.ascii	"write_fecha\000"
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 80
 
 
  3882      655F6665 
  3882      63686100 
  3883              	.LASF66:
- 3884 0486 636F6D61 		.ascii	"comas1\000"
+ 3884 048a 636F6D61 		.ascii	"comas1\000"
  3884      733100
  3885              	.LASF67:
- 3886 048d 636F6D61 		.ascii	"comas2\000"
+ 3886 0491 636F6D61 		.ascii	"comas2\000"
  3886      733200
  3887              	.LASF69:
- 3888 0494 70726F64 		.ascii	"producto1\000"
+ 3888 0498 70726F64 		.ascii	"producto1\000"
  3888      7563746F 
  3888      3100
  3889              	.LASF70:
- 3890 049e 70726F64 		.ascii	"producto2\000"
+ 3890 04a2 70726F64 		.ascii	"producto2\000"
  3890      7563746F 
  3890      3200
  3891              	.LASF71:
- 3892 04a8 70726F64 		.ascii	"producto3\000"
+ 3892 04ac 70726F64 		.ascii	"producto3\000"
  3892      7563746F 
  3892      3300
  3893              	.LASF72:
- 3894 04b2 70726F64 		.ascii	"producto4\000"
+ 3894 04b6 70726F64 		.ascii	"producto4\000"
  3894      7563746F 
  3894      3400
  3895              	.LASF122:
- 3896 04bc 65737461 		.ascii	"estado_0\000"
+ 3896 04c0 65737461 		.ascii	"estado_0\000"
  3896      646F5F30 
  3896      00
  3897              	.LASF57:
- 3898 04c5 70756572 		.ascii	"puerto\000"
+ 3898 04c9 70756572 		.ascii	"puerto\000"
  3898      746F00
  3899              	.LASF63:
- 3900 04cc 636F6E74 		.ascii	"cont1\000"
+ 3900 04d0 636F6E74 		.ascii	"cont1\000"
  3900      3100
  3901              	.LASF17:
- 3902 04d2 73697A65 		.ascii	"sizetype\000"
+ 3902 04d6 73697A65 		.ascii	"sizetype\000"
  3902      74797065 
  3902      00
  3903              	.LASF5:
- 3904 04db 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3904 04df 6C6F6E67 		.ascii	"long unsigned int\000"
  3904      20756E73 
  3904      69676E65 
  3904      6420696E 
  3904      7400
  3905              	.LASF82:
- 3906 04ed 62616E64 		.ascii	"bandera\000"
+ 3906 04f1 62616E64 		.ascii	"bandera\000"
  3906      65726100 
  3907              	.LASF10:
- 3908 04f5 696E7433 		.ascii	"int32_t\000"
+ 3908 04f9 696E7433 		.ascii	"int32_t\000"
  3908      325F7400 
  3909              	.LASF102:
- 3910 04fd 6E6F5F69 		.ascii	"no_imprime2\000"
+ 3910 0501 6E6F5F69 		.ascii	"no_imprime2\000"
  3910      6D707269 
  3910      6D653200 
  3911              	.LASF101:
- 3912 0509 6E6F5F69 		.ascii	"no_imprime\000"
+ 3912 050d 6E6F5F69 		.ascii	"no_imprime\000"
  3912      6D707269 
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 81
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 81
 
 
  3912      6D6500
  3913              	.LASF1:
- 3914 0514 756E7369 		.ascii	"unsigned char\000"
+ 3914 0518 756E7369 		.ascii	"unsigned char\000"
  3914      676E6564 
  3914      20636861 
  3914      7200
  3915              	.LASF135:
- 3916 0522 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 3916 0526 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  3916      4320342E 
  3916      392E3320 
  3916      32303135 
  3916      30333033 
- 3917 0555 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 3917 0559 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  3917      20726576 
  3917      6973696F 
  3917      6E203232 
  3917      31323230 
- 3918 0588 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3918 058c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  3918      66756E63 
  3918      74696F6E 
  3918      2D736563 
  3918      74696F6E 
  3919              	.LASF78:
- 3920 05b0 72657375 		.ascii	"resultado\000"
+ 3920 05b4 72657375 		.ascii	"resultado\000"
  3920      6C746164 
  3920      6F00
  3921              	.LASF39:
- 3922 05ba 66656368 		.ascii	"fecha\000"
+ 3922 05be 66656368 		.ascii	"fecha\000"
  3922      6100
  3923              	.LASF131:
- 3924 05c0 4932435F 		.ascii	"I2C_1_MasterWriteByte\000"
+ 3924 05c4 4932435F 		.ascii	"I2C_1_MasterWriteByte\000"
  3924      315F4D61 
  3924      73746572 
  3924      57726974 
  3924      65427974 
  3925              	.LASF136:
- 3926 05d6 2E5C4932 		.ascii	".\\I2C.c\000"
+ 3926 05da 2E5C4932 		.ascii	".\\I2C.c\000"
  3926      432E6300 
  3927              	.LASF0:
- 3928 05de 7369676E 		.ascii	"signed char\000"
+ 3928 05e2 7369676E 		.ascii	"signed char\000"
  3928      65642063 
  3928      68617200 
  3929              	.LASF21:
- 3930 05ea 76616C6F 		.ascii	"valor\000"
+ 3930 05ee 76616C6F 		.ascii	"valor\000"
  3930      7200
  3931              	.LASF3:
- 3932 05f0 73686F72 		.ascii	"short unsigned int\000"
+ 3932 05f4 73686F72 		.ascii	"short unsigned int\000"
  3932      7420756E 
  3932      7369676E 
  3932      65642069 
  3932      6E7400
  3933              	.LASF84:
- 3934 0603 64656369 		.ascii	"decimalV\000"
+ 3934 0607 64656369 		.ascii	"decimalV\000"
  3934      6D616C56 
  3934      00
  3935              	.LASF11:
- 3936 060c 75696E74 		.ascii	"uint8\000"
-ARM GAS  C:\Users\RECEPC~1\AppData\Local\Temp\ccfYAhTl.s 			page 82
+ 3936 0610 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\diego\AppData\Local\Temp\ccBsltAc.s 			page 82
 
 
  3936      3800
  3937              	.LASF15:
- 3938 0612 646F7562 		.ascii	"double\000"
+ 3938 0616 646F7562 		.ascii	"double\000"
  3938      6C6500
  3939              	.LASF139:
- 3940 0619 50696E5F 		.ascii	"Pin_WP_Write\000"
+ 3940 061d 50696E5F 		.ascii	"Pin_WP_Write\000"
  3940      57505F57 
  3940      72697465 
  3940      00
  3941              	.LASF83:
- 3942 0626 7469706F 		.ascii	"tipo_imp\000"
+ 3942 062a 7469706F 		.ascii	"tipo_imp\000"
  3942      5F696D70 
  3942      00
  3943              	.LASF30:
- 3944 062f 6D616E67 		.ascii	"manguera\000"
+ 3944 0633 6D616E67 		.ascii	"manguera\000"
  3944      75657261 
  3944      00
  3945              	.LASF128:
- 3946 0638 7276656E 		.ascii	"rventa\000"
+ 3946 063c 7276656E 		.ascii	"rventa\000"
  3946      746100
  3947              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

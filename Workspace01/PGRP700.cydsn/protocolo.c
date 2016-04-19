@@ -81,15 +81,15 @@ uint8 x;
            a.dir=x;	
            Surtidor_ClearRxBuffer();
         }
-        if((Surtidor_GetRxBufferSize()>=1)&&(x!=a.dir)){
-           b.dir=x;
-           Surtidor_ClearRxBuffer();
-        }
-        if((Surtidor_GetRxBufferSize()>=1)&&(x!=a.dir)&&(x!=b.dir)){
+        if((Surtidor_GetRxBufferSize()>=1)&&(x!=a.dir)&&(c.dir==0xff)){
            c.dir=x;
            Surtidor_ClearRxBuffer();
         }
-        if((Surtidor_GetRxBufferSize()>=1)&&(x!=a.dir)&&(x!=b.dir)&&(x!=c.dir)){
+        if((Surtidor_GetRxBufferSize()>=1)&&(x!=a.dir)&&(x!=b.dir)&&(b.dir==0xff)){
+           b.dir=x;
+           Surtidor_ClearRxBuffer();
+        }
+        if((Surtidor_GetRxBufferSize()>=1)&&(x!=a.dir)&&(x!=b.dir)&&(x!=c.dir)&&(d.dir==0xff)){
            d.dir=x;
            Surtidor_ClearRxBuffer();
         }
