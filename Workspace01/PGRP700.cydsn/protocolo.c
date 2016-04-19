@@ -389,7 +389,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 					corte[z]=rventa.tdinero[z-9];
 				}
 				corte[0]=16;				
-				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL PRODUCTO1
+				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 					for(x=0;x<=5;x++){									
 						write_psoc1(val,msn_tc[x]);
 					}
@@ -433,7 +433,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(551,resultado);
 					}
 				}
-				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){		//TOTALES PRODUCTO 2
+				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 					for(x=0;x<=5;x++){									
 						write_psoc1(val,msn_tc[x]);
 					}
@@ -593,7 +593,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						corte[z]=rventa.tdinero[z-9];
 					}
 					corte[0]=16;							
-					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 						for(x=0;x<=5;x++){									
 							write_psoc1(val,msn_tc[x]);
 						}
@@ -637,7 +637,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(551,resultado);
 						}
 					}
-					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 						for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -796,7 +796,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						corte[z]=rventa.tdinero[z-9];
 					}
 					corte[0]=16;		
-					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 						for(x=0;x<=5;x++){									
 							write_psoc1(val,msn_tc[x]);
 						}
@@ -840,7 +840,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(551,resultado);
 						}
 					}
-					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 						for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -999,7 +999,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 					corte[z]=rventa.tdinero[z-13];
 				}
 				corte[0]=24;				
-				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 					for(x=0;x<=5;x++){									
 						write_psoc1(val,msn_tc[x]);
 					}
@@ -1043,7 +1043,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(551,resultado);
 					}
 				}
-				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 					for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1201,7 +1201,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						corte[z]=rventa.tdinero[z-13];
 					}
 					corte[0]=24;				
-					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(productob1&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 						for(x=0;x<=5;x++){									
 							write_psoc1(val,msn_tc[x]);
 						}
@@ -1244,7 +1244,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(551,resultado);
 						}
 					}
-					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(productob2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 						for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1404,7 +1404,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						corte[z]=rventa.tdinero[z-13];
 					}
 					corte[0]=24;				
-					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))){				//TOTAL producto1
+					if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 						for(x=0;x<=5;x++){									
 							write_psoc1(val,msn_tc[x]);
 						}
@@ -1448,7 +1448,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(551,resultado);
 						}
 					}
-					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))){					//TOTALES producto2
+					if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 						for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1870,4 +1870,43 @@ uint8 cambiar_precio(uint8 dir){
 		return 0;	
 	}
 }
+
+/*
+*********************************************************************************************************
+*                                         uint8 totales(uint8 dir)
+*
+* Description : 
+*               
+*
+* Argument(s) : none
+*
+* Return(s)   : none
+*
+* Caller(s)   : 
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+uint8 totales (uint8 addr){
+    uint8 x;
+    Surtidor_ClearRxBuffer();
+    Surtidor_PutChar(0x50|addr);
+    CyDelay(100);
+	if(Surtidor_GetRxBufferSize()>=1){
+        if(addr==(a.dir)){
+            x=Surtidor_GetRxBufferSize();
+            if((x==46)||(x==88)||(x==130)){				
+					if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[3]==0xF9)){
+                    
+                    }
+            }
+        }
+    }
+    
+    return 0;
+}
+
+
+
+
 /* [] END OF FILE */

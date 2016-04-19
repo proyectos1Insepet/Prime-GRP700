@@ -96,6 +96,7 @@ uint8 flujo_LCD,flujo_LCD2,flujo_LCD3,flujo_LCD4;/*
 uint8 cont1,teclas1,teclas2, comas1, comas2;  							                        //Auxiliares para las funciones del teclado y organizacion de datos
 uint8 versurt;															                        //Determina la version entre (1)no_extendida y (2)extendida
 uint8 producto1,producto2,producto3,producto4,producto1b,producto2b,producto3b,producto4b;		//Banderas para saber que productos hay
+uint8 productob1,productob2,productod1,productod2;
 uint8 buffer_i2c[64];													//Buffer de lectura del i2c 
 uint8 resultado[14];													//Buffer que almacena el resultado de una operacion				
 uint8 teclado,teclado2;													//Auxiliar que indica los datos del teclado en que variable gusrdarla
@@ -175,6 +176,7 @@ struct pos{
     uint8 estado;
     uint8 manguera;
     uint8 funcion;      //1=ver_estado, 2=esperando_autor, 3=autorizar, 4=surtiendo, 5=totales, 6=cambio_precio, 7=ver_precio
+    volatile uint8 totales[3][24]; 
 };
 
 

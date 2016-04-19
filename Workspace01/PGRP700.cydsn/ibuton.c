@@ -95,6 +95,7 @@ uint8 touch_present(uint8 ibutton){
 	        return 0;
 	    } 
 	}
+    
 	else{
 	    IB2_Write(0);
 	    CyDelayUs(500);
@@ -313,7 +314,7 @@ uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
 				touch_write(1,0x00);
 				if(pos==1){
 	                Buffer_LCD2.placa[0]=touch_read_byte(1);
-					if((Buffer_LCD2.placa[0]!=0xFF)&&(Buffer_LCD1.placa[0]<=30)){
+					if((Buffer_LCD2.placa[0]!=0xFF)&&(Buffer_LCD2.placa[0]<=30)){
 						check++;
 					}	
 					else{
@@ -353,6 +354,56 @@ uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
 		}
 	}
     
+    if(ibutton==4){
+		if(touch_present(2)==1){				
+			CyDelay(200);
+			if(touch_present(2)==1){
+				CyDelay(200);
+				touch_write(2,0xCC);
+				touch_write(2,0xF0);	
+				touch_write(2,pos);
+				touch_write(2,0x00);
+				if(pos==1){
+	                Buffer_LCD4.placa[0]=touch_read_byte(2);
+					if((Buffer_LCD4.placa[0]!=0xFF)&&(Buffer_LCD4.placa[0]<=30)){
+						check++;
+					}
+					else{
+						return 0;
+					}
+					for(i=1;i<=Buffer_LCD3.placa[0];i++){
+		                Buffer_LCD4.placa[i]=touch_read_byte(2);
+						if(Buffer_LCD4.placa[i]!=0xFF){
+							check++;
+						}
+					}
+					return check;
+				}
+				else{
+	                Buffer_LCD4.cuenta[0]=touch_read_byte(2);
+					if((Buffer_LCD4.cuenta[0]!=0xFF)&&(Buffer_LCD4.cuenta[0]<=30)){
+						check++;
+					}
+					else{
+						return 0;
+					}
+					for(i=1;i<=Buffer_LCD4.cuenta[0];i++){
+		                Buffer_LCD4.cuenta[i]=touch_read_byte(2);
+						if(Buffer_LCD4.cuenta[i]!=0xFF){
+							check++;
+						}
+					}
+					return check;				
+				}
+			}
+			else{
+				return check;
+			}
+		}
+		else{
+			return check;	
+		}	
+	}
     
 	else{
 		if(touch_present(2)==1){				
@@ -364,32 +415,32 @@ uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
 				touch_write(2,pos);
 				touch_write(2,0x00);
 				if(pos==1){
-	                Buffer_LCD2.placa[0]=touch_read_byte(2);
-					if((Buffer_LCD2.placa[0]!=0xFF)&&(Buffer_LCD2.placa[0]<=30)){
+	                Buffer_LCD3.placa[0]=touch_read_byte(2);
+					if((Buffer_LCD3.placa[0]!=0xFF)&&(Buffer_LCD3.placa[0]<=30)){
 						check++;
 					}
 					else{
 						return 0;
 					}
-					for(i=1;i<=Buffer_LCD2.placa[0];i++){
-		                Buffer_LCD2.placa[i]=touch_read_byte(2);
-						if(Buffer_LCD2.placa[i]!=0xFF){
+					for(i=1;i<=Buffer_LCD3.placa[0];i++){
+		                Buffer_LCD3.placa[i]=touch_read_byte(2);
+						if(Buffer_LCD3.placa[i]!=0xFF){
 							check++;
 						}
 					}
 					return check;
 				}
 				else{
-	                Buffer_LCD2.cuenta[0]=touch_read_byte(2);
-					if((Buffer_LCD2.cuenta[0]!=0xFF)&&(Buffer_LCD2.cuenta[0]<=30)){
+	                Buffer_LCD3.cuenta[0]=touch_read_byte(2);
+					if((Buffer_LCD3.cuenta[0]!=0xFF)&&(Buffer_LCD3.cuenta[0]<=30)){
 						check++;
 					}
 					else{
 						return 0;
 					}
-					for(i=1;i<=Buffer_LCD2.cuenta[0];i++){
-		                Buffer_LCD2.cuenta[i]=touch_read_byte(2);
-						if(Buffer_LCD2.cuenta[i]!=0xFF){
+					for(i=1;i<=Buffer_LCD3.cuenta[0];i++){
+		                Buffer_LCD3.cuenta[i]=touch_read_byte(2);
+						if(Buffer_LCD3.cuenta[i]!=0xFF){
 							check++;
 						}
 					}

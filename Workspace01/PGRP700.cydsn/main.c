@@ -168,6 +168,15 @@ void init(void){
 		producto4b=buffer_i2c[1];                      //Grados productos 2do lado
 	}
     
+    leer_eeprom(1176,2);
+	if(buffer_i2c[0]==1){
+		productob1=buffer_i2c[1];                      //Grados productos 3er lado
+	}
+    
+    leer_eeprom(1178,2);
+	if(buffer_i2c[0]==1){
+		productob2=buffer_i2c[1];                      //Grados productos 3er lado
+	}
     leer_eeprom(671,5);
 	if(buffer_i2c[0]==4){
 		for(x=1;x<=4;x++){                             //Password cierre de turno
@@ -192,7 +201,7 @@ void init(void){
     for(x=0;x<=buffer_i2c[0];x++){                     //Carga nombre producto 4
 		producto4n[x]=buffer_i2c[x];
 	}
-    leer_eeprom(1165,2);
+    leer_eeprom(1174,2);
     for(x=0;x<=buffer_i2c[0];x++){                    //Carga cantidad de copias
 		n_copias[x]=buffer_i2c[x];
 	}
@@ -579,7 +588,7 @@ void polling_pos1(void){
                     if(teclas1>=1 && a_copias == 1){ 
                         set_imagen(1,112);
                         n_copias[0]=Buffer_LCD1.valor[1];                       
-                        write_eeprom(1165,n_copias);
+                        write_eeprom(1174,n_copias);
                         a_copias = 0;
                         flujo_LCD = 14;
                     }
@@ -837,7 +846,7 @@ void polling_pos1(void){
 			imprimir(print1[1], grado1,0,a.dir);  //Imprime recibo sin copia
 			if(copia_recibo[1]==0){
 				set_imagen(1,12);
-				CyDelay(700);
+				CyDelay(500);
                 Buffer_LCD1.preset = 0x00;
                 set_imagen(1,46);
                 flujo_LCD = 0;
@@ -1038,7 +1047,7 @@ void polling_pos1(void){
                 if(LCD_1_rxBuffer[3]==0x0B){					//Cancel
                     if(teclas1==0){								//Si no ha presionado regresa al inicio
 						set_imagen(1,85);               //Error de operacion
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,46);
                         flujo_LCD = 0;
                     }
@@ -1056,12 +1065,12 @@ void polling_pos1(void){
 						}
 						if(write_eeprom(96,rventa.password)==0){							//Guarda el nombre en la eeprom
 							set_imagen(1,85);               //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(1,46);
                             flujo_LCD = 0;
 						}
                         set_imagen(1,38);
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,46);
                         flujo_LCD=0;
                     }
@@ -1243,18 +1252,18 @@ void polling_pos1(void){
 						if(get_estado(a.dir)==6){	
 							if(get_estado(b.dir)==6){
 								set_imagen(1,74);
-								CyDelay(700);				  								
+								CyDelay(500);				  								
 							}
 							else{
 								set_imagen(1,85);               //Error de operacion
-                                CyDelay(700);
+                                CyDelay(500);
                                 set_imagen(1,46);
                                 flujo_LCD = 0;
 							}
 						}	
 						else{
 							set_imagen(1,85);                  //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(1,46);
                             flujo_LCD = 0;
 						}
@@ -1315,7 +1324,7 @@ void polling_pos1(void){
 							}
 							else{
 								set_imagen(1,85);     //Error de operacion
-                                CyDelay(700);
+                                CyDelay(500);
                                 set_imagen(1,46);
                                 flujo_LCD = 0;
 							}
@@ -1323,7 +1332,7 @@ void polling_pos1(void){
 					}
 					else{
 						set_imagen(1,85);             //Error de operacion
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,46);
                         flujo_LCD = 0;
 					}
@@ -1434,7 +1443,7 @@ void polling_pos1(void){
 						rventa.hora[1]|=((comas1|2)<<5);
 						if(write_hora()==1){
 	                        set_imagen(1,57);
-                            CyDelay(700);
+                            CyDelay(500);
 	                        set_imagen(1,112);
 							flujo_LCD = 14; 
 						}
@@ -1554,7 +1563,7 @@ void polling_pos1(void){
                     if(teclas1==8){
 						if(write_fecha()==1){
                             set_imagen(1,57);
-                            CyDelay(700);
+                            CyDelay(500);
 	                        set_imagen(1,112);
 							flujo_LCD = 14;                         
 						}
@@ -1652,7 +1661,7 @@ void polling_pos1(void){
 		                        rventa.telefono[0]=teclas1;  							
 								if(write_eeprom(47,rventa.telefono)==0){
 										set_imagen(1,85);
-                                        CyDelay(700);
+                                        CyDelay(500);
                                         set_imagen(1,46);
 										flujo_LCD=0;
 								}
@@ -1969,7 +1978,7 @@ void polling_pos1(void){
                 if(LCD_1_rxBuffer[3]==0x0C){                                        			//Enter para guardar
                     if(teclas1>=0){
                         set_imagen(1,57);
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,112);						
                         flujo_LCD = 14;
 						switch(teclado){
@@ -1984,7 +1993,7 @@ void polling_pos1(void){
                                     rventa.nombre[0]=teclas1;
                                     if(write_eeprom(0,rventa.nombre)==0){							//Guarda el nombre en la eeprom
 									set_imagen(1,85);
-                                    CyDelay(700);
+                                    CyDelay(500);
                                     set_imagen(1,46);
 									flujo_LCD = 0;
 								}
@@ -2001,7 +2010,7 @@ void polling_pos1(void){
 								rventa.direccion[0]=teclas1;
 								if(write_eeprom(64,rventa.direccion)==0){						//Guarda la direccion en la eeprom
 									set_imagen(1,85);
-                                    CyDelay(700);
+                                    CyDelay(500);
                                     set_imagen(1,46);
 									flujo_LCD = 0;
 								}
@@ -2017,7 +2026,7 @@ void polling_pos1(void){
 								rventa.lema1[0]=teclas1;
 								if(write_eeprom(128,rventa.lema1)==0){   //Guarda el lema 1 en la eeprom
 									set_imagen(1,85);
-                                    CyDelay(700);
+                                    CyDelay(500);
                                     set_imagen(1,46);
 									flujo_LCD = 0;
 								}
@@ -2033,7 +2042,7 @@ void polling_pos1(void){
 								rventa.lema2[0]=teclas1;
 								if(write_eeprom(160,rventa.lema2)==0){							//Guarda el lema 2 en la eeprom
 									set_imagen(1,85);
-                                    CyDelay(700);
+                                    CyDelay(500);
                                     set_imagen(1,46);
 									flujo_LCD = 0;
 								}
@@ -2110,7 +2119,7 @@ void polling_pos1(void){
 						}
 						else{
                             set_imagen(1,85);   //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(1,46);
                             flujo_LCD = 0;
 						}						
@@ -2292,7 +2301,7 @@ void polling_pos1(void){
 						}
 						else{
 							set_imagen(1,85);        //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(1,46);
                             flujo_LCD = 0;
 						}
@@ -2310,7 +2319,7 @@ void polling_pos1(void){
 						}
 						else{
 							set_imagen(1,85);   //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(1,46);
                             flujo_LCD = 0;
 						}
@@ -2603,14 +2612,14 @@ void polling_pos1(void){
                         CyDelay(500);
                     }
                     set_imagen(1,12);					
-				    CyDelay(700);
+				    CyDelay(500);
                     Buffer_LCD1.preset = 0x00;
                     set_imagen(1,46);
                     flujo_LCD = 0;
                 }
                 else{
                     set_imagen(1,12);
-					CyDelay(700);               //Confirman NO, muestra imagen y sale
+					CyDelay(500);               //Confirman NO, muestra imagen y sale
                     Buffer_LCD1.preset = 0x00;
                     set_imagen(1,46);
                     flujo_LCD = 0;
@@ -2628,7 +2637,7 @@ void polling_pos1(void){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
                 switch(LCD_1_rxBuffer[3]){                               
                     case 0x38:								//No Corte                      
-					    set_imagen(1,0);	
+					    set_imagen(1,46);	
                         flujo_LCD=0;     
                     break; 
 
@@ -2641,7 +2650,7 @@ void polling_pos1(void){
 					    write_psoc1(print1[1],0x1D);
 					    write_psoc1(print1[1],0x56);
 					    write_psoc1(print1[1],0x31);
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,46);
                         flujo_LCD=0;					   						
                     break;
@@ -2711,14 +2720,14 @@ void polling_pos1(void){
 				}	
 				else{
 					set_imagen(1,85);   //Error de operacion
-                    CyDelay(700);
+                    CyDelay(500);
                     set_imagen(1,46);
                     flujo_LCD = 0;
 				}	
 			} 
 			else{
 				set_imagen(1,85);      //Error de operacion
-                CyDelay(700);
+                CyDelay(500);
                 set_imagen(1,46);
                 flujo_LCD = 0;
 			}
@@ -2882,7 +2891,7 @@ void polling_pos1(void){
                 if(LCD_1_rxBuffer[3]==0x0B){					//Cancel
                     if(teclas1==0){								//Si no ha presionado regresa al inicio
 						set_imagen(1,85);                       //Error de operacion
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,46);
                         flujo_LCD = 0;
                     }
@@ -2923,7 +2932,7 @@ void polling_pos1(void){
 							}	
 							else{		
 								set_imagen(1,39); //Error de password								   
-                                CyDelay(700);
+                                CyDelay(500);
                                 set_imagen(1,46);
                                 flujo_LCD = 0;
 							}		
@@ -3519,8 +3528,8 @@ void polling_pos2(void){
         break;
         
         case 13:
-			imprimir(print2[1], grado2,0,b.dir);
-			if(copia_recibo2[1]==0){
+			imprimir(print1[1], grado2,0,b.dir);
+			if(copia_recibo[1]==0){
 				set_imagen(1,12);				
 				CyDelay(700);
                 Buffer_LCD2.preset = 0x00;
@@ -3972,7 +3981,7 @@ void polling_pos2(void){
                 if(LCD_1_rxBuffer[3] == 0x0A)
                 {
                     for(z=1;z<=(n_copias[0]&0x0F);z++){
-                        imprimir(print2[1],grado2,1,b.dir);
+                        imprimir(print1[1],grado2,1,b.dir);
                         CyDelay(500);
                     }                    
                     set_imagen(1,12);
@@ -4230,7 +4239,7 @@ void polling_pos3(void){
                     if(teclas2>=1 && a_copias == 1){ 
                         set_imagen(2,112);
                         n_copias[0]=Buffer_LCD3.valor[1];                       
-                        write_eeprom(1165,n_copias);
+                        write_eeprom(1174,n_copias);
                         a_copias = 0;
                         flujo_LCD3 = 14;
                     }
@@ -4416,7 +4425,7 @@ void polling_pos3(void){
 			CyDelay(10);
 			if(read_memory_ibutton(2,0x21)>=6){
 		        if(touch_present(2)==1){
-		            LCD_1_PutChar(0x33);
+		            LCD_2_PutChar(0x33);
 		            if(touch_write(2,0x33)){
 		                for(z=0;z<=7;z++){
 		                    Buffer_LCD3.id[z]=touch_read_byte(2);
@@ -4452,13 +4461,13 @@ void polling_pos3(void){
                 if(teclas2<=5){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;                    
-                        Buffer_LCD2.km[teclas1]=LCD_2_rxBuffer[3]+0x30;
+                        Buffer_LCD3.km[teclas2]=LCD_2_rxBuffer[3]+0x30;
                         write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            //Comando de 0
                         teclas2++;                    
-                        Buffer_LCD3.km[teclas1]=0x30;
-                        write_LCD(2,0x30,teclas1);
+                        Buffer_LCD3.km[teclas2]=0x30;
+                        write_LCD(2,0x30,teclas2);
                     }                     
                 }
                 if(LCD_2_rxBuffer[3]==0x0B){				//Cancelar
@@ -4472,7 +4481,7 @@ void polling_pos3(void){
                     }
                 }
                 if(LCD_2_rxBuffer[3]==0x0C){				//Enter
-                    if(teclas2>=1 && Buffer_LCD2.km[1]!=0x30){                       
+                    if(teclas2>=1 && Buffer_LCD3.km[1]!=0x30){                       
                         set_imagen(2,5);
                         Buffer_LCD3.km[0]=teclas2;   
                         flujo_LCD3 = 4;                                           
@@ -4485,10 +4494,10 @@ void polling_pos3(void){
         break;
         
         case 13:
-			imprimir(print1[1], grado3,0,c.dir);  //Imprime recibo sin copia
-			if(copia_recibo[1]==0){
+			imprimir(print2[1], grado3,0,c.dir);  //Imprime recibo sin copia
+			if(copia_recibo2[1]==0){
 				set_imagen(2,12);
-				CyDelay(700);
+				CyDelay(600);
                 Buffer_LCD3.preset = 0x00;
                 set_imagen(2,46);
                 flujo_LCD3 = 0;
@@ -4506,7 +4515,7 @@ void polling_pos3(void){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x58:								 	 //Configurar Fecha y Hora	 
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;   
                     break;
@@ -4524,14 +4533,14 @@ void polling_pos3(void){
                     
                    case 0x5A:  	
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;                     
                     break;
                     
                     case 0x5B:         
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;                     
                     break;   					
@@ -4544,21 +4553,21 @@ void polling_pos3(void){
 					
                     case 0x65: 
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14; 
                     break;
 					
                     case 0x93:
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;                                                     
                     break;
                     
                     case 0x70:         
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;                     				
                     break;
@@ -4665,7 +4674,7 @@ void polling_pos3(void){
                     case 0x7F:		
                       set_imagen(2,6);   
                       teclas2=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=producto1;	
+					  rventa.producto=productob1;	
 					  write_LCD(2,'$',teclas2);							 	 //Producto 1	                               
                       flujo_LCD3 = 26; 
                     break;
@@ -4673,7 +4682,7 @@ void polling_pos3(void){
                     case 0x80:  	
                       set_imagen(2,6);		
                       teclas2=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=producto2;
+					  rventa.producto=productob2;
 					  write_LCD(2,'$',teclas2);						 //Producto 2
                       flujo_LCD3 = 26;              
                     break;
@@ -4741,8 +4750,8 @@ void polling_pos3(void){
                 if(LCD_2_rxBuffer[3]==0x0C){					//Enter
                     if(teclas2>=4){
                         flujo_LCD3 = 6;                         
-                        set_imagen(2,57);	
-						Buffer_LCD1.valor[0]=teclas2;					
+                        set_imagen(2,57); 
+                        Buffer_LCD1.valor[0]=teclas2;
 						if(cambiar_precio(c.dir)!=0){ 	
 							if(rventa.producto==producto1){
 								write_eeprom(423,Buffer_LCD1.valor);	//429						
@@ -4752,9 +4761,7 @@ void polling_pos3(void){
 							}
 							if(rventa.producto==producto2){
 								write_eeprom(429,Buffer_LCD1.valor);	//435						
-							}
-                            
-							
+							}                            							
                             if(rventa.producto==producto4){
 								write_eeprom(1000,Buffer_LCD1.valor);							
 							}
@@ -4765,7 +4772,7 @@ void polling_pos3(void){
 						}
 						else{
                             set_imagen(2,85);   //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(2,46);
                             flujo_LCD3 = 0;
 						}						
@@ -4783,30 +4790,30 @@ void polling_pos3(void){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x7F:								 	 //Configurar Productos	                                                      
                       set_imagen(2,88); 
-					  Grado_LCD(2,0x00,0x73,451); // primer producto 449
-					  Grado_LCD(2,0x00,0xCF,453); // segundo producto			  
-                      Grado_LCD(2,0x01,0x29,449); // tercer producto
-                      Grado_LCD(2,0x01,0x7B,1006); //cuarto producto
+					  Grado_LCD(2,0x00,0x73,1176); // primer producto 449
+					  Grado_LCD(2,0x00,0xCF,1178); // segundo producto			  
+                      //Grado_LCD(2,0x01,0x29,449); // tercer producto
+                      //Grado_LCD(2,0x01,0x7B,1006); //cuarto producto
                       flujo_LCD3 = 28;   
                     break;
                     
                     case 0x80:  								 //Version de Digitos                      
                         set_imagen(2,43);                      //Cancelado por PC 
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;
                     break;
                     
                     case 0x81:  								 //PPU                      
                         set_imagen(2,43);                      //Cancelado por PC 
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;
                     break;
                     
                     case 0x82:  								 //Nombre de productos                      
                         set_imagen(2,43);                      //Cancelado por PC 
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD3 = 14;	
                     break;
@@ -4830,34 +4837,21 @@ void polling_pos3(void){
         case 28:
          if(LCD_2_GetRxBufferSize()==8){
             if((LCD_2_rxBuffer[0]==0xAA) && (LCD_2_rxBuffer[6]==0xC3) && (LCD_2_rxBuffer[7]==0x3C)){
-                switch(LCD_2_rxBuffer[3]){
-                    case 0x7F:								 	 //Producto1	                                                         
-                      set_imagen(2,6); 
-					  teclas2=0; 
+                switch(LCD_2_rxBuffer[3]){                    
+                    
+                    case 0x80:  								 //Producto1                      
+                      set_imagen(2,6); 	 
+					  teclas2=0;
 					  rventa.producto=1;
                       flujo_LCD3 = 31;
                     break;
                     
-                    case 0x80:  								 //Producto2                      
-                      set_imagen(2,6); 	 
+                    case 0x81:  								 //Producto2                      	
+                      set_imagen(2,6); 	
 					  teclas2=0;
 					  rventa.producto=2;
                       flujo_LCD3 = 31;
-                    break;
-                    
-                    case 0x81:  								 //Producto3                      	
-                      set_imagen(2,6); 	
-					  teclas2=0;
-					  rventa.producto=3;
-                      flujo_LCD3 = 31;
-                    break;
-                    
-                    case 0x82:  								 //Producto4                      	
-                      set_imagen(2,6); 	
-					  teclas2=0;
-					  rventa.producto=4;
-                      flujo_LCD3 = 31;
-                    break;
+                    break;                                       
                    										
                     case 0x7E:									 //ir a menu
 					  set_imagen(2,46);
@@ -4881,7 +4875,7 @@ void polling_pos3(void){
                 if(teclas2<=0){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;
-                        Buffer_LCD3.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        Buffer_LCD3.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
                         write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            	//Comando de 0
@@ -4897,7 +4891,7 @@ void polling_pos3(void){
                     }
                     else{
                         write_LCD(2,0x20,(teclas2));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD2.valor[teclas2]==0x2C){
+                        if(Buffer_LCD3.valor[teclas2]==0x2C){
                             comas2=0;
                         }
                         teclas2--;
@@ -4908,21 +4902,13 @@ void polling_pos3(void){
                         set_imagen(2,57);	
 						Buffer_LCD3.valor[0]=teclas2;
 						if(rventa.producto==1){
-							producto3=Buffer_LCD3.valor[1];
-							write_eeprom(449,Buffer_LCD3.valor);							
+							productob1=Buffer_LCD3.valor[1];
+							write_eeprom(1176,Buffer_LCD3.valor);							
 						}
 						if(rventa.producto==2){
-							producto1=Buffer_LCD3.valor[1];
-							write_eeprom(451,Buffer_LCD3.valor);							
-						}
-						if(rventa.producto==3){
-							producto2=Buffer_LCD3.valor[1];
-							write_eeprom(453,Buffer_LCD3.valor);							
-						}
-                        if(rventa.producto==4){
-							producto4=Buffer_LCD3.valor[1];
-							write_eeprom(1006,Buffer_LCD3.valor);							
-						}
+							productob2=Buffer_LCD3.valor[1];
+							write_eeprom(1178,Buffer_LCD3.valor);							
+						}						
 						CyDelay(500);						
 					    set_imagen(2,112);
                         flujo_LCD3 = 14;												
@@ -4940,18 +4926,18 @@ void polling_pos3(void){
                 if(LCD_2_rxBuffer[3] == 0x0A)
                 {
                     for(z=1;z<=(n_copias[0]&0x0F);z++){
-                        imprimir(print1[1],grado1,1,c.dir);   //Impresión de número de copias por configuración
+                        imprimir(print2[1],grado3,1,c.dir);   //Impresión de número de copias por configuración
                         CyDelay(500);
                     }
                     set_imagen(2,12);					
-				    CyDelay(700);
+				    CyDelay(500);
                     Buffer_LCD3.preset = 0x00;
                     set_imagen(2,46);
                     flujo_LCD3 = 0;
                 }
                 else{
                     set_imagen(2,12);
-					CyDelay(700);               //Confirman NO, muestra imagen y sale
+					CyDelay(500);               //Confirman NO, muestra imagen y sale
                     Buffer_LCD3.preset = 0x00;
                     set_imagen(2,46);
                     flujo_LCD3 = 0;
@@ -5054,9 +5040,10 @@ void polling_pos4(void){
                         break; 
 
                         case 0x59:		 
-                            set_imagen(2,37);
-					        teclas2=0;						//Corte
-                            flujo_LCD4=39;   
+                            set_imagen(2,43);                     //Cancelado por PC
+                            CyDelay(500);
+                            set_imagen(2,46);
+                            flujo_LCD4 = 0;  
                         break;    
                             
                         case 0x7E:
@@ -5373,14 +5360,14 @@ void polling_pos4(void){
         break; 
         
         case 11:		
-		if(read_memory_ibutton(3,1)>=6){
+		if(read_memory_ibutton(4,1)>=6){
 			CyDelay(10);
-			if(read_memory_ibutton(3,0x21)>=6){
-		        if(touch_present(3)==1){
-		            LCD_1_PutChar(0x33);
-		            if(touch_write(1,0x33)){
+			if(read_memory_ibutton(2,0x21)>=6){
+		        if(touch_present(2)==1){
+		            LCD_2_PutChar(0x33);
+		            if(touch_write(2,0x33)){
 		                for(z=0;z<=7;z++){
-		                    Buffer_LCD4.id[z]=touch_read_byte(1);
+		                    Buffer_LCD4.id[z]=touch_read_byte(2);
 		                }				
 						set_imagen(2,19);  //Id correctamente reconocida
 						Buffer_LCD4.preset|=0x04;
@@ -5413,8 +5400,8 @@ void polling_pos4(void){
                 if(teclas2<=5){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;                    
-                        Buffer_LCD4.km[teclas1]=LCD_2_rxBuffer[3]+0x30;
-                        write_LCD(2,(LCD_1_rxBuffer[3]+0x30),teclas2);
+                        Buffer_LCD4.km[teclas2]=LCD_2_rxBuffer[3]+0x30;
+                        write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            //Comando de 0
                         teclas2++;                    
@@ -5449,7 +5436,7 @@ void polling_pos4(void){
 			imprimir(print2[1], grado2,0,d.dir);
 			if(copia_recibo2[1]==0){
 				set_imagen(2,12);				
-				CyDelay(700);
+				CyDelay(500);
                 Buffer_LCD4.preset = 0x00;
                 set_imagen(2,46);
                 flujo_LCD4 = 0;
@@ -5467,7 +5454,7 @@ void polling_pos4(void){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x58:								  //Configurar Fecha y Hora	 
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD4 = 14;  
                     break;
@@ -5483,14 +5470,14 @@ void polling_pos4(void){
                     
                    case 0x5A:  	
                         set_imagen(2,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD4 = 14;                   
                     break;
                     
                     case 0x5B:         
                         set_imagen(2,43);                      //Cancelado por PC 
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD4 = 14;                   
                     break;   					
@@ -5503,7 +5490,7 @@ void polling_pos4(void){
 					
                     case 0x65: 
                         set_imagen(2,43);                     //Cancelado por PC 
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(2,112);
                         flujo_LCD4 = 14;
                     break;
@@ -5724,7 +5711,7 @@ void polling_pos4(void){
 						}
 						else{
                             set_imagen(2,85);   //Error de operacion
-                            CyDelay(700);
+                            CyDelay(500);
                             set_imagen(2,46);
                             flujo_LCD4 = 0;
 						}						
@@ -5899,7 +5886,7 @@ void polling_pos4(void){
                 if(LCD_2_rxBuffer[3] == 0x0A)
                 {
                     for(z=1;z<=(n_copias[0]&0x0F);z++){
-                        imprimir(print2[1],grado2,1,b.dir);
+                        imprimir(print2[1],grado4,1,d.dir);
                         CyDelay(500);
                     }                    
                     set_imagen(2,12);
