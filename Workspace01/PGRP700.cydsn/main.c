@@ -4873,7 +4873,22 @@ void polling_pos3(void){
 					  teclas2=0;
 					  rventa.producto=2;
                       flujo_LCD3 = 31;
-                    break;                                       
+                    break; 
+                    
+                    
+                    case 0x7F:								 	 //Producto3	                                                         
+                      set_imagen(2,6); 
+					  teclas2=0; 
+					  rventa.producto=3;
+                      flujo_LCD3 = 31;
+                    break;
+                    
+                    case 0x82:  								 //Producto4                      	
+                      set_imagen(2,6); 	
+					  teclas2=0;
+					  rventa.producto=4;
+                      flujo_LCD3 = 31;
+                    break;
                    										
                     case 0x7E:									 //ir a menu
 					  set_imagen(2,46);
@@ -5810,21 +5825,21 @@ void polling_pos4(void){
                     case 0x7F:								 	 //Producto1	                                                         
                       set_imagen(2,6); 
 					  teclas2=0; 
-					  rventa.producto=1;
+					  rventa.producto=3;
                       flujo_LCD4 = 31;
                     break;
                     
                     case 0x80:  								 //Producto2                      
                       set_imagen(2,6); 	 
 					  teclas2=0;
-					  rventa.producto=2;
+					  rventa.producto=1;
                       flujo_LCD4 = 31;
                     break;
                     
                     case 0x81:  								 //Producto3                      	
                       set_imagen(2,6); 	
 					  teclas2=0;
-					  rventa.producto=3;
+					  rventa.producto=2;
                       flujo_LCD4 = 31;
                     break;
                     
@@ -5893,7 +5908,7 @@ void polling_pos4(void){
 						}
 						if(rventa.producto==3){
 							producto3d=Buffer_LCD4.valor[1];
-							write_eeprom(1188,Buffer_LCD2.valor);							
+							write_eeprom(1188,Buffer_LCD4.valor);							
 						}
                         if(rventa.producto==4){
 							producto4d=Buffer_LCD4.valor[1];

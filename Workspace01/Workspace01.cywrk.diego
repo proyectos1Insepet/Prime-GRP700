@@ -326,12 +326,6 @@
 <name v=".\PGRP700.cydsn\main.c" />
 <name v=".\PGRP700.cydsn\protocolo.c" />
 <name v=".\PGRP700.cydsn\Print.c" />
-<name v=".\PGRP700.cydsn\ibuton.c" />
-<name v=".\PGRP700.cydsn\VariablesG.h" />
-<name v=".\PGRP700.cydsn\LCD.c" />
-<name v=".\PGRP700.cydsn\Generated_Source\PSoC5\LCD_1.c" />
-<name v=".\PGRP700.cydsn\Generated_Source\PSoC5\LCD_2.c" />
-<name v=".\PGRP700.cydsn\Generated_Source\PSoC5\CyBootAsmGnu.s" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

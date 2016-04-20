@@ -369,10 +369,11 @@ uint8 venta(uint8 val){
 */
 uint8 get_totales(uint8 dir,uint8 val){ 
 	uint8 corte[25], minuendo[14],sustraendo[14]; 
-    Surtidor_PutChar(0x50|dir);
-
+    uint8 tam;    
+    Surtidor_PutChar(0x50|dir);    
     CyDelay(1000);
-	switch(Surtidor_GetRxBufferSize()){
+    tam = Surtidor_GetRxBufferSize();
+	switch(tam){
 		case 34:
 			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[33]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
 				rventa.manguera=(Surtidor_rxBuffer[2]&0x0F)+1;			
@@ -985,7 +986,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 
 		case 46:
 			if((Surtidor_rxBuffer[0]==0xFF)&&(Surtidor_rxBuffer[1]==0xF6)&&(Surtidor_rxBuffer[45]==0xF0)&&(Surtidor_rxBuffer[3]==0xF9)){
-				rventa.manguera=(Surtidor_rxBuffer[2]&0xF0)+1;
+				rventa.manguera=(Surtidor_rxBuffer[2]&0x0F)+ 1;
 				for(x=0;x<=11;x++){
 					rventa.tvolumen[x]=(Surtidor_rxBuffer[x+4]&0x0F);
 				}
@@ -999,7 +1000,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 					corte[z]=rventa.tdinero[z-13];
 				}
 				corte[0]=24;				
-				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
+				if(((rventa.manguera==(producto1&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto1b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto1c&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto1d&0x0F))&&(dir==d.dir))){				//TOTAL PRODUCTO1
 					for(x=0;x<=5;x++){									
 						write_psoc1(val,msn_tc[x]);
 					}
@@ -1020,6 +1021,12 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(192,25);
 					}
+                    if(dir==b.dir){
+						leer_eeprom(1192,25);
+					}
+                    if(dir==d.dir){
+						leer_eeprom(1292,25);
+					}
 					else{
 						leer_eeprom(281,25);
 					}
@@ -1038,12 +1045,20 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(192,corte);	
 						write_eeprom(512,resultado);
 					}
+                    if(dir==b.dir){
+						write_eeprom(1192,corte);	
+						write_eeprom(1392,resultado);
+					}
+                    if(dir==d.dir){
+						write_eeprom(1292,corte);	
+						write_eeprom(1405,resultado);
+					}
 					else{
 						write_eeprom(281,corte);
 						write_eeprom(551,resultado);
 					}
 				}
-				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
+				if(((rventa.manguera==(producto2&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto2b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto2d&0x0F))&&(dir==d.dir))||((rventa.manguera==(producto2c&0x0F))&&(dir==c.dir))){		//TOTALES PRODUCTO 2
 					for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1064,6 +1079,12 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(217,25);
 					}
+                    if(dir==b.dir){
+						leer_eeprom(1217,25);
+					}
+                    if(dir==d.dir){
+						leer_eeprom(1317,25);
+					}
 					else{
 						leer_eeprom(320,25);
 					}
@@ -1082,12 +1103,20 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(217,corte);
 						write_eeprom(538,resultado);
 					}
+                    if(dir==b.dir){
+						write_eeprom(1217,corte);
+						write_eeprom(1418,resultado);
+					}
+                    if(dir==d.dir){
+						write_eeprom(1317,corte);
+						write_eeprom(1431,resultado);
+					}
 					else{
 						write_eeprom(320,corte);
 						write_eeprom(576,resultado);
 					}				
 				}
-				if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+				if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto3c&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto3d&0x0F))&&(dir==d.dir))){					//TOTALES producto3
 					for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1108,6 +1137,12 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(256,25);
 					}
+                    if(dir==b.dir){
+						leer_eeprom(1342,25);
+					}
+                    if(dir==d.dir){
+						leer_eeprom(1242,25);
+					}
 					else{
 						leer_eeprom(345,25);
 					}
@@ -1126,13 +1161,21 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(256,corte);
 						write_eeprom(525,resultado);
 					}
+                    if(dir==b.dir){
+						write_eeprom(1342,corte);
+						write_eeprom(1443,resultado);
+					}
+                    if(dir==d.dir){
+						write_eeprom(1242,corte);
+						write_eeprom(1456,resultado);
+					}
 					else{
 						write_eeprom(345,corte);
 						write_eeprom(589,resultado);
 					}					
 				}
                 
-                if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+                if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto4c&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto4d&0x0F))&&(dir==d.dir))){					//TOTALES producto3
 					for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1153,6 +1196,12 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(1096,25);
 					}
+                    if(dir==b.dir){
+						leer_eeprom(1267,25);
+					}
+                    if(dir==d.dir){
+						leer_eeprom(1367,25);
+					}
 					else{
 						leer_eeprom(1054,25);
 					}
@@ -1170,6 +1219,14 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						write_eeprom(1096,corte);
 						write_eeprom(1038,resultado);
+					}
+                    if(dir==b.dir){
+						write_eeprom(1267,corte);
+						write_eeprom(1470,resultado);
+					}
+                    if(dir==d.dir){
+						write_eeprom(1367,corte);
+						write_eeprom(1483,resultado);
 					}
 					else{
 						write_eeprom(1054,corte);
@@ -1205,6 +1262,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						for(x=0;x<=5;x++){									
 							write_psoc1(val,msn_tc[x]);
 						}
+                        write_psoc1(val,10);
                         for(x=0;x<=10;x++){									
 						write_psoc1(val,producto1n[x]);
 					    }
@@ -1288,7 +1346,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(576,resultado);
 						}				
 					}
-					if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+					if(((rventa.manguera==(producto3&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto3b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto3c&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto3d&0x0F))&&(dir==d.dir))){					//TOTALES producto3
 						for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
@@ -1334,7 +1392,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 					}
                     
                     
-                    if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))){					//TOTALES producto3
+                    if(((rventa.manguera==(producto4&0x0F))&&(dir==a.dir))||((rventa.manguera==(producto4b&0x0F))&&(dir==b.dir))||((rventa.manguera==(producto4c&0x0F))&&(dir==c.dir))||((rventa.manguera==(producto4d&0x0F))&&(dir==c.dir))){					//TOTALES producto3
 						for(x=0;x<=5;x++){									
 						    write_psoc1(val,msn_tc[x]);
 					    }
