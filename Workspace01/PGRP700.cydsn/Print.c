@@ -1242,7 +1242,7 @@ void imprimir_corte(uint8 val){
 	}
     write_psoc1(val,10); 
    	write_psoc1(val,10);	
-	for(x=0;x<=10;x++){										//POSICION	A							
+	for(x=0;x<=10;x++){										//POSICION	A (1)							
 		write_psoc1(val,msn_pos[x]);
 	}
     write_psoc1(val,((a.dir/10)+48));
@@ -1251,8 +1251,8 @@ void imprimir_corte(uint8 val){
 	get_totales(a.dir,val);    
     write_psoc1(val,10); 
 	write_psoc1(val,10); 
-     for(x=0;x<=10;x++){										//POSICION	B							
-		write_psoc1(val,msn_pos[x]);
+     for(x=0;x<=10;x++){																	
+		write_psoc1(val,msn_pos[x]);                        //POSICION	C (2)
 	}
     write_psoc1(val,((c.dir/10)+48));
 	write_psoc1(val,((c.dir%10)+48));	
@@ -1260,8 +1260,8 @@ void imprimir_corte(uint8 val){
 	get_totales(c.dir,val);
     write_psoc1(val,10);
     write_psoc1(val,10);
-	for(x=0;x<=10;x++){										//POSICION	C							
-		write_psoc1(val,msn_pos[x]);
+	for(x=0;x<=10;x++){																	
+		write_psoc1(val,msn_pos[x]);                        //POSICION	B (3)
 	}
     write_psoc1(val,((b.dir/10)+48));
 	write_psoc1(val,((b.dir%10)+48));	
@@ -1270,7 +1270,7 @@ void imprimir_corte(uint8 val){
     write_psoc1(val,10);
     write_psoc1(val,10);
    
-    for(x=0;x<=10;x++){										//POSICION	D							
+    for(x=0;x<=10;x++){										//POSICION	D (4)							
 		write_psoc1(val,msn_pos[x]);
 	}
     write_psoc1(val,((d.dir/10)+48));

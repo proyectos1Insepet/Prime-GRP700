@@ -82,10 +82,7 @@ void init(void){
     LCD_1_Start();
     LCD_2_Start();
     Surtidor_EnableRxInt();    
-    I2C_1_Start();    
-    //Impresora_EnableRxInt();
-    //LCD_1_EnableRxInt();
-    //LCD_2_EnableRxInt();       
+    I2C_1_Start();           
     CyDelay(5);	
     a_copias = 0;
     
@@ -128,6 +125,12 @@ void init(void){
 	for(x=0;x<=buffer_i2c[0];x++){
 		rventa.lema2[x]=buffer_i2c[x];
 	}	
+    
+    leer_eeprom(442,2);                                // Version del equipo
+	if(buffer_i2c[0]==5){
+		 versurt=(buffer_i2c[1]&0x0f);
+	}
+    
 	leer_eeprom(451,2);                     
 	if(buffer_i2c[0]==1){                               //Grados de los productos
 		producto1=buffer_i2c[1];
@@ -144,12 +147,7 @@ void init(void){
     leer_eeprom(1006,2);
 	if(buffer_i2c[0]==1){
 		producto4=buffer_i2c[1];                        //Grados de los productos
-	}		
-	
-    leer_eeprom(442,2);                                // Version del equipo
-	if(buffer_i2c[0]==5){
-		 versurt=(buffer_i2c[1]&0x0f);
-	}
+	}			    
     
     leer_eeprom(636,2);                                //Grados productos 2do lado
 	if(buffer_i2c[0]==1){
@@ -170,12 +168,36 @@ void init(void){
     
     leer_eeprom(1176,2);
 	if(buffer_i2c[0]==1){
-		productob1=buffer_i2c[1];                      //Grados productos 3er lado
+		producto1c=buffer_i2c[1];                      //Grados productos 3er lado
 	}
     
     leer_eeprom(1178,2);
 	if(buffer_i2c[0]==1){
-		productob2=buffer_i2c[1];                      //Grados productos 3er lado
+		producto2c=buffer_i2c[1];                      //Grados productos 3er lado
+	}
+    leer_eeprom(1180,2);
+	if(buffer_i2c[0]==1){
+		producto3c=buffer_i2c[1];                      //Grados productos 3er lado
+	}
+    leer_eeprom(1182,2);
+	if(buffer_i2c[0]==1){
+		producto4c=buffer_i2c[1];                      //Grados productos 3er lado
+	}
+    leer_eeprom(1184,2);
+	if(buffer_i2c[0]==1){
+		producto1d=buffer_i2c[1];                      //Grados productos 4to lado
+	}
+    leer_eeprom(1186,2);
+	if(buffer_i2c[0]==1){
+		producto2d=buffer_i2c[1];                      //Grados productos 4to lado
+	}
+    leer_eeprom(1188,2);
+	if(buffer_i2c[0]==1){
+		producto3d=buffer_i2c[1];                      //Grados productos 4to lado
+	}
+    leer_eeprom(1190,2);
+	if(buffer_i2c[0]==1){
+		producto4d=buffer_i2c[1];                      //Grados productos 4to lado
 	}
     leer_eeprom(671,5);
 	if(buffer_i2c[0]==4){
@@ -3363,7 +3385,7 @@ void polling_pos2(void){
             
             case 0x09:
                 CyDelay(50);
-                set_imagen(1,46);
+                set_imagen(1,46);  //posición ocupada, regresa al inicio para retomar consulta
                 flujo_LCD2 = 0;                
             break;
              			 	
@@ -3530,7 +3552,7 @@ void polling_pos2(void){
         case 13:
 			imprimir(print1[1], grado2,0,b.dir);
 			if(copia_recibo[1]==0){
-				set_imagen(1,12);				
+				set_imagen(1,12);			//Imprime venta y finaliza
 				CyDelay(700);
                 Buffer_LCD2.preset = 0x00;
                 set_imagen(1,46);
@@ -3706,7 +3728,7 @@ void polling_pos2(void){
                     case 0x7F:		
                       set_imagen(1,6);   
                       teclas1=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=producto1;	
+					  rventa.producto=producto1b;	
 					  write_LCD(1,'$',teclas1);					 //Producto 1	                               
                       flujo_LCD2 = 26; 
                     break;
@@ -3714,7 +3736,7 @@ void polling_pos2(void){
                     case 0x80:  	
                       set_imagen(1,6);		
                       teclas1=0;                            	  //Inicia el contador de teclas 
-					  rventa.producto=producto2;
+					  rventa.producto=producto2b;
 					  write_LCD(1,'$',teclas1);					  //Producto 2
                       flujo_LCD2 = 26;              
                     break;
@@ -3722,7 +3744,7 @@ void polling_pos2(void){
                     case 0x81:  
                       set_imagen(1,6);			
                       teclas1=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto3;
+					  rventa.producto=producto3b;
 					  write_LCD(1,'$',teclas1);						//Producto 3
                       flujo_LCD2 = 26;	
                     break;
@@ -3730,7 +3752,7 @@ void polling_pos2(void){
                     case 0x82:  	
                       set_imagen(1,6); 			
                       teclas1=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto4;
+					  rventa.producto=producto4b;
 					  write_LCD(1,'$',teclas1);					//Otro producto
                       flujo_LCD2 = 26;		
                     break;
@@ -3785,18 +3807,18 @@ void polling_pos2(void){
                         set_imagen(1,57);	
 						Buffer_LCD1.valor[0]=teclas1;					
 						if(cambiar_precio(b.dir)!=0){ 	
-							if(rventa.producto==producto1){
+							if(rventa.producto==producto1b){
 								write_eeprom(423,Buffer_LCD1.valor);	//429						
 							}
-                            if(rventa.producto==producto3){
+                            if(rventa.producto==producto3b){
 								write_eeprom(435,Buffer_LCD1.valor); //423							
 							}
-							if(rventa.producto==producto2){
+							if(rventa.producto==producto2b){
 								write_eeprom(429,Buffer_LCD1.valor);	//435						
 							}
                             
 							
-                            if(rventa.producto==producto4){
+                            if(rventa.producto==producto4b){
 								write_eeprom(1000,Buffer_LCD1.valor);							
 							}
 	                        set_imagen(1,60);	
@@ -4347,7 +4369,7 @@ void polling_pos3(void){
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){                                        //Comando de 0
                         teclas2++;                        
-                        Buffer_LCD2.placa[teclas2]=0x30;
+                        Buffer_LCD3.placa[teclas2]=0x30;
                         write_LCD(2,0x30,teclas2);                        
                     }  
                     if(LCD_2_rxBuffer[3]==0x6A){                                        //Comando de -
@@ -4368,7 +4390,7 @@ void polling_pos3(void){
                 if(LCD_2_rxBuffer[3]==0x0B){                                        //Borrar - Cancelar
                     if(teclas2==0){                                                 //Si no tiene nada pasa a pedir impresion
                         set_imagen(2,46);                        
-                        Buffer_LCD2.placa[0]=0;						
+                        Buffer_LCD3.placa[0]=0;						
                         flujo_LCD3 = 0;
                     }
                     else{
@@ -4674,7 +4696,7 @@ void polling_pos3(void){
                     case 0x7F:		
                       set_imagen(2,6);   
                       teclas2=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=productob1;	
+					  rventa.producto=producto1c;	
 					  write_LCD(2,'$',teclas2);							 	 //Producto 1	                               
                       flujo_LCD3 = 26; 
                     break;
@@ -4682,7 +4704,7 @@ void polling_pos3(void){
                     case 0x80:  	
                       set_imagen(2,6);		
                       teclas2=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=productob2;
+					  rventa.producto=producto2c;
 					  write_LCD(2,'$',teclas2);						 //Producto 2
                       flujo_LCD3 = 26;              
                     break;
@@ -4690,7 +4712,7 @@ void polling_pos3(void){
                     case 0x81:  
                       set_imagen(2,6);			
                       teclas2=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto3;
+					  rventa.producto=producto3c;
 					  write_LCD(2,'$',teclas2);						//Producto 3
                       flujo_LCD3 = 26;	
                     break;
@@ -4698,7 +4720,7 @@ void polling_pos3(void){
                     case 0x82:  	
                       set_imagen(2,6); 			
                       teclas2=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto4;
+					  rventa.producto=producto4c;
 					  write_LCD(2,'$',teclas2);					//Otro producto
                       flujo_LCD3 = 26;		
                     break;
@@ -4753,16 +4775,16 @@ void polling_pos3(void){
                         set_imagen(2,57); 
                         Buffer_LCD1.valor[0]=teclas2;
 						if(cambiar_precio(c.dir)!=0){ 	
-							if(rventa.producto==producto1){
+							if(rventa.producto==producto1c){
 								write_eeprom(423,Buffer_LCD1.valor);	//429						
 							}
-                            if(rventa.producto==producto3){
+                            if(rventa.producto==producto3c){
 								write_eeprom(435,Buffer_LCD1.valor); //423							
 							}
-							if(rventa.producto==producto2){
+							if(rventa.producto==producto2c){
 								write_eeprom(429,Buffer_LCD1.valor);	//435						
 							}                            							
-                            if(rventa.producto==producto4){
+                            if(rventa.producto==producto4c){
 								write_eeprom(1000,Buffer_LCD1.valor);							
 							}
 	                        set_imagen(2,60);	
@@ -4790,10 +4812,10 @@ void polling_pos3(void){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x7F:								 	 //Configurar Productos	                                                      
                       set_imagen(2,88); 
-					  Grado_LCD(2,0x00,0x73,1176); // primer producto 449
+					  Grado_LCD(2,0x00,0x73,1176); // primer producto 
 					  Grado_LCD(2,0x00,0xCF,1178); // segundo producto			  
-                      //Grado_LCD(2,0x01,0x29,449); // tercer producto
-                      //Grado_LCD(2,0x01,0x7B,1006); //cuarto producto
+                      Grado_LCD(2,0x01,0x29,1180); // tercer producto
+                      Grado_LCD(2,0x01,0x7B,1182); //cuarto producto
                       flujo_LCD3 = 28;   
                     break;
                     
@@ -4902,13 +4924,21 @@ void polling_pos3(void){
                         set_imagen(2,57);	
 						Buffer_LCD3.valor[0]=teclas2;
 						if(rventa.producto==1){
-							productob1=Buffer_LCD3.valor[1];
+							producto1c=Buffer_LCD3.valor[1];
 							write_eeprom(1176,Buffer_LCD3.valor);							
 						}
 						if(rventa.producto==2){
-							productob2=Buffer_LCD3.valor[1];
+							producto2c=Buffer_LCD3.valor[1];
 							write_eeprom(1178,Buffer_LCD3.valor);							
-						}						
+						}
+                        if(rventa.producto==3){
+							producto3c=Buffer_LCD3.valor[1];
+							write_eeprom(1180,Buffer_LCD3.valor);							
+						}
+                        if(rventa.producto==4){
+							producto4c=Buffer_LCD3.valor[1];
+							write_eeprom(1182,Buffer_LCD3.valor);							
+						}
 						CyDelay(500);						
 					    set_imagen(2,112);
                         flujo_LCD3 = 14;												
@@ -5611,7 +5641,7 @@ void polling_pos4(void){
                     case 0x7F:		
                       set_imagen(2,6);   
                       teclas2=0;                            	 //Inicia el contador de teclas 
-					  rventa.producto=producto1;	
+					  rventa.producto=producto1d;	
 					  write_LCD(2,'$',teclas2);					 //Producto 1	                               
                       flujo_LCD4 = 26; 
                     break;
@@ -5619,7 +5649,7 @@ void polling_pos4(void){
                     case 0x80:  	
                       set_imagen(2,6);		
                       teclas2=0;                            	  //Inicia el contador de teclas 
-					  rventa.producto=producto2;
+					  rventa.producto=producto2d;
 					  write_LCD(2,'$',teclas2);					  //Producto 2
                       flujo_LCD4 = 26;              
                     break;
@@ -5627,7 +5657,7 @@ void polling_pos4(void){
                     case 0x81:  
                       set_imagen(2,6);			
                       teclas2=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto3;
+					  rventa.producto=producto3d;
 					  write_LCD(2,'$',teclas2);						//Producto 3
                       flujo_LCD4 = 26;	
                     break;
@@ -5635,7 +5665,7 @@ void polling_pos4(void){
                     case 0x82:  	
                       set_imagen(2,6); 			
                       teclas2=0;                            	//Inicia el contador de teclas 
-					  rventa.producto=producto4;
+					  rventa.producto=producto4d;
 					  write_LCD(2,'$',teclas2);					//Otro producto
                       flujo_LCD4 = 26;		
                     break;
@@ -5729,10 +5759,10 @@ void polling_pos4(void){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x7F:								 	 //Configurar Productos	                                                      
                       set_imagen(2,88); 
-					  Grado_LCD(2,0x00,0x73,636); // primer producto 
-					  Grado_LCD(2,0x00,0xCF,638); // segundo producto			  
-                      Grado_LCD(2,0x01,0x29,634); // tercer producto
-                      Grado_LCD(2,0x01,0x7B,1008); //cuarto producto
+					  Grado_LCD(2,0x00,0x73,1184); // primer producto 
+					  Grado_LCD(2,0x00,0xCF,1186); // segundo producto			  
+                      Grado_LCD(2,0x01,0x29,1188); // tercer producto
+                      Grado_LCD(2,0x01,0x7B,1190); //cuarto producto
                       flujo_LCD4 = 28;   
                     break;
                     
@@ -5854,20 +5884,20 @@ void polling_pos4(void){
                         set_imagen(2,57);	
 						Buffer_LCD4.valor[0]=teclas2;
 						if(rventa.producto==2){
-							producto1b=Buffer_LCD4.valor[1];
-							write_eeprom(636,Buffer_LCD4.valor);							
+							producto2d=Buffer_LCD4.valor[1];
+							write_eeprom(1186,Buffer_LCD4.valor);							
 						}
 						if(rventa.producto==1){
-							producto3b=Buffer_LCD4.valor[1];
-							write_eeprom(634,Buffer_LCD4.valor);							
+							producto1d=Buffer_LCD4.valor[1];
+							write_eeprom(1184,Buffer_LCD4.valor);							
 						}
 						if(rventa.producto==3){
-							producto2b=Buffer_LCD4.valor[1];
-							write_eeprom(638,Buffer_LCD2.valor);							
+							producto3d=Buffer_LCD4.valor[1];
+							write_eeprom(1188,Buffer_LCD2.valor);							
 						}
                         if(rventa.producto==4){
-							producto4b=Buffer_LCD4.valor[1];
-							write_eeprom(1008,Buffer_LCD4.valor);							
+							producto4d=Buffer_LCD4.valor[1];
+							write_eeprom(1190,Buffer_LCD4.valor);							
 						}
 						CyDelay(500);						
 					    set_imagen(2,112);

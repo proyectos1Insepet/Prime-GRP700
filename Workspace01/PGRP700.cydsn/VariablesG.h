@@ -96,7 +96,7 @@ uint8 flujo_LCD,flujo_LCD2,flujo_LCD3,flujo_LCD4;/*
 uint8 cont1,teclas1,teclas2, comas1, comas2;  							                        //Auxiliares para las funciones del teclado y organizacion de datos
 uint8 versurt;															                        //Determina la version entre (1)no_extendida y (2)extendida
 uint8 producto1,producto2,producto3,producto4,producto1b,producto2b,producto3b,producto4b;		//Banderas para saber que productos hay
-uint8 productob1,productob2,productod1,productod2;
+uint8 producto1c,producto2c,producto3c,producto4c,producto1d,producto2d,producto3d,producto4d;
 uint8 buffer_i2c[64];													//Buffer de lectura del i2c 
 uint8 resultado[14];													//Buffer que almacena el resultado de una operacion				
 uint8 teclado,teclado2;													//Auxiliar que indica los datos del teclado en que variable gusrdarla
