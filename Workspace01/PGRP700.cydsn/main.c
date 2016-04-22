@@ -2189,7 +2189,7 @@ void polling_pos1(void){
                     
                     case 0x94:									
 					  set_imagen(1,112);
-                      flujo_LCD = 14;     //Volver a otras opciones
+                      flujo_LCD = 14;                           //Volver a otras opciones
                     break;
                 }					
             }
@@ -2380,7 +2380,7 @@ void polling_pos1(void){
                 }
                 if(LCD_1_rxBuffer[3]==0x0B){					//Cancel
                     if(teclas1==0){								//Si no ha presionado nada regresa al menu anterior
-                        set_imagen(1,0);
+                        set_imagen(1,46);
                         flujo_LCD=0;
                     }
                     else{
@@ -3955,7 +3955,7 @@ void polling_pos2(void){
                 }
                 if(LCD_1_rxBuffer[3]==0x0B){					//Cancel
                     if(teclas1==0){								//Si no ha presionado nada regresa al menu anterior
-                        set_imagen(1,0);
+                        set_imagen(1,46);
                         flujo_LCD2 = 0;
                     }
                     else{
@@ -4061,7 +4061,7 @@ void polling_pos3(void){
 		    if(LCD_2_GetRxBufferSize()==8){
                 if((LCD_2_rxBuffer[0]==0xAA) && (LCD_2_rxBuffer[6]==0xC3) && (LCD_2_rxBuffer[7]==0x3C)){                    
                     switch(LCD_2_rxBuffer[3]){
-				        case 0x56:						        //POS A                                                                                                                       
+				        case 0x57:						        //POS A                                                                                                                       
                                 if(venta_activa3 == 1){
                                     flujo_LCD3 = flujo_pos3;      //Si está vendiendo en esta posición regresa a su flujo
                                 }else{
@@ -4076,7 +4076,7 @@ void polling_pos3(void){
                                 }
 					    break;
                             		       
-					    case 0x57:  				            //POS B                                                                 
+					    case 0x56:  				            //POS B                                                                 
                                 if(venta_activa == 1){
                                     flujo_LCD3 = flujo_pos3;
                                 }else{
@@ -4923,7 +4923,7 @@ void polling_pos3(void){
                 }
                 if(LCD_2_rxBuffer[3]==0x0B){					//Cancel
                     if(teclas2==0){								//Si no ha presionado nada regresa al menu anterior
-                        set_imagen(2,0);
+                        set_imagen(2,46);
                         flujo_LCD3 = 0;
                     }
                     else{
@@ -5030,7 +5030,7 @@ void polling_pos4(void){
 		    if(LCD_2_GetRxBufferSize()==8){
                 if((LCD_2_rxBuffer[0]==0xAA) && (LCD_2_rxBuffer[6]==0xC3) && (LCD_2_rxBuffer[7]==0x3C)){
                     switch(LCD_2_rxBuffer[3]){
-				        case 0x56:						//POS A                                                                                                                       
+				        case 0x57:						//POS A                                                                                                                       
                                 if(venta_activa3 == 1){
                                     flujo_LCD3 = flujo_pos3;
                                 }else{
@@ -5045,7 +5045,7 @@ void polling_pos4(void){
                                 }
 					    break;
                             		       
-					    case 0x57:  				    //POS B                                 
+					    case 0x56:  				    //POS B                                 
                                 set_imagen(2,99);           //Inicio opciones GRP 700
 							    seleccion_pos2 = 4;
                                 if(venta_activa3 == 1){
