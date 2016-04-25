@@ -330,6 +330,11 @@ void init_surt(void){
 			
 			case 1:
 			CyDelay(100);
+            if(get_estado(a.dir)==0x0B || get_estado(c.dir)==0x0B ){
+                venta(a.dir);
+                venta(c.dir);
+            }
+            CyDelay(100);
 			if(get_estado(a.dir)==6 && get_estado(c.dir)==6 ){	
 				seguir = 1;
                 set_imagen(1,60); 
@@ -337,10 +342,18 @@ void init_surt(void){
 			}else{
                 set_imagen(1,85);
                 set_imagen(2,85);
-            }
+            }            
+            
 			break;
 			
 			case 2:
+            CyDelay(100);
+            if(get_estado(a.dir)==0x0B || get_estado(b.dir)==0x0B || get_estado(c.dir)==0x0B || get_estado(d.dir)==0x0B ){	
+                venta(a.dir);
+                venta(c.dir);
+                venta(b.dir);
+                venta(d.dir);
+            }
 			CyDelay(100);
 			if(get_estado(a.dir)==6 && get_estado(b.dir)==6 && get_estado(c.dir)==6 && get_estado(d.dir)==6 ){	
 				seguir = 2;
@@ -3269,7 +3282,7 @@ void polling_pos2(void){
         case 4:   
             if(LCD_1_GetRxBufferSize()==8){
                 if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
-				    Buffer_LCD1.preset&=0xFC;
+				    Buffer_LCD2.preset&=0xFC;
                     switch(LCD_1_rxBuffer[3]){
                         case 0x0F:		   					 	 //Preset por dinero	                               
                             set_imagen(1,6);                   
@@ -3344,7 +3357,7 @@ void polling_pos2(void){
                     }
                     else{
                         write_LCD(1,0x20,(teclas1));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD1.valor[teclas1]==0x2C){
+                        if(Buffer_LCD2.valor[teclas1]==0x2C){
                             comas1=0;
                         }
                         teclas1--;
@@ -3836,12 +3849,12 @@ void polling_pos2(void){
                 if(teclas1<=6){
                     if(LCD_1_rxBuffer[3]<=9){
                         teclas1++;
-                        Buffer_LCD1.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        Buffer_LCD3.valor[teclas1]=LCD_1_rxBuffer[3]+0x30;
                         write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);
                     }
                     if(LCD_1_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas1++;
-                        Buffer_LCD1.valor[teclas1]=0x30;
+                        Buffer_LCD3.valor[teclas1]=0x30;
                         write_LCD(1,0x30,teclas1);
                     }                               
                 }
@@ -3852,7 +3865,7 @@ void polling_pos2(void){
                     }
                     else{
                         write_LCD(1,0x20,(teclas1));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD1.valor[teclas1]==0x2C){
+                        if(Buffer_LCD3.valor[teclas1]==0x2C){
                             comas1=0;
                         }
                         teclas1--;
@@ -3862,21 +3875,21 @@ void polling_pos2(void){
                     if(teclas1>=4){
                         flujo_LCD2 = 6;                         
                         set_imagen(1,57);	
-						Buffer_LCD1.valor[0]=teclas1;					
-						if(cambiar_precio(b.dir)!=0){ 	
+						Buffer_LCD3.valor[0]=teclas1;					
+						if(cambiar_precio2(b.dir)!=0){ 	
 							if(rventa.producto==producto1b){
-								write_eeprom(423,Buffer_LCD1.valor);	//429						
+								write_eeprom(423,Buffer_LCD3.valor);	//429						
 							}
                             if(rventa.producto==producto3b){
-								write_eeprom(435,Buffer_LCD1.valor); //423							
+								write_eeprom(435,Buffer_LCD3.valor); //423							
 							}
 							if(rventa.producto==producto2b){
-								write_eeprom(429,Buffer_LCD1.valor);	//435						
+								write_eeprom(429,Buffer_LCD3.valor);	//435						
 							}
                             
 							
                             if(rventa.producto==producto4b){
-								write_eeprom(1000,Buffer_LCD1.valor);							
+								write_eeprom(1000,Buffer_LCD3.valor);							
 							}
 	                        set_imagen(1,60);	
 							CyDelay(500);														
@@ -5757,12 +5770,12 @@ void polling_pos4(void){
                 if(teclas2<=6){
                     if(LCD_2_rxBuffer[3]<=9){
                         teclas2++;
-                        Buffer_LCD1.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
+                        Buffer_LCD4.valor[teclas2]=LCD_2_rxBuffer[3]+0x30;
                         write_LCD(2,(LCD_2_rxBuffer[3]+0x30),teclas2);
                     }
                     if(LCD_2_rxBuffer[3]==0x0A){            	//Comando de 0
                         teclas2++;
-                        Buffer_LCD1.valor[teclas2]=0x30;
+                        Buffer_LCD4.valor[teclas2]=0x30;
                         write_LCD(2,0x30,teclas2);
                     }                               
                 }
@@ -5773,7 +5786,7 @@ void polling_pos4(void){
                     }
                     else{
                         write_LCD(2,0x20,(teclas2));			//Si ya presiono borra el dato	
-                        if(Buffer_LCD1.valor[teclas2]==0x2C){
+                        if(Buffer_LCD4.valor[teclas2]==0x2C){
                             comas2=0;
                         }
                         teclas2--;
@@ -5783,21 +5796,21 @@ void polling_pos4(void){
                     if(teclas2>=4){
                         flujo_LCD4 = 6;                         
                         set_imagen(2,57);	
-						Buffer_LCD1.valor[0]=teclas2;					
-						if(cambiar_precio(d.dir)!=0){ 	
-							if(rventa.producto==producto1){
-								write_eeprom(423,Buffer_LCD1.valor);	//429						
+						Buffer_LCD4.valor[0]=teclas2;					
+						if(cambiar_precio3(d.dir)!=0){ 	
+							if(rventa.producto==producto1d){
+								write_eeprom(423,Buffer_LCD4.valor);	//429						
 							}
-                            if(rventa.producto==producto3){
-								write_eeprom(435,Buffer_LCD1.valor); //423							
+                            if(rventa.producto==producto3d){
+								write_eeprom(435,Buffer_LCD4.valor); //423							
 							}
-							if(rventa.producto==producto2){
-								write_eeprom(429,Buffer_LCD1.valor);	//435						
+							if(rventa.producto==producto2d){
+								write_eeprom(429,Buffer_LCD4.valor);	//435						
 							}
                             
 							
-                            if(rventa.producto==producto4){
-								write_eeprom(1000,Buffer_LCD1.valor);							
+                            if(rventa.producto==producto4d){
+								write_eeprom(1000,Buffer_LCD4.valor);							
 							}
 	                        set_imagen(2,60);	
 							CyDelay(500);														

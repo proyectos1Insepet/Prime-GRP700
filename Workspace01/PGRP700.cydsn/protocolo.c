@@ -1931,6 +1931,193 @@ uint8 cambiar_precio(uint8 dir){
 
 /*
 *********************************************************************************************************
+*                                         uint8 cambiar precio2(uint8 dir)
+*
+* Description : 
+*               
+*
+* Argument(s) : none
+*
+* Return(s)   : none
+*
+* Caller(s)   : 
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+uint8 cambiar_precio2(uint8 dir){
+	uint8 buffer[15]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},size;
+	if(versurt!=7){
+		buffer[0]=0xFF;
+		buffer[1]=0xE5;
+		buffer[2]=0xF4;
+		buffer[3]=0xF6;
+		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
+		buffer[5]=0xF7;	
+		if(ppux10==0){
+			for(x=6;x<(6+teclas1);x++){
+				buffer[x]=(0xE0|(Buffer_LCD3.valor[teclas1-(x-6)]&0x0F));
+			}
+		}
+		else{
+			teclas1=teclas1-1;
+			for(x=6;x<(6+teclas1);x++){
+				buffer[x]=(0xE0|(Buffer_LCD3.valor[teclas1-(x-6)]&0x0F));
+			}	
+		}
+		for(y=x;y<=9;y++){
+			buffer[y]=0xE0;	
+		}
+		buffer[10]=0xFB;
+		for(x=0;x<=10;x++){
+			buffer[11]+=(buffer[x]&0x0F);	
+		}
+		buffer[11]=(((~buffer[11])+1)&0x0F)|0xE0;
+		buffer[12]=0xF0;
+		size=12;
+	}
+	if(versurt==7){
+		buffer[0]=0xFF;
+		buffer[1]=0xE3;
+		buffer[2]=0xF4;
+		buffer[3]=0xF6;
+		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
+		buffer[5]=0xF7;		
+		for(x=6;x<(6+teclas1);x++){
+			buffer[x]=(0xE0|(Buffer_LCD3.valor[teclas1-(x-6)]&0x0F));
+		}	
+		for(y=x;y<=11;y++){
+			buffer[y]=0xE0;	
+		}		
+		buffer[12]=0xFB;
+		for(x=0;x<=12;x++){
+			buffer[13]+=(buffer[x]&0x0F);	
+		}
+		buffer[13]=(((~buffer[13])+1)&0x0F)|0xE0;
+		buffer[14]=0xF0;
+		size=14;
+	}	
+	Surtidor_PutChar(0x20|dir);	
+    CyDelay(100);
+    if(Surtidor_GetRxBufferSize()>=1){
+		if(Surtidor_ReadRxData()==(0xD0|dir)){
+            Surtidor_ClearRxBuffer();
+            for(x=0;x<=size;x++){
+               	Surtidor_PutChar(buffer[x]); 	
+            }
+			CyDelay(50);
+			if(get_estado(dir)==0){
+				return 0;
+			}
+			else{
+				return 1;
+			}
+		}
+		else{
+			return 0;
+		}
+	}
+	else{
+		return 0;	
+	}
+}
+
+/*
+*********************************************************************************************************
+*                                         uint8 cambiar precio3(uint8 dir)
+*
+* Description : 
+*               
+*
+* Argument(s) : none
+*
+* Return(s)   : none
+*
+* Caller(s)   : 
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+uint8 cambiar_precio3(uint8 dir){
+	uint8 buffer[15]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},size;
+	if(versurt!=7){
+		buffer[0]=0xFF;
+		buffer[1]=0xE5;
+		buffer[2]=0xF4;
+		buffer[3]=0xF6;
+		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
+		buffer[5]=0xF7;	
+		if(ppux10==0){
+			for(x=6;x<(6+teclas2);x++){
+				buffer[x]=(0xE0|(Buffer_LCD4.valor[teclas2-(x-6)]&0x0F));
+			}
+		}
+		else{
+			teclas2=teclas2-1;
+			for(x=6;x<(6+teclas2);x++){
+				buffer[x]=(0xE0|(Buffer_LCD4.valor[teclas2-(x-6)]&0x0F));
+			}	
+		}
+		for(y=x;y<=9;y++){
+			buffer[y]=0xE0;	
+		}
+		buffer[10]=0xFB;
+		for(x=0;x<=10;x++){
+			buffer[11]+=(buffer[x]&0x0F);	
+		}
+		buffer[11]=(((~buffer[11])+1)&0x0F)|0xE0;
+		buffer[12]=0xF0;
+		size=12;
+	}
+	if(versurt==7){
+		buffer[0]=0xFF;
+		buffer[1]=0xE3;
+		buffer[2]=0xF4;
+		buffer[3]=0xF6;
+		buffer[4]=(0xE0|((rventa.producto&0x0f)-1));
+		buffer[5]=0xF7;		
+		for(x=6;x<(6+teclas1);x++){
+			buffer[x]=(0xE0|(Buffer_LCD4.valor[teclas2-(x-6)]&0x0F));
+		}	
+		for(y=x;y<=11;y++){
+			buffer[y]=0xE0;	
+		}		
+		buffer[12]=0xFB;
+		for(x=0;x<=12;x++){
+			buffer[13]+=(buffer[x]&0x0F);	
+		}
+		buffer[13]=(((~buffer[13])+1)&0x0F)|0xE0;
+		buffer[14]=0xF0;
+		size=14;
+	}	
+	Surtidor_PutChar(0x20|dir);	
+    CyDelay(100);
+    if(Surtidor_GetRxBufferSize()>=1){
+		if(Surtidor_ReadRxData()==(0xD0|dir)){
+            Surtidor_ClearRxBuffer();
+            for(x=0;x<=size;x++){
+               	Surtidor_PutChar(buffer[x]); 	
+            }
+			CyDelay(50);
+			if(get_estado(dir)==0){
+				return 0;
+			}
+			else{
+				return 1;
+			}
+		}
+		else{
+			return 0;
+		}
+	}
+	else{
+		return 0;	
+	}
+}
+
+
+/*
+*********************************************************************************************************
 *                                         uint8 totales(uint8 dir)
 *
 * Description : 

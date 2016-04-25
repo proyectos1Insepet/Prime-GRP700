@@ -702,22 +702,22 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	for(x=0;x<10;x++){										//PRODUCTO								
 		write_psoc1(val,msn_producto[x]);
 	}
-    if(((producto==(producto3&0x0f))&&(pos==a.dir))||((producto==(producto3b&0x0f))&&(pos==b.dir))){
+    if(((producto==(producto3&0x0f))&&(pos==a.dir))||((producto==(producto3b&0x0f))&&(pos==b.dir))||((producto==(producto3c&0x0f))&&(pos==c.dir))||((producto==(producto3d&0x0f))&&(pos==d.dir))){
 		for(x=0;x<10;x++){																			
 			write_psoc1(val,producto3n[x]);
 		}
     }
-    if(((producto==(producto2&0x0f))&&(pos==a.dir))||((producto==(producto2b&0x0f))&&(pos==b.dir))||((producto==(producto2&0x0f))&&(pos==c.dir))||((producto==(producto2b&0x0f))&&(pos==d.dir))){
+    if(((producto==(producto2&0x0f))&&(pos==a.dir))||((producto==(producto2b&0x0f))&&(pos==b.dir))||((producto==(producto2c&0x0f))&&(pos==c.dir))||((producto==(producto2d&0x0f))&&(pos==d.dir))){
 		for(x=0;x<10;x++){																		
 			write_psoc1(val,producto2n[x]);
 		} 
     }
-    if(((producto==(producto1&0x0f))&&(pos==a.dir))||((producto==(producto1b&0x0f))&&(pos==b.dir))||((producto==(producto1b&0x0f))&&(pos==d.dir))||((producto==(producto1&0x0f))&&(pos==c.dir))){
+    if(((producto==(producto1&0x0f))&&(pos==a.dir))||((producto==(producto1b&0x0f))&&(pos==b.dir))||((producto==(producto1d&0x0f))&&(pos==d.dir))||((producto==(producto1c&0x0f))&&(pos==c.dir))){
 		for(x=0;x<10;x++){																			
 			write_psoc1(val,producto1n[x]);
 		} 
     }
-    if(((producto==(producto4&0x0f))&&(pos==a.dir))||((producto==(producto4b&0x0f))&&(pos==b.dir))){
+    if(((producto==(producto4&0x0f))&&(pos==a.dir))||((producto==(producto4b&0x0f))&&(pos==b.dir))||((producto==(producto4c&0x0f))&&(pos==c.dir))||((producto==(producto4d&0x0f))&&(pos==d.dir))){
 		for(x=0;x<10;x++){																			
 			write_psoc1(val,producto4n[x]);
 		} 

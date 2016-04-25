@@ -38,6 +38,8 @@ uint8 venta(uint8 val);
 uint8 get_totales(uint8 dir,uint8 val);
 uint8 programar(uint8 dir, uint8 grado, uint8 *valor, uint8 preset);
 uint8 cambiar_precio(uint8 dir);
+uint8 cambiar_precio2(uint8 dir);
+uint8 cambiar_precio3(uint8 dir);
 
 #endif
 
