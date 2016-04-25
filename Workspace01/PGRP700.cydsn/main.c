@@ -85,6 +85,7 @@ void init(void){
     I2C_1_Start();           
     CyDelay(5);	
     a_copias = 0;
+    nombreproducto = 0;
     
     /**** Lectura de los campos de la eeprom para inicializar variables ****/
     
@@ -215,7 +216,7 @@ void init(void){
     for(x=0;x<=buffer_i2c[0];x++){                      //Carga nombre producto 2
 		producto2n[x]=buffer_i2c[x];
 	}
-    leer_eeprom(1152,10);
+    leer_eeprom(1500,10);
     for(x=0;x<=buffer_i2c[0];x++){                     //Carga nombre producto 3
 		producto3n[x]=buffer_i2c[x];
 	}
@@ -224,8 +225,8 @@ void init(void){
 		producto4n[x]=buffer_i2c[x];
 	}
     leer_eeprom(1174,2);
-    for(x=0;x<=buffer_i2c[0];x++){                    //Carga cantidad de copias
-		n_copias[x]=buffer_i2c[x];
+    if(buffer_i2c[0]>=1){                    //Carga cantidad de copias
+		n_copias[0]=buffer_i2c[0];        
 	}
 		     
 	leer_eeprom(602,6);
@@ -267,14 +268,14 @@ void init(void){
 		 write_eeprom(984,copia_recibo);
 	}
     
-    leer_eeprom(1167,2);	
+    leer_eeprom(1496,2);	
     if(buffer_i2c[0]==1){
 		 copia_recibo2[1]=buffer_i2c[1];                   //Copia recibo lcd2
 	}
 	else{
 		 copia_recibo2[0]=1;
 		 copia_recibo2[1]=1;
-		 write_eeprom(1167,copia_recibo2);
+		 write_eeprom(1496,copia_recibo2);
 	}
     leer_eeprom(978,6);										//Id venta
 	if(buffer_i2c[0]==5){
@@ -329,7 +330,7 @@ void init_surt(void){
 			
 			case 1:
 			CyDelay(100);
-			if(get_estado(a.dir)==6 && get_estado(b.dir)==6 ){	
+			if(get_estado(a.dir)==6 && get_estado(c.dir)==6 ){	
 				seguir = 1;
                 set_imagen(1,60); 
                 set_imagen(2,60); 
@@ -609,7 +610,7 @@ void polling_pos1(void){
                     }
                     if(teclas1>=1 && a_copias == 1){ 
                         set_imagen(1,112);
-                        n_copias[0]=Buffer_LCD1.valor[1];                       
+                        n_copias[0]=Buffer_LCD1.valor[1]&0x0F;                        
                         write_eeprom(1174,n_copias);
                         a_copias = 0;
                         flujo_LCD = 14;
@@ -2042,7 +2043,7 @@ void polling_pos1(void){
 							case 2:
                                 if(nombreproducto == 1){
                                     producto3n[0]=teclas1;                                    
-                                    write_eeprom(1152,producto3n);	     //Guarda el nombre en la eeprom
+                                    write_eeprom(1500,producto3n);	     //Guarda el nombre en la eeprom
                                 }
                                 if(nombreproducto == 0){ 
 								rventa.lema1[0]=teclas1;
@@ -2680,7 +2681,7 @@ void polling_pos1(void){
                     case 0x94:								//cambiar clave corte
 					    set_imagen(1,47);
 					    teclas1=0;
-                        flujo_LCD = 39;     
+                        flujo_LCD = 40;     
                     break;				
 					
                     case 0x7E:								//ir a menu
@@ -2971,6 +2972,62 @@ void polling_pos1(void){
             CyDelay(100);            
             LCD_1_ClearRxBuffer();
          }		  
+        break;
+        
+        case 40:
+         if(LCD_1_GetRxBufferSize()==8){
+            if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
+                if(teclas1<=3){
+                    if(LCD_1_rxBuffer[3]<=9){
+                        Buffer_LCD1.password[teclas1]=LCD_1_rxBuffer[3]+0x30;
+                        write_LCD(1,(LCD_1_rxBuffer[3]+0x30),teclas1);
+						teclas1++;
+                    }
+                    if(LCD_1_rxBuffer[3]==0x0A){            	//Comando de 0
+                        Buffer_LCD1.password[teclas1]=0x30;
+                        write_LCD(1,0x30,teclas1);
+                        teclas1++;						
+                    }                     
+                }
+                if(LCD_1_rxBuffer[3]==0x0B){					//Cancel
+                    if(teclas1==0){								//Si no ha presionado regresa al inicio
+						set_imagen(1,85);      //Error de operacion
+                        CyDelay(500);
+                        set_imagen(1,46);
+                         flujo_LCD = 0;						
+                    }
+                    else{
+                        teclas1--;						
+                        write_LCD(1,0x20,(teclas1));			//Si ya presiono borra el dato	
+                    }
+                }
+                if(LCD_1_rxBuffer[3]==0x0C){					//Si presiona enter revisa que el password coinsida			   
+					if(teclas1==4){
+						set_imagen(1,57);
+                        CyDelay(500);
+	                    flujo_LCD=0;                        
+                        set_imagen(1,60);
+						pasword_corte[0]=teclas1;
+						for(x=0;x<teclas1;x++){
+							pasword_corte[x+1]=(Buffer_LCD1.password[x]);
+						}
+						if(write_eeprom(671,pasword_corte)==0){							//Guarda password en la eeprom
+							set_imagen(1,85);
+                            CyDelay(500);
+                            set_imagen(1,46);
+							flujo_LCD=0;
+						}else{
+                            set_imagen(1,60);
+                            CyDelay(500);
+                            set_imagen(1,46);
+							flujo_LCD=0;
+                        }                        
+                    }
+                }
+            }
+            CyDelay(100);            
+            LCD_1_ClearRxBuffer();
+         }    
         break;
         
         case 41:
@@ -4257,14 +4314,7 @@ void polling_pos3(void){
                         set_imagen(2,7);
 						Buffer_LCD3.valor[0]=teclas2;
                         flujo_LCD3 = 6;                                                 				
-                    }
-                    if(teclas2>=1 && a_copias == 1){ 
-                        set_imagen(2,112);
-                        n_copias[0]=Buffer_LCD3.valor[1];                       
-                        write_eeprom(1174,n_copias);
-                        a_copias = 0;
-                        flujo_LCD3 = 14;
-                    }
+                    }                    
                 }
             }
             CyDelay(100);            

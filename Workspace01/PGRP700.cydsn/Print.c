@@ -1074,6 +1074,8 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	write_psoc1(val,0x1D);
 	write_psoc1(val,0x56);
 	write_psoc1(val,0x31);	
+    
+    Impresora_ClearTxBuffer();
 }
 
 

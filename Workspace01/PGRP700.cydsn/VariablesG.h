@@ -113,10 +113,10 @@ uint8 copia_recibo[2];													//activar copia de recibo
 uint8 copia_recibo2[2];													//activar copia de recibo lcd2
 uint8 id_venta[6];														//Consecutivo de Venta
 uint8 nombreproducto;                                                  //Para guardar en la estructura del nombre del producto
-uint8 producto1n[11];                                                   //nombres de productos en memoria
-uint8 producto2n[11];
-uint8 producto3n[11];
-uint8 producto4n[11];
+uint8 producto1n[10];                                                   //nombres de productos en memoria
+uint8 producto2n[10];
+uint8 producto3n[10];
+uint8 producto4n[10];
 uint8 a_copias;
 uint8 n_copias [1];
 uint8 no_imprime;
