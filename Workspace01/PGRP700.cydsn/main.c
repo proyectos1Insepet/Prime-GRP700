@@ -85,6 +85,8 @@ void init(void){
     I2C_1_Start();           
     CyDelay(5);	
     a_copias = 0;
+    no_imprime = 0;
+    no_imprime2 = 0;
     nombreproducto = 0;
     
     /**** Lectura de los campos de la eeprom para inicializar variables ****/
@@ -133,71 +135,71 @@ void init(void){
 	}
     
 	leer_eeprom(451,2);                     
-	if(buffer_i2c[0]==1){                               //Grados de los productos
+	if(buffer_i2c[0]>=1){                               //Grados de los productos
 		producto1=buffer_i2c[1];
 	}
     leer_eeprom(453,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto2=buffer_i2c[1];
 	}
 	leer_eeprom(449,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto3=buffer_i2c[1];
 	}
 	
     leer_eeprom(1006,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto4=buffer_i2c[1];                        //Grados de los productos
 	}			    
     
     leer_eeprom(636,2);                                //Grados productos 2do lado
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto1b=buffer_i2c[1];
 	}
 	leer_eeprom(634,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto3b = buffer_i2c[1];
 	}
 	leer_eeprom(638,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 	    producto2b=buffer_i2c[1];
 	}
     leer_eeprom(1008,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto4b=buffer_i2c[1];                      //Grados productos 2do lado
 	}
     
     leer_eeprom(1176,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto1c=buffer_i2c[1];                      //Grados productos 3er lado
 	}
     
     leer_eeprom(1178,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto2c=buffer_i2c[1];                      //Grados productos 3er lado
 	}
     leer_eeprom(1180,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto3c=buffer_i2c[1];                      //Grados productos 3er lado
 	}
     leer_eeprom(1182,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto4c=buffer_i2c[1];                      //Grados productos 3er lado
 	}
     leer_eeprom(1184,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto1d=buffer_i2c[1];                      //Grados productos 4to lado
 	}
     leer_eeprom(1186,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto2d=buffer_i2c[1];                      //Grados productos 4to lado
 	}
     leer_eeprom(1188,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto3d=buffer_i2c[1];                      //Grados productos 4to lado
 	}
     leer_eeprom(1190,2);
-	if(buffer_i2c[0]==1){
+	if(buffer_i2c[0]>=1){
 		producto4d=buffer_i2c[1];                      //Grados productos 4to lado
 	}
     leer_eeprom(671,5);
@@ -3712,7 +3714,7 @@ void polling_pos2(void){
          }		  
 		break;
         
-        case 15: 
+         case 15: 
          if(LCD_1_GetRxBufferSize()==8){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
                 if(LCD_1_rxBuffer[3] == 0x7E){
@@ -3720,7 +3722,7 @@ void polling_pos2(void){
                     flujo_LCD2 = 0;
                 }else if(LCD_1_rxBuffer[3] == 0x94){
                     set_imagen(1,99);
-                    flujo_LCD2 = 1;
+                    flujo_LCD = 1;
                 }
                 if(teclas1<=7){
                     if(LCD_1_rxBuffer[3]<=9){
@@ -3760,8 +3762,7 @@ void polling_pos2(void){
 						if(y==rventa.password[0]){								
 	                        set_imagen(1,38);
 							CyDelay(500);	                        							
-						    set_imagen(1,112);
-							}
+						    set_imagen(1,112);							
                             flujo_LCD2 = 14;
 						}
 						else{
@@ -3775,7 +3776,7 @@ void polling_pos2(void){
 								set_imagen(1,38);
 								CyDelay(500);																							    set_imagen(1,93);                     																
 								set_imagen(1,112);										
-                                flujo_LCD2 = 14;
+                                flujo_LCD2=14;
 							}	
 							else{		
 								set_imagen(1,39);								
@@ -3788,8 +3789,9 @@ void polling_pos2(void){
                 }
             CyDelay(100);            
             LCD_1_ClearRxBuffer();
-            }                     		  
-        break; 
+            } 
+        }
+        break;
         
         case 19:
         if(LCD_1_GetRxBufferSize()==8){
@@ -4505,7 +4507,7 @@ void polling_pos3(void){
          } 		 	
         break;
         
-        case 11:		
+        case 11:        
 		if(read_memory_ibutton(2,1)>=6){
 			CyDelay(10);
 			if(read_memory_ibutton(2,0x21)>=6){
@@ -4579,7 +4581,7 @@ void polling_pos3(void){
         break;
         
         case 13:
-			imprimir(print2[1], grado3,0,c.dir);  //Imprime recibo sin copia
+			imprimir(print2[1],grado3,0,c.dir);  //Imprime recibo sin copia
 			if(copia_recibo2[1]==0){
 				set_imagen(2,12);
 				CyDelay(600);
@@ -4735,7 +4737,7 @@ void polling_pos3(void){
 								set_imagen(2,38);
 								CyDelay(500);																							    set_imagen(1,93);                     																
 								set_imagen(2,112);										
-                                flujo_LCD=14;
+                                flujo_LCD3=14;
 							}	
 							else{		
 								set_imagen(2,39);								
@@ -5468,9 +5470,9 @@ void polling_pos4(void){
         break; 
         
         case 11:		
-		if(read_memory_ibutton(4,1)>=6){
+		if(read_memory_ibutton(4,1)>=6){            
 			CyDelay(10);
-			if(read_memory_ibutton(2,0x21)>=6){
+			if(read_memory_ibutton(4,0x21)>=6){
 		        if(touch_present(2)==1){
 		            LCD_2_PutChar(0x33);
 		            if(touch_write(2,0x33)){
@@ -5530,7 +5532,7 @@ void polling_pos4(void){
                 if(LCD_2_rxBuffer[3]==0x0C){				//Enter
                     if(teclas2>=1 && Buffer_LCD4.km[1]!=0x30){                       
                         set_imagen(2,5);
-                        Buffer_LCD4.km[0]=teclas1;   
+                        Buffer_LCD4.km[0]=teclas2;   
                         flujo_LCD4 = 4;                                           
                     }
                 }
@@ -5541,7 +5543,7 @@ void polling_pos4(void){
         break;
         
         case 13:
-			imprimir(print2[1], grado2,0,d.dir);
+			imprimir(print2[1], grado4,0,d.dir);
 			if(copia_recibo2[1]==0){
 				set_imagen(2,12);				
 				CyDelay(500);
@@ -5681,8 +5683,7 @@ void polling_pos4(void){
 						if(y==rventa.password[0]){								
 	                        set_imagen(2,38);
 							CyDelay(500);	                        							
-						    set_imagen(2,112);
-							}
+						    set_imagen(2,112);							
                             flujo_LCD4 = 14;
 						}
 						else{
@@ -5709,8 +5710,9 @@ void polling_pos4(void){
                 }
             CyDelay(100);            
             LCD_2_ClearRxBuffer();
-            }                     		  
-        break; 
+            } 
+        }
+        break;  
         
         case 19:
         if(LCD_2_GetRxBufferSize()==8){

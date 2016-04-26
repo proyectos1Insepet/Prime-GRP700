@@ -133,6 +133,7 @@ uint8 seleccion_pos2;                                                  //Selecio
 uint8 venta_activa,venta_activa3;
 uint8 venta_activa2,venta_activa4;
 uint16 id_corte;														//consecutivo del corte
+uint8 placa_aux;
 
 
 

@@ -371,7 +371,7 @@ uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
 					else{
 						return 0;
 					}
-					for(i=1;i<=Buffer_LCD3.placa[0];i++){
+					for(i=1;i<=Buffer_LCD4.placa[0];i++){
 		                Buffer_LCD4.placa[i]=touch_read_byte(2);
 						if(Buffer_LCD4.placa[i]!=0xFF){
 							check++;
