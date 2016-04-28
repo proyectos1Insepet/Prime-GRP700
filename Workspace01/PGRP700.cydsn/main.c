@@ -508,12 +508,14 @@ void polling_pos1(void){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
                 switch(LCD_1_rxBuffer[3]){
                     case 0x5F:							//Sin ID	                                                                              
-                      set_imagen(1,11);                 //Pasa a pantalla de solicitud de recibo 
+                      set_imagen(1,11);                 //Pasa a pantalla de solicitud de recibo
+                      Buffer_LCD1.preset = 0x00;
                       flujo_LCD=10; 
                     break;
                     
                     case 0x5E:  						//Con ID                                         
                       set_imagen(1,29);
+                      no_imprime = 0;
                       flujo_LCD=11;
                     break;	
 
@@ -539,7 +541,7 @@ void polling_pos1(void){
 				    Buffer_LCD1.preset&=0xFC;
                     switch(LCD_1_rxBuffer[3]){
                         case 0x0F:		   					 	 //Preset por dinero	                               
-                            set_imagen(1,6);                   
+                            set_imagen(1,6);                              
                             teclas1=0;                           //Inicia el contador de teclas                                         
                             write_LCD(1,'$',0);
 					        Buffer_LCD1.preset|=2;
@@ -3256,12 +3258,14 @@ void polling_pos2(void){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
                 switch(LCD_1_rxBuffer[3]){
                     case 0x5F:								 	 //Sin ID	                                                                              
-                      set_imagen(1,11);                       
+                      set_imagen(1,11);     
+                      Buffer_LCD2.preset = 0x00;
                       flujo_LCD2 = 10; 
                     break;
                     
                     case 0x5E:  								//Con ID                                         
                       set_imagen(1,29);
+                      no_imprime = 0;
                       flujo_LCD2 = 11;
                     break;	
                     
@@ -3286,7 +3290,7 @@ void polling_pos2(void){
                 if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
 				    Buffer_LCD2.preset&=0xFC;
                     switch(LCD_1_rxBuffer[3]){
-                        case 0x0F:		   					 	 //Preset por dinero	                               
+                        case 0x0F:		   					 	 //Preset por dinero                            
                             set_imagen(1,6);                   
                             teclas1=0;                           //Inicia el contador de teclas                                         
                             write_LCD(1,'$',0);
@@ -4216,11 +4220,13 @@ void polling_pos3(void){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x5F:							//Sin ID	                                                                              
                       set_imagen(2,11);                 //Pasa a pantalla de solicitud de recibo 
+                      Buffer_LCD3.preset = 0x00;
                       flujo_LCD3 = 10; 
                     break;
                     
                     case 0x5E:  						//Con ID                                         
                       set_imagen(2,29);
+                      no_imprime2 = 0;
                       flujo_LCD3=11;
                     break;	
 
@@ -5177,12 +5183,14 @@ void polling_pos4(void){
             if((LCD_2_rxBuffer[0]==0xAA) && (LCD_2_rxBuffer[6]==0xC3) && (LCD_2_rxBuffer[7]==0x3C)){
                 switch(LCD_2_rxBuffer[3]){
                     case 0x5F:								 	 //Sin ID	                                                                              
-                      set_imagen(2,11);                       
+                      set_imagen(2,11);  
+                      Buffer_LCD4.preset = 0x00;
                       flujo_LCD4 = 10; 
                     break;
                     
                     case 0x5E:  								//Con ID                                         
                       set_imagen(2,29);
+                      no_imprime2 = 0;
                       flujo_LCD4 = 11;
                     break;	
                     

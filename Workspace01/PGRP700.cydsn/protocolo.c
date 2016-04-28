@@ -1021,13 +1021,13 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(192,25);
 					}
-                    if(dir==b.dir){
+                    if(dir==c.dir){
 						leer_eeprom(1192,25);
 					}
                     if(dir==d.dir){
 						leer_eeprom(1292,25);
 					}
-					else{
+					if(dir==b.dir){
 						leer_eeprom(281,25);
 					}
 					print_totales(val);
@@ -1045,7 +1045,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(192,corte);	
 						write_eeprom(512,resultado);
 					}
-                    if(dir==b.dir){
+                    if(dir==c.dir){
 						write_eeprom(1192,corte);	
 						write_eeprom(1392,resultado);
 					}
@@ -1053,7 +1053,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(1292,corte);	
 						write_eeprom(1405,resultado);
 					}
-					else{
+					if(dir==b.dir){
 						write_eeprom(281,corte);
 						write_eeprom(551,resultado);
 					}
@@ -1079,13 +1079,13 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(217,25);
 					}
-                    if(dir==b.dir){
+                    if(dir==c.dir){
 						leer_eeprom(1217,25);
 					}
                     if(dir==d.dir){
 						leer_eeprom(1317,25);
 					}
-					else{
+					if(dir==b.dir){
 						leer_eeprom(320,25);
 					}
 					print_totales(val);
@@ -1103,7 +1103,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(217,corte);
 						write_eeprom(538,resultado);
 					}
-                    if(dir==b.dir){
+                    if(dir==c.dir){
 						write_eeprom(1217,corte);
 						write_eeprom(1418,resultado);
 					}
@@ -1111,7 +1111,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(1317,corte);
 						write_eeprom(1431,resultado);
 					}
-					else{
+					if(dir==b.dir){
 						write_eeprom(320,corte);
 						write_eeprom(576,resultado);
 					}				
@@ -1137,13 +1137,13 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(256,25);
 					}
-                    if(dir==b.dir){
-						leer_eeprom(1342,25);
-					}
-                    if(dir==d.dir){
+                    if(dir==c.dir){
 						leer_eeprom(1242,25);
 					}
-					else{
+                    if(dir==d.dir){
+						leer_eeprom(1317,25);
+					}
+					if(dir==b.dir){
 						leer_eeprom(345,25);
 					}
 					print_totales(val);
@@ -1161,15 +1161,15 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(256,corte);
 						write_eeprom(525,resultado);
 					}
-                    if(dir==b.dir){
-						write_eeprom(1342,corte);
+                    if(dir==c.dir){
+						write_eeprom(1242,corte);
 						write_eeprom(1443,resultado);
 					}
                     if(dir==d.dir){
-						write_eeprom(1242,corte);
-						write_eeprom(1456,resultado);
+						write_eeprom(1317,corte);
+						write_eeprom(1431,resultado);
 					}
-					else{
+					if(dir==b.dir){
 						write_eeprom(345,corte);
 						write_eeprom(589,resultado);
 					}					
@@ -1196,13 +1196,13 @@ uint8 get_totales(uint8 dir,uint8 val){
 					if(dir==a.dir){
 						leer_eeprom(1096,25);
 					}
-                    if(dir==b.dir){
+                    if(dir==c.dir){
 						leer_eeprom(1267,25);
 					}
                     if(dir==d.dir){
 						leer_eeprom(1367,25);
 					}
-					else{
+					if(dir==b.dir){
 						leer_eeprom(1054,25);
 					}
 					print_totales(val);
@@ -1220,7 +1220,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(1096,corte);
 						write_eeprom(1038,resultado);
 					}
-                    if(dir==b.dir){
+                    if(dir==c.dir){
 						write_eeprom(1267,corte);
 						write_eeprom(1470,resultado);
 					}
@@ -1228,7 +1228,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						write_eeprom(1367,corte);
 						write_eeprom(1483,resultado);
 					}
-					else{
+					if(dir==b.dir){
 						write_eeprom(1054,corte);
 						write_eeprom(1081,resultado);
 				    }						
@@ -1279,7 +1279,13 @@ uint8 get_totales(uint8 dir,uint8 val){
 						if(dir==a.dir){
 							leer_eeprom(192,25);
 						}
-						else{
+                        if(dir==c.dir){
+						    leer_eeprom(1192,25);
+					    }
+                        if(dir==d.dir){
+						    leer_eeprom(1292,25);
+					    }
+						if(dir==b.dir){
 							leer_eeprom(281,25);
 						}
 						print_totales(val);
@@ -1297,7 +1303,15 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(192,corte);	
 							write_eeprom(512,resultado);
 						}
-						else{
+                        if(dir==c.dir){
+						    write_eeprom(1192,corte);	
+						    write_eeprom(1392,resultado);
+					    }
+                        if(dir==d.dir){
+						    write_eeprom(1292,corte);	
+						    write_eeprom(1405,resultado);
+					    }
+						if(dir==b.dir){
 							write_eeprom(281,corte);
 							write_eeprom(551,resultado);
 						}
@@ -1323,13 +1337,13 @@ uint8 get_totales(uint8 dir,uint8 val){
 						if(dir==a.dir){
 							leer_eeprom(217,25);
 						}
-                        if(dir==b.dir){
+                        if(dir==c.dir){
 						    leer_eeprom(1217,25);
 					    }
                         if(dir==d.dir){
 						    leer_eeprom(1317,25);
 					    }
-						else{
+						if(dir==b.dir){
 							leer_eeprom(320,25);
 						}
 						print_totales(val);
@@ -1347,7 +1361,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(217,corte);
 							write_eeprom(538,resultado);
 						}
-                        if(dir==b.dir){
+                        if(dir==c.dir){
 						    write_eeprom(1217,corte);
 						    write_eeprom(1418,resultado);
 					    }
@@ -1355,7 +1369,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						    write_eeprom(1317,corte);
 						    write_eeprom(1431,resultado);
 					    }
-						else{
+						if(dir==b.dir){
 							write_eeprom(320,corte);
 							write_eeprom(576,resultado);
 						}				
@@ -1381,15 +1395,16 @@ uint8 get_totales(uint8 dir,uint8 val){
 						if(dir==a.dir){
 							leer_eeprom(256,25);
 						}
+                        if(dir==c.dir){
+						    leer_eeprom(1242,25);//1342
+					    }
                         if(dir==b.dir){
-						    leer_eeprom(1342,25);
-					    }
-                        if(dir==d.dir){
-						    leer_eeprom(1242,25);
-					    }
-						else{
-							leer_eeprom(345,25);
+							leer_eeprom(345,25);//345
 						}
+                        if(dir==d.dir){
+						    leer_eeprom(1317,25);
+					    }
+						
 						print_totales(val);
 						for(z=1;z<=12;z++){
 							minuendo[z]=rventa.tdinero[z-1];
@@ -1405,18 +1420,18 @@ uint8 get_totales(uint8 dir,uint8 val){
 							write_eeprom(256,corte);
 							write_eeprom(525,resultado);
 						}
-                        if(dir==b.dir){
-						    write_eeprom(1342,corte);
-						    write_eeprom(1443,resultado);
-					    }
-                        if(dir==d.dir){
+                        if(dir==c.dir){
 						    write_eeprom(1242,corte);
-						    write_eeprom(1456,resultado);
-					    }
-						else{
+						    write_eeprom(1443,resultado);
+					    }                        
+						if(dir==b.dir){
 							write_eeprom(345,corte);
 							write_eeprom(589,resultado);
-						}					
+						}
+                        if(dir==d.dir){
+						    write_eeprom(1317,corte);
+						    write_eeprom(1431,resultado);
+					    }
 					}
                     
                     
@@ -1439,16 +1454,16 @@ uint8 get_totales(uint8 dir,uint8 val){
 						}
 						write_psoc1(val,10);
 						if(dir==a.dir){
-							leer_eeprom(1096,25);
+							leer_eeprom(1096,25);//1096  correcto
 						}
-                        if(dir==b.dir){
-						    leer_eeprom(1267,25);
+                        if(dir==c.dir){
+						    leer_eeprom(1267,25);//1267
 					    }
                         if(dir==d.dir){
-						    leer_eeprom(1367,25);
+						    leer_eeprom(1367,25);//1367
 					    }
-						else{
-							leer_eeprom(1054,25);
+						if(dir==b.dir){
+							leer_eeprom(1054,25); //1054
 						}
 						print_totales(val);
 						for(z=1;z<=12;z++){
@@ -1465,7 +1480,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						    write_eeprom(1096,corte);
 						    write_eeprom(1038,resultado);
 					    }
-                        if(dir==b.dir){
+                        if(dir==c.dir){
 						    write_eeprom(1267,corte);
 						    write_eeprom(1470,resultado);
 					    }
@@ -1473,7 +1488,7 @@ uint8 get_totales(uint8 dir,uint8 val){
 						    write_eeprom(1367,corte);
 						    write_eeprom(1483,resultado);
 					    }
-					    else{
+					    if(dir==b.dir){
 						    write_eeprom(1054,corte);
 						    write_eeprom(1081,resultado);
 				        }					
@@ -1814,7 +1829,7 @@ uint8 programar(uint8 dir, uint8 grado, uint8 *valor, uint8 preset){
 		buffer[2]=(0xF0|preset);
 		buffer[3]=0xF4;
 		buffer[4]=0xF8;	
-		for(i=5;i<((6+decimalD)-decimal);i++){  //Cambio para preset en dinero 
+		for(i=5;i<((5+decimalD)-decimal);i++){  //Cambio para preset en dinero 
 			buffer[i]=0xE0;
 		}
 		for(j=i;j<(i+valor[0]);j++){
