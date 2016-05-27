@@ -22,7 +22,7 @@ ARM GAS  .\Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
    1              	/*******************************************************************************
    2              	* File Name: cydevicegnu.inc
    3              	* OBSOLETE: Do not use this file. Use the _trm version instead.
-   4              	* PSoC Creator  3.3 CP2
+   4              	* PSoC Creator  3.3 SP1
    5              	*
    6              	* Description:
    7              	* This file provides all of the address values for the entire PSoC device.
@@ -5662,7 +5662,7 @@ ARM GAS  .\Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
    1              	/*******************************************************************************
    2              	* File Name: cydevicegnu_trm.inc
    3              	* 
-   4              	* PSoC Creator  3.3 CP2
+   4              	* PSoC Creator  3.3 SP1
    5              	*
    6              	* Description:
    7              	* This file provides all of the address values for the entire PSoC device.
@@ -12436,7 +12436,7 @@ ARM GAS  .\Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1083              	.set CYDEV_DEBUGGING_DPS_SWD, 2
  1084              	.set CYDEV_DEBUGGING_DPS_SWD_SWV, 6
  1085              	.set CYDEV_DEBUGGING_DPS, CYDEV_DEBUGGING_DPS_SWD_SWV
- 1086              	.set CYDEV_DEBUGGING_ENABLE, 1
+ 1086              	.set CYDEV_DEBUGGING_ENABLE, 0
  1087              	.set CYDEV_DEBUGGING_XRES, 0
  1088              	.set CYDEV_DMA_CHANNELS_AVAILABLE, 24
  1089              	.set CYDEV_ECC_ENABLE, 0
@@ -12452,7 +12452,7 @@ ARM GAS  .\Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
  1099              	.set CYDEV_PROJ_TYPE_LOADABLEANDBOOTLOADER, 4
  1100              	.set CYDEV_PROJ_TYPE_MULTIAPPBOOTLOADER, 3
  1101              	.set CYDEV_PROJ_TYPE_STANDARD, 0
- 1102              	.set CYDEV_PROTECTION_ENABLE, 0
+ 1102              	.set CYDEV_PROTECTION_ENABLE, 1
  1103              	.set CYDEV_STACK_SIZE, 0x0800
  1104              	.set CYDEV_USE_BUNDLED_CMSIS, 1
  1105              	.set CYDEV_VARIABLE_VDDA, 0
