@@ -2,7 +2,7 @@
 --	Conversion of PGRP700.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon May 02 15:57:12 2016
+--	Fri Jun 17 07:50:24 2016
 --
 
 USE cypress.cypress.all;

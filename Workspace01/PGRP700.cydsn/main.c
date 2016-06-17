@@ -662,7 +662,7 @@ void polling_pos1(void){
 					break;
 				}					
 			}			
-			grado1=estado_ex(a.dir);		//Manejo de grados?, como	
+			grado1=estado_ex(a.dir);		//Manejo de grados	
 			Surtidor_PutChar(0x10|a.dir);									//Autoriza el surtidor
 			set_imagen(1,8);            
             flujo_LCD=7;
@@ -890,8 +890,7 @@ void polling_pos1(void){
                 Buffer_LCD1.preset = 0x00;
                 set_imagen(1,46);
                 flujo_LCD = 0;
-			}
-			else{
+			}else{
 				set_imagen(1,49);
 				teclas1=0;				
 				flujo_LCD = 33;					
@@ -3629,12 +3628,11 @@ void polling_pos2(void){
 			imprimir(print1[1], grado2,0,b.dir);
 			if(copia_recibo[1]==0){
 				set_imagen(1,12);			//Imprime venta y finaliza
-				CyDelay(700);
+				CyDelay(500);
                 Buffer_LCD2.preset = 0x00;
                 set_imagen(1,46);
                 flujo_LCD2 = 0;
-			}
-			else{
+			}else{
 				set_imagen(1,49);					
 				teclas2=0;					
                 flujo_LCD2=33;
@@ -4076,21 +4074,20 @@ void polling_pos2(void){
         case 33:
          if(LCD_1_GetRxBufferSize()==8){
             if((LCD_1_rxBuffer[0]==0xAA) && (LCD_1_rxBuffer[6]==0xC3) && (LCD_1_rxBuffer[7]==0x3C)){
-                if(LCD_1_rxBuffer[3] == 0x0A)
-                {
+                if(LCD_1_rxBuffer[3] == 0x0A){
                     for(z=1;z<=(n_copias[0]&0x0F);z++){
                         imprimir(print1[1],grado2,1,b.dir);
                         CyDelay(500);
                     }                    
                     set_imagen(1,12);
                     CyDelay(700);
-                    Buffer_LCD1.preset = 0x00;
+                    Buffer_LCD2.preset = 0x00;
                     set_imagen(1,46);                    
                     flujo_LCD2=0;
-                }
-                else{
+                }else{
 					set_imagen(1,12);					      // Si presionan NO o cualquier otro touch
 				    CyDelay(700);
+                    Buffer_LCD2.preset = 0x00;
                     set_imagen(1,46);
                     flujo_LCD2=0;
                 }                             
@@ -4590,12 +4587,11 @@ void polling_pos3(void){
 			imprimir(print2[1],grado3,0,c.dir);  //Imprime recibo sin copia
 			if(copia_recibo2[1]==0){
 				set_imagen(2,12);
-				CyDelay(600);
+				CyDelay(500);
                 Buffer_LCD3.preset = 0x00;
                 set_imagen(2,46);
                 flujo_LCD3 = 0;
-			}
-			else{
+			}else{
 				set_imagen(2,49);
 				teclas2=0;				
 				flujo_LCD3 = 33;					
@@ -5558,8 +5554,7 @@ void polling_pos4(void){
                 Buffer_LCD4.preset = 0x00;
                 set_imagen(2,46);
                 flujo_LCD4 = 0;
-			}
-			else{
+			}else{
 				set_imagen(2,49);					
 				teclas2=0;					
                 flujo_LCD4=33;
@@ -6016,6 +6011,7 @@ void polling_pos4(void){
                 else{
 					set_imagen(2,12);					      // Si presionan NO o cualquier otro touch
 				    CyDelay(500);
+                    Buffer_LCD4.preset = 0x00;
                     set_imagen(2,46);
                     flujo_LCD4=0;
                 }                             
