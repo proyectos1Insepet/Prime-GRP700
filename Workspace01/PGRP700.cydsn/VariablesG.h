@@ -121,6 +121,8 @@ uint8 a_copias;
 uint8 n_copias [1];
 uint8 no_imprime;
 uint8 no_imprime2;
+uint8 no_imprime3;
+uint8 no_imprime4;
 uint8 imagen;
 uint8 flujo_pos;
 uint8 flujo_pos2;

@@ -85,8 +85,10 @@ void init(void){
     I2C_1_Start();           
     CyDelay(5);	
     a_copias = 0;
-    no_imprime = 0;
-    no_imprime2 = 0;
+    no_imprime  = 0; //posA
+    no_imprime2 = 0; //posB
+    no_imprime3 = 0; //posC
+    no_imprime4 = 0; //posD
     nombreproducto = 0;
     
     /**** Lectura de los campos de la eeprom para inicializar variables ****/
@@ -134,6 +136,11 @@ void init(void){
 		 versurt=(buffer_i2c[1]&0x0f);
 	}
     
+    leer_eeprom(449,2);
+	if(buffer_i2c[0]>=1){
+		producto3=buffer_i2c[1];
+	}
+    
 	leer_eeprom(451,2);                     
 	if(buffer_i2c[0]>=1){                               //Grados de los productos
 		producto1=buffer_i2c[1];
@@ -142,11 +149,7 @@ void init(void){
 	if(buffer_i2c[0]>=1){
 		producto2=buffer_i2c[1];
 	}
-	leer_eeprom(449,2);
-	if(buffer_i2c[0]>=1){
-		producto3=buffer_i2c[1];
-	}
-	
+		
     leer_eeprom(1006,2);
 	if(buffer_i2c[0]>=1){
 		producto4=buffer_i2c[1];                        //Grados de los productos
@@ -260,14 +263,14 @@ void init(void){
 	else{
 		 id_corte=1;
 	}	
-    leer_eeprom(984,2);										//Copia de Recibo
+    leer_eeprom(986,2);										//Copia de Recibo
 	if(buffer_i2c[0]==1){
 		 copia_recibo[1]=buffer_i2c[1];
 	}
 	else{
 		 copia_recibo[0]=1;
 		 copia_recibo[1]=1;
-		 write_eeprom(984,copia_recibo);
+		 write_eeprom(986,copia_recibo);
 	}
     
     leer_eeprom(1496,2);	
@@ -3264,7 +3267,7 @@ void polling_pos2(void){
                     
                     case 0x5E:  								//Con ID                                         
                       set_imagen(1,29);
-                      no_imprime = 0;
+                      no_imprime2 = 0;
                       flujo_LCD2 = 11;
                     break;	
                     
@@ -3634,7 +3637,7 @@ void polling_pos2(void){
                 flujo_LCD2 = 0;
 			}else{
 				set_imagen(1,49);					
-				teclas2=0;					
+				teclas1=0;					
                 flujo_LCD2=33;
 			}
         break; 
@@ -3645,7 +3648,7 @@ void polling_pos2(void){
                 switch(LCD_1_rxBuffer[3]){
                     case 0x58:								  //Configurar Fecha y Hora	 
                         set_imagen(1,43);                     //Cancelado por PC
-                        CyDelay(700);
+                        CyDelay(500);
                         set_imagen(1,112);
                         flujo_LCD2 = 14;  
                     break;
@@ -4223,7 +4226,7 @@ void polling_pos3(void){
                     
                     case 0x5E:  						//Con ID                                         
                       set_imagen(2,29);
-                      no_imprime2 = 0;
+                      no_imprime3 = 0;
                       flujo_LCD3=11;
                     break;	
 
@@ -4378,13 +4381,13 @@ void polling_pos3(void){
 		 switch(get_estado(c.dir)){
 	        case 0x0B:                     //Termino venta            
 				CyDelay(100);
-				if(venta(c.dir)==1 && no_imprime == 0){	
+				if(venta(c.dir)==1 && no_imprime3 == 0){	
 		            set_imagen(2,57);                     
                     venta_activa3 = 0;                    
                     CyDelay(20);
                     flujo_LCD3 = 13;                   
 				}
-                if(venta(c.dir)==1 && no_imprime == 1){	
+                if(venta(c.dir)==1 && no_imprime3 == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa3 = 0;                    
                     CyDelay(500);
@@ -4395,13 +4398,13 @@ void polling_pos3(void){
 				
 	        case 0x0A:                         
 				CyDelay(100);                  //Termino venta
-				if(venta(c.dir)==1 && no_imprime == 0){	
+				if(venta(c.dir)==1 && no_imprime3 == 0){	
 		            set_imagen(2,57);
                     venta_activa3 = 0;                    
                     CyDelay(20);               //Finaliza venta con impresión de recibo                      
                     flujo_LCD3 = 13;
 				}
-                if(venta(c.dir)==1 && no_imprime == 1){	
+                if(venta(c.dir)==1 && no_imprime3 == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa3 = 0;                    
                     CyDelay(500);                    
@@ -4488,13 +4491,13 @@ void polling_pos3(void){
                     case 0x39:                          //Si pide impresión                         
                         set_imagen(2,10);               //Pasa a pedir placa
                         teclas2 = 0;                                              
-                        no_imprime = 0;
+                        no_imprime3 = 0;
                         flujo_LCD3 = 9;                       
                     break; 
                     
                     case 0x38:                          //Pide venta sin impresión
                         set_imagen(2,5);	            //Pasa a preset de venta
-                        no_imprime = 1;
+                        no_imprime3 = 1;
                         flujo_LCD3 = 4;                    
                     break;  
                     
@@ -5186,7 +5189,7 @@ void polling_pos4(void){
                     
                     case 0x5E:  								//Con ID                                         
                       set_imagen(2,29);
-                      no_imprime2 = 0;
+                      no_imprime4 = 0;
                       flujo_LCD4 = 11;
                     break;	
                     
@@ -5341,13 +5344,13 @@ void polling_pos4(void){
 		 switch(get_estado(d.dir)){
 	        case 0x0B:                     //Termino venta            
 				CyDelay(100);
-				if(venta(d.dir)==1 && no_imprime2 == 0){	
+				if(venta(d.dir)==1 && no_imprime4 == 0){	
 		            set_imagen(2,57);
                     venta_activa4 = 0;                    
                     CyDelay(20);
                     flujo_LCD4 = 13;
 				}
-                if(venta(d.dir)==1 && no_imprime2 == 1){	
+                if(venta(d.dir)==1 && no_imprime4 == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa4 = 0;                    
                     CyDelay(500);
@@ -5358,13 +5361,13 @@ void polling_pos4(void){
 				
 	        case 0x0A:                         
 				CyDelay(100);                  //Termino venta
-				if(venta(d.dir)==1 && no_imprime2 == 0){	
+				if(venta(d.dir)==1 && no_imprime4 == 0){	
 		            set_imagen(2,57);
                     venta_activa4 = 0;                    
                     CyDelay(20);               //Finaliza venta con impresión de recibo
                     flujo_LCD4 = 13;
 				}
-                if(venta(d.dir)==1 && no_imprime2 == 1){	
+                if(venta(d.dir)==1 && no_imprime4 == 1){	
 		            set_imagen(2,12);         //Finaliza venta sin impresión de recibo
                     venta_activa4 = 0;                    
                     CyDelay(500);
@@ -5451,13 +5454,13 @@ void polling_pos4(void){
                     case 0x39:                          //Si pide impresión                         
                         set_imagen(2,10);               //Pasa a pedir placa
                         teclas2 = 0;                                              
-                        no_imprime2 = 0;
+                        no_imprime4 = 0;
                         flujo_LCD4 = 9;                       
                     break; 
                     
                     case 0x38:                          //Pide venta sin impresión
                         set_imagen(2,5);	            //Pasa a preset de venta
-                        no_imprime2 = 1;
+                        no_imprime4 = 1;
                         flujo_LCD4 = 4;                    
                     break;  
                     

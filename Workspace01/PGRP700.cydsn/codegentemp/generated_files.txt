@@ -6,6 +6,8 @@
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\config.hex" value="NONE;" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\protect.hex" value="NONE;" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\eeprom.hex" value="NONE;" />
+  <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\cybootloader.icf" value="NONE;" />
+  <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\cybootloader.c" value="ARM_C_FILE;" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\cymetadata.c" value="ARM_C_FILE;" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\cydevice.h" value="NONE;" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\cydevicegnu.inc" value="NONE;" />
@@ -65,6 +67,8 @@
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\SDA_1_aliases.h" value="NONE;SDA_1" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\SDA_1.c" value="ARM_C_FILE;SDA_1" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\SDA_1.h" value="NONE;SDA_1" />
+  <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\Bootloadable_1.c" value="ARM_C_FILE;Bootloadable_1" />
+  <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\Bootloadable_1.h" value="NONE;Bootloadable_1" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\LCD_1_IntClock.c" value="ARM_C_FILE;LCD_1_IntClock" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\LCD_1_IntClock.h" value="NONE;LCD_1_IntClock" />
   <file name="C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\codegentemp\LCD_2_IntClock.c" value="ARM_C_FILE;LCD_2_IntClock" />

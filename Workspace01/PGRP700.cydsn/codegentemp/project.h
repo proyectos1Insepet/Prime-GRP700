@@ -36,6 +36,7 @@
 #include "SCL_1.h"
 #include "SDA_1_aliases.h"
 #include "SDA_1.h"
+#include "Bootloadable_1.h"
 #include "LCD_1_IntClock.h"
 #include "LCD_2_IntClock.h"
 #include "Impresora_IntClock.h"
