@@ -285,17 +285,17 @@ void init(void){
     leer_eeprom(978,6);										//Id venta
 	if(buffer_i2c[0]==5){
 		for(x=0;x<=buffer_i2c[0];x++){
-			id_venta[x]=buffer_i2c[x]; 
+			id_venta[0][x]=buffer_i2c[x]; 
 		}
 	}          
 	else{
-		id_venta[0]=5;	
-		id_venta[1]='0';
-		id_venta[2]='0';
-		id_venta[3]='0';
-		id_venta[4]='0';
-		id_venta[5]='0';
-		write_eeprom(978,id_venta);
+		id_venta[0][0]=5;	
+		id_venta[0][1]='0';
+		id_venta[0][2]='0';
+		id_venta[0][3]='0';
+		id_venta[0][4]='0';
+		id_venta[0][5]='0';
+		write_eeprom(978,id_venta[0]);
 	}
 	leer_eeprom(1012,2);										//Tipo impresora
 	if(buffer_i2c[0]==1){
@@ -303,7 +303,7 @@ void init(void){
 			tipo_imp[x]=buffer_i2c[x]; 
 		}
 	}
-	no_venta=((id_venta[5]&0x0F)*10000)+((id_venta[4]&0x0F)*1000)+((id_venta[3]&0x0F)*100)+((id_venta[2]&0x0F)*10)+((id_venta[1]&0x0F));
+	no_venta=((id_venta[0][5]&0x0F)*10000)+((id_venta[0][4]&0x0F)*1000)+((id_venta[0][3]&0x0F)*100)+((id_venta[0][2]&0x0F)*10)+((id_venta[0][1]&0x0F));
 
     
 }
