@@ -111,7 +111,7 @@ uint8 crc_total;														//crc del ibutton
 uint8 print1[2], print2[2];												//Puerto de las impresoras
 uint8 copia_recibo[2];													//activar copia de recibo
 uint8 copia_recibo2[2];													//activar copia de recibo lcd2
-uint8  id_venta[5][6];														//Consecutivo de Venta
+uint8 id_venta[6];														//Consecutivo de Venta
 uint8 nombreproducto;                                                  //Para guardar en la estructura del nombre del producto
 uint8 producto1n[10];                                                   //nombres de productos en memoria
 uint8 producto2n[10];

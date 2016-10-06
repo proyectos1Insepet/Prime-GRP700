@@ -637,54 +637,17 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
         
 	if(copia==0){
 		no_venta++;
-        id_venta[0][5]=(no_venta/10000)+48;
-    	id_venta[0][4]=((no_venta%10000)/1000)+48;
-    	id_venta[0][3]=(((no_venta%10000)%1000)/100)+48;
-    	id_venta[0][2]=((((no_venta%10000)%1000)%100)/10)+48;	
-    	id_venta[0][1]=((((no_venta%10000)%1000)%100)%10)+48;
-        write_eeprom(978,id_venta[0]);
-        if(pos==a.dir){
-            for(x=1;x<=5;x++){
-                id_venta[1][x]=id_venta[0][x];
-            }
-        }
-        if(pos==b.dir){
-            for(x=1;x<=5;x++){
-                id_venta[2][x]=id_venta[0][x];
-            }
-        }
-        if(pos==c.dir){
-            for(x=1;x<=5;x++){
-                id_venta[3][x]=id_venta[0][x];
-            }
-        }
-        if(pos==d.dir){
-            for(x=1;x<=5;x++){
-                id_venta[4][x]=id_venta[0][x];
-            }
-        }
-	}else{
-        if(pos==a.dir){
-            for(x=1;x<=5;x++){
-                id_venta[0][x]=id_venta[1][x];
-            }
-        }
-        if(pos==b.dir){
-            for(x=1;x<=5;x++){
-                id_venta[0][x]=id_venta[2][x];
-            }
-        }
-        if(pos==c.dir){
-            for(x=1;x<=5;x++){
-                id_venta[0][x]=id_venta[3][x];
-            }
-        }
-        if(pos==d.dir){
-            for(x=1;x<=5;x++){
-                id_venta[0][x]=id_venta[4][x];
-            }
-        }
-    }
+	}	
+	id_venta[5]=(no_venta/10000)+48;
+	id_venta[4]=((no_venta%10000)/1000)+48;
+	id_venta[3]=(((no_venta%10000)%1000)/100)+48;
+	id_venta[2]=((((no_venta%10000)%1000)%100)/10)+48;	
+	id_venta[1]=((((no_venta%10000)%1000)%100)%10)+48;
+	for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+		write_psoc1(val,id_venta[x]);
+	}	
+	write_eeprom(978,id_venta);
+    
 	write_psoc1(val,10);
 	for(x=0;x<=6;x++){										//FECHA								
 		write_psoc1(val,msn_fecha[x]);
