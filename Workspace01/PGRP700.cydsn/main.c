@@ -2658,8 +2658,7 @@ void polling_pos1(void){
                     Buffer_LCD1.preset = 0x00;
                     set_imagen(1,46);
                     flujo_LCD = 0;
-                }
-                else{
+                }else{
                     set_imagen(1,12);
 					CyDelay(500);               //Confirman NO, muestra imagen y sale
                     Buffer_LCD1.preset = 0x00;
@@ -2669,9 +2668,7 @@ void polling_pos1(void){
             }
             CyDelay(100);            
             LCD_1_ClearRxBuffer();
-         }	
-		
-        
+         }			        
 		break;
         
         case 34:  
@@ -4083,13 +4080,13 @@ void polling_pos2(void){
                         CyDelay(500);
                     }                    
                     set_imagen(1,12);
-                    CyDelay(700);
+                    CyDelay(500);
                     Buffer_LCD2.preset = 0x00;
                     set_imagen(1,46);                    
                     flujo_LCD2=0;
                 }else{
 					set_imagen(1,12);					      // Si presionan NO o cualquier otro touch
-				    CyDelay(700);
+				    CyDelay(500);
                     Buffer_LCD2.preset = 0x00;
                     set_imagen(1,46);
                     flujo_LCD2=0;
