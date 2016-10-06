@@ -636,17 +636,99 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	}
         
 	if(copia==0){
-		no_venta++;
-	}	
-	id_venta[5]=(no_venta/10000)+48;
-	id_venta[4]=((no_venta%10000)/1000)+48;
-	id_venta[3]=(((no_venta%10000)%1000)/100)+48;
-	id_venta[2]=((((no_venta%10000)%1000)%100)/10)+48;	
-	id_venta[1]=((((no_venta%10000)%1000)%100)%10)+48;
-	for(x=5;x>=1;x--){										//NUMERO DE VENTA							
-		write_psoc1(val,id_venta[x]);
-	}	
-	write_eeprom(978,id_venta);
+		no_venta++;		
+        if(pos==a.dir){
+            id_venta[5]=(no_venta/10000)+48;
+    	    id_venta[4]=((no_venta%10000)/1000)+48;
+    	    id_venta[3]=(((no_venta%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_venta%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_venta%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	
+    	    write_eeprom(978,id_venta);
+            no_ventacopia1 = no_venta;
+        }
+        if(pos==b.dir){
+            id_venta[5]=(no_venta/10000)+48;
+    	    id_venta[4]=((no_venta%10000)/1000)+48;
+    	    id_venta[3]=(((no_venta%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_venta%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_venta%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	
+    	    write_eeprom(978,id_venta);
+            no_ventacopia2 = no_venta;
+        }
+        if(pos==c.dir){
+            id_venta[5]=(no_venta/10000)+48;
+    	    id_venta[4]=((no_venta%10000)/1000)+48;
+    	    id_venta[3]=(((no_venta%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_venta%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_venta%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	
+    	    write_eeprom(978,id_venta);
+            no_ventacopia3 = no_venta;
+        }
+    	if(pos==d.dir){
+            id_venta[5]=(no_venta/10000)+48;
+    	    id_venta[4]=((no_venta%10000)/1000)+48;
+    	    id_venta[3]=(((no_venta%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_venta%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_venta%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	
+    	    write_eeprom(978,id_venta);
+            no_ventacopia4 = no_venta;
+        }
+    }else{
+        if(pos==a.dir){
+            id_venta[5]=(no_ventacopia1/10000)+48;
+    	    id_venta[4]=((no_ventacopia1%10000)/1000)+48;
+    	    id_venta[3]=(((no_ventacopia1%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_ventacopia1%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_ventacopia1%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	    	                
+        }
+        if(pos==b.dir){
+            id_venta[5]=(no_ventacopia2/10000)+48;
+    	    id_venta[4]=((no_ventacopia2%10000)/1000)+48;
+    	    id_venta[3]=(((no_ventacopia2%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_ventacopia2%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_ventacopia2%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	    	    
+        }
+        if(pos==c.dir){
+            id_venta[5]=(no_ventacopia3/10000)+48;
+    	    id_venta[4]=((no_ventacopia3%10000)/1000)+48;
+    	    id_venta[3]=(((no_ventacopia3%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_ventacopia3%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_ventacopia3%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	    	    
+        }
+    	if(pos==d.dir){
+            id_venta[5]=(no_ventacopia4/10000)+48;
+    	    id_venta[4]=((no_ventacopia4%10000)/1000)+48;
+    	    id_venta[3]=(((no_ventacopia4%10000)%1000)/100)+48;
+    	    id_venta[2]=((((no_ventacopia4%10000)%1000)%100)/10)+48;	
+    	    id_venta[1]=((((no_ventacopia4%10000)%1000)%100)%10)+48;   
+            for(x=5;x>=1;x--){										//NUMERO DE VENTA							
+    		    write_psoc1(val,id_venta[x]);
+    	    }	    	    
+        }
+        
+    }
+	
     
 	write_psoc1(val,10);
 	for(x=0;x<=6;x++){										//FECHA								
@@ -732,25 +814,85 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	if(pos==a.dir){
 		leer_eeprom(475,7);
 	}                             //Seleción de cara PPU
-	else{
-		leer_eeprom(500,7);	
+	if(pos==b.dir){
+		leer_eeprom(500,7);
 	}
-    
-	for(x=buffer_i2c[0];x>=1;x--){
-        if((buffer_i2c[x]==0)&&(digito==0)){
-        }
-        else{
-            digito=1;
-            write_psoc1(val,(buffer_i2c[x]+48));
-            if(decimalD >= 1 && ppux10 == 0)
-            {
-                if(x==decimalD+1){
-		            write_psoc1(val,44);
-		        }
+    if(pos==c.dir){
+		leer_eeprom(1528,7);
+	}
+    if(pos==d.dir){
+		leer_eeprom(1550,7);
+	}
+    if(copia == 0){
+        for(x=buffer_i2c[0];x>=1;x--){
+            if((buffer_i2c[x]==0)&&(digito==0)){
             }
-            
+            else{
+    		    if(pos==a.dir){
+    			    buffer_pos1[x] = buffer_i2c[x];
+    		    }
+        		if(pos==b.dir){
+        			buffer_pos2[x] = buffer_i2c[x];
+        		}
+        		if(pos==c.dir){
+        			buffer_pos3[x] = buffer_i2c[x];
+        		}
+        		if(pos==d.dir){
+        			buffer_pos4[x] = buffer_i2c[x];
+        		}
+                digito=1;
+                write_psoc1(val,(buffer_i2c[x]+48));
+                if(decimalD >= 1 && ppux10 == 0){
+                    if(x==decimalD+1){
+        				write_psoc1(val,44);
+        		    }
+                }
+                
+            }
         }
-	}
+    }
+    if(copia == 1){
+        for(x=buffer_i2c[0];x>=1;x--){
+            if((buffer_i2c[x]==0)&&(digito==0)){
+            }
+            else{
+                digito=1;
+    		    if(pos==a.dir){    			    
+                    write_psoc1(val,(buffer_pos1[x]+48));
+                    if(decimalD >= 1 && ppux10 == 0){
+                        if(x==decimalD+1){
+        				    write_psoc1(val,44);
+        		        }
+                    }
+    		    }
+        		if(pos==b.dir){    			    
+                    write_psoc1(val,(buffer_pos2[x]+48));
+                    if(decimalD >= 1 && ppux10 == 0){
+                        if(x==decimalD+1){
+        				    write_psoc1(val,44);
+        		        }
+                    }
+    		    }
+        		if(pos==c.dir){    			    
+                    write_psoc1(val,(buffer_pos3[x]+48));
+                    if(decimalD >= 1 && ppux10 == 0){
+                        if(x==decimalD+1){
+        				    write_psoc1(val,44);
+        		        }
+                    }
+    		    }
+        		if(pos==d.dir){    			    
+                    write_psoc1(val,(buffer_pos4[x]+48));
+                    if(decimalD >= 1 && ppux10 == 0){
+                        if(x==decimalD+1){
+        				    write_psoc1(val,44);
+        		        }
+                    }
+    		    }                                                
+            }
+        }
+    }
+    
 	if(ppux10==1){
 		write_psoc1(val,48);	
 	}
@@ -761,21 +903,65 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	if(pos==a.dir){
 		leer_eeprom(466,9);
 	}
-	else{
-		leer_eeprom(491,9);	
+    if(pos==b.dir){
+		leer_eeprom(491,9);
 	}
+    if(pos==c.dir){
+		leer_eeprom(466,9);
+	}
+    if(pos==d.dir){
+		leer_eeprom(491,9);
+	}
+	
     for(x=buffer_i2c[0];x>=5;x--){
         if(buffer_i2c[x]!=0){
 			
             break;
         }
     }
-    for(y=x;y>0;y--){
-        if(y==decimalV){
-            write_psoc1(val,44);
+    if(copia == 0){
+        for(y=x;y>0;y--){
+            if(y==decimalV){
+                write_psoc1(val,44);
+            }
+            write_psoc1(val,(buffer_i2c[y]+48));
+            if(pos==a.dir){
+			    buffer_pos1[y] = buffer_i2c[y];
+		    }
+    		if(pos==b.dir){
+    			buffer_pos2[y] = buffer_i2c[y];
+    		}
+    		if(pos==c.dir){
+    			buffer_pos3[y] = buffer_i2c[y];
+    		}
+    		if(pos==d.dir){
+    			buffer_pos4[y] = buffer_i2c[y];
+    		}
         }
-        write_psoc1(val,(buffer_i2c[y]+48));
     }
+    if(copia == 1){
+        for(y=x;y>0;y--){
+            if(y==decimalV){
+                write_psoc1(val,44);
+            }
+            if(pos==a.dir){
+			    write_psoc1(val,(buffer_pos1[y]+48));
+		    }
+            if(pos==b.dir){
+			    write_psoc1(val,(buffer_pos2[y]+48));
+		    }
+            if(pos==c.dir){
+			    write_psoc1(val,(buffer_pos3[y]+48));
+		    }
+            if(pos==d.dir){
+			    write_psoc1(val,(buffer_pos4[y]+48));
+		    }
+            
+            
+        }
+    }
+    
+    
     write_psoc1(val,10);
     
     
@@ -786,44 +972,132 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	if(pos==a.dir){
 		leer_eeprom(457,9);
 	}
-	else{
-		leer_eeprom(482,9);	
+    if(pos==b.dir){
+		leer_eeprom(482,9);
 	}
+    if(pos==c.dir){
+		leer_eeprom(457,9);
+	}
+    if(pos==d.dir){
+		leer_eeprom(482,9);
+	}
+	if(copia == 0){
 	if((versurt==5)||(versurt==7)){
 		for(x=buffer_i2c[0];x>1;x--){
-            if((buffer_i2c[x]==0)&&(digito==0)){
-                
-            }
-            else{
-                if(x==decimalD+1){                      //Cantidad de decimales para 7 y 5 digitos
-		            write_psoc1(val,44);
-		        }
-                digito=1;
-                write_psoc1(val,(buffer_i2c[x]+48));
-                
-            }
+			if(pos==a.dir){
+				buffer_pos1[x] = buffer_i2c[x];
+			}
+			if(pos==b.dir){
+				buffer_pos2[x] = buffer_i2c[x];
+			}
+			if(pos==c.dir){
+				buffer_pos3[x] = buffer_i2c[x];
+			}
+			if(pos==d.dir){
+				buffer_pos4[x] = buffer_i2c[x];
+			}
+			if((buffer_i2c[x]==0)&&(digito==0)){
+			}
+			else{
+				if(x==decimalD+1){                      //Cantidad de decimales para 7 y 5 digitos
+					write_psoc1(val,44);
+				}
+				digito=1;
+				write_psoc1(val,(buffer_i2c[x]+48));               
+			}
 		}
-        if(ppux10==1 && decimalD == 0){
-		    write_psoc1(val,48);	
-	    }
-	}
-	else{
+		if(ppux10==1 && decimalD == 0){
+			write_psoc1(val,48);	
+		}
+	}else{
 		for(x=buffer_i2c[0];x>=1;x--){
-            if((buffer_i2c[x]==0)&&(digito==0)){
-                
-            }
-            else{
-		        if(x==decimalD){
-		            write_psoc1(val,44);
-		        }				
-                digito=1;
-                write_psoc1(val,(buffer_i2c[x]+48));
-            }
+			if(pos==a.dir){
+				buffer_pos1[x] = buffer_i2c[x];
+			}
+			if(pos==b.dir){
+				buffer_pos2[x] = buffer_i2c[x];
+			}
+			if(pos==c.dir){
+				buffer_pos3[x] = buffer_i2c[x];
+			}
+			if(pos==d.dir){
+				buffer_pos4[x] = buffer_i2c[x];
+			}				
+			if((buffer_i2c[x]==0)&&(digito==0)){			
+			}
+			else{
+				if(x==decimalD){
+					write_psoc1(val,44);
+				}				
+				digito=1;
+				write_psoc1(val,(buffer_i2c[x]+48));
+			}
 		}
-        if(ppux10==1 && decimalD == 0){
-		    write_psoc1(val,48);	
-	    }
+		if(ppux10==1 && decimalD == 0){
+			write_psoc1(val,48);	
+		}
 	}
+}
+
+
+if(copia == 1){
+	if((versurt==5)||(versurt==7)){
+		for(x=buffer_i2c[0];x>1;x--){			
+			if((buffer_i2c[x]==0)&&(digito==0)){
+			}
+			else{
+				if(x==decimalD+1){                      //Cantidad de decimales para 7 y 5 digitos
+					write_psoc1(val,44);
+				}
+				digito=1;
+				if(pos==a.dir){
+					write_psoc1(val,(buffer_pos1[x]+48));  
+				}
+				if(pos==b.dir){
+					write_psoc1(val,(buffer_pos2[x]+48));  
+				}
+				if(pos==c.dir){
+					write_psoc1(val,(buffer_pos3[x]+48));  
+				}
+				if(pos==d.dir){
+					write_psoc1(val,(buffer_pos4[x]+48));  
+				}																								             
+			}
+		}
+		if(ppux10==1 && decimalD == 0){
+			write_psoc1(val,48);	
+		}
+	}else{
+		for(x=buffer_i2c[0];x>=1;x--){
+						
+			if((buffer_i2c[x]==0)&&(digito==0)){			
+			}
+			else{
+				if(x==decimalD){
+					write_psoc1(val,44);
+				}				
+				digito=1;
+				if(pos==a.dir){
+					write_psoc1(val,(buffer_pos1[x]+48));  
+				}
+				if(pos==b.dir){
+					write_psoc1(val,(buffer_pos2[x]+48));  
+				}
+				if(pos==c.dir){
+					write_psoc1(val,(buffer_pos3[x]+48));  
+				}
+				if(pos==d.dir){
+					write_psoc1(val,(buffer_pos4[x]+48));  
+				}	
+			}
+		}
+		if(ppux10==1 && decimalD == 0){
+			write_psoc1(val,48);	
+		}
+	}
+}
+
+    
 	if(pos == a.dir){											//PLACA
 		if(Buffer_LCD1.posventa==1){
 			write_psoc1(val,10);	
