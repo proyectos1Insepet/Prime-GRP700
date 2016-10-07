@@ -331,20 +331,10 @@ uint8 venta(uint8 val){
 					write_eeprom(466,rventa.volumen);
 					write_eeprom(475,rventa.ppu);
 				}				
-				if(val==b.dir){
-					write_eeprom(482,rventa.dinero);    //Datos de A y C en el mismo registro
+				else{
+					write_eeprom(482,rventa.dinero);
 					write_eeprom(500,rventa.ppu);
 					write_eeprom(491,rventa.volumen);				
-				}
-                if(val==c.dir){
-					write_eeprom(457,rventa.dinero);
-					write_eeprom(466,rventa.volumen);
-					write_eeprom(475,rventa.ppu);				
-				}
-                if(val==d.dir){
-					write_eeprom(482,rventa.dinero);   //Datos de B y D en el mismo registro
-					write_eeprom(500,rventa.ppu); 
-					write_eeprom(491,rventa.volumen);			
 				}
                 return 1;
             }
