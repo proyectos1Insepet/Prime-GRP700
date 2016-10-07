@@ -98,6 +98,10 @@ uint8 versurt;															                        //Determina la version entr
 uint8 producto1,producto2,producto3,producto4,producto1b,producto2b,producto3b,producto4b;		//Banderas para saber que productos hay
 uint8 producto1c,producto2c,producto3c,producto4c,producto1d,producto2d,producto3d,producto4d;
 uint8 buffer_i2c[64];													//Buffer de lectura del i2c 
+uint8 buffer_pos1[64];
+uint8 buffer_pos2[64];
+uint8 buffer_pos3[64];
+uint8 buffer_pos4[64];
 uint8 resultado[14];													//Buffer que almacena el resultado de una operacion				
 uint8 teclado,teclado2;													//Auxiliar que indica los datos del teclado en que variable gusrdarla
 uint8 ppux10;															//Indica si el PPU esta x10		
@@ -136,8 +140,10 @@ uint8 venta_activa,venta_activa3;
 uint8 venta_activa2,venta_activa4;
 uint16 id_corte;														//consecutivo del corte
 uint8 placa_aux;
-
-
+uint8 no_ventacopia1;
+uint8 no_ventacopia2;
+uint8 no_ventacopia3;
+uint8 no_ventacopia4;
 
 volatile int no_venta;													//Consecutivo de Venta entero	 
 /*
