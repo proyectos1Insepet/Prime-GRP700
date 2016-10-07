@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace01\PGRP700\Source Files\I2C.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace01\PGRP700\Source Files\Print.c">
 <ExpandedNodeIds>
 <v>Workspace01</v>
 <v>Workspace01\PGRP700</v>
@@ -309,6 +309,14 @@
 <v>Workspace01\PGRP700\PSoC 5 Architecture TRM</v>
 <v>Workspace01\PGRP700\CY8C58LP Family Datasheet</v>
 <v>Workspace01\PGRP700\System Reference Guides</v>
+<v>Workspace01\PGRP700\System Reference Guides\cy_boot_v5_30</v>
+<v>Workspace01\PGRP700\Bootloadable_v1_50.pdf</v>
+<v>Workspace01\PGRP700\cy_clock_v2_20.pdf</v>
+<v>Workspace01\PGRP700\cy_pins_v2_10</v>
+<v>Workspace01\PGRP700\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\PGRP700\I2C_v3_30.pdf</v>
+<v>Workspace01\PGRP700\UART_v2_30</v>
+<v>Workspace01\PGRP700\UART_v2_30\UART_v2_30.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Workspace01</v>
@@ -316,6 +324,14 @@
 <v>Workspace01\PGRP700\PSoC 5 Architecture TRM</v>
 <v>Workspace01\PGRP700\CY8C58LP Family Datasheet</v>
 <v>Workspace01\PGRP700\System Reference Guides</v>
+<v>Workspace01\PGRP700\System Reference Guides\cy_boot_v5_30</v>
+<v>Workspace01\PGRP700\Bootloadable_v1_50.pdf</v>
+<v>Workspace01\PGRP700\cy_clock_v2_20.pdf</v>
+<v>Workspace01\PGRP700\cy_pins_v2_10</v>
+<v>Workspace01\PGRP700\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Workspace01\PGRP700\I2C_v3_30.pdf</v>
+<v>Workspace01\PGRP700\UART_v2_30</v>
+<v>Workspace01\PGRP700\UART_v2_30\UART_v2_30.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -326,13 +342,8 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\PGRP700.cydsn\main.c" />
-<name v=".\PGRP700.cydsn\Print.c" />
-<name v=".\PGRP700.cydsn\VariablesG.h" />
 <name v=".\PGRP700.cydsn\protocolo.c" />
-<name v=".\PGRP700.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\PGRP700.cydsn\Protocolo.h" />
-<name v=".\PGRP700.cydsn\I2C.h" />
-<name v=".\PGRP700.cydsn\I2C.c" />
+<name v=".\PGRP700.cydsn\Print.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />
