@@ -818,28 +818,28 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 		leer_eeprom(500,7);
 	}
     if(pos==c.dir){
-		leer_eeprom(1528,7);
+		leer_eeprom(475,7);
 	}
     if(pos==d.dir){
-		leer_eeprom(1550,7);
+		leer_eeprom(500,7);
 	}
     if(copia == 0){
         for(x=buffer_i2c[0];x>=1;x--){
+            if(pos==a.dir){
+			    buffer_pos1[x] = buffer_i2c[x];
+		    }
+    		if(pos==b.dir){
+    			buffer_pos2[x] = buffer_i2c[x];
+    		}
+    		if(pos==c.dir){
+    			buffer_pos3[x] = buffer_i2c[x];
+    		}
+    		if(pos==d.dir){
+    			buffer_pos4[x] = buffer_i2c[x];
+    		}
             if((buffer_i2c[x]==0)&&(digito==0)){
             }
-            else{
-    		    if(pos==a.dir){
-    			    buffer_pos1[x] = buffer_i2c[x];
-    		    }
-        		if(pos==b.dir){
-        			buffer_pos2[x] = buffer_i2c[x];
-        		}
-        		if(pos==c.dir){
-        			buffer_pos3[x] = buffer_i2c[x];
-        		}
-        		if(pos==d.dir){
-        			buffer_pos4[x] = buffer_i2c[x];
-        		}
+            else{    		    
                 digito=1;
                 write_psoc1(val,(buffer_i2c[x]+48));
                 if(decimalD >= 1 && ppux10 == 0){
@@ -914,8 +914,27 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	}
 	
     for(x=buffer_i2c[0];x>=5;x--){
-        if(buffer_i2c[x]!=0){
-			
+        if(buffer_i2c[x]!=0){			
+            break;
+        }
+    }
+    for(x=buffer_pos1[0];x>=5;x--){
+        if(buffer_pos1[x]!=0){			
+            break;
+        }
+    }
+    for(x=buffer_pos2[0];x>=5;x--){
+        if(buffer_pos2[x]!=0){			
+            break;
+        }
+    }
+    for(x=buffer_pos3[0];x>=5;x--){
+        if(buffer_pos3[x]!=0){			
+            break;
+        }
+    }
+    for(x=buffer_pos4[0];x>=5;x--){
+        if(buffer_pos4[x]!=0){			
             break;
         }
     }
