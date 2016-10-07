@@ -733,6 +733,7 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 		leer_eeprom(475,7);
 	}                             //Seleción de cara PPU
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if(pos==b.dir){
 		leer_eeprom(500,7);
 	}
@@ -776,6 +777,14 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 	for(x=buffer_i2c[0];x>=1;x--){
         if((buffer_i2c[x]==0)&&(digito==0)){
 >>>>>>> parent of 77e91d3... Actualización
+=======
+	else{
+		leer_eeprom(500,7);	
+	}
+    
+	for(x=buffer_i2c[0];x>=1;x--){
+        if((buffer_i2c[x]==0)&&(digito==0)){
+>>>>>>> parent of 77e91d3... Actualización
         }
         else{
             digito=1;
@@ -807,11 +816,19 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
             break;
         }
     }
+<<<<<<< HEAD
     for(x=buffer_pos1[0];x>=5;x--){
         if(buffer_pos1[x]!=0){			
             break;
+=======
+    for(y=x;y>0;y--){
+        if(y==decimalV){
+            write_psoc1(val,44);
+>>>>>>> parent of 77e91d3... Actualización
         }
+        write_psoc1(val,(buffer_i2c[y]+48));
     }
+<<<<<<< HEAD
     for(x=buffer_pos2[0];x>=5;x--){
         if(buffer_pos2[x]!=0){			
             break;
@@ -833,6 +850,8 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
         }
         write_psoc1(val,(buffer_i2c[y]+48));
     }
+=======
+>>>>>>> parent of 77e91d3... Actualización
     write_psoc1(val,10);
     
     
