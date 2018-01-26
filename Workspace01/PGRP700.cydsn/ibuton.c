@@ -1,30 +1,8 @@
-/*
-*********************************************************************************************************
-*                                           GRP550M CODE
-*
-*                             (c) Copyright 2013; Sistemas Insepet LTDA
-*
-*               All rights reserved.  Protected by international copyright laws.
-*               Knowledge of the source code may NOT be used to develop a similar product.
-*               Please help us continue to provide the Embedded community with the finest
-*               software available.  Your honesty is greatly appreciated.
-*********************************************************************************************************
-*/
-
-/*
-*********************************************************************************************************
-*
-*                                               GRP550M CODE
-*
-*                                             CYPRESS PSoC5LP
-*                                                with the
-*                                            CY8C5969AXI-LP035
-*
-* Filename      : ibutton.c
-* Version       : V1.00
-* Programmer(s) : 
-                  
-*********************************************************************************************************
+/**
+* @file ibuton.c
+* @Author Insepet LTDA
+* @date 28/2/2016
+* @brief Archivo para la lectura del ibutton
 */
 
 /*
@@ -36,23 +14,12 @@
 #include "VariablesG.h"
 #include "LCD.h"
 
-/*
-*********************************************************************************************************
-*                                       uint8 touch_present(uint8 ibutton)
+/**
+* touch_present
+* @brief indica el lado donde se encuentra el ibutton
+* @return 0 no hay ibutton , 1 si hay ibutton
 *
-* Description : Revisa que hay ibutton en el lector
-*               
-*
-* Argument(s) : uint8 ibutton, indica el lado donde se encuentra el ibutton
-*
-* Return(s)   : 0 no hay ibutton , 1 si hay ibutton
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 uint8 touch_present(uint8 ibutton){  
     uint8 present;
 	if(ibutton==1){
@@ -118,25 +85,14 @@ uint8 touch_present(uint8 ibutton){
 	}
 }
 
-/*
-*********************************************************************************************************
-*                                  uint8 touch_write(uint8 ibutton, uint8 dato)
+/**
+* touch_write
+* @brief Escribe un byte en el Ibutton
+* @param ibutton lado
+* @param dato byte que se va a escribir
+* @return 0 operacion correcta , 1 operacion incorrecta
 *
-* Description : Escribe un byte en el Ibutton
-*               
-*
-* Argument(s) : uint8 ibutton = lado
-				uint8 dato = byte que se va a escribir
-*
-* Return(s)   : 0 operacion correcta
-				1 operacion incorrecta
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 uint8 touch_write(uint8 ibutton, uint8 dato){
     uint8 i;
 	if(ibutton==1){
@@ -189,24 +145,13 @@ uint8 touch_write(uint8 ibutton, uint8 dato){
 	}
 }
 
-/*
-*********************************************************************************************************
-*                                   uint8 touch_read_byte(uint8 ibutton)
+/**
+* touch_read_byte
+* @brief Lee un byte del ibutton, se usa para leer los bytes del serial
+* @param ibutton lado
+* @return 0 no hubo lectura , =!0 dato leido
 *
-* Description : Lee un byte del ibutton, se usa para leer los bytes del serial
-*               
-*
-* Argument(s) : uint8 ibutton = lado
-*
-* Return(s)   : 0 = no hubo lectura
-				!=0 dato leido
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 uint8 touch_read_byte(uint8 ibutton){
     uint8 i, dato=0;
 	if(ibutton==1){
@@ -233,23 +178,14 @@ uint8 touch_read_byte(uint8 ibutton){
 	}
 } 
 
-/*
-*********************************************************************************************************
-*                                uint8 read_memory_ibutton(uint8 ibutton)
+/**
+* read_memory_ibutton
+* @brief Lee posiciones de memoria del ibutton con más datos
+* @param ibutton lado del lector
+* @param pos lado del equipo, posición 1 ó 2
+* @return 0 no hubo lectura , =!0 dato leido
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
     uint8 i, check=0;
 	if(ibutton==1){
@@ -457,23 +393,16 @@ uint8 read_memory_ibutton(uint8 ibutton, uint8 pos){
 	}
 }
 
-/*
-*********************************************************************************************************
-*          uint8 touch_write_memoria(uint8 ibutton, uint8 cantidad, uint8 pos, uint8 *valor)
+/**
+* touch_write_memoria
+* @brief escribe posiciones de memoria del ibutton con más datos (placa)
+* @param ibutton lado del lector
+* @param cantidad número de datos a escribir
+* @param pos lado del equipo, posición 1 ó 2
+* @param *valor apuntador con los datos a escribir
+* @return 0 no escribió , 1 escrito correctamente
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 uint8 touch_write_memoria(uint8 ibutton, uint8 cantidad, uint8 pos, uint8 *valor){
 	uint8 i,check=0;
 	if(ibutton==1){
@@ -579,23 +508,14 @@ uint8 touch_write_memoria(uint8 ibutton, uint8 cantidad, uint8 pos, uint8 *valor
 	return 0;
 }
 
-/*
-*********************************************************************************************************
-* 							uint8 crc_check(uint8_t crc, uint8_t data)
+/**
+* crc_check
+* @brief verifica los datos leídos del ibutton
+* @param crc dato obtenido
+* @param dato byte de ibutton
+* @return crc calculado
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 uint8 crc_check(uint8 crc, uint8 dato){
     uint8 i;
     crc = crc ^ dato;

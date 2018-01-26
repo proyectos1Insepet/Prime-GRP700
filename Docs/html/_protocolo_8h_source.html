@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GRP700 Prime: Fichero Fuente Workspace01/PGRP700.cydsn/Protocolo.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GRP700 Prime
+   &#160;<span id="projectnumber">4.0</span>
+   </div>
+   <div id="projectbrief">Sistema de impresión autónomo para equipos de 4 posiciones, preparado para impresora panel y kiosco</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_protocolo_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Protocolo.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*********************************************************************************************************</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                                           GRP550/700 CODE</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*                             (c) Copyright 2013; Sistemas Insepet LTDA</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">*</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*               All rights reserved.  Protected by international copyright laws.</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">*               Knowledge of the source code may NOT be used to develop a similar product.</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*               Please help us continue to provide the Embedded community with the finest</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*               software available.  Your honesty is greatly appreciated.</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">*********************************************************************************************************</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">*/</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">*********************************************************************************************************</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">*                                             GRP550/700 CODE</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">*</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">*                                             CYPRESS PSoC5LP</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*                                                with the</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*                                            CY8C5969AXI-LP035</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">*</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">* Filename      : Protocolo.h</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* Version       : V1.00</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">* Programmer(s) : </span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">                  </span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*********************************************************************************************************</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">*/</span></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef PROTOCOLO_H</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define PROTOCOLO_H</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;device.h&gt;</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;uint8 <a class="code" href="protocolo_8c.html#a13c056064f1e44d2f087e20cbfd890c6">ver_pos</a> (<span class="keywordtype">void</span>);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;uint8 <a class="code" href="protocolo_8c.html#a14c223d2170c78d2d551249fbb687b7e">get_estado</a>(uint8 dir);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> ver_error(uint8 val);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;uint8 <a class="code" href="protocolo_8c.html#aa0714d0c95a93d6e275a57c819154962">estado_ex</a>(uint8 val);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> detener(uint8 val);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;uint8 <a class="code" href="protocolo_8c.html#ae93ef9473727d4384c618085521d84e3">venta</a>(uint8 val);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;uint8 <a class="code" href="protocolo_8c.html#a053ac5c5325a41346949af50cec06269">get_totales</a>(uint8 dir,uint8 val);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;uint8 <a class="code" href="protocolo_8c.html#a44476709cd2b825e412c5912ab20686d">programar</a>(uint8 dir, uint8 grado, uint8 *valor, uint8 preset);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;uint8 <a class="code" href="protocolo_8c.html#a6c6fa1a2e7e600121f240906e2d6345b">cambiar_precio</a>(uint8 dir);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;uint8 <a class="code" href="protocolo_8c.html#aea6d24d47d729c3214b453e216f09c06">cambiar_precio2</a>(uint8 dir);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;uint8 <a class="code" href="protocolo_8c.html#acdbfb1f08ec32447e9480582df605578">cambiar_precio3</a>(uint8 dir);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//[] END OF FILE</span></div><div class="ttc" id="protocolo_8c_html_acdbfb1f08ec32447e9480582df605578"><div class="ttname"><a href="protocolo_8c.html#acdbfb1f08ec32447e9480582df605578">cambiar_precio3</a></div><div class="ttdeci">uint8 cambiar_precio3(uint8 dir)</div><div class="ttdoc">Realiza el cambio de precio al producto seleccionado en pantalla. </div><div class="ttdef"><b>Definition:</b> protocolo.c:1962</div></div>
+<div class="ttc" id="protocolo_8c_html_aea6d24d47d729c3214b453e216f09c06"><div class="ttname"><a href="protocolo_8c.html#aea6d24d47d729c3214b453e216f09c06">cambiar_precio2</a></div><div class="ttdeci">uint8 cambiar_precio2(uint8 dir)</div><div class="ttdoc">Realiza el cambio de precio al producto seleccionado en pantalla. </div><div class="ttdef"><b>Definition:</b> protocolo.c:1878</div></div>
+<div class="ttc" id="protocolo_8c_html_aa0714d0c95a93d6e275a57c819154962"><div class="ttname"><a href="protocolo_8c.html#aa0714d0c95a93d6e275a57c819154962">estado_ex</a></div><div class="ttdeci">uint8 estado_ex(uint8 val)</div><div class="ttdoc">funcion para obtener el número de manija levantada </div><div class="ttdef"><b>Definition:</b> protocolo.c:110</div></div>
+<div class="ttc" id="protocolo_8c_html_a6c6fa1a2e7e600121f240906e2d6345b"><div class="ttname"><a href="protocolo_8c.html#a6c6fa1a2e7e600121f240906e2d6345b">cambiar_precio</a></div><div class="ttdeci">uint8 cambiar_precio(uint8 dir)</div><div class="ttdoc">Realiza el cambio de precio al producto seleccionado en pantalla. </div><div class="ttdef"><b>Definition:</b> protocolo.c:1794</div></div>
+<div class="ttc" id="protocolo_8c_html_a053ac5c5325a41346949af50cec06269"><div class="ttname"><a href="protocolo_8c.html#a053ac5c5325a41346949af50cec06269">get_totales</a></div><div class="ttdeci">uint8 get_totales(uint8 dir, uint8 val)</div><div class="ttdoc">Obtiene los totales electrónicos del equipo almacena el valor del corte por producto en eeprom...</div><div class="ttdef"><b>Definition:</b> protocolo.c:266</div></div>
+<div class="ttc" id="protocolo_8c_html_ae93ef9473727d4384c618085521d84e3"><div class="ttname"><a href="protocolo_8c.html#ae93ef9473727d4384c618085521d84e3">venta</a></div><div class="ttdeci">uint8 venta(uint8 val)</div><div class="ttdoc">La función se llama cuando hay un FEOT o PEOT, obtiene los datos de la última venta almacena la venta...</div><div class="ttdef"><b>Definition:</b> protocolo.c:168</div></div>
+<div class="ttc" id="protocolo_8c_html_a44476709cd2b825e412c5912ab20686d"><div class="ttname"><a href="protocolo_8c.html#a44476709cd2b825e412c5912ab20686d">programar</a></div><div class="ttdeci">uint8 programar(uint8 dir, uint8 grado, uint8 *valor, uint8 preset)</div><div class="ttdoc">Envía el preset al equipo según lo que se programe en las pantallas. </div><div class="ttdef"><b>Definition:</b> protocolo.c:1623</div></div>
+<div class="ttc" id="protocolo_8c_html_a14c223d2170c78d2d551249fbb687b7e"><div class="ttname"><a href="protocolo_8c.html#a14c223d2170c78d2d551249fbb687b7e">get_estado</a></div><div class="ttdeci">uint8 get_estado(uint8 dir)</div><div class="ttdoc">obtiene el estado de la posicion a la que se pregunte </div><div class="ttdef"><b>Definition:</b> protocolo.c:88</div></div>
+<div class="ttc" id="protocolo_8c_html_a13c056064f1e44d2f087e20cbfd890c6"><div class="ttname"><a href="protocolo_8c.html#a13c056064f1e44d2f087e20cbfd890c6">ver_pos</a></div><div class="ttdeci">uint8 ver_pos(void)</div><div class="ttdoc">detecta las posiciones del equipo </div><div class="ttdef"><b>Definition:</b> protocolo.c:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1d925fc0e51ea2a049fe81d254485123.html">Workspace01</a></li><li class="navelem"><a class="el" href="dir_b4bd24ae46d1b6b4b5d11fc8f41ee296.html">PGRP700.cydsn</a></li><li class="navelem"><b>Protocolo.h</b></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

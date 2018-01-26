@@ -1,0 +1,149 @@
+\hypertarget{_i2_c_8c}{}\section{Referencia del Archivo Workspace01/\+P\+G\+R\+P700.cydsn/\+I2C.c}
+\label{_i2_c_8c}\index{Workspace01/\+P\+G\+R\+P700.\+cydsn/\+I2\+C.\+c@{Workspace01/\+P\+G\+R\+P700.\+cydsn/\+I2\+C.\+c}}
+
+
+Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador.  
+
+
+{\ttfamily \#include \char`\"{}Variables\+G.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}L\+C\+D.\+h\char`\"{}}\newline
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_abcd7f34373d124ec5549020068f40524}{leer\+\_\+hora}} ()
+\begin{DoxyCompactList}\small\item\em Función para leer la hora vía I2C, escribe la hora solicitada en rventa.\+hora. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_a0118308a5afa4519730040ddcb9628b7}{leer\+\_\+fecha}} ()
+\begin{DoxyCompactList}\small\item\em Función para leer la hora vía I2C, escribe la hora solicitada en rventa.\+fecha. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_a100b669f608d75bd586f6209762f5de3}{write\+\_\+hora}} (void)
+\begin{DoxyCompactList}\small\item\em Función para escribir la hora vía I2C, escribe la hora de rventa.\+hora. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_ad5d8172e90cd7bfa855828da9cfc10e5}{write\+\_\+fecha}} (void)
+\begin{DoxyCompactList}\small\item\em Función para escribir la fecha vía I2C, escribe la hora de rventa.\+fecha. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_a085023df993dc8ef6160ea660734b561}{write\+\_\+eeprom}} (uint16 page, uint8 $\ast$valor)
+\begin{DoxyCompactList}\small\item\em Función para escribir la eeprom externa. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_acaa823db46e2591d0c5863e106e67c32}{leer\+\_\+eeprom}} (uint16 page, uint8 size)
+\begin{DoxyCompactList}\small\item\em Función para leer datos de eeprom externa. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{_i2_c_8c_af5aaf37a8c6efd66f51b2dcf4d22ef0a}{write\+\_\+psoc1}} (uint8 puerto, uint8 valor)
+\begin{DoxyCompactList}\small\item\em Función para enviar datos al micro encargado de controlar las impresoras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador. 
+
+Insepet L\+T\+DA \begin{DoxyDate}{Fecha}
+28/2/2016 
+\end{DoxyDate}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{_i2_c_8c_acaa823db46e2591d0c5863e106e67c32}\label{_i2_c_8c_acaa823db46e2591d0c5863e106e67c32}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!leer\+\_\+eeprom@{leer\+\_\+eeprom}}
+\index{leer\+\_\+eeprom@{leer\+\_\+eeprom}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{leer\+\_\+eeprom()}{leer\_eeprom()}}
+{\footnotesize\ttfamily uint8 leer\+\_\+eeprom (\begin{DoxyParamCaption}\item[{uint16}]{page,  }\item[{uint8}]{size }\end{DoxyParamCaption})}
+
+
+
+Función para leer datos de eeprom externa. 
+
+leer\+\_\+eeprom 
+\begin{DoxyParams}{Parámetros}
+{\em page} & espacio en eeprom que se va a leer \\
+\hline
+{\em size} & tamaño del vector que se lee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 para error de lectura 1 si no hubo problema 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_i2_c_8c_a0118308a5afa4519730040ddcb9628b7}\label{_i2_c_8c_a0118308a5afa4519730040ddcb9628b7}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!leer\+\_\+fecha@{leer\+\_\+fecha}}
+\index{leer\+\_\+fecha@{leer\+\_\+fecha}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{leer\+\_\+fecha()}{leer\_fecha()}}
+{\footnotesize\ttfamily leer\+\_\+fecha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función para leer la hora vía I2C, escribe la hora solicitada en rventa.\+fecha. 
+
+\begin{DoxyReturn}{Devuelve}
+0 para error de lectura 1 si no hubo problema al leer la fecha 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_i2_c_8c_abcd7f34373d124ec5549020068f40524}\label{_i2_c_8c_abcd7f34373d124ec5549020068f40524}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!leer\+\_\+hora@{leer\+\_\+hora}}
+\index{leer\+\_\+hora@{leer\+\_\+hora}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{leer\+\_\+hora()}{leer\_hora()}}
+{\footnotesize\ttfamily leer\+\_\+hora (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función para leer la hora vía I2C, escribe la hora solicitada en rventa.\+hora. 
+
+\begin{DoxyReturn}{Devuelve}
+0 para error de lectura 1 si no hubo problema al leer la hora 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_i2_c_8c_a085023df993dc8ef6160ea660734b561}\label{_i2_c_8c_a085023df993dc8ef6160ea660734b561}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!write\+\_\+eeprom@{write\+\_\+eeprom}}
+\index{write\+\_\+eeprom@{write\+\_\+eeprom}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+eeprom()}{write\_eeprom()}}
+{\footnotesize\ttfamily uint8 write\+\_\+eeprom (\begin{DoxyParamCaption}\item[{uint16}]{page,  }\item[{uint8 $\ast$}]{valor }\end{DoxyParamCaption})}
+
+
+
+Función para escribir la eeprom externa. 
+
+write\+\_\+eeprom 
+\begin{DoxyParams}{Parámetros}
+{\em page} & pagina de eeprom externa que se va a escribir \\
+\hline
+{\em $\ast$valor} & apuntador al valor que se va a escribir en eeprom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 para error de escritura 1 si no hubo problema al escribir 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_i2_c_8c_ad5d8172e90cd7bfa855828da9cfc10e5}\label{_i2_c_8c_ad5d8172e90cd7bfa855828da9cfc10e5}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!write\+\_\+fecha@{write\+\_\+fecha}}
+\index{write\+\_\+fecha@{write\+\_\+fecha}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+fecha()}{write\_fecha()}}
+{\footnotesize\ttfamily write\+\_\+fecha (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para escribir la fecha vía I2C, escribe la hora de rventa.\+fecha. 
+
+\begin{DoxyReturn}{Devuelve}
+0 para error de escritura 1 si no hubo problema al escribir la fecha 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_i2_c_8c_a100b669f608d75bd586f6209762f5de3}\label{_i2_c_8c_a100b669f608d75bd586f6209762f5de3}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!write\+\_\+hora@{write\+\_\+hora}}
+\index{write\+\_\+hora@{write\+\_\+hora}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+hora()}{write\_hora()}}
+{\footnotesize\ttfamily uint8 write\+\_\+hora (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para escribir la hora vía I2C, escribe la hora de rventa.\+hora. 
+
+write\+\_\+hora \begin{DoxyReturn}{Devuelve}
+0 para error de escritura 1 si no hubo problema al escribir la hora 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_i2_c_8c_af5aaf37a8c6efd66f51b2dcf4d22ef0a}\label{_i2_c_8c_af5aaf37a8c6efd66f51b2dcf4d22ef0a}} 
+\index{I2\+C.\+c@{I2\+C.\+c}!write\+\_\+psoc1@{write\+\_\+psoc1}}
+\index{write\+\_\+psoc1@{write\+\_\+psoc1}!I2\+C.\+c@{I2\+C.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+psoc1()}{write\_psoc1()}}
+{\footnotesize\ttfamily uint8 write\+\_\+psoc1 (\begin{DoxyParamCaption}\item[{uint8}]{puerto,  }\item[{uint8}]{valor }\end{DoxyParamCaption})}
+
+
+
+Función para enviar datos al micro encargado de controlar las impresoras. 
+
+write\+\_\+psoc1 
+\begin{DoxyParams}{Parámetros}
+{\em puerto} & puerto al que se desea enviar los datos (impresora lado A, impresora lado B) \\
+\hline
+{\em valor} & dato a enviar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 para error de lectura 1 si no hubo problema 
+\end{DoxyReturn}

@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GRP700 Prime: Referencia del Archivo Workspace01/PGRP700.cydsn/protocolo.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GRP700 Prime
+   &#160;<span id="projectnumber">4.0</span>
+   </div>
+   <div id="projectbrief">Sistema de impresión autónomo para equipos de 4 posiciones, preparado para impresora panel y kiosco</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('protocolo_8c.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo protocolo.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Archivo para el manejo del dispensador, comunicación del MUX-Dispensador.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_variables_g_8h_source.html">VariablesG.h</a>&quot;</code><br />
+<code>#include &quot;I2C.h&quot;</code><br />
+<code>#include &quot;Print.h&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a13c056064f1e44d2f087e20cbfd890c6"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#a13c056064f1e44d2f087e20cbfd890c6">ver_pos</a> (void)</td></tr>
+<tr class="memdesc:a13c056064f1e44d2f087e20cbfd890c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">detecta las posiciones del equipo  <a href="#a13c056064f1e44d2f087e20cbfd890c6">Más...</a><br /></td></tr>
+<tr class="separator:a13c056064f1e44d2f087e20cbfd890c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c223d2170c78d2d551249fbb687b7e"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#a14c223d2170c78d2d551249fbb687b7e">get_estado</a> (uint8 dir)</td></tr>
+<tr class="memdesc:a14c223d2170c78d2d551249fbb687b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtiene el estado de la posicion a la que se pregunte  <a href="#a14c223d2170c78d2d551249fbb687b7e">Más...</a><br /></td></tr>
+<tr class="separator:a14c223d2170c78d2d551249fbb687b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0714d0c95a93d6e275a57c819154962"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#aa0714d0c95a93d6e275a57c819154962">estado_ex</a> (uint8 val)</td></tr>
+<tr class="memdesc:aa0714d0c95a93d6e275a57c819154962"><td class="mdescLeft">&#160;</td><td class="mdescRight">funcion para obtener el número de manija levantada  <a href="#aa0714d0c95a93d6e275a57c819154962">Más...</a><br /></td></tr>
+<tr class="separator:aa0714d0c95a93d6e275a57c819154962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93ef9473727d4384c618085521d84e3"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#ae93ef9473727d4384c618085521d84e3">venta</a> (uint8 val)</td></tr>
+<tr class="memdesc:ae93ef9473727d4384c618085521d84e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">La función se llama cuando hay un FEOT o PEOT, obtiene los datos de la última venta almacena la venta en eeprom para utilizar los datos en otros procesos.  <a href="#ae93ef9473727d4384c618085521d84e3">Más...</a><br /></td></tr>
+<tr class="separator:ae93ef9473727d4384c618085521d84e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a053ac5c5325a41346949af50cec06269"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#a053ac5c5325a41346949af50cec06269">get_totales</a> (uint8 dir, uint8 val)</td></tr>
+<tr class="memdesc:a053ac5c5325a41346949af50cec06269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene los totales electrónicos del equipo almacena el valor del corte por producto en eeprom.  <a href="#a053ac5c5325a41346949af50cec06269">Más...</a><br /></td></tr>
+<tr class="separator:a053ac5c5325a41346949af50cec06269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44476709cd2b825e412c5912ab20686d"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#a44476709cd2b825e412c5912ab20686d">programar</a> (uint8 dir, uint8 grado, uint8 *valor, uint8 preset)</td></tr>
+<tr class="memdesc:a44476709cd2b825e412c5912ab20686d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envía el preset al equipo según lo que se programe en las pantallas.  <a href="#a44476709cd2b825e412c5912ab20686d">Más...</a><br /></td></tr>
+<tr class="separator:a44476709cd2b825e412c5912ab20686d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6fa1a2e7e600121f240906e2d6345b"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#a6c6fa1a2e7e600121f240906e2d6345b">cambiar_precio</a> (uint8 dir)</td></tr>
+<tr class="memdesc:a6c6fa1a2e7e600121f240906e2d6345b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza el cambio de precio al producto seleccionado en pantalla.  <a href="#a6c6fa1a2e7e600121f240906e2d6345b">Más...</a><br /></td></tr>
+<tr class="separator:a6c6fa1a2e7e600121f240906e2d6345b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6d24d47d729c3214b453e216f09c06"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#aea6d24d47d729c3214b453e216f09c06">cambiar_precio2</a> (uint8 dir)</td></tr>
+<tr class="memdesc:aea6d24d47d729c3214b453e216f09c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza el cambio de precio al producto seleccionado en pantalla.  <a href="#aea6d24d47d729c3214b453e216f09c06">Más...</a><br /></td></tr>
+<tr class="separator:aea6d24d47d729c3214b453e216f09c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdbfb1f08ec32447e9480582df605578"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protocolo_8c.html#acdbfb1f08ec32447e9480582df605578">cambiar_precio3</a> (uint8 dir)</td></tr>
+<tr class="memdesc:acdbfb1f08ec32447e9480582df605578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza el cambio de precio al producto seleccionado en pantalla.  <a href="#acdbfb1f08ec32447e9480582df605578">Más...</a><br /></td></tr>
+<tr class="separator:acdbfb1f08ec32447e9480582df605578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad6840f2fb5f1040aecb3528d03269588"><td class="memItemLeft" align="right" valign="top"><a id="ad6840f2fb5f1040aecb3528d03269588"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>msn_tc</b> [6] =&quot;TOTAL&quot;</td></tr>
+<tr class="separator:ad6840f2fb5f1040aecb3528d03269588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aff2cdeba8838254de9bb20a7b32c41"><td class="memItemLeft" align="right" valign="top"><a id="a9aff2cdeba8838254de9bb20a7b32c41"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>msn_lecact</b> [15] =&quot;Valor actual: &quot;</td></tr>
+<tr class="separator:a9aff2cdeba8838254de9bb20a7b32c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adca228238327b1cebfffe72e58f26119"><td class="memItemLeft" align="right" valign="top"><a id="adca228238327b1cebfffe72e58f26119"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>msn_lecaan</b> [17] =&quot;Valor anterior: &quot;</td></tr>
+<tr class="separator:adca228238327b1cebfffe72e58f26119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae426e13733a5ff0e37ebeeb53699e97f"><td class="memItemLeft" align="right" valign="top"><a id="ae426e13733a5ff0e37ebeeb53699e97f"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>msn_tventas</b> [18] =&quot;Dinero total: $ &quot;</td></tr>
+<tr class="separator:ae426e13733a5ff0e37ebeeb53699e97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64b79c71de8ec2b62f784c0626cb6ca"><td class="memItemLeft" align="right" valign="top"><a id="ad64b79c71de8ec2b62f784c0626cb6ca"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>msn_totalcero</b> [15] =&quot;No toma totales&quot;</td></tr>
+<tr class="separator:ad64b79c71de8ec2b62f784c0626cb6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Archivo para el manejo del dispensador, comunicación del MUX-Dispensador. </p>
+<p>Insepet LTDA </p><dl class="section date"><dt>Fecha</dt><dd>28/2/2016 </dd></dl>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a6c6fa1a2e7e600121f240906e2d6345b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6fa1a2e7e600121f240906e2d6345b">&#9670;&nbsp;</a></span>cambiar_precio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 cambiar_precio </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza el cambio de precio al producto seleccionado en pantalla. </p>
+<p>cambiar_precio </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>posición del surtidor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si hay error, 1 si realiza el cambio de precio </dd></dl>
+
+</div>
+</div>
+<a id="aea6d24d47d729c3214b453e216f09c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6d24d47d729c3214b453e216f09c06">&#9670;&nbsp;</a></span>cambiar_precio2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 cambiar_precio2 </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza el cambio de precio al producto seleccionado en pantalla. </p>
+<p>cambiar_precio2 </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>posición del surtidor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si hay error, 1 si realiza el cambio de precio </dd></dl>
+
+</div>
+</div>
+<a id="acdbfb1f08ec32447e9480582df605578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdbfb1f08ec32447e9480582df605578">&#9670;&nbsp;</a></span>cambiar_precio3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 cambiar_precio3 </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza el cambio de precio al producto seleccionado en pantalla. </p>
+<p>cambiar_precio3 </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>posición del surtidor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si hay error, 1 si realiza el cambio de precio </dd></dl>
+
+</div>
+</div>
+<a id="aa0714d0c95a93d6e275a57c819154962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0714d0c95a93d6e275a57c819154962">&#9670;&nbsp;</a></span>estado_ex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 estado_ex </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>funcion para obtener el número de manija levantada </p>
+<p>estado_ex </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>posición del surtidor, lado de la manija que se levantó </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si error, # de manija </dd></dl>
+
+</div>
+</div>
+<a id="a14c223d2170c78d2d551249fbb687b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c223d2170c78d2d551249fbb687b7e">&#9670;&nbsp;</a></span>get_estado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 get_estado </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>obtiene el estado de la posicion a la que se pregunte </p>
+<p>get_estado </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>direccion de la posicion </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>estado si hay respuesta del dispensador 0 si no </dd></dl>
+
+</div>
+</div>
+<a id="a053ac5c5325a41346949af50cec06269"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a053ac5c5325a41346949af50cec06269">&#9670;&nbsp;</a></span>get_totales()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 get_totales </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtiene los totales electrónicos del equipo almacena el valor del corte por producto en eeprom. </p>
+<p>get_totales </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>posición del surtidor </td></tr>
+    <tr><td class="paramname">val</td><td>puerto de impresora </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si hay error, 1 si se realizan las operaciones y se almacenan los totales e imprime el recibo de corte </dd></dl>
+
+</div>
+</div>
+<a id="a44476709cd2b825e412c5912ab20686d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44476709cd2b825e412c5912ab20686d">&#9670;&nbsp;</a></span>programar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 programar </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>grado</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8 *&#160;</td>
+          <td class="paramname"><em>valor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>preset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envía el preset al equipo según lo que se programe en las pantallas. </p>
+<p>programar </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>posición del surtidor </td></tr>
+    <tr><td class="paramname">grado</td><td>manguera del equipo </td></tr>
+    <tr><td class="paramname">*valor</td><td>valor del preset a enviar </td></tr>
+    <tr><td class="paramname">preset</td><td>tipo de preset 1,2,3 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si hay error, 1 si se realiza el preset al equipo </dd></dl>
+
+</div>
+</div>
+<a id="ae93ef9473727d4384c618085521d84e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae93ef9473727d4384c618085521d84e3">&#9670;&nbsp;</a></span>venta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 venta </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La función se llama cuando hay un FEOT o PEOT, obtiene los datos de la última venta almacena la venta en eeprom para utilizar los datos en otros procesos. </p>
+<p>venta </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>posición del surtidor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 si hay error, 1 si se almacena la venta </dd></dl>
+
+</div>
+</div>
+<a id="a13c056064f1e44d2f087e20cbfd890c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13c056064f1e44d2f087e20cbfd890c6">&#9670;&nbsp;</a></span>ver_pos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 ver_pos </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>detecta las posiciones del equipo </p>
+<p>ver_pos </p><dl class="section return"><dt>Devuelve</dt><dd>1 si detecta las dos posiciones 0 si no detecta ninguna 2 si detecta 4 si se conecta un equipo de 2 no funciona correctamente </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1d925fc0e51ea2a049fe81d254485123.html">Workspace01</a></li><li class="navelem"><a class="el" href="dir_b4bd24ae46d1b6b4b5d11fc8f41ee296.html">PGRP700.cydsn</a></li><li class="navelem"><a class="el" href="protocolo_8c.html">protocolo.c</a></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+\hypertarget{ibuton_8c}{}\section{Referencia del Archivo Workspace01/\+P\+G\+R\+P700.cydsn/ibuton.c}
+\label{ibuton_8c}\index{Workspace01/\+P\+G\+R\+P700.\+cydsn/ibuton.\+c@{Workspace01/\+P\+G\+R\+P700.\+cydsn/ibuton.\+c}}
+
+
+Archivo para la lectura del ibutton.  
+
+
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Variables\+G.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}L\+C\+D.\+h\char`\"{}}\newline
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8 \mbox{\hyperlink{ibuton_8c_a89e110b23626353dfafa875a8177a01b}{touch\+\_\+present}} (uint8 ibutton)
+\begin{DoxyCompactList}\small\item\em indica el lado donde se encuentra el ibutton \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{ibuton_8c_afb98e9afe56c6e0673131603ed7f9a00}{touch\+\_\+write}} (uint8 ibutton, uint8 dato)
+\begin{DoxyCompactList}\small\item\em Escribe un byte en el Ibutton. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{ibuton_8c_a0db3b3359d6c05f99a069de474c48f3c}{touch\+\_\+read\+\_\+byte}} (uint8 ibutton)
+\begin{DoxyCompactList}\small\item\em Lee un byte del ibutton, se usa para leer los bytes del serial. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{ibuton_8c_a5e15142faf739dad279d293155a1f0f6}{read\+\_\+memory\+\_\+ibutton}} (uint8 ibutton, uint8 \mbox{\hyperlink{structpos}{pos}})
+\begin{DoxyCompactList}\small\item\em Lee posiciones de memoria del ibutton con más datos. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{ibuton_8c_a4b8c762acd60c6dcb9bef72f7ff209f7}{touch\+\_\+write\+\_\+memoria}} (uint8 ibutton, uint8 cantidad, uint8 \mbox{\hyperlink{structpos}{pos}}, uint8 $\ast$valor)
+\begin{DoxyCompactList}\small\item\em escribe posiciones de memoria del ibutton con más datos (placa) \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{ibuton_8c_a83346bae7ce1d615743d3148314faa45}{crc\+\_\+check}} (uint8 crc, uint8 dato)
+\begin{DoxyCompactList}\small\item\em verifica los datos leídos del ibutton \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Archivo para la lectura del ibutton. 
+
+Insepet L\+T\+DA \begin{DoxyDate}{Fecha}
+28/2/2016 
+\end{DoxyDate}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{ibuton_8c_a83346bae7ce1d615743d3148314faa45}\label{ibuton_8c_a83346bae7ce1d615743d3148314faa45}} 
+\index{ibuton.\+c@{ibuton.\+c}!crc\+\_\+check@{crc\+\_\+check}}
+\index{crc\+\_\+check@{crc\+\_\+check}!ibuton.\+c@{ibuton.\+c}}
+\subsubsection{\texorpdfstring{crc\+\_\+check()}{crc\_check()}}
+{\footnotesize\ttfamily uint8 crc\+\_\+check (\begin{DoxyParamCaption}\item[{uint8}]{crc,  }\item[{uint8}]{dato }\end{DoxyParamCaption})}
+
+
+
+verifica los datos leídos del ibutton 
+
+crc\+\_\+check 
+\begin{DoxyParams}{Parámetros}
+{\em crc} & dato obtenido \\
+\hline
+{\em dato} & byte de ibutton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+crc calculado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ibuton_8c_a5e15142faf739dad279d293155a1f0f6}\label{ibuton_8c_a5e15142faf739dad279d293155a1f0f6}} 
+\index{ibuton.\+c@{ibuton.\+c}!read\+\_\+memory\+\_\+ibutton@{read\+\_\+memory\+\_\+ibutton}}
+\index{read\+\_\+memory\+\_\+ibutton@{read\+\_\+memory\+\_\+ibutton}!ibuton.\+c@{ibuton.\+c}}
+\subsubsection{\texorpdfstring{read\+\_\+memory\+\_\+ibutton()}{read\_memory\_ibutton()}}
+{\footnotesize\ttfamily uint8 read\+\_\+memory\+\_\+ibutton (\begin{DoxyParamCaption}\item[{uint8}]{ibutton,  }\item[{uint8}]{pos }\end{DoxyParamCaption})}
+
+
+
+Lee posiciones de memoria del ibutton con más datos. 
+
+read\+\_\+memory\+\_\+ibutton 
+\begin{DoxyParams}{Parámetros}
+{\em ibutton} & lado del lector \\
+\hline
+{\em pos} & lado del equipo, posición 1 ó 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 no hubo lectura , =!0 dato leido 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ibuton_8c_a89e110b23626353dfafa875a8177a01b}\label{ibuton_8c_a89e110b23626353dfafa875a8177a01b}} 
+\index{ibuton.\+c@{ibuton.\+c}!touch\+\_\+present@{touch\+\_\+present}}
+\index{touch\+\_\+present@{touch\+\_\+present}!ibuton.\+c@{ibuton.\+c}}
+\subsubsection{\texorpdfstring{touch\+\_\+present()}{touch\_present()}}
+{\footnotesize\ttfamily uint8 touch\+\_\+present (\begin{DoxyParamCaption}\item[{uint8}]{ibutton }\end{DoxyParamCaption})}
+
+
+
+indica el lado donde se encuentra el ibutton 
+
+touch\+\_\+present \begin{DoxyReturn}{Devuelve}
+0 no hay ibutton , 1 si hay ibutton 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ibuton_8c_a0db3b3359d6c05f99a069de474c48f3c}\label{ibuton_8c_a0db3b3359d6c05f99a069de474c48f3c}} 
+\index{ibuton.\+c@{ibuton.\+c}!touch\+\_\+read\+\_\+byte@{touch\+\_\+read\+\_\+byte}}
+\index{touch\+\_\+read\+\_\+byte@{touch\+\_\+read\+\_\+byte}!ibuton.\+c@{ibuton.\+c}}
+\subsubsection{\texorpdfstring{touch\+\_\+read\+\_\+byte()}{touch\_read\_byte()}}
+{\footnotesize\ttfamily uint8 touch\+\_\+read\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8}]{ibutton }\end{DoxyParamCaption})}
+
+
+
+Lee un byte del ibutton, se usa para leer los bytes del serial. 
+
+touch\+\_\+read\+\_\+byte 
+\begin{DoxyParams}{Parámetros}
+{\em ibutton} & lado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 no hubo lectura , =!0 dato leido 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ibuton_8c_afb98e9afe56c6e0673131603ed7f9a00}\label{ibuton_8c_afb98e9afe56c6e0673131603ed7f9a00}} 
+\index{ibuton.\+c@{ibuton.\+c}!touch\+\_\+write@{touch\+\_\+write}}
+\index{touch\+\_\+write@{touch\+\_\+write}!ibuton.\+c@{ibuton.\+c}}
+\subsubsection{\texorpdfstring{touch\+\_\+write()}{touch\_write()}}
+{\footnotesize\ttfamily uint8 touch\+\_\+write (\begin{DoxyParamCaption}\item[{uint8}]{ibutton,  }\item[{uint8}]{dato }\end{DoxyParamCaption})}
+
+
+
+Escribe un byte en el Ibutton. 
+
+touch\+\_\+write 
+\begin{DoxyParams}{Parámetros}
+{\em ibutton} & lado \\
+\hline
+{\em dato} & byte que se va a escribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 operacion correcta , 1 operacion incorrecta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ibuton_8c_a4b8c762acd60c6dcb9bef72f7ff209f7}\label{ibuton_8c_a4b8c762acd60c6dcb9bef72f7ff209f7}} 
+\index{ibuton.\+c@{ibuton.\+c}!touch\+\_\+write\+\_\+memoria@{touch\+\_\+write\+\_\+memoria}}
+\index{touch\+\_\+write\+\_\+memoria@{touch\+\_\+write\+\_\+memoria}!ibuton.\+c@{ibuton.\+c}}
+\subsubsection{\texorpdfstring{touch\+\_\+write\+\_\+memoria()}{touch\_write\_memoria()}}
+{\footnotesize\ttfamily uint8 touch\+\_\+write\+\_\+memoria (\begin{DoxyParamCaption}\item[{uint8}]{ibutton,  }\item[{uint8}]{cantidad,  }\item[{uint8}]{pos,  }\item[{uint8 $\ast$}]{valor }\end{DoxyParamCaption})}
+
+
+
+escribe posiciones de memoria del ibutton con más datos (placa) 
+
+touch\+\_\+write\+\_\+memoria 
+\begin{DoxyParams}{Parámetros}
+{\em ibutton} & lado del lector \\
+\hline
+{\em cantidad} & número de datos a escribir \\
+\hline
+{\em pos} & lado del equipo, posición 1 ó 2 \\
+\hline
+{\em $\ast$valor} & apuntador con los datos a escribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 no escribió , 1 escrito correctamente 
+\end{DoxyReturn}

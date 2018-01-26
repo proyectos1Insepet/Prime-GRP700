@@ -1,30 +1,8 @@
-/*
-*********************************************************************************************************
-*                                           GRP550/700 CODE
-*
-*                             (c) Copyright 2016; Sistemas Insepet LTDA
-*
-*               All rights reserved.  Protected by international copyright laws.
-*               Knowledge of the source code may NOT be used to develop a similar product.
-*               Please help us continue to provide the Embedded community with the finest
-*               software available.  Your honesty is greatly appreciated.
-*********************************************************************************************************
-*/
-
-/*
-*********************************************************************************************************
-*
-*                                           GRP 700 Prime CODE
-*
-*                                             CYPRESS PSoC5LP
-*                                                with the
-*                                            CY8C5969AXI-LP035
-*
-* Filename      : main.c
-* Version       : 1.0.0
-* Programmer(s) : 
-                  
-*********************************************************************************************************
+/**
+* @file main.c
+* @Author Insepet LTDA
+* @date 28/2/2016
+* @brief Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador
 */
 
 /*
@@ -57,21 +35,11 @@ uint8 puk[8]="18928005";
 uint8 serial[17]="0FFFFF8FEEBEB2DC0";
 uint8 pasword_corte[5]={4,'1','2','3','4'};
 
-/*
-*********************************************************************************************************
-*                                         init( void )
-*
-* Description : Verifica el serial, inicia los periféricos, la versión y los datos de la estación.
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : main()
-*
-* Note(s)     : none.
-*********************************************************************************************************
+/**
+* @fn init
+* @brief Inicialización de periféricos, lectura de variables de eeprom externa
+* inicialización de interrupciones
+*  
 */
 void init(void){
 	/**** Inicio de periféricos ****/
@@ -307,21 +275,11 @@ void init(void){
 
     
 }
-/*
-*********************************************************************************************************
-*                                         init_surt( void )
-*
-* Description : Busca las posiciones del surtidor y las graba en lado.a.dir y lado.b.dir
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : main()
-*
-* Note(s)     : Falta generar codigo para los casos 1 y 2
-*********************************************************************************************************
+/**
+* init_surt
+* @brief Inicialización de la comunicación con el surtidor
+* detecta las 4 posiciones del equipo para iniciar el GRP
+*  
 */
 void init_surt(void){
 	uint8 seguir=0;
@@ -373,21 +331,11 @@ void init_surt(void){
 		}
 	}		
 }
-/*
-*********************************************************************************************************
-*                                         init_pantallas( void )
-*
-* Description : Inicio de las pantallas por primera vez, las deja listas para iniciar venta y reinicia 
-*               flujo de los LCD
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : main()
-*
-* Note(s)     : Falta generar codigo para los casos 1 y 2
-*********************************************************************************************************
+
+/**
+* init_pantallas
+* @brief Inicialización de las pantallas, muestra la imagen de espera de las posiciones
+*  
 */
 void init_pantallas(void){
     flujo_LCD  = 0;
@@ -400,23 +348,11 @@ void init_pantallas(void){
 
 
 
-/*
-*********************************************************************************************************
-*                                         void polling_pos1(void)
-*
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
+/**
+* polling_pos1
+* @brief Función de estado de la primera posición del dispensador
+*  
 */
-
 void polling_pos1(void){    
     switch(flujo_LCD){ 
         case 0:            
@@ -3144,23 +3080,11 @@ void polling_pos1(void){
 }
 
 
-/*
-*********************************************************************************************************
-*                                         void polling_pos2(void)
-*
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
+/**
+* polling_pos2
+* @brief Función de estado de la segunda posición del dispensador
+*  
 */
-
 void polling_pos2(void){
     
     switch(flujo_LCD2){ 
@@ -4104,21 +4028,10 @@ void polling_pos2(void){
 }
 
 
-/*
-*********************************************************************************************************
-*                                         void polling_pos3(void)
-*
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
+/**
+* polling_pos3
+* @brief Función de estado de la tercera posición del dispensador
+*  
 */
 
 void polling_pos3(void){       
@@ -5065,24 +4978,11 @@ void polling_pos3(void){
 }
 
 
-/*
-*********************************************************************************************************
-*                                         void polling_pos4(void)
-*
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
+/**
+* polling_pos4
+* @brief Función de estado de la cuarta posición del dispensador
+*  
 */
-
-
 void polling_pos4(void){
     
     switch(flujo_LCD4){ 
@@ -6029,21 +5929,11 @@ void polling_pos4(void){
 
 
 
-/*
-*********************************************************************************************************
-*                                         main( void )
-*
-* Description : Funcion principal GRP700 Prime, hace el llamado a la configuración del dispensador,
-*               variables en general, pantallas y periféricos
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
+/**
+* main
+* @brief Función principal, se llaman las inicializaciones de periféricos y memorias
+* según las variables de control de pantalla hace el polling a la posición activa
+*  
 */
 int main()
 {
@@ -6051,8 +5941,9 @@ int main()
     init_surt();  
     init_pantallas();    
 
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+    /// Variable de control para el intercambio de pantalla entre las posiciones (fisicas) 1 y 3
     seleccion_pos  = 1; 
+    /// Variable de control para el intercambio de pantalla entre las posiciones (fisicas) 2 y 4
     seleccion_pos2 = 3;
     for(;;)
     {

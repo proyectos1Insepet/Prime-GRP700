@@ -1,0 +1,137 @@
+\hypertarget{main_8c}{}\section{Referencia del Archivo Workspace01/\+P\+G\+R\+P700.cydsn/main.c}
+\label{main_8c}\index{Workspace01/\+P\+G\+R\+P700.\+cydsn/main.\+c@{Workspace01/\+P\+G\+R\+P700.\+cydsn/main.\+c}}
+
+
+Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador.  
+
+
+{\ttfamily \#include \char`\"{}Protocolo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Variables\+G.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}L\+C\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ibutton.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I2\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$project.\+h$>$}\newline
+{\ttfamily \#include $<$device.\+h$>$}\newline
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a5edd556b6c4c55502c0ba0c1c4e53da5}\label{main_8c_a5edd556b6c4c55502c0ba0c1c4e53da5}} 
+void \mbox{\hyperlink{main_8c_a5edd556b6c4c55502c0ba0c1c4e53da5}{init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicialización de periféricos, lectura de variables de eeprom externa inicialización de interrupciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_aa39af270863d85e73f03f9f2d580d780}{init\+\_\+surt}} (void)
+\begin{DoxyCompactList}\small\item\em Inicialización de la comunicación con el surtidor detecta las 4 posiciones del equipo para iniciar el G\+RP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a689d30a3abeeb050fc1be0f6a774ceb1}{init\+\_\+pantallas}} (void)
+\begin{DoxyCompactList}\small\item\em Inicialización de las pantallas, muestra la imagen de espera de las posiciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_aff7caf93b8678045da245eaeb2c9fcdf}{polling\+\_\+pos1}} (void)
+\begin{DoxyCompactList}\small\item\em Función de estado de la primera posición del dispensador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ab062053bb61c33f060cc524814811e18}{polling\+\_\+pos2}} (void)
+\begin{DoxyCompactList}\small\item\em Función de estado de la segunda posición del dispensador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a9aaf63f7f4a4dff4153cde0235e21334}{polling\+\_\+pos3}} (void)
+\begin{DoxyCompactList}\small\item\em Función de estado de la tercera posición del dispensador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a12716cf6a2e08e3513bf535f7d14fc7b}{polling\+\_\+pos4}} (void)
+\begin{DoxyCompactList}\small\item\em Función de estado de la cuarta posición del dispensador. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Función principal, se llaman las inicializaciones de periféricos y memorias según las variables de control de pantalla hace el polling a la posición activa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ac37a7048207eafa341f3def92404e9c4}\label{main_8c_ac37a7048207eafa341f3def92404e9c4}} 
+uint8 {\bfseries letras} \mbox{[}26\mbox{]} =\{0x25,0x42,0x31,0x27,0x1\+D,0x28,0x29,0x2\+A,0x22,0x2\+B,0x2\+C,0x2\+D,0x35,0x34,0x23,0x24,0x1\+B,0x1\+E,0x26,0x1\+F,0x21,0x32,0x1\+C,0x30,0x20,0x2\+F\}
+\item 
+\mbox{\Hypertarget{main_8c_ae2f801cb6646938a169eaca3535caa28}\label{main_8c_ae2f801cb6646938a169eaca3535caa28}} 
+uint8 {\bfseries test} \mbox{[}18\mbox{]} =\char`\"{}Test de Impresora\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a02aa97d44fde394545b7170595683439}\label{main_8c_a02aa97d44fde394545b7170595683439}} 
+uint8 {\bfseries puk} \mbox{[}8\mbox{]} =\char`\"{}18928005\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_af1be262136666311b24143e58586ff3f}\label{main_8c_af1be262136666311b24143e58586ff3f}} 
+uint8 {\bfseries serial} \mbox{[}17\mbox{]} =\char`\"{}0\+F\+F\+F\+F\+F8\+F\+E\+E\+B\+E\+B2\+D\+C0\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_aaed35a5990fe40d271ed6d1dbb9da87c}\label{main_8c_aaed35a5990fe40d271ed6d1dbb9da87c}} 
+uint8 {\bfseries pasword\+\_\+corte} \mbox{[}5\mbox{]} =\{4,\textquotesingle{}1\textquotesingle{},\textquotesingle{}2\textquotesingle{},\textquotesingle{}3\textquotesingle{},\textquotesingle{}4\textquotesingle{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador. 
+
+Insepet L\+T\+DA \begin{DoxyDate}{Fecha}
+28/2/2016 
+\end{DoxyDate}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{main_8c_a689d30a3abeeb050fc1be0f6a774ceb1}\label{main_8c_a689d30a3abeeb050fc1be0f6a774ceb1}} 
+\index{main.\+c@{main.\+c}!init\+\_\+pantallas@{init\+\_\+pantallas}}
+\index{init\+\_\+pantallas@{init\+\_\+pantallas}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+pantallas()}{init\_pantallas()}}
+{\footnotesize\ttfamily void init\+\_\+pantallas (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicialización de las pantallas, muestra la imagen de espera de las posiciones. 
+
+init\+\_\+pantallas \mbox{\Hypertarget{main_8c_aa39af270863d85e73f03f9f2d580d780}\label{main_8c_aa39af270863d85e73f03f9f2d580d780}} 
+\index{main.\+c@{main.\+c}!init\+\_\+surt@{init\+\_\+surt}}
+\index{init\+\_\+surt@{init\+\_\+surt}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+surt()}{init\_surt()}}
+{\footnotesize\ttfamily void init\+\_\+surt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicialización de la comunicación con el surtidor detecta las 4 posiciones del equipo para iniciar el G\+RP. 
+
+init\+\_\+surt \mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función principal, se llaman las inicializaciones de periféricos y memorias según las variables de control de pantalla hace el polling a la posición activa. 
+
+main Variable de control para el intercambio de pantalla entre las posiciones (fisicas) 1 y 3
+
+Variable de control para el intercambio de pantalla entre las posiciones (fisicas) 2 y 4 \mbox{\Hypertarget{main_8c_aff7caf93b8678045da245eaeb2c9fcdf}\label{main_8c_aff7caf93b8678045da245eaeb2c9fcdf}} 
+\index{main.\+c@{main.\+c}!polling\+\_\+pos1@{polling\+\_\+pos1}}
+\index{polling\+\_\+pos1@{polling\+\_\+pos1}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{polling\+\_\+pos1()}{polling\_pos1()}}
+{\footnotesize\ttfamily void polling\+\_\+pos1 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función de estado de la primera posición del dispensador. 
+
+polling\+\_\+pos1 \mbox{\Hypertarget{main_8c_ab062053bb61c33f060cc524814811e18}\label{main_8c_ab062053bb61c33f060cc524814811e18}} 
+\index{main.\+c@{main.\+c}!polling\+\_\+pos2@{polling\+\_\+pos2}}
+\index{polling\+\_\+pos2@{polling\+\_\+pos2}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{polling\+\_\+pos2()}{polling\_pos2()}}
+{\footnotesize\ttfamily void polling\+\_\+pos2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función de estado de la segunda posición del dispensador. 
+
+polling\+\_\+pos2 \mbox{\Hypertarget{main_8c_a9aaf63f7f4a4dff4153cde0235e21334}\label{main_8c_a9aaf63f7f4a4dff4153cde0235e21334}} 
+\index{main.\+c@{main.\+c}!polling\+\_\+pos3@{polling\+\_\+pos3}}
+\index{polling\+\_\+pos3@{polling\+\_\+pos3}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{polling\+\_\+pos3()}{polling\_pos3()}}
+{\footnotesize\ttfamily void polling\+\_\+pos3 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función de estado de la tercera posición del dispensador. 
+
+polling\+\_\+pos3 \mbox{\Hypertarget{main_8c_a12716cf6a2e08e3513bf535f7d14fc7b}\label{main_8c_a12716cf6a2e08e3513bf535f7d14fc7b}} 
+\index{main.\+c@{main.\+c}!polling\+\_\+pos4@{polling\+\_\+pos4}}
+\index{polling\+\_\+pos4@{polling\+\_\+pos4}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{polling\+\_\+pos4()}{polling\_pos4()}}
+{\footnotesize\ttfamily void polling\+\_\+pos4 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función de estado de la cuarta posición del dispensador. 
+
+polling\+\_\+pos4 

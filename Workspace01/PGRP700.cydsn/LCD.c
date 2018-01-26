@@ -1,30 +1,8 @@
-/*
-*********************************************************************************************************
-*                                           GRP550M CODE
-*
-*                             (c) Copyright 2013; Sistemas Insepet LTDA
-*
-*               All rights reserved.  Protected by international copyright laws.
-*               Knowledge of the source code may NOT be used to develop a similar product.
-*               Please help us continue to provide the Embedded community with the finest
-*               software available.  Your honesty is greatly appreciated.
-*********************************************************************************************************
-*/
-
-/*
-*********************************************************************************************************
-*
-*                                               GRP550M CODE
-*
-*                                             CYPRESS PSoC5LP
-*                                                with the
-*                                            CY8C5969AXI-LP035
-*
-* Filename      : LCD.c
-* Version       : V1.00
-* Programmer(s) : 
-                  
-*********************************************************************************************************
+/**
+* @file LCD.c
+* @Author Insepet LTDA
+* @date 28/2/2016
+* @brief Archivo que contiene las funciones de control de los LCD
 */
 
 /*
@@ -37,21 +15,12 @@
 #include "VariablesG.h"
 #include "I2C.h"
 
-/*
-*********************************************************************************************************
-*                                        void set_imagen(uint8 lcd, uint16 id)
+/**
+* set_imagen
+* @brief envía identificador de imagen a la pantalla para que se muestre
+* @param lcd pantalla que se va a usar
+* @param id número de imágen a mostrar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void set_imagen(uint8 lcd, uint16 id){
     if(lcd == 1){
@@ -76,21 +45,13 @@ void set_imagen(uint8 lcd, uint16 id){
     }
 }
 
-/*
-*********************************************************************************************************
-*                                 void write_LCD(uint8 lcd, uint8 dato, uint8 pos)
+/**
+* write_LCD
+* @brief función para escribir caracteres en pantalla, escribe byte a byte
+* @param lcd pantalla que se va a usar
+* @param dato caracter a mostrar
+* @param pos poscición en pantalla 
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void write_LCD(uint8 lcd, uint8 dato, uint8 pos){
     if(lcd==1){
@@ -135,21 +96,11 @@ void write_LCD(uint8 lcd, uint8 dato, uint8 pos){
     }
 }
 
-/*
-*********************************************************************************************************
-*                                 			void Hora_LCD(uint8 lcd)
+/**
+* Hora_LCD
+* @brief escribe la hora actual en la pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Hora_LCD(uint8 lcd){
 	uint8 hora[24]={0xAA,0x98,0x00,0xd0,0x00,0xbb,0x24,0xC5,0x02,0x00,0x00,0xFF,0xFF,0X30,0x30,':',0x30,0x30,0x41,'m',0xCC,0x33,0xC3,0x3C};	
@@ -175,21 +126,11 @@ void Hora_LCD(uint8 lcd){
     }
 }
 
-/*
-*********************************************************************************************************
-*                                 			void Fecha_LCD(uint8 lcd)
+/**
+* Fecha_LCD
+* @brief escribe la fecha actual en la pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Fecha_LCD(uint8 lcd){
 	uint8 fecha[25]={0xAA,0x98,0x00,0xcb,0x01,0x27,0x24,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x30,0x30,0x2f,0x30,0x30,0x2f,0x30,0x30,0xCC,0x33,0xC3,0x3C};	
@@ -211,21 +152,11 @@ void Fecha_LCD(uint8 lcd){
     }
 }
 
-/*
-*********************************************************************************************************
-*                                 			void Nombre_LCD(uint8 lcd)
+/**
+* Nombre_LCD
+* @brief escribe nombre de la estación en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Nombre_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x00,0x7E,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -257,21 +188,11 @@ void Nombre_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                          void Precio_LCD(uint8 lcd, uint8 y1, uint8 y2, uint8 eeprom)
+/**
+* Precio_LCD
+* @brief escribe precios del producto en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Precio_LCD(uint8 lcd, uint8 y1, uint8 y2, uint16 eeprom){
 	uint8 hora[23]={0xAA,0x98,0x01,0x80,0x01,0x60,0x24,0xC5,0x02,0x00,0x00,0xFF,0xFF,'$',0X20,0x20,0X20,0X20,0X20,0xCC,0x33,0xC3,0x3C};	
@@ -296,21 +217,14 @@ void Precio_LCD(uint8 lcd, uint8 y1, uint8 y2, uint16 eeprom){
 	}
 }
 
-/*
-*********************************************************************************************************
-*                          void Grado_LCD(uint8 lcd, uint8 y1, uint8 y2, uint8 eeprom)
+/**
+* Grado_LCD
+* @brief escribe número de manguera en pantalla
+* @param lcd pantalla que se va a usar
+* @param y1 posición x
+* @param y1 posición y
+* @param eeprom posición en eeprom en que se encuentra el dato de grado
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Grado_LCD(uint8 lcd, uint8 y1, uint8 y2, uint16 eeprom){
 	uint8 hora[18]={0xAA,0x98,0x02,0x20,0x01,0x60,0x24,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -335,21 +249,11 @@ void Grado_LCD(uint8 lcd, uint8 y1, uint8 y2, uint16 eeprom){
 	}
 }
 
-/*
-*********************************************************************************************************
-*                                 			void direccion_LCD(uint8 lcd)
+/**
+* direccion_LCD
+* @brief escribe dirección de la estación en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void direccion_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x00,0xB7,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -381,21 +285,11 @@ void direccion_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                                 		void lema1_LCD(uint8 lcd)
+/**
+* lema1_LCD
+* @brief escribe lema 1 de la estación en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void lema1_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x01,0x27,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -427,21 +321,11 @@ void lema1_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                                 		void lema2_LCD(uint8 lcd)
+/**
+* lema2_LCD
+* @brief escribe lema 2 de la estación en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void lema2_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x01,0x5F,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -473,21 +357,11 @@ void lema2_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                                 			void telefono_LCD(uint8 lcd)
+/**
+* telefono_LCD
+* @brief escribe el teléfono de la estación en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void telefono_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x00,0xEE,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -519,21 +393,11 @@ void telefono_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                                 			void nit_LCD(uint8 lcd)
+/**
+* nit_LCD
+* @brief escribe el NIT de la estación en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void nit_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x01,0x99,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -565,21 +429,11 @@ void nit_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                                 			void Cuenta_LCD(uint8 lcd)
+/**
+* Cuenta_LCD
+* @brief escribe la cuenta del cliente en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Cuenta_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x01,0x32,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -605,21 +459,11 @@ void Cuenta_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                                 			void Cuenta_LCD(uint8 lcd)
+/**
+* Placa_LCD
+* @brief escribe la placa del cliente en pantalla
+* @param lcd pantalla que se va a usar
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void Placa_LCD(uint8 lcd){
 	uint8 buffer[18]={0xAA,0x98,0x00,0xA5,0x00,0xC1,0x23,0xC5,0x02,0x00,0x00,0xFF,0xFF,0x20,0xCC,0x33,0xC3,0x3C};	
@@ -645,21 +489,13 @@ void Placa_LCD(uint8 lcd){
     }	
 }
 
-/*
-*********************************************************************************************************
-*                             void writemini_LCD(uint8 lcd, uint8 dato, uint8 pos)
+/**
+* writemini_LCD
+* @brief escribe datos en pantalla, los datos son de menor tamaño a los usuales
+* @param lcd pantalla que se va a usar
+* @param dato dato que se va a escribir
+* @param pos posición en eje x del dato a mostrar a partir de una posición inicial
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void writemini_LCD(uint8 lcd, uint8 dato, uint16 pos){
     if(lcd==1){

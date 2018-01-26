@@ -98,12 +98,9 @@ w                   0x4               .\CortexM3\ARM_GCC_493\Debug\main.o
 bandera             0x2               .\CortexM3\ARM_GCC_493\Debug\main.o
 no_ventacopia3      0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 seleccion_pos2      0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
-buffer_pos2         0x40              .\CortexM3\ARM_GCC_493\Debug\main.o
 estado_0            0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
-buffer_pos4         0x40              .\CortexM3\ARM_GCC_493\Debug\main.o
 flujo_LCD2          0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 flujo_pos3          0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
-estado_lcd2         0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 flujo_pos           0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 producto4           0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 teclas1             0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -111,7 +108,6 @@ comas2              0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 producto            0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 z                   0x4               .\CortexM3\ARM_GCC_493\Debug\main.o
 no_ventacopia1      0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
-buffer_pos3         0x40              .\CortexM3\ARM_GCC_493\Debug\main.o
 buffer_i2c          0x40              .\CortexM3\ARM_GCC_493\Debug\main.o
 cont1               0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 teclado2            0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -133,7 +129,6 @@ producto1b          0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 venta_activa3       0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 producto4b          0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 ppux10              0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
-estado_lcd1         0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 producto2b          0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 no_ventacopia2      0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 y                   0x4               .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -149,7 +144,6 @@ a_copias            0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 print1              0x2               .\CortexM3\ARM_GCC_493\Debug\main.o
 producto2           0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 grado1              0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
-buffer_pos1         0x40              .\CortexM3\ARM_GCC_493\Debug\main.o
 Buffer_LCD1         0x98              .\CortexM3\ARM_GCC_493\Debug\main.o
 no_imprime4         0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 seleccion_pos       0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -164,7 +158,6 @@ fecha_corte         0x6               .\CortexM3\ARM_GCC_493\Debug\main.o
 a                   0x4c              .\CortexM3\ARM_GCC_493\Debug\main.o
 venta_activa        0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 Impresora_rxBuffer  0x64              .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
-imagen              0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 decimalV            0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
 dieTemperature      0x2               .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
 producto3           0x1               .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -197,7 +190,6 @@ Discarded input sections
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\main.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
- .text.totales  0x00000000       0x5c .\CortexM3\ARM_GCC_493\Debug\protocolo.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\LCD.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\LCD.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\LCD.o
@@ -878,7 +870,7 @@ END GROUP
                 0x00000040                CY_METADATA_SIZE = 0x40
                 0x00000001                CY_APPL_LOADABLE = 0x1
                 0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
-                0x1fff8dc8                PROVIDE (__cy_heap_start, _end)
+                0x1fff8cc0                PROVIDE (__cy_heap_start, _end)
                 0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
                 0x20008000                PROVIDE (__cy_stack, (ORIGIN (ram) + 0x10000))
                 0x20007800                PROVIDE (__cy_heap_end, (__cy_stack - 0x800))
@@ -1381,7 +1373,7 @@ END GROUP
                 0x0001d4c8        0x4 LONG 0x1d4d8 __cy_region_init_ram
                 0x0001d4cc        0x4 LONG 0x1fff8108 __cy_region_start_data
                 0x0001d4d0        0x4 LONG 0x1e8 __cy_region_init_size_ram
-                0x0001d4d4        0x4 LONG 0xad8 __cy_region_zero_size_ram
+                0x0001d4d4        0x4 LONG 0x9d0 __cy_region_zero_size_ram
                 0x0001d4d8                __cy_regions_end = .
                 0x0001d4d8                . = ALIGN (0x8)
                 0x0001d4d8                _etext = .
@@ -1455,7 +1447,7 @@ END GROUP
 .igot.plt       0x1fff82f0        0x0 load address 0x0001d6c0
  .igot.plt      0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.bss            0x1fff82f0      0xad8 load address 0x0001d6c0
+.bss            0x1fff82f0      0x9d0 load address 0x0001d6c0
                 0x1fff82f0                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -1488,7 +1480,7 @@ END GROUP
                 0x1fff8328                I2C_1_initVar
  *(COMMON)
  *fill*         0x1fff8329        0x3 
- COMMON         0x1fff832c      0x8f2 .\CortexM3\ARM_GCC_493\Debug\main.o
+ COMMON         0x1fff832c      0x7ee .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x1fff832c                copia_recibo
                 0x1fff832e                producto2c
                 0x1fff832f                flujo_LCD
@@ -1520,111 +1512,104 @@ END GROUP
                 0x1fff85e8                bandera
                 0x1fff85ea                no_ventacopia3
                 0x1fff85eb                seleccion_pos2
-                0x1fff85ec                buffer_pos2
-                0x1fff862c                estado_0
-                0x1fff8630                buffer_pos4
-                0x1fff8670                flujo_LCD2
-                0x1fff8671                flujo_pos3
-                0x1fff8672                estado_lcd2
-                0x1fff8673                flujo_pos
-                0x1fff8674                producto4
-                0x1fff8675                teclas1
-                0x1fff8676                comas2
-                0x1fff8677                producto
-                0x1fff8678                z
-                0x1fff867c                no_ventacopia1
-                0x1fff8680                buffer_pos3
-                0x1fff86c0                buffer_i2c
-                0x1fff8700                cont1
-                0x1fff8701                teclado2
-                0x1fff8702                flujo_LCD4
-                0x1fff8703                no_ventacopia4
-                0x1fff8704                producto4d
-                0x1fff8705                teclado
-                0x1fff8706                producto1c
-                0x1fff8708                c
-                0x1fff8754                producto3d
-                0x1fff8758                Buffer_LCD3
-                0x1fff87f0                pos_ibutton
-                0x1fff87f4                id_venta
-                0x1fff87fa                no_imprime3
-                0x1fff87fb                producto1b
-                0x1fff87fc                venta_activa3
-                0x1fff87fd                producto4b
-                0x1fff87fe                ppux10
-                0x1fff87ff                estado_lcd1
-                0x1fff8800                producto2b
-                0x1fff8801                no_ventacopia2
-                0x1fff8804                y
-                0x1fff8808                d
-                0x1fff8854                rventa2
-                0x1fff8935                flujo_pos4
-                0x1fff8938                tipo_imp
-                0x1fff893a                grado4
-                0x1fff893b                grado3
-                0x1fff893c                a_copias
-                0x1fff8940                print1
-                0x1fff8942                producto2
-                0x1fff8943                grado1
-                0x1fff8944                buffer_pos1
-                0x1fff8984                Buffer_LCD1
-                0x1fff8a1c                no_imprime4
-                0x1fff8a1d                seleccion_pos
-                0x1fff8a1e                teclas2
-                0x1fff8a20                print2
-                0x1fff8a22                producto3b
-                0x1fff8a24                rventa
-                0x1fff8b08                fecha_corte
-                0x1fff8b10                a
-                0x1fff8b5c                venta_activa
-                0x1fff8b5d                imagen
-                0x1fff8b5e                decimalV
-                0x1fff8b5f                producto3
-                0x1fff8b60                resultado
-                0x1fff8b70                no_venta
-                0x1fff8b74                copia_recibo2
-                0x1fff8b76                nombreproducto
-                0x1fff8b77                producto1
-                0x1fff8b78                Buffer_LCD2
-                0x1fff8c10                n_copias
-                0x1fff8c14                producto3n
- *fill*         0x1fff8c1e        0x2 
- COMMON         0x1fff8c20      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
-                0x1fff8c20                Surtidor_rxBuffer
- COMMON         0x1fff8d20       0x64 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
-                0x1fff8d20                Impresora_rxBuffer
- COMMON         0x1fff8d84       0x14 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
-                0x1fff8d84                LCD_1_rxBuffer
- COMMON         0x1fff8d98       0x14 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
-                0x1fff8d98                LCD_2_rxBuffer
- COMMON         0x1fff8dac        0x1 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
-                0x1fff8dac                I2C_1_state
- *fill*         0x1fff8dad        0x3 
- COMMON         0x1fff8db0       0x11 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
-                0x1fff8db0                I2C_1_mstrWrBufIndex
-                0x1fff8db1                I2C_1_mstrControl
-                0x1fff8db2                I2C_1_mstrStatus
-                0x1fff8db3                I2C_1_mstrWrBufSize
-                0x1fff8db4                I2C_1_mstrRdBufIndex
-                0x1fff8db8                I2C_1_mstrWrBufPtr
-                0x1fff8dbc                I2C_1_mstrRdBufPtr
-                0x1fff8dc0                I2C_1_mstrRdBufSize
-                0x1fff8dc8                . = ALIGN (0x8)
- *fill*         0x1fff8dc1        0x7 
+                0x1fff85ec                estado_0
+                0x1fff85ed                flujo_LCD2
+                0x1fff85ee                flujo_pos3
+                0x1fff85ef                flujo_pos
+                0x1fff85f0                producto4
+                0x1fff85f1                teclas1
+                0x1fff85f2                comas2
+                0x1fff85f3                producto
+                0x1fff85f4                z
+                0x1fff85f8                no_ventacopia1
+                0x1fff85fc                buffer_i2c
+                0x1fff863c                cont1
+                0x1fff863d                teclado2
+                0x1fff863e                flujo_LCD4
+                0x1fff863f                no_ventacopia4
+                0x1fff8640                producto4d
+                0x1fff8641                teclado
+                0x1fff8642                producto1c
+                0x1fff8644                c
+                0x1fff8690                producto3d
+                0x1fff8694                Buffer_LCD3
+                0x1fff872c                pos_ibutton
+                0x1fff8730                id_venta
+                0x1fff8736                no_imprime3
+                0x1fff8737                producto1b
+                0x1fff8738                venta_activa3
+                0x1fff8739                producto4b
+                0x1fff873a                ppux10
+                0x1fff873b                producto2b
+                0x1fff873c                no_ventacopia2
+                0x1fff8740                y
+                0x1fff8744                d
+                0x1fff8790                rventa2
+                0x1fff8871                flujo_pos4
+                0x1fff8874                tipo_imp
+                0x1fff8876                grado4
+                0x1fff8877                grado3
+                0x1fff8878                a_copias
+                0x1fff887c                print1
+                0x1fff887e                producto2
+                0x1fff887f                grado1
+                0x1fff8880                Buffer_LCD1
+                0x1fff8918                no_imprime4
+                0x1fff8919                seleccion_pos
+                0x1fff891a                teclas2
+                0x1fff891c                print2
+                0x1fff891e                producto3b
+                0x1fff8920                rventa
+                0x1fff8a04                fecha_corte
+                0x1fff8a0c                a
+                0x1fff8a58                venta_activa
+                0x1fff8a59                decimalV
+                0x1fff8a5a                producto3
+                0x1fff8a5c                resultado
+                0x1fff8a6c                no_venta
+                0x1fff8a70                copia_recibo2
+                0x1fff8a72                nombreproducto
+                0x1fff8a73                producto1
+                0x1fff8a74                Buffer_LCD2
+                0x1fff8b0c                n_copias
+                0x1fff8b10                producto3n
+ *fill*         0x1fff8b1a        0x2 
+ COMMON         0x1fff8b1c      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+                0x1fff8b1c                Surtidor_rxBuffer
+ COMMON         0x1fff8c1c       0x64 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+                0x1fff8c1c                Impresora_rxBuffer
+ COMMON         0x1fff8c80       0x14 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+                0x1fff8c80                LCD_1_rxBuffer
+ COMMON         0x1fff8c94       0x14 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+                0x1fff8c94                LCD_2_rxBuffer
+ COMMON         0x1fff8ca8        0x1 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+                0x1fff8ca8                I2C_1_state
+ *fill*         0x1fff8ca9        0x3 
+ COMMON         0x1fff8cac       0x11 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+                0x1fff8cac                I2C_1_mstrWrBufIndex
+                0x1fff8cad                I2C_1_mstrControl
+                0x1fff8cae                I2C_1_mstrStatus
+                0x1fff8caf                I2C_1_mstrWrBufSize
+                0x1fff8cb0                I2C_1_mstrRdBufIndex
+                0x1fff8cb4                I2C_1_mstrWrBufPtr
+                0x1fff8cb8                I2C_1_mstrRdBufPtr
+                0x1fff8cbc                I2C_1_mstrRdBufSize
+                0x1fff8cc0                . = ALIGN (0x8)
+ *fill*         0x1fff8cbd        0x3 
  *(.ram.b)
-                0x1fff8dc8                _end = .
-                0x1fff8dc8                __end = .
-                0x1fff8dc8                PROVIDE (end, .)
-                0x1fff8dc8                PROVIDE (__bss_end__, .)
+                0x1fff8cc0                _end = .
+                0x1fff8cc0                __end = .
+                0x1fff8cc0                PROVIDE (end, .)
+                0x1fff8cc0                PROVIDE (__bss_end__, .)
                 0x0001d4d8                __cy_region_init_ram = LOADADDR (.data)
                 0x000001e8                __cy_region_init_size_ram = (_edata - ADDR (.data))
-                0x00000ad8                __cy_region_zero_size_ram = (_end - _edata)
+                0x000009d0                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fff8dc8       0x80 load address 0x0001d6c0
-                0x1fff8dc8                . = _end
-                0x1fff8e48                . = (. + 0x80)
- *fill*         0x1fff8dc8       0x80 
-                0x1fff8e48                __cy_heap_limit = .
+.heap           0x1fff8cc0       0x80 load address 0x0001d6c0
+                0x1fff8cc0                . = _end
+                0x1fff8d40                . = (. + 0x80)
+ *fill*         0x1fff8cc0       0x80 
+                0x1fff8d40                __cy_heap_limit = .
 
 .stack          0x20007800      0x800
                 0x20007800                __cy_stack_limit = .
@@ -1702,359 +1687,359 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0xee8
+.debug_aranges  0x00000000      0xee0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x58 .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_aranges
-                0x00000058       0x68 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+                0x00000058       0x60 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
  .debug_aranges
-                0x000000c0       0x90 .\CortexM3\ARM_GCC_493\Debug\LCD.o
+                0x000000b8       0x90 .\CortexM3\ARM_GCC_493\Debug\LCD.o
  .debug_aranges
-                0x00000150       0x50 .\CortexM3\ARM_GCC_493\Debug\I2C.o
+                0x00000148       0x50 .\CortexM3\ARM_GCC_493\Debug\I2C.o
  .debug_aranges
-                0x000001a0       0x48 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+                0x00000198       0x48 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
  .debug_aranges
-                0x000001e8       0x58 .\CortexM3\ARM_GCC_493\Debug\Print.o
+                0x000001e0       0x58 .\CortexM3\ARM_GCC_493\Debug\Print.o
  .debug_aranges
-                0x00000240       0x18 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+                0x00000238       0x18 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
  .debug_aranges
-                0x00000258       0x48 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00000250       0x48 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .debug_aranges
-                0x000002a0       0x18 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
+                0x00000298       0x18 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
  .debug_aranges
-                0x000002b8       0x58 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+                0x000002b0       0x58 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
  .debug_aranges
-                0x00000310      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+                0x00000308      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
  .debug_aranges
-                0x00000410       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+                0x00000408       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
  .debug_aranges
-                0x00000430      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+                0x00000428      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
  .debug_aranges
-                0x00000530       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+                0x00000528       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
  .debug_aranges
-                0x00000550      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+                0x00000548      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
  .debug_aranges
-                0x00000650       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+                0x00000648       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
  .debug_aranges
-                0x00000670      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+                0x00000668      0x100 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
  .debug_aranges
-                0x00000770       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+                0x00000768       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
  .debug_aranges
-                0x00000790       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+                0x00000788       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
  .debug_aranges
-                0x000007c8       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+                0x000007c0       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
  .debug_aranges
-                0x00000800       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+                0x000007f8       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
  .debug_aranges
-                0x00000838       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+                0x00000830       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
  .debug_aranges
-                0x00000870       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+                0x00000868       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
  .debug_aranges
-                0x00000890       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+                0x00000888       0x38 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
  .debug_aranges
-                0x000008c8       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+                0x000008c0       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
  .debug_aranges
-                0x00000950       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+                0x00000948       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
  .debug_aranges
-                0x000009c0       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+                0x000009b8       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
  .debug_aranges
-                0x00000a30       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+                0x00000a28       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
  .debug_aranges
-                0x00000aa0       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
+                0x00000a98       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
  .debug_aranges
-                0x00000ac0      0x298 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+                0x00000ab8      0x298 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
  .debug_aranges
-                0x00000d58       0x98 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+                0x00000d50       0x98 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
  .debug_aranges
-                0x00000df0       0x80 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+                0x00000de8       0x80 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
  .debug_aranges
-                0x00000e70       0x78 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+                0x00000e68       0x78 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x1b6ee
+.debug_info     0x00000000    0x1b38a
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x90da .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_info    0x000090da     0x45fc .\CortexM3\ARM_GCC_493\Debug\protocolo.o
- .debug_info    0x0000d6d6     0x162b .\CortexM3\ARM_GCC_493\Debug\LCD.o
- .debug_info    0x0000ed01     0x101d .\CortexM3\ARM_GCC_493\Debug\I2C.o
- .debug_info    0x0000fd1e     0x190f .\CortexM3\ARM_GCC_493\Debug\ibuton.o
- .debug_info    0x0001162d     0x32cd .\CortexM3\ARM_GCC_493\Debug\Print.o
- .debug_info    0x000148fa       0xd9 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_info    0x000149d3      0x3a5 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_info    0x00014d78      0x165 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
- .debug_info    0x00014edd      0x609 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
- .debug_info    0x000154e6      0x78c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
- .debug_info    0x00015c72      0x13b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
- .debug_info    0x00015dad      0x7b2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
- .debug_info    0x0001655f      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
- .debug_info    0x00016689      0x7b2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
- .debug_info    0x00016e3b      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
- .debug_info    0x00016f65      0x7b2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
- .debug_info    0x00017717      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
- .debug_info    0x00017841      0x11f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
- .debug_info    0x00017960      0x11f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
- .debug_info    0x00017a7f      0x121 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
- .debug_info    0x00017ba0      0x2d7 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
- .debug_info    0x00017e77      0x193 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
- .debug_info    0x0001800a      0x1f2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
- .debug_info    0x000181fc      0x412 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
- .debug_info    0x0001860e      0x283 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
- .debug_info    0x00018891      0x283 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
- .debug_info    0x00018b14      0x283 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
- .debug_info    0x00018d97       0x94 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
- .debug_info    0x00018e2b     0x1371 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
- .debug_info    0x0001a19c      0xa58 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
- .debug_info    0x0001abf4      0x60a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
- .debug_info    0x0001b1fe      0x4f0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+ .debug_info    0x00000000     0x9063 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_info    0x00009063     0x4500 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+ .debug_info    0x0000d563     0x15a8 .\CortexM3\ARM_GCC_493\Debug\LCD.o
+ .debug_info    0x0000eb0b      0xf9a .\CortexM3\ARM_GCC_493\Debug\I2C.o
+ .debug_info    0x0000faa5     0x1898 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+ .debug_info    0x0001133d     0x3252 .\CortexM3\ARM_GCC_493\Debug\Print.o
+ .debug_info    0x0001458f       0xd9 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_info    0x00014668      0x3a5 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_info    0x00014a0d      0x165 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
+ .debug_info    0x00014b72      0x609 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+ .debug_info    0x0001517b      0x78c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+ .debug_info    0x00015907      0x13b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+ .debug_info    0x00015a42      0x7b2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+ .debug_info    0x000161f4      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+ .debug_info    0x0001631e      0x7b2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+ .debug_info    0x00016ad0      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+ .debug_info    0x00016bfa      0x7b2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+ .debug_info    0x000173ac      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+ .debug_info    0x000174d6      0x11f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+ .debug_info    0x000175f5      0x11f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+ .debug_info    0x00017714      0x121 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+ .debug_info    0x00017835      0x2d7 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+ .debug_info    0x00017b0c      0x193 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+ .debug_info    0x00017c9f      0x1f2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+ .debug_info    0x00017e91      0x412 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+ .debug_info    0x000182a3      0x283 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+ .debug_info    0x00018526      0x283 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+ .debug_info    0x000187a9      0x283 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+ .debug_info    0x00018a2c       0x9b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
+ .debug_info    0x00018ac7     0x1371 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+ .debug_info    0x00019e38      0xa58 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+ .debug_info    0x0001a890      0x60a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+ .debug_info    0x0001ae9a      0x4f0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
 
-.debug_abbrev   0x00000000     0x2c9b
+.debug_abbrev   0x00000000     0x2c43
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1df .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_abbrev  0x000001df      0x227 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
  .debug_abbrev  0x00000406      0x1b6 .\CortexM3\ARM_GCC_493\Debug\LCD.o
- .debug_abbrev  0x000005bc      0x221 .\CortexM3\ARM_GCC_493\Debug\I2C.o
- .debug_abbrev  0x000007dd      0x201 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
- .debug_abbrev  0x000009de      0x227 .\CortexM3\ARM_GCC_493\Debug\Print.o
- .debug_abbrev  0x00000c05       0x66 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_abbrev  0x00000c6b      0x20f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_abbrev  0x00000e7a       0x77 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
- .debug_abbrev  0x00000ef1      0x223 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
- .debug_abbrev  0x00001114      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
- .debug_abbrev  0x000012e4       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
- .debug_abbrev  0x0000136e      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
- .debug_abbrev  0x0000153e       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
- .debug_abbrev  0x000015c8      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
- .debug_abbrev  0x00001798       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
- .debug_abbrev  0x00001822      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
- .debug_abbrev  0x000019f2       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
- .debug_abbrev  0x00001a7c       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
- .debug_abbrev  0x00001b0c       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
- .debug_abbrev  0x00001b9c       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
- .debug_abbrev  0x00001c2c      0x159 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
- .debug_abbrev  0x00001d85       0xdb .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
- .debug_abbrev  0x00001e60      0x12b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
- .debug_abbrev  0x00001f8b      0x13c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
- .debug_abbrev  0x000020c7      0x139 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
- .debug_abbrev  0x00002200      0x139 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
- .debug_abbrev  0x00002339      0x139 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
- .debug_abbrev  0x00002472       0x14 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00002486      0x296 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
- .debug_abbrev  0x0000271c      0x1ed .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
- .debug_abbrev  0x00002909      0x1d1 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
- .debug_abbrev  0x00002ada      0x1c1 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+ .debug_abbrev  0x000005bc      0x1c9 .\CortexM3\ARM_GCC_493\Debug\I2C.o
+ .debug_abbrev  0x00000785      0x201 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+ .debug_abbrev  0x00000986      0x227 .\CortexM3\ARM_GCC_493\Debug\Print.o
+ .debug_abbrev  0x00000bad       0x66 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_abbrev  0x00000c13      0x20f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_abbrev  0x00000e22       0x77 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
+ .debug_abbrev  0x00000e99      0x223 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+ .debug_abbrev  0x000010bc      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+ .debug_abbrev  0x0000128c       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+ .debug_abbrev  0x00001316      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+ .debug_abbrev  0x000014e6       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+ .debug_abbrev  0x00001570      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+ .debug_abbrev  0x00001740       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+ .debug_abbrev  0x000017ca      0x1d0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+ .debug_abbrev  0x0000199a       0x8a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+ .debug_abbrev  0x00001a24       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+ .debug_abbrev  0x00001ab4       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+ .debug_abbrev  0x00001b44       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+ .debug_abbrev  0x00001bd4      0x159 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+ .debug_abbrev  0x00001d2d       0xdb .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+ .debug_abbrev  0x00001e08      0x12b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+ .debug_abbrev  0x00001f33      0x13c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+ .debug_abbrev  0x0000206f      0x139 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+ .debug_abbrev  0x000021a8      0x139 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+ .debug_abbrev  0x000022e1      0x139 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+ .debug_abbrev  0x0000241a       0x14 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x0000242e      0x296 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+ .debug_abbrev  0x000026c4      0x1ed .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+ .debug_abbrev  0x000028b1      0x1d1 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+ .debug_abbrev  0x00002a82      0x1c1 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
 
-.debug_line     0x00000000     0x802c
+.debug_line     0x00000000     0x7ff6
  *(.debug_line)
- .debug_line    0x00000000     0x1992 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_line    0x00001992     0x1a13 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
- .debug_line    0x000033a5      0x67b .\CortexM3\ARM_GCC_493\Debug\LCD.o
- .debug_line    0x00003a20      0x322 .\CortexM3\ARM_GCC_493\Debug\I2C.o
- .debug_line    0x00003d42      0x46c .\CortexM3\ARM_GCC_493\Debug\ibuton.o
- .debug_line    0x000041ae      0xf69 .\CortexM3\ARM_GCC_493\Debug\Print.o
- .debug_line    0x00005117       0x53 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_line    0x0000516a      0x248 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_line    0x000053b2       0x55 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
- .debug_line    0x00005407      0x204 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
- .debug_line    0x0000560b      0x31b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
- .debug_line    0x00005926       0x8e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
- .debug_line    0x000059b4      0x334 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
- .debug_line    0x00005ce8       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
- .debug_line    0x00005d78      0x32c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
- .debug_line    0x000060a4       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
- .debug_line    0x0000612c      0x32c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
- .debug_line    0x00006458       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
- .debug_line    0x000064e0       0x95 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
- .debug_line    0x00006575       0x92 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
- .debug_line    0x00006607       0x92 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
- .debug_line    0x00006699       0xde .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
- .debug_line    0x00006777      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
- .debug_line    0x000068a1       0xc4 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
- .debug_line    0x00006965      0x203 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
- .debug_line    0x00006b68      0x19a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
- .debug_line    0x00006d02      0x196 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
- .debug_line    0x00006e98      0x196 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
- .debug_line    0x0000702e       0x68 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
- .debug_line    0x00007096      0x806 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
- .debug_line    0x0000789c      0x366 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
- .debug_line    0x00007c02      0x1ec .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
- .debug_line    0x00007dee      0x23e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+ .debug_line    0x00000000     0x1991 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_line    0x00001991     0x19e1 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+ .debug_line    0x00003372      0x67a .\CortexM3\ARM_GCC_493\Debug\LCD.o
+ .debug_line    0x000039ec      0x321 .\CortexM3\ARM_GCC_493\Debug\I2C.o
+ .debug_line    0x00003d0d      0x46c .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+ .debug_line    0x00004179      0xf68 .\CortexM3\ARM_GCC_493\Debug\Print.o
+ .debug_line    0x000050e1       0x53 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x00005134      0x248 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_line    0x0000537c       0x55 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
+ .debug_line    0x000053d1      0x204 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+ .debug_line    0x000055d5      0x31b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+ .debug_line    0x000058f0       0x8e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+ .debug_line    0x0000597e      0x334 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+ .debug_line    0x00005cb2       0x90 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+ .debug_line    0x00005d42      0x32c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+ .debug_line    0x0000606e       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+ .debug_line    0x000060f6      0x32c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+ .debug_line    0x00006422       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+ .debug_line    0x000064aa       0x95 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+ .debug_line    0x0000653f       0x92 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+ .debug_line    0x000065d1       0x92 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+ .debug_line    0x00006663       0xde .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+ .debug_line    0x00006741      0x12a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+ .debug_line    0x0000686b       0xc4 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+ .debug_line    0x0000692f      0x203 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+ .debug_line    0x00006b32      0x19a .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+ .debug_line    0x00006ccc      0x196 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+ .debug_line    0x00006e62      0x196 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+ .debug_line    0x00006ff8       0x68 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyBootAsmGnu.o)
+ .debug_line    0x00007060      0x806 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+ .debug_line    0x00007866      0x366 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+ .debug_line    0x00007bcc      0x1ec .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+ .debug_line    0x00007db8      0x23e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
 
-.debug_frame    0x00000000     0x268c
+.debug_frame    0x00000000     0x2670
  *(.debug_frame)
  .debug_frame   0x00000000       0xf4 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_frame   0x000000f4      0x16c .\CortexM3\ARM_GCC_493\Debug\protocolo.o
- .debug_frame   0x00000260      0x258 .\CortexM3\ARM_GCC_493\Debug\LCD.o
- .debug_frame   0x000004b8       0xfc .\CortexM3\ARM_GCC_493\Debug\I2C.o
- .debug_frame   0x000005b4       0xc4 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
- .debug_frame   0x00000678      0x134 .\CortexM3\ARM_GCC_493\Debug\Print.o
- .debug_frame   0x000007ac       0xac .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_frame   0x00000858       0xe4 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
- .debug_frame   0x0000093c      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
- .debug_frame   0x00000bcc       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
- .debug_frame   0x00000bec      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
- .debug_frame   0x00000e7c       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
- .debug_frame   0x00000e9c      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
- .debug_frame   0x0000112c       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
- .debug_frame   0x0000114c      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
- .debug_frame   0x000013dc       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
- .debug_frame   0x000013fc       0x50 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
- .debug_frame   0x0000144c       0x50 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
- .debug_frame   0x0000149c       0x50 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
- .debug_frame   0x000014ec       0x8c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
- .debug_frame   0x00001578       0x30 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
- .debug_frame   0x000015a8       0x74 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
- .debug_frame   0x0000161c      0x120 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
- .debug_frame   0x0000173c       0xe0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
- .debug_frame   0x0000181c       0xe0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
- .debug_frame   0x000018fc       0xe0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
- .debug_frame   0x000019dc      0x728 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
- .debug_frame   0x00002104      0x1f8 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
- .debug_frame   0x000022fc      0x174 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
- .debug_frame   0x00002470      0x160 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
- .debug_frame   0x000025d0       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x000025f0       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x00002618       0x2c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x00002644       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x0000266c       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x000000f4      0x150 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+ .debug_frame   0x00000244      0x258 .\CortexM3\ARM_GCC_493\Debug\LCD.o
+ .debug_frame   0x0000049c       0xfc .\CortexM3\ARM_GCC_493\Debug\I2C.o
+ .debug_frame   0x00000598       0xc4 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+ .debug_frame   0x0000065c      0x134 .\CortexM3\ARM_GCC_493\Debug\Print.o
+ .debug_frame   0x00000790       0xac .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_frame   0x0000083c       0xe4 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+ .debug_frame   0x00000920      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+ .debug_frame   0x00000bb0       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+ .debug_frame   0x00000bd0      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+ .debug_frame   0x00000e60       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+ .debug_frame   0x00000e80      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+ .debug_frame   0x00001110       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+ .debug_frame   0x00001130      0x290 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+ .debug_frame   0x000013c0       0x20 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+ .debug_frame   0x000013e0       0x50 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+ .debug_frame   0x00001430       0x50 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+ .debug_frame   0x00001480       0x50 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+ .debug_frame   0x000014d0       0x8c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+ .debug_frame   0x0000155c       0x30 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+ .debug_frame   0x0000158c       0x74 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+ .debug_frame   0x00001600      0x120 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+ .debug_frame   0x00001720       0xe0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+ .debug_frame   0x00001800       0xe0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+ .debug_frame   0x000018e0       0xe0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+ .debug_frame   0x000019c0      0x728 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+ .debug_frame   0x000020e8      0x1f8 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+ .debug_frame   0x000022e0      0x174 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+ .debug_frame   0x00002454      0x160 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+ .debug_frame   0x000025b4       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x000025d4       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x000025fc       0x2c c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00002628       0x28 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x00002650       0x20 c:/program files (x86)/cypress/psoc creator/3.3/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x332e
+.debug_str      0x00000000     0x32e8
  *(.debug_str)
- .debug_str     0x00000000      0x8e4 .\CortexM3\ARM_GCC_493\Debug\main.o
-                                0x983 (size before relaxing)
- .debug_str     0x000008e4      0x127 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
-                                0x800 (size before relaxing)
- .debug_str     0x00000a0b        0xd .\CortexM3\ARM_GCC_493\Debug\LCD.o
-                                0x717 (size before relaxing)
- .debug_str     0x00000a18       0x8f .\CortexM3\ARM_GCC_493\Debug\I2C.o
-                                0x72d (size before relaxing)
- .debug_str     0x00000aa7       0x44 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
-                                0x6fc (size before relaxing)
- .debug_str     0x00000aeb      0x23a .\CortexM3\ARM_GCC_493\Debug\Print.o
-                                0x90b (size before relaxing)
- .debug_str     0x00000d25       0x49 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
-                                0x1c0 (size before relaxing)
- .debug_str     0x00000d6e      0x160 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                                0x302 (size before relaxing)
- .debug_str     0x00000ece       0x84 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
-                                0x1fb (size before relaxing)
- .debug_str     0x00000f52      0x199 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
-                                0x34a (size before relaxing)
- .debug_str     0x000010eb      0x37d .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
-                                0x5b9 (size before relaxing)
- .debug_str     0x00001468       0x52 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
-                                0x24a (size before relaxing)
- .debug_str     0x000014ba      0x343 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
-                                0x60e (size before relaxing)
- .debug_str     0x000017fd       0x39 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
-                                0x24a (size before relaxing)
- .debug_str     0x00001836      0x280 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
-                                0x576 (size before relaxing)
- .debug_str     0x00001ab6       0x31 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
-                                0x22e (size before relaxing)
- .debug_str     0x00001ae7      0x280 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
-                                0x576 (size before relaxing)
- .debug_str     0x00001d67       0x31 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
-                                0x22e (size before relaxing)
- .debug_str     0x00001d98       0x65 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
-                                0x1eb (size before relaxing)
- .debug_str     0x00001dfd       0x40 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
-                                0x1dc (size before relaxing)
- .debug_str     0x00001e3d       0x40 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
-                                0x1dc (size before relaxing)
- .debug_str     0x00001e7d       0xd3 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
-                                0x2fc (size before relaxing)
- .debug_str     0x00001f50       0xe2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
-                                0x27e (size before relaxing)
- .debug_str     0x00002032       0x62 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
-                                0x28a (size before relaxing)
- .debug_str     0x00002094       0xed .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
-                                0x3db (size before relaxing)
- .debug_str     0x00002181      0x1b7 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
-                                0x376 (size before relaxing)
- .debug_str     0x00002338      0x144 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
-                                0x346 (size before relaxing)
- .debug_str     0x0000247c      0x144 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
-                                0x346 (size before relaxing)
- .debug_str     0x000025c0      0x7ce .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
-                                0xa27 (size before relaxing)
- .debug_str     0x00002d8e      0x35b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
-                                0x71f (size before relaxing)
- .debug_str     0x000030e9      0x197 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
-                                0x399 (size before relaxing)
- .debug_str     0x00003280       0xae .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
-                                0x322 (size before relaxing)
+ .debug_str     0x00000000      0x8a3 .\CortexM3\ARM_GCC_493\Debug\main.o
+                                0x93b (size before relaxing)
+ .debug_str     0x000008a3      0x122 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+                                0x7b3 (size before relaxing)
+ .debug_str     0x000009c5        0xd .\CortexM3\ARM_GCC_493\Debug\LCD.o
+                                0x6cf (size before relaxing)
+ .debug_str     0x000009d2       0x8f .\CortexM3\ARM_GCC_493\Debug\I2C.o
+                                0x6e5 (size before relaxing)
+ .debug_str     0x00000a61       0x44 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+                                0x6b4 (size before relaxing)
+ .debug_str     0x00000aa5      0x23a .\CortexM3\ARM_GCC_493\Debug\Print.o
+                                0x8c3 (size before relaxing)
+ .debug_str     0x00000cdf       0x49 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+                                0x1c7 (size before relaxing)
+ .debug_str     0x00000d28      0x160 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                                0x309 (size before relaxing)
+ .debug_str     0x00000e88       0x84 .\CortexM3\ARM_GCC_493\Debug\cybootloader.o
+                                0x202 (size before relaxing)
+ .debug_str     0x00000f0c      0x199 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+                                0x351 (size before relaxing)
+ .debug_str     0x000010a5      0x37d .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+                                0x5c0 (size before relaxing)
+ .debug_str     0x00001422       0x52 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+                                0x251 (size before relaxing)
+ .debug_str     0x00001474      0x343 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+                                0x615 (size before relaxing)
+ .debug_str     0x000017b7       0x39 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+                                0x251 (size before relaxing)
+ .debug_str     0x000017f0      0x280 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+                                0x57d (size before relaxing)
+ .debug_str     0x00001a70       0x31 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+                                0x235 (size before relaxing)
+ .debug_str     0x00001aa1      0x280 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+                                0x57d (size before relaxing)
+ .debug_str     0x00001d21       0x31 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+                                0x235 (size before relaxing)
+ .debug_str     0x00001d52       0x65 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+                                0x1f2 (size before relaxing)
+ .debug_str     0x00001db7       0x40 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+                                0x1e3 (size before relaxing)
+ .debug_str     0x00001df7       0x40 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+                                0x1e3 (size before relaxing)
+ .debug_str     0x00001e37       0xd3 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+                                0x303 (size before relaxing)
+ .debug_str     0x00001f0a       0xe2 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+                                0x285 (size before relaxing)
+ .debug_str     0x00001fec       0x62 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+                                0x291 (size before relaxing)
+ .debug_str     0x0000204e       0xed .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+                                0x3e2 (size before relaxing)
+ .debug_str     0x0000213b      0x1b7 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+                                0x37d (size before relaxing)
+ .debug_str     0x000022f2      0x144 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x00002436      0x144 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x0000257a      0x7ce .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+                                0xa2e (size before relaxing)
+ .debug_str     0x00002d48      0x35b .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+                                0x726 (size before relaxing)
+ .debug_str     0x000030a3      0x197 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+                                0x3a0 (size before relaxing)
+ .debug_str     0x0000323a       0xae .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+                                0x329 (size before relaxing)
 
-.debug_loc      0x00000000     0x5594
+.debug_loc      0x00000000     0x5560
  *(.debug_loc)
  .debug_loc     0x00000000       0x64 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_loc     0x00000064      0x9ef .\CortexM3\ARM_GCC_493\Debug\protocolo.o
- .debug_loc     0x00000a53      0x3f0 .\CortexM3\ARM_GCC_493\Debug\LCD.o
- .debug_loc     0x00000e43      0x3f1 .\CortexM3\ARM_GCC_493\Debug\I2C.o
- .debug_loc     0x00001234      0x7bb .\CortexM3\ARM_GCC_493\Debug\ibuton.o
- .debug_loc     0x000019ef      0xb2a .\CortexM3\ARM_GCC_493\Debug\Print.o
- .debug_loc     0x00002519      0x144 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_loc     0x0000265d      0x259 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
- .debug_loc     0x000028b6      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
- .debug_loc     0x00002be5       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
- .debug_loc     0x00002c23      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
- .debug_loc     0x00002f52       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
- .debug_loc     0x00002f90      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
- .debug_loc     0x000032bf       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
- .debug_loc     0x000032fd      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
- .debug_loc     0x0000362c       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
- .debug_loc     0x0000366a       0x42 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
- .debug_loc     0x000036ac       0x42 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
- .debug_loc     0x000036ee       0x55 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
- .debug_loc     0x00003743       0x26 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
- .debug_loc     0x00003769       0x29 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
- .debug_loc     0x00003792       0x13 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
- .debug_loc     0x000037a5      0x531 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
- .debug_loc     0x00003cd6      0x128 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
- .debug_loc     0x00003dfe      0x12c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
- .debug_loc     0x00003f2a      0x128 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
- .debug_loc     0x00004052      0xa11 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
- .debug_loc     0x00004a63      0x1e4 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
- .debug_loc     0x00004c47      0x300 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
- .debug_loc     0x00004f47      0x64d .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+ .debug_loc     0x00000064      0x9bb .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+ .debug_loc     0x00000a1f      0x3f0 .\CortexM3\ARM_GCC_493\Debug\LCD.o
+ .debug_loc     0x00000e0f      0x3f1 .\CortexM3\ARM_GCC_493\Debug\I2C.o
+ .debug_loc     0x00001200      0x7bb .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+ .debug_loc     0x000019bb      0xb2a .\CortexM3\ARM_GCC_493\Debug\Print.o
+ .debug_loc     0x000024e5      0x144 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_loc     0x00002629      0x259 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+ .debug_loc     0x00002882      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+ .debug_loc     0x00002bb1       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+ .debug_loc     0x00002bef      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+ .debug_loc     0x00002f1e       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+ .debug_loc     0x00002f5c      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+ .debug_loc     0x0000328b       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+ .debug_loc     0x000032c9      0x32f .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+ .debug_loc     0x000035f8       0x3e .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+ .debug_loc     0x00003636       0x42 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+ .debug_loc     0x00003678       0x42 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+ .debug_loc     0x000036ba       0x55 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+ .debug_loc     0x0000370f       0x26 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+ .debug_loc     0x00003735       0x29 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+ .debug_loc     0x0000375e       0x13 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+ .debug_loc     0x00003771      0x531 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+ .debug_loc     0x00003ca2      0x128 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+ .debug_loc     0x00003dca      0x12c .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+ .debug_loc     0x00003ef6      0x128 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+ .debug_loc     0x0000401e      0xa11 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+ .debug_loc     0x00004a2f      0x1e4 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+ .debug_loc     0x00004c13      0x300 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+ .debug_loc     0x00004f13      0x64d .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000      0xcb8
+.debug_ranges   0x00000000      0xcb0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_ranges  0x00000048       0x58 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
- .debug_ranges  0x000000a0       0x80 .\CortexM3\ARM_GCC_493\Debug\LCD.o
- .debug_ranges  0x00000120       0x40 .\CortexM3\ARM_GCC_493\Debug\I2C.o
- .debug_ranges  0x00000160       0x38 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
- .debug_ranges  0x00000198       0x48 .\CortexM3\ARM_GCC_493\Debug\Print.o
- .debug_ranges  0x000001e0       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_ranges  0x00000218       0x48 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
- .debug_ranges  0x00000260       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
- .debug_ranges  0x00000350       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
- .debug_ranges  0x00000360       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
- .debug_ranges  0x00000450       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
- .debug_ranges  0x00000460       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
- .debug_ranges  0x00000550       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
- .debug_ranges  0x00000560       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
- .debug_ranges  0x00000650       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
- .debug_ranges  0x00000660       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
- .debug_ranges  0x00000688       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
- .debug_ranges  0x000006b0       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
- .debug_ranges  0x000006d8       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
- .debug_ranges  0x00000700       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
- .debug_ranges  0x00000710       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
- .debug_ranges  0x00000738       0x78 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
- .debug_ranges  0x000007b0       0x60 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
- .debug_ranges  0x00000810       0x60 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
- .debug_ranges  0x00000870       0x60 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
- .debug_ranges  0x000008d0      0x288 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
- .debug_ranges  0x00000b58       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
- .debug_ranges  0x00000be0       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
- .debug_ranges  0x00000c50       0x68 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
+ .debug_ranges  0x00000048       0x50 .\CortexM3\ARM_GCC_493\Debug\protocolo.o
+ .debug_ranges  0x00000098       0x80 .\CortexM3\ARM_GCC_493\Debug\LCD.o
+ .debug_ranges  0x00000118       0x40 .\CortexM3\ARM_GCC_493\Debug\I2C.o
+ .debug_ranges  0x00000158       0x38 .\CortexM3\ARM_GCC_493\Debug\ibuton.o
+ .debug_ranges  0x00000190       0x48 .\CortexM3\ARM_GCC_493\Debug\Print.o
+ .debug_ranges  0x000001d8       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_ranges  0x00000210       0x48 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyfitter_cfg.o)
+ .debug_ranges  0x00000258       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor.o)
+ .debug_ranges  0x00000348       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Surtidor_INT.o)
+ .debug_ranges  0x00000358       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora.o)
+ .debug_ranges  0x00000448       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_INT.o)
+ .debug_ranges  0x00000458       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1.o)
+ .debug_ranges  0x00000548       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_INT.o)
+ .debug_ranges  0x00000558       0xf0 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2.o)
+ .debug_ranges  0x00000648       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_INT.o)
+ .debug_ranges  0x00000658       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Pin_WP.o)
+ .debug_ranges  0x00000680       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB1.o)
+ .debug_ranges  0x000006a8       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(IB2.o)
+ .debug_ranges  0x000006d0       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1.o)
+ .debug_ranges  0x000006f8       0x10 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_INT.o)
+ .debug_ranges  0x00000708       0x28 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_PM.o)
+ .debug_ranges  0x00000730       0x78 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(I2C_1_MASTER.o)
+ .debug_ranges  0x000007a8       0x60 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(Impresora_IntClock.o)
+ .debug_ranges  0x00000808       0x60 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_1_IntClock.o)
+ .debug_ranges  0x00000868       0x60 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(LCD_2_IntClock.o)
+ .debug_ranges  0x000008c8      0x288 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyLib.o)
+ .debug_ranges  0x00000b50       0x88 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(cyPm.o)
+ .debug_ranges  0x00000bd8       0x70 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CyFlash.o)
+ .debug_ranges  0x00000c48       0x68 .\CortexM3\ARM_GCC_493\Debug\PGRP700.a(CySpc.o)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 .\CortexM3\ARM_GCC_493\Debug\main.o

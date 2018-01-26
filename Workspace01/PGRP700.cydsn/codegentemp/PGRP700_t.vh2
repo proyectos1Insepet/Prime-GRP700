@@ -1,6 +1,6 @@
--- Project:   C:\Users\Recepcion\Documents\Prime GRP700\Workspace01\PGRP700.cydsn\PGRP700.cyprj
--- Generated: 10/06/2016 11:40:23
--- PSoC Creator  3.3 SP1
+-- Project:   C:\Users\IN-002143\Documents\GitHub\Prime-GRP700\Workspace01\PGRP700.cydsn\PGRP700.cyprj
+-- Generated: 01/26/2018 08:37:28
+-- PSoC Creator  3.3 SP2
 
 ENTITY PGRP700 IS
     PORT(

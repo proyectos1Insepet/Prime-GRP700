@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GRP700 Prime: Referencia del Archivo Workspace01/PGRP700.cydsn/I2C.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GRP700 Prime
+   &#160;<span id="projectnumber">4.0</span>
+   </div>
+   <div id="projectbrief">Sistema de impresión autónomo para equipos de 4 posiciones, preparado para impresora panel y kiosco</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_i2_c_8c.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo I2C.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_variables_g_8h_source.html">VariablesG.h</a>&quot;</code><br />
+<code>#include &quot;LCD.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:abcd7f34373d124ec5549020068f40524"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#abcd7f34373d124ec5549020068f40524">leer_hora</a> ()</td></tr>
+<tr class="memdesc:abcd7f34373d124ec5549020068f40524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para leer la hora vía I2C, escribe la hora solicitada en rventa.hora.  <a href="#abcd7f34373d124ec5549020068f40524">Más...</a><br /></td></tr>
+<tr class="separator:abcd7f34373d124ec5549020068f40524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0118308a5afa4519730040ddcb9628b7"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#a0118308a5afa4519730040ddcb9628b7">leer_fecha</a> ()</td></tr>
+<tr class="memdesc:a0118308a5afa4519730040ddcb9628b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para leer la hora vía I2C, escribe la hora solicitada en rventa.fecha.  <a href="#a0118308a5afa4519730040ddcb9628b7">Más...</a><br /></td></tr>
+<tr class="separator:a0118308a5afa4519730040ddcb9628b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a100b669f608d75bd586f6209762f5de3"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#a100b669f608d75bd586f6209762f5de3">write_hora</a> (void)</td></tr>
+<tr class="memdesc:a100b669f608d75bd586f6209762f5de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para escribir la hora vía I2C, escribe la hora de rventa.hora.  <a href="#a100b669f608d75bd586f6209762f5de3">Más...</a><br /></td></tr>
+<tr class="separator:a100b669f608d75bd586f6209762f5de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5d8172e90cd7bfa855828da9cfc10e5"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#ad5d8172e90cd7bfa855828da9cfc10e5">write_fecha</a> (void)</td></tr>
+<tr class="memdesc:ad5d8172e90cd7bfa855828da9cfc10e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para escribir la fecha vía I2C, escribe la hora de rventa.fecha.  <a href="#ad5d8172e90cd7bfa855828da9cfc10e5">Más...</a><br /></td></tr>
+<tr class="separator:ad5d8172e90cd7bfa855828da9cfc10e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a085023df993dc8ef6160ea660734b561"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#a085023df993dc8ef6160ea660734b561">write_eeprom</a> (uint16 page, uint8 *valor)</td></tr>
+<tr class="memdesc:a085023df993dc8ef6160ea660734b561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para escribir la eeprom externa.  <a href="#a085023df993dc8ef6160ea660734b561">Más...</a><br /></td></tr>
+<tr class="separator:a085023df993dc8ef6160ea660734b561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa823db46e2591d0c5863e106e67c32"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#acaa823db46e2591d0c5863e106e67c32">leer_eeprom</a> (uint16 page, uint8 size)</td></tr>
+<tr class="memdesc:acaa823db46e2591d0c5863e106e67c32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para leer datos de eeprom externa.  <a href="#acaa823db46e2591d0c5863e106e67c32">Más...</a><br /></td></tr>
+<tr class="separator:acaa823db46e2591d0c5863e106e67c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5aaf37a8c6efd66f51b2dcf4d22ef0a"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_i2_c_8c.html#af5aaf37a8c6efd66f51b2dcf4d22ef0a">write_psoc1</a> (uint8 puerto, uint8 valor)</td></tr>
+<tr class="memdesc:af5aaf37a8c6efd66f51b2dcf4d22ef0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para enviar datos al micro encargado de controlar las impresoras.  <a href="#af5aaf37a8c6efd66f51b2dcf4d22ef0a">Más...</a><br /></td></tr>
+<tr class="separator:af5aaf37a8c6efd66f51b2dcf4d22ef0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador. </p>
+<p>Insepet LTDA </p><dl class="section date"><dt>Fecha</dt><dd>28/2/2016 </dd></dl>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a id="acaa823db46e2591d0c5863e106e67c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaa823db46e2591d0c5863e106e67c32">&#9670;&nbsp;</a></span>leer_eeprom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 leer_eeprom </td>
+          <td>(</td>
+          <td class="paramtype">uint16&#160;</td>
+          <td class="paramname"><em>page</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para leer datos de eeprom externa. </p>
+<p>leer_eeprom </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">page</td><td>espacio en eeprom que se va a leer </td></tr>
+    <tr><td class="paramname">size</td><td>tamaño del vector que se lee </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 para error de lectura 1 si no hubo problema </dd></dl>
+
+</div>
+</div>
+<a id="a0118308a5afa4519730040ddcb9628b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0118308a5afa4519730040ddcb9628b7">&#9670;&nbsp;</a></span>leer_fecha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">leer_fecha </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para leer la hora vía I2C, escribe la hora solicitada en rventa.fecha. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>0 para error de lectura 1 si no hubo problema al leer la fecha </dd></dl>
+
+</div>
+</div>
+<a id="abcd7f34373d124ec5549020068f40524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd7f34373d124ec5549020068f40524">&#9670;&nbsp;</a></span>leer_hora()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">leer_hora </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para leer la hora vía I2C, escribe la hora solicitada en rventa.hora. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>0 para error de lectura 1 si no hubo problema al leer la hora </dd></dl>
+
+</div>
+</div>
+<a id="a085023df993dc8ef6160ea660734b561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a085023df993dc8ef6160ea660734b561">&#9670;&nbsp;</a></span>write_eeprom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 write_eeprom </td>
+          <td>(</td>
+          <td class="paramtype">uint16&#160;</td>
+          <td class="paramname"><em>page</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8 *&#160;</td>
+          <td class="paramname"><em>valor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para escribir la eeprom externa. </p>
+<p>write_eeprom </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">page</td><td>pagina de eeprom externa que se va a escribir </td></tr>
+    <tr><td class="paramname">*valor</td><td>apuntador al valor que se va a escribir en eeprom </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 para error de escritura 1 si no hubo problema al escribir </dd></dl>
+
+</div>
+</div>
+<a id="ad5d8172e90cd7bfa855828da9cfc10e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d8172e90cd7bfa855828da9cfc10e5">&#9670;&nbsp;</a></span>write_fecha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">write_fecha </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para escribir la fecha vía I2C, escribe la hora de rventa.fecha. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>0 para error de escritura 1 si no hubo problema al escribir la fecha </dd></dl>
+
+</div>
+</div>
+<a id="a100b669f608d75bd586f6209762f5de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a100b669f608d75bd586f6209762f5de3">&#9670;&nbsp;</a></span>write_hora()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 write_hora </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para escribir la hora vía I2C, escribe la hora de rventa.hora. </p>
+<p>write_hora </p><dl class="section return"><dt>Devuelve</dt><dd>0 para error de escritura 1 si no hubo problema al escribir la hora </dd></dl>
+
+</div>
+</div>
+<a id="af5aaf37a8c6efd66f51b2dcf4d22ef0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5aaf37a8c6efd66f51b2dcf4d22ef0a">&#9670;&nbsp;</a></span>write_psoc1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8 write_psoc1 </td>
+          <td>(</td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8&#160;</td>
+          <td class="paramname"><em>valor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para enviar datos al micro encargado de controlar las impresoras. </p>
+<p>write_psoc1 </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">puerto</td><td>puerto al que se desea enviar los datos (impresora lado A, impresora lado B) </td></tr>
+    <tr><td class="paramname">valor</td><td>dato a enviar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>0 para error de lectura 1 si no hubo problema </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1d925fc0e51ea2a049fe81d254485123.html">Workspace01</a></li><li class="navelem"><a class="el" href="dir_b4bd24ae46d1b6b4b5d11fc8f41ee296.html">PGRP700.cydsn</a></li><li class="navelem"><a class="el" href="_i2_c_8c.html">I2C.c</a></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,30 +1,8 @@
-/*
-*********************************************************************************************************
-*                                           GRP550/700 CODE
-*
-*                             (c) Copyright 2013; Sistemas Insepet LTDA
-*
-*               All rights reserved.  Protected by international copyright laws.
-*               Knowledge of the source code may NOT be used to develop a similar product.
-*               Please help us continue to provide the Embedded community with the finest
-*               software available.  Your honesty is greatly appreciated.
-*********************************************************************************************************
-*/
-
-/*
-*********************************************************************************************************
-*
-*                                             GRP550/700 CODE
-*
-*                                             CYPRESS PSoC5LP
-*                                                with the
-*                                            CY8C5969AXI-LP035
-*
-* Filename      : VariablesG.h
-* Version       : V1.00
-* Programmer(s) : 
-                  
-*********************************************************************************************************
+/**
+* @file VariablesG.h
+* @Author Insepet LTDA
+* @date 28/2/2016
+* @brief Contiene las variables globales que se usan en el programa y las principales estructuras
 */
 
 #ifndef VARIABLESG_H
@@ -44,105 +22,131 @@
 #define iprotector11    26
 #define iprotector12    27
 
-uint8 flujo_LCD,flujo_LCD2,flujo_LCD3,flujo_LCD4;/*
-0   Inicio de protector
-1   Mantiene el protector se verifica en la Int del puerto de la LCD
-2   Pasa a pantalla inicial de opciones y limpia el buffer
-3   Espera a que elijan entre ventas u otras
-4   Venta en efectivo, elige dinero, galones o full
-5   Ingresa valor en pesos o volumen
-6   Espera a que suba la manija o cancele, luego emite sonido y autoriza
-7   Espera que baje la manija
-8   Pasa a imprimir o pedir placa segun version
-9   pedir placa efectivo 
-10  pedir recibo y finalizar
-11  Leer Ibutton
-12  Kilometraje
-13  Imprimir
-14  Otras Opciones
-15  Ingresar Password
-16  Cambiar Hora/Fecha
-17  Cambiar Pasword
-18  Cambiar Datos Recibo
-19  Cambiar Precio
-20  Test
-21  Teclado hora
-22  Teclado fecha
-23	Teclado NIT, Telefono
-24	Teclado Nombre, Direccion, lema1, lema2
-25	Venta con Id?
-26	Teclado Precio
-27	Configurar Surtidor
-28	Configurar Productos
-29	Version de digitos
-30	PPU
-31	Teclado Producto
-32	Cambiar Bandera
-33 	Numero de copias
-34	Corte
-35	Elegir el dato a grabar en el ibutton
-36  Grabar iButton	
-37	Sirven las impresoras?
-38  Cual Impresora sirve?
-39	Pasword corte
-40	Cambio Pasword Corte	
-	
-//Temporal para definición:
-    //producto1 = extra, producto2=diesel, producto3=corriente, producto4=kero 
-	
+/**
+*
+*   <B>flujo_LCD,flujo_LCD2, flujo_LCD3,flujo_LCD4</B> <BR>
 */
-//uint8 count_protector,count_protector2;
-//uint8 ok_LCD1, ok_LCD2;       											                    //Banderas para indicar que hay datos para enviar
-uint8 cont1,teclas1,teclas2, comas1, comas2;  							                        //Auxiliares para las funciones del teclado y organizacion de datos
-uint8 versurt;															                        //Determina la version entre (1)no_extendida y (2)extendida
-uint8 producto1,producto2,producto3,producto4,producto1b,producto2b,producto3b,producto4b;		//Banderas para saber que productos hay
+/// <BR>
+/// 0   Inicio de protector <BR>
+/// 1   Mantiene el protector se verifica en la Int del puerto de la LCD<BR> 
+/// 2   Pasa a pantalla inicial de opciones y limpia el buffer <BR>
+/// 3   Espera a que elijan entre ventas u otras <BR>
+/// 4   Venta en efectivo, elige dinero, galones o full<BR>
+/// 5   Ingresa valor en pesos o volumen <BR>
+/// 6   Espera a que suba la manija o cancele, luego emite sonido y autoriza <BR>
+/// 7   Espera que baje la manija <BR>
+/// 8   Pasa a imprimir o pedir placa segun version <BR>
+/// 9   pedir placa efectivo <BR>
+/// 10  pedir recibo y finalizar <BR>
+/// 11  Leer Ibutton <BR>
+/// 12  Kilometraje <BR>
+/// 13  Imprimir <BR>
+/// 14  Otras Opciones <BR>
+/// 15  Ingresar Password <BR>
+/// 16  Cambiar Hora/Fecha <BR>
+/// 17  Cambiar Pasword <BR>
+/// 18  Cambiar Datos Recibo <BR>
+/// 19  Cambiar Precio <BR>
+/// 20  Test <BR>
+/// 21  Teclado hora <BR>
+/// 22  Teclado fecha <BR>
+/// 23	Teclado NIT, Telefono <BR>
+/// 24	Teclado Nombre, Direccion, lema1, lema2 <BR>
+/// 25	Venta con Id? <BR>
+/// 26	Teclado Precio <BR>
+/// 27	Configurar Surtidor <BR>
+/// 28	Configurar Productos <BR>
+/// 29	Version de digitos <BR>
+/// 30	PPU <BR>
+/// 31	Teclado Producto <BR>
+/// 32	Cambiar Bandera <BR>
+/// 33 	Numero de copias <BR>
+/// 34	Corte <BR>
+/// 35	Elegir el dato a grabar en el ibutton <BR>
+/// 36  Grabar iButton	<BR>
+/// 37	Sirven las impresoras? <BR>
+/// 38  Cual Impresora sirve? <BR>
+/// 39	Pasword corte <BR>
+/// 40	Cambio Pasword Corte <BR>    
+uint8 flujo_LCD,flujo_LCD2,flujo_LCD3,flujo_LCD4;
+///Auxiliares para las funciones del teclado y organizacion de datos
+uint8 cont1,teclas1,teclas2, comas1, comas2;  							                       
+///Determina la version entre (1)no_extendida y (2)extendida
+uint8 versurt;															                        
+///Banderas para saber que productos hay
+uint8 producto1,producto2,producto3,producto4,producto1b,producto2b,producto3b,producto4b;
+///Banderas para saber que productos hay
 uint8 producto1c,producto2c,producto3c,producto4c,producto1d,producto2d,producto3d,producto4d;
-uint8 buffer_i2c[64];													//Buffer de lectura del i2c 
-uint8 buffer_pos1[64];
-uint8 buffer_pos2[64];
-uint8 buffer_pos3[64];
-uint8 buffer_pos4[64];
-uint8 resultado[14];													//Buffer que almacena el resultado de una operacion				
-uint8 teclado,teclado2;													//Auxiliar que indica los datos del teclado en que variable gusrdarla
-uint8 ppux10;															//Indica si el PPU esta x10		
-uint8 bandera[2];														//Bandera de la estacion
-uint8 tipo_imp[2];                                                      //tipo de impresora (panel o kiosko)
-uint8 decimalV;															//Cantidad de Decimales en volumen
-uint8 decimalD;															//Cantidad de decimales en dinero
-uint8 fecha_corte[6];													//Fecha del ultimo corte
-uint8 pos_ibutton;														//Posicion de memoria ibutton
-uint8 crc_total;														//crc del ibutton
-uint8 print1[2], print2[2];												//Puerto de las impresoras
-uint8 copia_recibo[2];													//activar copia de recibo
-uint8 copia_recibo2[2];													//activar copia de recibo lcd2
-uint8 id_venta[6];														//Consecutivo de Venta
-uint8 nombreproducto;                                                  //Para guardar en la estructura del nombre del producto
-uint8 producto1n[10];                                                   //nombres de productos en memoria
+///Buffer de lectura del i2c
+uint8 buffer_i2c[64];													
+///Buffer que almacena el resultado de una operacion				
+uint8 resultado[14];													
+///Auxiliar que indica los datos del teclado en que variable guardarla
+uint8 teclado,teclado2;													
+///Indica si el PPU esta x10		
+uint8 ppux10;															
+///Bandera de la estacion
+uint8 bandera[2];														
+///tipo de impresora (panel o kiosko)
+uint8 tipo_imp[2];                                                      
+///Cantidad de Decimales en volumen
+uint8 decimalV;															
+///Cantidad de decimales en dinero
+uint8 decimalD;															
+///Fecha del ultimo corte
+uint8 fecha_corte[6];													
+///Posicion de memoria ibutton
+uint8 pos_ibutton;														
+///crc del ibutton
+uint8 crc_total;														
+///Puerto de las impresoras
+uint8 print1[2], print2[2];												
+///activar copia de recibo
+uint8 copia_recibo[2];													
+///activar copia de recibo lcd2
+uint8 copia_recibo2[2];													
+///Consecutivo de Venta
+uint8 id_venta[6];														
+///Para guardar en la estructura del nombre del producto
+uint8 nombreproducto;
+///nombres de productos en memoria
+uint8 producto1n[10];                                                   
 uint8 producto2n[10];
 uint8 producto3n[10];
 uint8 producto4n[10];
+/// indica si ya se pidió copia de recibo
 uint8 a_copias;
+/// cantidad de copias a imprimir
 uint8 n_copias [1];
+/// indica si se pidió recibo
 uint8 no_imprime;
 uint8 no_imprime2;
 uint8 no_imprime3;
 uint8 no_imprime4;
-uint8 imagen;
+/// auxiliar para conservar estado mientras otra posición hace un proceso en pantalla
 uint8 flujo_pos;
+/// auxiliar para conservar estado mientras otra posición hace un proceso en pantalla
 uint8 flujo_pos2;
+/// auxiliar para conservar estado mientras otra posición hace un proceso en pantalla
 uint8 flujo_pos3;
+/// auxiliar para conservar estado mientras otra posición hace un proceso en pantalla
 uint8 flujo_pos4;
-uint8 estado_lcd1;                                                     //Estado LCD1 1 ocupado, 0 libre
-uint8 estado_lcd2;                                                     //Estado LCD2 1 ocupado, 0 libre
-uint8 seleccion_pos;                                                   //Selecion de posicion en LCD 1 POS A, 2 POS B
-uint8 seleccion_pos2;                                                  //Selecion de posicion en LCD 1 POS A, 2 POS B
+///Selecion de posicion en LCD 1 POS A, 2 POS B
+uint8 seleccion_pos;                                                   
+///Selecion de posicion en LCD 1 POS A, 2 POS B
+uint8 seleccion_pos2;                                                  
 uint8 venta_activa,venta_activa3;
 uint8 venta_activa2,venta_activa4;
-uint16 id_corte;														//consecutivo del corte
+///consecutivo del corte
+uint16 id_corte;														
 uint8 placa_aux;
+/// numero de venta cuando es copia1
 uint8 no_ventacopia1;
+/// numero de venta cuando es copia2
 uint8 no_ventacopia2;
+/// numero de venta cuando es copia3
 uint8 no_ventacopia3;
+/// numero de venta cuando es copia4
 uint8 no_ventacopia4;
 
 volatile int no_venta;													//Consecutivo de Venta entero	 
@@ -157,7 +161,10 @@ volatile int no_venta;													//Consecutivo de Venta entero
 8	Texaco
 */
 		
-
+/**
+* @struct estructura para el manejo de los datos ingresados por display en cada posición
+*
+*/
 struct buffer{
     uint8 size;
     uint8 pos;
@@ -180,21 +187,30 @@ struct buffer Buffer_LCD4;
 /**********************************************/
 uint8 estado_0;
 
+/**
+* @struct estructura con los datos que hacen consulta a la posición
+*
+*/
 struct pos{
     uint8 dir;
     uint8 estado;
     uint8 manguera;
-    uint8 funcion;      //1=ver_estado, 2=esperando_autor, 3=autorizar, 4=surtiendo, 5=totales, 6=cambio_precio, 7=ver_precio
+    ///1=ver_estado, 2=esperando_autor, 3=autorizar, 4=surtiendo, 5=totales, 6=cambio_precio, 7=ver_precio
+    uint8 funcion;      
     volatile uint8 totales[3][24]; 
 };
 
 
 
-   struct pos a;       //Posiciones del Prime
+   struct pos a;       ///Posiciones del Prime
    struct pos b;
    struct pos c;
    struct pos d;
 
+/**
+* @struct estructura con los datos de venta, estación y cliente para generar el recibo
+*
+*/
 struct recibo{
     uint8 nombre[30];
     uint8 nit[15];

@@ -1,0 +1,248 @@
+\hypertarget{_print_8c}{}\section{Referencia del Archivo Workspace01/\+P\+G\+R\+P700.cydsn/\+Print.c}
+\label{_print_8c}\index{Workspace01/\+P\+G\+R\+P700.\+cydsn/\+Print.\+c@{Workspace01/\+P\+G\+R\+P700.\+cydsn/\+Print.\+c}}
+
+
+Archivo para el manejo de la impresora.  
+
+
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Variables\+G.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I2\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Protocolo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Logos.\+h\char`\"{}}\newline
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_print_8c_ab689ec87a790a6e9329b0c9e79ac1f73}{operacion}} (uint8 tipo, uint8 $\ast$valor1, uint8 $\ast$valor2)
+\begin{DoxyCompactList}\small\item\em Realiza una suma o resta entre dos punteros y lo guarda en el vector global resultado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_ab354e30702cbea012259626e1219694c}{print\+\_\+logo\+\_\+k}} (uint8 val, uint8 logo)
+\begin{DoxyCompactList}\small\item\em Envia por I2C los datos de los vectores de los logos. Usando impresora Kiosco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_a425a64438d3096d6b99b577a569bf06e}{print\+\_\+logo\+\_\+p}} (uint8 val, uint8 logo)
+\begin{DoxyCompactList}\small\item\em Envia por I2C los datos de los vectores de los logos. Usando impresora Panel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_a8f8a4eee5cf4617110a3c6a97c345250}{print\+\_\+totales}} (uint8 val)
+\begin{DoxyCompactList}\small\item\em Envia por I2C los datos de los totales de dinero y volumen, del dispensador, almacenados en memoria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_ae9b1fae30604cc21fb41fe140fba55fc}{print\+\_\+totalesac}} (uint8 digitos, uint8 val)
+\begin{DoxyCompactList}\small\item\em Envia por I2C los datos de los totales de dinero y volumen actuales del dispensador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_a36326d236592d8342180bb41ca08b031}{print\+\_\+valor}} (uint8 $\ast$valor, uint8 val)
+\begin{DoxyCompactList}\small\item\em Envia por I2C el resultado de la resta entre el valor actual y el valor almacenado en memoria de los totales. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_a5663d84aa4c5fe637dc0ad64c3248d66}{imprimir}} (uint8 val, uint8 producto, uint8 copia, uint8 \mbox{\hyperlink{structpos}{pos}})
+\begin{DoxyCompactList}\small\item\em Envia por I2C el recibo de venta, en esta función se da el formato al recibo y los datos que debe tener. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_print_8c_aad08f2224a807eb32e0ec896a81b6e48}{imprimir\+\_\+corte}} (uint8 val)
+\begin{DoxyCompactList}\small\item\em Envia por I2C el recibo de corte con los datos definidos en esta función y el formato determinado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_print_8c_aa2a3691f7b575dd7e05839ada818afe8}\label{_print_8c_aa2a3691f7b575dd7e05839ada818afe8}} 
+uint8 {\bfseries msn\+\_\+eds} \mbox{[}20\mbox{]} =\char`\"{}E\+S\+T\+A\+C\+I\+ON DE S\+E\+R\+V\+I\+C\+IO\char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a07d27733ecbb14cbf19c6a656dc65c14}\label{_print_8c_a07d27733ecbb14cbf19c6a656dc65c14}} 
+uint8 {\bfseries msn\+\_\+nit} \mbox{[}4\mbox{]} =\char`\"{}N\+IT \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_aa3219cf48d8b53861c9561ea80a56953}\label{_print_8c_aa3219cf48d8b53861c9561ea80a56953}} 
+uint8 {\bfseries msn\+\_\+tel} \mbox{[}4\mbox{]} =\char`\"{}T\+E\+L\+:\char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a05253bba6dddce6a926c0c0f06e1fb4c}\label{_print_8c_a05253bba6dddce6a926c0c0f06e1fb4c}} 
+uint8 {\bfseries msn\+\_\+numero} \mbox{[}8\mbox{]} =\char`\"{}Numero\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_aea5040f855fcb67402ae7ccdfffa871d}\label{_print_8c_aea5040f855fcb67402ae7ccdfffa871d}} 
+uint8 {\bfseries msn\+\_\+fecha} \mbox{[}7\mbox{]} =\char`\"{}Fecha\+:\char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a22af2f1ad59a7a9dac550c35ae2a8da7}\label{_print_8c_a22af2f1ad59a7a9dac550c35ae2a8da7}} 
+uint8 {\bfseries msn\+\_\+hora} \mbox{[}7\mbox{]} =\char`\"{}Hora\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_aebaedcc2a2b2a690af08b2d063d89731}\label{_print_8c_aebaedcc2a2b2a690af08b2d063d89731}} 
+uint8 {\bfseries msn\+\_\+pos} \mbox{[}10\mbox{]} =\char`\"{}Posicion\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_afc8c51632b1fd651bde005609019054d}\label{_print_8c_afc8c51632b1fd651bde005609019054d}} 
+uint8 {\bfseries msn\+\_\+ppu} \mbox{[}14\mbox{]} =\char`\"{}P\+P\+U\+: \$/G \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a0e3c1040f6948a901da74f46c4da30a4}\label{_print_8c_a0e3c1040f6948a901da74f46c4da30a4}} 
+uint8 {\bfseries msn\+\_\+vol} \mbox{[}13\mbox{]} =\char`\"{}Volumen\+: G \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_ac833e8557c96ace6670e533dcc80402c}\label{_print_8c_ac833e8557c96ace6670e533dcc80402c}} 
+uint8 {\bfseries msn\+\_\+din} \mbox{[}13\mbox{]} =\char`\"{}Dinero\+: \$ \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a9593dd0150034c77be83c555725019fb}\label{_print_8c_a9593dd0150034c77be83c555725019fb}} 
+uint8 {\bfseries msn\+\_\+placa} \mbox{[}10\mbox{]} =\char`\"{}Placa\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a8f6bfbdb6f9091021b0c9e7a5617e1ed}\label{_print_8c_a8f6bfbdb6f9091021b0c9e7a5617e1ed}} 
+uint8 {\bfseries msn\+\_\+cuenta} \mbox{[}11\mbox{]} =\char`\"{}Cuenta\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a1f04f68aa0baa7e0f98112d55908c9c7}\label{_print_8c_a1f04f68aa0baa7e0f98112d55908c9c7}} 
+uint8 {\bfseries msn\+\_\+km} \mbox{[}11\mbox{]} =\char`\"{}Km\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a3fdd2a5df5995b6d1bbdf15846996f5a}\label{_print_8c_a3fdd2a5df5995b6d1bbdf15846996f5a}} 
+uint8 {\bfseries msn\+\_\+id} \mbox{[}11\mbox{]} =\char`\"{}Id\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a7802a89c2d5b4d4f3a36aa2b6016da4c}\label{_print_8c_a7802a89c2d5b4d4f3a36aa2b6016da4c}} 
+uint8 {\bfseries msn\+\_\+copia} \mbox{[}6\mbox{]} =\char`\"{}C\+O\+P\+IA \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_af2ba4a0e638b52bbc3aeef2d36cb65cd}\label{_print_8c_af2ba4a0e638b52bbc3aeef2d36cb65cd}} 
+uint8 {\bfseries msn\+\_\+producto} \mbox{[}10\mbox{]} =\char`\"{}Producto\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_aaff7c7a47955b0ec1b3c4963a64022a3}\label{_print_8c_aaff7c7a47955b0ec1b3c4963a64022a3}} 
+uint8 {\bfseries msn\+\_\+fcorte} \mbox{[}16\mbox{]} =\char`\"{}Fecha corte\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a35a8c2ab7118bd4669b6d6343c23f678}\label{_print_8c_a35a8c2ab7118bd4669b6d6343c23f678}} 
+uint8 {\bfseries msn\+\_\+hcorte} \mbox{[}16\mbox{]} =\char`\"{}Hora corte\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a05377e653b6019d5cbd666dc58cf9f5f}\label{_print_8c_a05377e653b6019d5cbd666dc58cf9f5f}} 
+uint8 {\bfseries msn\+\_\+idcorte} \mbox{[}16\mbox{]} =\char`\"{}Consecutivo\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a57985ac9e2faa819af4789ca697efbe2}\label{_print_8c_a57985ac9e2faa819af4789ca697efbe2}} 
+uint8 {\bfseries msn\+\_\+ufcorte} \mbox{[}24\mbox{]} =\char`\"{}Ultima Fecha corte\+:\char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a3ee14402dfe81aeed03bcecdadd5d2de}\label{_print_8c_a3ee14402dfe81aeed03bcecdadd5d2de}} 
+uint8 {\bfseries msn\+\_\+uhcorte} \mbox{[}24\mbox{]} =\char`\"{}Ultima Hora corte\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{_print_8c_a5117b521baffd5bff5fbbfef5765b438}\label{_print_8c_a5117b521baffd5bff5fbbfef5765b438}} 
+uint8 {\bfseries msn\+\_\+consecutivo} \mbox{[}24\mbox{]} =\char`\"{}Ultima Hora corte\+: \char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Archivo para el manejo de la impresora. 
+
+Insepet L\+T\+DA \begin{DoxyDate}{Fecha}
+28/2/2016 
+\end{DoxyDate}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{_print_8c_a5663d84aa4c5fe637dc0ad64c3248d66}\label{_print_8c_a5663d84aa4c5fe637dc0ad64c3248d66}} 
+\index{Print.\+c@{Print.\+c}!imprimir@{imprimir}}
+\index{imprimir@{imprimir}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{imprimir()}{imprimir()}}
+{\footnotesize\ttfamily void imprimir (\begin{DoxyParamCaption}\item[{uint8}]{val,  }\item[{uint8}]{producto,  }\item[{uint8}]{copia,  }\item[{uint8}]{pos }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C el recibo de venta, en esta función se da el formato al recibo y los datos que debe tener. 
+
+imprimir 
+\begin{DoxyParams}{Parámetros}
+{\em val} & dato del puerto de la impresora \\
+\hline
+{\em producto} & combustible vendido \\
+\hline
+{\em copia} & indica si es o no copia de recibo (0 si no es copia, 1 copia) \\
+\hline
+{\em pos} & posición del dispensador \\
+\hline
+\end{DoxyParams}
+Carga tipo de impresora \mbox{\Hypertarget{_print_8c_aad08f2224a807eb32e0ec896a81b6e48}\label{_print_8c_aad08f2224a807eb32e0ec896a81b6e48}} 
+\index{Print.\+c@{Print.\+c}!imprimir\+\_\+corte@{imprimir\+\_\+corte}}
+\index{imprimir\+\_\+corte@{imprimir\+\_\+corte}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{imprimir\+\_\+corte()}{imprimir\_corte()}}
+{\footnotesize\ttfamily void imprimir\+\_\+corte (\begin{DoxyParamCaption}\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C el recibo de corte con los datos definidos en esta función y el formato determinado. 
+
+imprimir\+\_\+corte 
+\begin{DoxyParams}{Parámetros}
+{\em val} & dato del puerto de la impresora \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_print_8c_ab689ec87a790a6e9329b0c9e79ac1f73}\label{_print_8c_ab689ec87a790a6e9329b0c9e79ac1f73}} 
+\index{Print.\+c@{Print.\+c}!operacion@{operacion}}
+\index{operacion@{operacion}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{operacion()}{operacion()}}
+{\footnotesize\ttfamily void operacion (\begin{DoxyParamCaption}\item[{uint8}]{tipo,  }\item[{uint8 $\ast$}]{valor1,  }\item[{uint8 $\ast$}]{valor2 }\end{DoxyParamCaption})}
+
+
+
+Realiza una suma o resta entre dos punteros y lo guarda en el vector global resultado. 
+
+operacion 
+\begin{DoxyParams}{Parámetros}
+{\em tipo} & 1 suma, 2 resta \\
+\hline
+{\em $\ast$valor1} & primer operador \\
+\hline
+{\em $\ast$valor2} & segundo operador Se usa para hacer operaciones entre la tramas enviadas por el surtidor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_print_8c_ab354e30702cbea012259626e1219694c}\label{_print_8c_ab354e30702cbea012259626e1219694c}} 
+\index{Print.\+c@{Print.\+c}!print\+\_\+logo\+\_\+k@{print\+\_\+logo\+\_\+k}}
+\index{print\+\_\+logo\+\_\+k@{print\+\_\+logo\+\_\+k}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+logo\+\_\+k()}{print\_logo\_k()}}
+{\footnotesize\ttfamily void print\+\_\+logo\+\_\+k (\begin{DoxyParamCaption}\item[{uint8}]{val,  }\item[{uint8}]{logo }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C los datos de los vectores de los logos. Usando impresora Kiosco. 
+
+print\+\_\+logo\+\_\+k 
+\begin{DoxyParams}{Parámetros}
+{\em val} & dato del puerto de la impresora \\
+\hline
+{\em logo} & número de logo que se selecciona para enviar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_print_8c_a425a64438d3096d6b99b577a569bf06e}\label{_print_8c_a425a64438d3096d6b99b577a569bf06e}} 
+\index{Print.\+c@{Print.\+c}!print\+\_\+logo\+\_\+p@{print\+\_\+logo\+\_\+p}}
+\index{print\+\_\+logo\+\_\+p@{print\+\_\+logo\+\_\+p}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+logo\+\_\+p()}{print\_logo\_p()}}
+{\footnotesize\ttfamily void print\+\_\+logo\+\_\+p (\begin{DoxyParamCaption}\item[{uint8}]{val,  }\item[{uint8}]{logo }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C los datos de los vectores de los logos. Usando impresora Panel. 
+
+print\+\_\+logo\+\_\+p 
+\begin{DoxyParams}{Parámetros}
+{\em val} & dato del puerto de la impresora \\
+\hline
+{\em logo} & número de logo que se selecciona para enviar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_print_8c_a8f8a4eee5cf4617110a3c6a97c345250}\label{_print_8c_a8f8a4eee5cf4617110a3c6a97c345250}} 
+\index{Print.\+c@{Print.\+c}!print\+\_\+totales@{print\+\_\+totales}}
+\index{print\+\_\+totales@{print\+\_\+totales}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+totales()}{print\_totales()}}
+{\footnotesize\ttfamily void print\+\_\+totales (\begin{DoxyParamCaption}\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C los datos de los totales de dinero y volumen, del dispensador, almacenados en memoria. 
+
+print\+\_\+totales 
+\begin{DoxyParams}{Parámetros}
+{\em val} & dato del puerto de la impresora \\
+\hline
+\end{DoxyParams}
+decimal total \mbox{\Hypertarget{_print_8c_ae9b1fae30604cc21fb41fe140fba55fc}\label{_print_8c_ae9b1fae30604cc21fb41fe140fba55fc}} 
+\index{Print.\+c@{Print.\+c}!print\+\_\+totalesac@{print\+\_\+totalesac}}
+\index{print\+\_\+totalesac@{print\+\_\+totalesac}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+totalesac()}{print\_totalesac()}}
+{\footnotesize\ttfamily void print\+\_\+totalesac (\begin{DoxyParamCaption}\item[{uint8}]{digitos,  }\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C los datos de los totales de dinero y volumen actuales del dispensador. 
+
+print\+\_\+totalesac 
+\begin{DoxyParams}{Parámetros}
+{\em val} & dato del puerto de la impresora \\
+\hline
+\end{DoxyParams}
+decimal total AC \mbox{\Hypertarget{_print_8c_a36326d236592d8342180bb41ca08b031}\label{_print_8c_a36326d236592d8342180bb41ca08b031}} 
+\index{Print.\+c@{Print.\+c}!print\+\_\+valor@{print\+\_\+valor}}
+\index{print\+\_\+valor@{print\+\_\+valor}!Print.\+c@{Print.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+valor()}{print\_valor()}}
+{\footnotesize\ttfamily void print\+\_\+valor (\begin{DoxyParamCaption}\item[{uint8 $\ast$}]{valor,  }\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+Envia por I2C el resultado de la resta entre el valor actual y el valor almacenado en memoria de los totales. 
+
+print\+\_\+valor 
+\begin{DoxyParams}{Parámetros}
+{\em $\ast$valor} & dato que se va a imprimir \\
+\hline
+{\em val} & dato del puerto de la impresora \\
+\hline
+\end{DoxyParams}
+decimal total AC 

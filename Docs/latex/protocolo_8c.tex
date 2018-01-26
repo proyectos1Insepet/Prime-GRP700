@@ -1,0 +1,226 @@
+\hypertarget{protocolo_8c}{}\section{Referencia del Archivo Workspace01/\+P\+G\+R\+P700.cydsn/protocolo.c}
+\label{protocolo_8c}\index{Workspace01/\+P\+G\+R\+P700.\+cydsn/protocolo.\+c@{Workspace01/\+P\+G\+R\+P700.\+cydsn/protocolo.\+c}}
+
+
+Archivo para el manejo del dispensador, comunicación del M\+U\+X-\/\+Dispensador.  
+
+
+{\ttfamily \#include \char`\"{}Variables\+G.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I2\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Print.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8 \mbox{\hyperlink{protocolo_8c_a13c056064f1e44d2f087e20cbfd890c6}{ver\+\_\+pos}} (void)
+\begin{DoxyCompactList}\small\item\em detecta las posiciones del equipo \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_a14c223d2170c78d2d551249fbb687b7e}{get\+\_\+estado}} (uint8 dir)
+\begin{DoxyCompactList}\small\item\em obtiene el estado de la posicion a la que se pregunte \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_aa0714d0c95a93d6e275a57c819154962}{estado\+\_\+ex}} (uint8 val)
+\begin{DoxyCompactList}\small\item\em funcion para obtener el número de manija levantada \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_ae93ef9473727d4384c618085521d84e3}{venta}} (uint8 val)
+\begin{DoxyCompactList}\small\item\em La función se llama cuando hay un F\+E\+OT o P\+E\+OT, obtiene los datos de la última venta almacena la venta en eeprom para utilizar los datos en otros procesos. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_a053ac5c5325a41346949af50cec06269}{get\+\_\+totales}} (uint8 dir, uint8 val)
+\begin{DoxyCompactList}\small\item\em Obtiene los totales electrónicos del equipo almacena el valor del corte por producto en eeprom. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_a44476709cd2b825e412c5912ab20686d}{programar}} (uint8 dir, uint8 grado, uint8 $\ast$valor, uint8 preset)
+\begin{DoxyCompactList}\small\item\em Envía el preset al equipo según lo que se programe en las pantallas. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_a6c6fa1a2e7e600121f240906e2d6345b}{cambiar\+\_\+precio}} (uint8 dir)
+\begin{DoxyCompactList}\small\item\em Realiza el cambio de precio al producto seleccionado en pantalla. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_aea6d24d47d729c3214b453e216f09c06}{cambiar\+\_\+precio2}} (uint8 dir)
+\begin{DoxyCompactList}\small\item\em Realiza el cambio de precio al producto seleccionado en pantalla. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{protocolo_8c_acdbfb1f08ec32447e9480582df605578}{cambiar\+\_\+precio3}} (uint8 dir)
+\begin{DoxyCompactList}\small\item\em Realiza el cambio de precio al producto seleccionado en pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{protocolo_8c_ad6840f2fb5f1040aecb3528d03269588}\label{protocolo_8c_ad6840f2fb5f1040aecb3528d03269588}} 
+uint8 {\bfseries msn\+\_\+tc} \mbox{[}6\mbox{]} =\char`\"{}T\+O\+T\+AL\char`\"{}
+\item 
+\mbox{\Hypertarget{protocolo_8c_a9aff2cdeba8838254de9bb20a7b32c41}\label{protocolo_8c_a9aff2cdeba8838254de9bb20a7b32c41}} 
+uint8 {\bfseries msn\+\_\+lecact} \mbox{[}15\mbox{]} =\char`\"{}Valor actual\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{protocolo_8c_adca228238327b1cebfffe72e58f26119}\label{protocolo_8c_adca228238327b1cebfffe72e58f26119}} 
+uint8 {\bfseries msn\+\_\+lecaan} \mbox{[}17\mbox{]} =\char`\"{}Valor anterior\+: \char`\"{}
+\item 
+\mbox{\Hypertarget{protocolo_8c_ae426e13733a5ff0e37ebeeb53699e97f}\label{protocolo_8c_ae426e13733a5ff0e37ebeeb53699e97f}} 
+uint8 {\bfseries msn\+\_\+tventas} \mbox{[}18\mbox{]} =\char`\"{}Dinero total\+: \$ \char`\"{}
+\item 
+\mbox{\Hypertarget{protocolo_8c_ad64b79c71de8ec2b62f784c0626cb6ca}\label{protocolo_8c_ad64b79c71de8ec2b62f784c0626cb6ca}} 
+uint8 {\bfseries msn\+\_\+totalcero} \mbox{[}15\mbox{]} =\char`\"{}No toma totales\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Archivo para el manejo del dispensador, comunicación del M\+U\+X-\/\+Dispensador. 
+
+Insepet L\+T\+DA \begin{DoxyDate}{Fecha}
+28/2/2016 
+\end{DoxyDate}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{protocolo_8c_a6c6fa1a2e7e600121f240906e2d6345b}\label{protocolo_8c_a6c6fa1a2e7e600121f240906e2d6345b}} 
+\index{protocolo.\+c@{protocolo.\+c}!cambiar\+\_\+precio@{cambiar\+\_\+precio}}
+\index{cambiar\+\_\+precio@{cambiar\+\_\+precio}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{cambiar\+\_\+precio()}{cambiar\_precio()}}
+{\footnotesize\ttfamily uint8 cambiar\+\_\+precio (\begin{DoxyParamCaption}\item[{uint8}]{dir }\end{DoxyParamCaption})}
+
+
+
+Realiza el cambio de precio al producto seleccionado en pantalla. 
+
+cambiar\+\_\+precio 
+\begin{DoxyParams}{Parámetros}
+{\em dir} & posición del surtidor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si hay error, 1 si realiza el cambio de precio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_aea6d24d47d729c3214b453e216f09c06}\label{protocolo_8c_aea6d24d47d729c3214b453e216f09c06}} 
+\index{protocolo.\+c@{protocolo.\+c}!cambiar\+\_\+precio2@{cambiar\+\_\+precio2}}
+\index{cambiar\+\_\+precio2@{cambiar\+\_\+precio2}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{cambiar\+\_\+precio2()}{cambiar\_precio2()}}
+{\footnotesize\ttfamily uint8 cambiar\+\_\+precio2 (\begin{DoxyParamCaption}\item[{uint8}]{dir }\end{DoxyParamCaption})}
+
+
+
+Realiza el cambio de precio al producto seleccionado en pantalla. 
+
+cambiar\+\_\+precio2 
+\begin{DoxyParams}{Parámetros}
+{\em dir} & posición del surtidor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si hay error, 1 si realiza el cambio de precio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_acdbfb1f08ec32447e9480582df605578}\label{protocolo_8c_acdbfb1f08ec32447e9480582df605578}} 
+\index{protocolo.\+c@{protocolo.\+c}!cambiar\+\_\+precio3@{cambiar\+\_\+precio3}}
+\index{cambiar\+\_\+precio3@{cambiar\+\_\+precio3}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{cambiar\+\_\+precio3()}{cambiar\_precio3()}}
+{\footnotesize\ttfamily uint8 cambiar\+\_\+precio3 (\begin{DoxyParamCaption}\item[{uint8}]{dir }\end{DoxyParamCaption})}
+
+
+
+Realiza el cambio de precio al producto seleccionado en pantalla. 
+
+cambiar\+\_\+precio3 
+\begin{DoxyParams}{Parámetros}
+{\em dir} & posición del surtidor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si hay error, 1 si realiza el cambio de precio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_aa0714d0c95a93d6e275a57c819154962}\label{protocolo_8c_aa0714d0c95a93d6e275a57c819154962}} 
+\index{protocolo.\+c@{protocolo.\+c}!estado\+\_\+ex@{estado\+\_\+ex}}
+\index{estado\+\_\+ex@{estado\+\_\+ex}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{estado\+\_\+ex()}{estado\_ex()}}
+{\footnotesize\ttfamily uint8 estado\+\_\+ex (\begin{DoxyParamCaption}\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+funcion para obtener el número de manija levantada 
+
+estado\+\_\+ex 
+\begin{DoxyParams}{Parámetros}
+{\em val} & posición del surtidor, lado de la manija que se levantó \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si error, \# de manija 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_a14c223d2170c78d2d551249fbb687b7e}\label{protocolo_8c_a14c223d2170c78d2d551249fbb687b7e}} 
+\index{protocolo.\+c@{protocolo.\+c}!get\+\_\+estado@{get\+\_\+estado}}
+\index{get\+\_\+estado@{get\+\_\+estado}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+estado()}{get\_estado()}}
+{\footnotesize\ttfamily uint8 get\+\_\+estado (\begin{DoxyParamCaption}\item[{uint8}]{dir }\end{DoxyParamCaption})}
+
+
+
+obtiene el estado de la posicion a la que se pregunte 
+
+get\+\_\+estado 
+\begin{DoxyParams}{Parámetros}
+{\em dir} & direccion de la posicion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+estado si hay respuesta del dispensador 0 si no 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_a053ac5c5325a41346949af50cec06269}\label{protocolo_8c_a053ac5c5325a41346949af50cec06269}} 
+\index{protocolo.\+c@{protocolo.\+c}!get\+\_\+totales@{get\+\_\+totales}}
+\index{get\+\_\+totales@{get\+\_\+totales}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+totales()}{get\_totales()}}
+{\footnotesize\ttfamily uint8 get\+\_\+totales (\begin{DoxyParamCaption}\item[{uint8}]{dir,  }\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+Obtiene los totales electrónicos del equipo almacena el valor del corte por producto en eeprom. 
+
+get\+\_\+totales 
+\begin{DoxyParams}{Parámetros}
+{\em dir} & posición del surtidor \\
+\hline
+{\em val} & puerto de impresora \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si hay error, 1 si se realizan las operaciones y se almacenan los totales e imprime el recibo de corte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_a44476709cd2b825e412c5912ab20686d}\label{protocolo_8c_a44476709cd2b825e412c5912ab20686d}} 
+\index{protocolo.\+c@{protocolo.\+c}!programar@{programar}}
+\index{programar@{programar}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{programar()}{programar()}}
+{\footnotesize\ttfamily uint8 programar (\begin{DoxyParamCaption}\item[{uint8}]{dir,  }\item[{uint8}]{grado,  }\item[{uint8 $\ast$}]{valor,  }\item[{uint8}]{preset }\end{DoxyParamCaption})}
+
+
+
+Envía el preset al equipo según lo que se programe en las pantallas. 
+
+programar 
+\begin{DoxyParams}{Parámetros}
+{\em dir} & posición del surtidor \\
+\hline
+{\em grado} & manguera del equipo \\
+\hline
+{\em $\ast$valor} & valor del preset a enviar \\
+\hline
+{\em preset} & tipo de preset 1,2,3 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si hay error, 1 si se realiza el preset al equipo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_ae93ef9473727d4384c618085521d84e3}\label{protocolo_8c_ae93ef9473727d4384c618085521d84e3}} 
+\index{protocolo.\+c@{protocolo.\+c}!venta@{venta}}
+\index{venta@{venta}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{venta()}{venta()}}
+{\footnotesize\ttfamily uint8 venta (\begin{DoxyParamCaption}\item[{uint8}]{val }\end{DoxyParamCaption})}
+
+
+
+La función se llama cuando hay un F\+E\+OT o P\+E\+OT, obtiene los datos de la última venta almacena la venta en eeprom para utilizar los datos en otros procesos. 
+
+venta 
+\begin{DoxyParams}{Parámetros}
+{\em val} & posición del surtidor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 si hay error, 1 si se almacena la venta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{protocolo_8c_a13c056064f1e44d2f087e20cbfd890c6}\label{protocolo_8c_a13c056064f1e44d2f087e20cbfd890c6}} 
+\index{protocolo.\+c@{protocolo.\+c}!ver\+\_\+pos@{ver\+\_\+pos}}
+\index{ver\+\_\+pos@{ver\+\_\+pos}!protocolo.\+c@{protocolo.\+c}}
+\subsubsection{\texorpdfstring{ver\+\_\+pos()}{ver\_pos()}}
+{\footnotesize\ttfamily uint8 ver\+\_\+pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+detecta las posiciones del equipo 
+
+ver\+\_\+pos \begin{DoxyReturn}{Devuelve}
+1 si detecta las dos posiciones 0 si no detecta ninguna 2 si detecta 4 si se conecta un equipo de 2 no funciona correctamente 
+\end{DoxyReturn}

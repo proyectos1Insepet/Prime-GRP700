@@ -1,30 +1,8 @@
-/*
-*********************************************************************************************************
-*                                           GRP500 CODE
-*
-*                             (c) Copyright 2013; Sistemas Insepet LTDA
-*
-*               All rights reserved.  Protected by international copyright laws.
-*               Knowledge of the source code may NOT be used to develop a similar product.
-*               Please help us continue to provide the Embedded community with the finest
-*               software available.  Your honesty is greatly appreciated.
-*********************************************************************************************************
-*/
-
-/*
-*********************************************************************************************************
-*
-*                                               GRP500 CODE
-*
-*                                             CYPRESS PSoC5LP
-*                                                with the
-*                                            CY8C5969AXI-LP035
-*
-* Filename      : Print.c
-* Version       : V1.00
-* Programmer(s) : 
-                  
-*********************************************************************************************************
+/**
+* @file Print.c
+* @Author Insepet LTDA
+* @date 28/2/2016
+* @brief Archivo para el manejo de la impresora
 */
 
 
@@ -68,25 +46,14 @@ uint8 msn_uhcorte[24]="Ultima Hora corte:  ";
 uint8 msn_consecutivo[24]="Ultima Hora corte: ";
 
 
-/*
-*********************************************************************************************************
-*                             void operacion(uint8 tipo, uint8 *valor1, uint8 *valor2)
-*
-* Description : Realiza una suma o resta entre dos punteros y lo guarda en el vector global resultado
-*               
-*
-* Argument(s) : uint8 tipo 1 Suma 2 Resta
-				uint8 *valor1 = Operador uno (En el caso de la resta es el mayor)
-				uint8 *valor2 = Operador dos
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : Se usa para hacer operaciones entre la tramas enviadas por el surtidor.
-*********************************************************************************************************
+/**
+* operacion
+* @brief Realiza una suma o resta entre dos punteros y lo guarda en el vector global resultado
+* @param tipo 1 suma, 2 resta
+* @param *valor1 primer operador
+* @param *valor2 segundo operador
+* Se usa para hacer operaciones entre la tramas enviadas por el surtidor.
 */
-
 void operacion(uint8 tipo, uint8 *valor1, uint8 *valor2){
 	uint8 carrier,i;
 	uint8 max_valor[12]={9,9,9,9,9,9,9,9,9,9,9,9};
@@ -157,21 +124,12 @@ void operacion(uint8 tipo, uint8 *valor1, uint8 *valor2){
 	}
 }
 
-/*
-*********************************************************************************************************
-*                          				void print_logo_k(uint8 val, uint8 logo)
+/**
+* print_logo_k
+* @brief Envia por I2C los datos de los vectores de los logos. Usando impresora Kiosco
+* @param val dato del puerto de la impresora
+* @param logo número de logo que se selecciona para enviar
 *
-* Description : Envia por I2C los datos de los vectores de los logos. Usando impresora Kiosco
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void print_logo_k(uint8 val, uint8 logo){
 	uint16 i;
@@ -277,22 +235,12 @@ void print_logo_k(uint8 val, uint8 logo){
 }
 
 
-
-/*
-*********************************************************************************************************
-*                          				void print_logo_p(uint8 val, uint8 logo)
+/**
+* print_logo_p
+* @brief Envia por I2C los datos de los vectores de los logos. Usando impresora Panel
+* @param val dato del puerto de la impresora
+* @param logo número de logo que se selecciona para enviar
 *
-* Description : Envia por I2C los datos de los vectores de los logos. Para impresora panel
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
 void print_logo_p(uint8 val, uint8 logo){
 	uint16 i;
@@ -398,23 +346,12 @@ void print_logo_p(uint8 val, uint8 logo){
 }
 
 
-/*
-*********************************************************************************************************
-*                                       void print_totales(void)
+/**
+* print_totales
+* @brief Envia por I2C los datos de los totales de dinero y volumen, del dispensador, almacenados en memoria
+* @param val dato del puerto de la impresora
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 void print_totales(uint8 val){
 	uint8 digito;
     write_psoc1(val,10);
@@ -455,23 +392,12 @@ void print_totales(uint8 val){
 	write_psoc1(val,10);
 }
 
-/*
-*********************************************************************************************************
-*                               void print_totalesac(uint8 digitos)
+/**
+* print_totalesac
+* @brief Envia por I2C los datos de los totales de dinero y volumen actuales del dispensador
+* @param val dato del puerto de la impresora
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 void print_totalesac(uint8 digitos, uint8 val){
 	uint8 digito,i;
     write_psoc1(val,10);
@@ -514,23 +440,13 @@ void print_totalesac(uint8 digitos, uint8 val){
 	write_psoc1(val,10);
 }
 
-/*
-*********************************************************************************************************
-*                               void print_valor(uint8 *valor)
+/**
+* print_valor
+* @brief Envia por I2C el resultado de la resta entre el valor actual y el valor almacenado en memoria de los totales
+* @param *valor dato que se va a imprimir
+* @param val dato del puerto de la impresora
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 void print_valor(uint8 *valor, uint8 val){
 	uint8 digito,i;
 	digito=0;
@@ -551,23 +467,16 @@ void print_valor(uint8 *valor, uint8 val){
 	write_psoc1(val,10);
 }
 
-/*
-*********************************************************************************************************
-*                                         void imprimir(uint8 val)
-*
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
-*/
 
+/**
+* imprimir
+* @brief Envia por I2C el recibo de venta, en esta función se da el formato al recibo y los datos que debe tener
+* @param val dato del puerto de la impresora
+* @param producto combustible vendido
+* @param copia indica si es o no copia de recibo (0 si no es copia, 1 copia)
+* @param pos posición del dispensador
+*
+*/
 void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
     uint8 digito;
     leer_eeprom(1012,2);   ///Carga tipo de impresora
@@ -1162,23 +1071,12 @@ void imprimir(uint8 val, uint8 producto, uint8 copia, uint8 pos){
 }
 
 
-/*
-*********************************************************************************************************
-*                                       void imprimir_corte(void)
+/**
+* imprimir_corte
+* @brief Envia por I2C el recibo de corte con los datos definidos en esta función y el formato determinado
+* @param val dato del puerto de la impresora
 *
-* Description : 
-*               
-*
-* Argument(s) : none
-*
-* Return(s)   : none
-*
-* Caller(s)   : 
-*
-* Note(s)     : none.
-*********************************************************************************************************
 */
-
 void imprimir_corte(uint8 val){
     write_psoc1(val,10);
     write_psoc1(val,10);

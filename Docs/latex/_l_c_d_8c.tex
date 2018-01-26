@@ -1,0 +1,294 @@
+\hypertarget{_l_c_d_8c}{}\section{Referencia del Archivo Workspace01/\+P\+G\+R\+P700.cydsn/\+L\+CD.c}
+\label{_l_c_d_8c}\index{Workspace01/\+P\+G\+R\+P700.\+cydsn/\+L\+C\+D.\+c@{Workspace01/\+P\+G\+R\+P700.\+cydsn/\+L\+C\+D.\+c}}
+
+
+Archivo que contiene las funciones de control de los L\+CD.  
+
+
+{\ttfamily \#include \char`\"{}Variables\+G.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I2\+C.\+h\char`\"{}}\newline
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_l_c_d_8c_a5fc24f95b188a91ff51cead6bb4d8553}{set\+\_\+imagen}} (uint8 lcd, uint16 id)
+\begin{DoxyCompactList}\small\item\em envía identificador de imagen a la pantalla para que se muestre \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a27a7398b1a3e8fa80ae160800e4d8a8d}{write\+\_\+\+L\+CD}} (uint8 lcd, uint8 dato, uint8 \mbox{\hyperlink{structpos}{pos}})
+\begin{DoxyCompactList}\small\item\em función para escribir caracteres en pantalla, escribe byte a byte \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a753a6ca958e32b831ce97fe18247ef92}{Hora\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe la hora actual en la pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a5537524f86a0e64cb814e46a986c1c4a}{Fecha\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe la fecha actual en la pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a5b8b5aa2ba8cb256eeefabd1a02c3866}{Nombre\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe nombre de la estación en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a6c26b552703771a975543d2eadc4cfe9}{Precio\+\_\+\+L\+CD}} (uint8 lcd, uint8 y1, uint8 y2, uint16 eeprom)
+\begin{DoxyCompactList}\small\item\em escribe precios del producto en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a8be093b0c401197bcdeb1661aa49f751}{Grado\+\_\+\+L\+CD}} (uint8 lcd, uint8 y1, uint8 y2, uint16 eeprom)
+\begin{DoxyCompactList}\small\item\em escribe número de manguera en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_adc77eeedb53cf46040b0947fee39979b}{direccion\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe dirección de la estación en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a334a43b77fa4b3d1f17dd9f1dc228e56}{lema1\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe lema 1 de la estación en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_ae1c009dd2bbb3fdce9d494405fb0040d}{lema2\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe lema 2 de la estación en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a67255090a7f91da11a46a0c254cc7909}{telefono\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe el teléfono de la estación en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_adf05c9faf00d7383ec7172fa8cd16b73}{nit\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe el N\+IT de la estación en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a45429dee59161cbb79f32e4d0c1a8ab9}{Cuenta\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe la cuenta del cliente en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_a028465a5184f1e503b602ae7f7f31e5c}{Placa\+\_\+\+L\+CD}} (uint8 lcd)
+\begin{DoxyCompactList}\small\item\em escribe la placa del cliente en pantalla \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_c_d_8c_ac4b6242913cc63d6e5f7ea420843958c}{writemini\+\_\+\+L\+CD}} (uint8 lcd, uint8 dato, uint16 \mbox{\hyperlink{structpos}{pos}})
+\begin{DoxyCompactList}\small\item\em escribe datos en pantalla, los datos son de menor tamaño a los usuales \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Archivo que contiene las funciones de control de los L\+CD. 
+
+Insepet L\+T\+DA \begin{DoxyDate}{Fecha}
+28/2/2016 
+\end{DoxyDate}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{_l_c_d_8c_a45429dee59161cbb79f32e4d0c1a8ab9}\label{_l_c_d_8c_a45429dee59161cbb79f32e4d0c1a8ab9}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Cuenta\+\_\+\+L\+CD@{Cuenta\+\_\+\+L\+CD}}
+\index{Cuenta\+\_\+\+L\+CD@{Cuenta\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Cuenta\+\_\+\+L\+C\+D()}{Cuenta\_LCD()}}
+{\footnotesize\ttfamily void Cuenta\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe la cuenta del cliente en pantalla 
+
+Cuenta\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_adc77eeedb53cf46040b0947fee39979b}\label{_l_c_d_8c_adc77eeedb53cf46040b0947fee39979b}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!direccion\+\_\+\+L\+CD@{direccion\+\_\+\+L\+CD}}
+\index{direccion\+\_\+\+L\+CD@{direccion\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{direccion\+\_\+\+L\+C\+D()}{direccion\_LCD()}}
+{\footnotesize\ttfamily void direccion\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe dirección de la estación en pantalla 
+
+direccion\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a5537524f86a0e64cb814e46a986c1c4a}\label{_l_c_d_8c_a5537524f86a0e64cb814e46a986c1c4a}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Fecha\+\_\+\+L\+CD@{Fecha\+\_\+\+L\+CD}}
+\index{Fecha\+\_\+\+L\+CD@{Fecha\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Fecha\+\_\+\+L\+C\+D()}{Fecha\_LCD()}}
+{\footnotesize\ttfamily void Fecha\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe la fecha actual en la pantalla 
+
+Fecha\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a8be093b0c401197bcdeb1661aa49f751}\label{_l_c_d_8c_a8be093b0c401197bcdeb1661aa49f751}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Grado\+\_\+\+L\+CD@{Grado\+\_\+\+L\+CD}}
+\index{Grado\+\_\+\+L\+CD@{Grado\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Grado\+\_\+\+L\+C\+D()}{Grado\_LCD()}}
+{\footnotesize\ttfamily void Grado\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd,  }\item[{uint8}]{y1,  }\item[{uint8}]{y2,  }\item[{uint16}]{eeprom }\end{DoxyParamCaption})}
+
+
+
+escribe número de manguera en pantalla 
+
+Grado\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+{\em y1} & posición x \\
+\hline
+{\em y1} & posición y \\
+\hline
+{\em eeprom} & posición en eeprom en que se encuentra el dato de grado \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a753a6ca958e32b831ce97fe18247ef92}\label{_l_c_d_8c_a753a6ca958e32b831ce97fe18247ef92}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Hora\+\_\+\+L\+CD@{Hora\+\_\+\+L\+CD}}
+\index{Hora\+\_\+\+L\+CD@{Hora\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Hora\+\_\+\+L\+C\+D()}{Hora\_LCD()}}
+{\footnotesize\ttfamily void Hora\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe la hora actual en la pantalla 
+
+Hora\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a334a43b77fa4b3d1f17dd9f1dc228e56}\label{_l_c_d_8c_a334a43b77fa4b3d1f17dd9f1dc228e56}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!lema1\+\_\+\+L\+CD@{lema1\+\_\+\+L\+CD}}
+\index{lema1\+\_\+\+L\+CD@{lema1\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{lema1\+\_\+\+L\+C\+D()}{lema1\_LCD()}}
+{\footnotesize\ttfamily void lema1\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe lema 1 de la estación en pantalla 
+
+lema1\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_ae1c009dd2bbb3fdce9d494405fb0040d}\label{_l_c_d_8c_ae1c009dd2bbb3fdce9d494405fb0040d}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!lema2\+\_\+\+L\+CD@{lema2\+\_\+\+L\+CD}}
+\index{lema2\+\_\+\+L\+CD@{lema2\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{lema2\+\_\+\+L\+C\+D()}{lema2\_LCD()}}
+{\footnotesize\ttfamily void lema2\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe lema 2 de la estación en pantalla 
+
+lema2\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_adf05c9faf00d7383ec7172fa8cd16b73}\label{_l_c_d_8c_adf05c9faf00d7383ec7172fa8cd16b73}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!nit\+\_\+\+L\+CD@{nit\+\_\+\+L\+CD}}
+\index{nit\+\_\+\+L\+CD@{nit\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{nit\+\_\+\+L\+C\+D()}{nit\_LCD()}}
+{\footnotesize\ttfamily void nit\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe el N\+IT de la estación en pantalla 
+
+nit\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a5b8b5aa2ba8cb256eeefabd1a02c3866}\label{_l_c_d_8c_a5b8b5aa2ba8cb256eeefabd1a02c3866}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Nombre\+\_\+\+L\+CD@{Nombre\+\_\+\+L\+CD}}
+\index{Nombre\+\_\+\+L\+CD@{Nombre\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Nombre\+\_\+\+L\+C\+D()}{Nombre\_LCD()}}
+{\footnotesize\ttfamily void Nombre\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe nombre de la estación en pantalla 
+
+Nombre\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a028465a5184f1e503b602ae7f7f31e5c}\label{_l_c_d_8c_a028465a5184f1e503b602ae7f7f31e5c}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Placa\+\_\+\+L\+CD@{Placa\+\_\+\+L\+CD}}
+\index{Placa\+\_\+\+L\+CD@{Placa\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Placa\+\_\+\+L\+C\+D()}{Placa\_LCD()}}
+{\footnotesize\ttfamily void Placa\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe la placa del cliente en pantalla 
+
+Placa\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a6c26b552703771a975543d2eadc4cfe9}\label{_l_c_d_8c_a6c26b552703771a975543d2eadc4cfe9}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!Precio\+\_\+\+L\+CD@{Precio\+\_\+\+L\+CD}}
+\index{Precio\+\_\+\+L\+CD@{Precio\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{Precio\+\_\+\+L\+C\+D()}{Precio\_LCD()}}
+{\footnotesize\ttfamily void Precio\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd,  }\item[{uint8}]{y1,  }\item[{uint8}]{y2,  }\item[{uint16}]{eeprom }\end{DoxyParamCaption})}
+
+
+
+escribe precios del producto en pantalla 
+
+Precio\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a5fc24f95b188a91ff51cead6bb4d8553}\label{_l_c_d_8c_a5fc24f95b188a91ff51cead6bb4d8553}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!set\+\_\+imagen@{set\+\_\+imagen}}
+\index{set\+\_\+imagen@{set\+\_\+imagen}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+imagen()}{set\_imagen()}}
+{\footnotesize\ttfamily void set\+\_\+imagen (\begin{DoxyParamCaption}\item[{uint8}]{lcd,  }\item[{uint16}]{id }\end{DoxyParamCaption})}
+
+
+
+envía identificador de imagen a la pantalla para que se muestre 
+
+set\+\_\+imagen 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+{\em id} & número de imágen a mostrar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a67255090a7f91da11a46a0c254cc7909}\label{_l_c_d_8c_a67255090a7f91da11a46a0c254cc7909}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!telefono\+\_\+\+L\+CD@{telefono\+\_\+\+L\+CD}}
+\index{telefono\+\_\+\+L\+CD@{telefono\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{telefono\+\_\+\+L\+C\+D()}{telefono\_LCD()}}
+{\footnotesize\ttfamily void telefono\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd }\end{DoxyParamCaption})}
+
+
+
+escribe el teléfono de la estación en pantalla 
+
+telefono\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_a27a7398b1a3e8fa80ae160800e4d8a8d}\label{_l_c_d_8c_a27a7398b1a3e8fa80ae160800e4d8a8d}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!write\+\_\+\+L\+CD@{write\+\_\+\+L\+CD}}
+\index{write\+\_\+\+L\+CD@{write\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+\+L\+C\+D()}{write\_LCD()}}
+{\footnotesize\ttfamily void write\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd,  }\item[{uint8}]{dato,  }\item[{uint8}]{pos }\end{DoxyParamCaption})}
+
+
+
+función para escribir caracteres en pantalla, escribe byte a byte 
+
+write\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+{\em dato} & caracter a mostrar \\
+\hline
+{\em pos} & poscición en pantalla \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_l_c_d_8c_ac4b6242913cc63d6e5f7ea420843958c}\label{_l_c_d_8c_ac4b6242913cc63d6e5f7ea420843958c}} 
+\index{L\+C\+D.\+c@{L\+C\+D.\+c}!writemini\+\_\+\+L\+CD@{writemini\+\_\+\+L\+CD}}
+\index{writemini\+\_\+\+L\+CD@{writemini\+\_\+\+L\+CD}!L\+C\+D.\+c@{L\+C\+D.\+c}}
+\subsubsection{\texorpdfstring{writemini\+\_\+\+L\+C\+D()}{writemini\_LCD()}}
+{\footnotesize\ttfamily void writemini\+\_\+\+L\+CD (\begin{DoxyParamCaption}\item[{uint8}]{lcd,  }\item[{uint8}]{dato,  }\item[{uint16}]{pos }\end{DoxyParamCaption})}
+
+
+
+escribe datos en pantalla, los datos son de menor tamaño a los usuales 
+
+writemini\+\_\+\+L\+CD 
+\begin{DoxyParams}{Parámetros}
+{\em lcd} & pantalla que se va a usar \\
+\hline
+{\em dato} & dato que se va a escribir \\
+\hline
+{\em pos} & posición en eje x del dato a mostrar a partir de una posición inicial \\
+\hline
+\end{DoxyParams}

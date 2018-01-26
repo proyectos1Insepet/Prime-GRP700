@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GRP700 Prime: Referencia del Archivo Workspace01/PGRP700.cydsn/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GRP700 Prime
+   &#160;<span id="projectnumber">4.0</span>
+   </div>
+   <div id="projectbrief">Sistema de impresión autónomo para equipos de 4 posiciones, preparado para impresora panel y kiosco</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('main_8c.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;Protocolo.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_variables_g_8h_source.html">VariablesG.h</a>&quot;</code><br />
+<code>#include &quot;Print.h&quot;</code><br />
+<code>#include &quot;LCD.h&quot;</code><br />
+<code>#include &quot;ibutton.h&quot;</code><br />
+<code>#include &quot;I2C.h&quot;</code><br />
+<code>#include &lt;project.h&gt;</code><br />
+<code>#include &lt;device.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a5edd556b6c4c55502c0ba0c1c4e53da5"><td class="memItemLeft" align="right" valign="top"><a id="a5edd556b6c4c55502c0ba0c1c4e53da5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5edd556b6c4c55502c0ba0c1c4e53da5">init</a> (void)</td></tr>
+<tr class="memdesc:a5edd556b6c4c55502c0ba0c1c4e53da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialización de periféricos, lectura de variables de eeprom externa inicialización de interrupciones. <br /></td></tr>
+<tr class="separator:a5edd556b6c4c55502c0ba0c1c4e53da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa39af270863d85e73f03f9f2d580d780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa39af270863d85e73f03f9f2d580d780">init_surt</a> (void)</td></tr>
+<tr class="memdesc:aa39af270863d85e73f03f9f2d580d780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialización de la comunicación con el surtidor detecta las 4 posiciones del equipo para iniciar el GRP.  <a href="#aa39af270863d85e73f03f9f2d580d780">Más...</a><br /></td></tr>
+<tr class="separator:aa39af270863d85e73f03f9f2d580d780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a689d30a3abeeb050fc1be0f6a774ceb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a689d30a3abeeb050fc1be0f6a774ceb1">init_pantallas</a> (void)</td></tr>
+<tr class="memdesc:a689d30a3abeeb050fc1be0f6a774ceb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialización de las pantallas, muestra la imagen de espera de las posiciones.  <a href="#a689d30a3abeeb050fc1be0f6a774ceb1">Más...</a><br /></td></tr>
+<tr class="separator:a689d30a3abeeb050fc1be0f6a774ceb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7caf93b8678045da245eaeb2c9fcdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aff7caf93b8678045da245eaeb2c9fcdf">polling_pos1</a> (void)</td></tr>
+<tr class="memdesc:aff7caf93b8678045da245eaeb2c9fcdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de estado de la primera posición del dispensador.  <a href="#aff7caf93b8678045da245eaeb2c9fcdf">Más...</a><br /></td></tr>
+<tr class="separator:aff7caf93b8678045da245eaeb2c9fcdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab062053bb61c33f060cc524814811e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab062053bb61c33f060cc524814811e18">polling_pos2</a> (void)</td></tr>
+<tr class="memdesc:ab062053bb61c33f060cc524814811e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de estado de la segunda posición del dispensador.  <a href="#ab062053bb61c33f060cc524814811e18">Más...</a><br /></td></tr>
+<tr class="separator:ab062053bb61c33f060cc524814811e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aaf63f7f4a4dff4153cde0235e21334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9aaf63f7f4a4dff4153cde0235e21334">polling_pos3</a> (void)</td></tr>
+<tr class="memdesc:a9aaf63f7f4a4dff4153cde0235e21334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de estado de la tercera posición del dispensador.  <a href="#a9aaf63f7f4a4dff4153cde0235e21334">Más...</a><br /></td></tr>
+<tr class="separator:a9aaf63f7f4a4dff4153cde0235e21334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12716cf6a2e08e3513bf535f7d14fc7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a12716cf6a2e08e3513bf535f7d14fc7b">polling_pos4</a> (void)</td></tr>
+<tr class="memdesc:a12716cf6a2e08e3513bf535f7d14fc7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de estado de la cuarta posición del dispensador.  <a href="#a12716cf6a2e08e3513bf535f7d14fc7b">Más...</a><br /></td></tr>
+<tr class="separator:a12716cf6a2e08e3513bf535f7d14fc7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal, se llaman las inicializaciones de periféricos y memorias según las variables de control de pantalla hace el polling a la posición activa.  <a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">Más...</a><br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac37a7048207eafa341f3def92404e9c4"><td class="memItemLeft" align="right" valign="top"><a id="ac37a7048207eafa341f3def92404e9c4"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>letras</b> [26] ={0x25,0x42,0x31,0x27,0x1D,0x28,0x29,0x2A,0x22,0x2B,0x2C,0x2D,0x35,0x34,0x23,0x24,0x1B,0x1E,0x26,0x1F,0x21,0x32,0x1C,0x30,0x20,0x2F}</td></tr>
+<tr class="separator:ac37a7048207eafa341f3def92404e9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f801cb6646938a169eaca3535caa28"><td class="memItemLeft" align="right" valign="top"><a id="ae2f801cb6646938a169eaca3535caa28"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>test</b> [18] =&quot;Test de Impresora&quot;</td></tr>
+<tr class="separator:ae2f801cb6646938a169eaca3535caa28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02aa97d44fde394545b7170595683439"><td class="memItemLeft" align="right" valign="top"><a id="a02aa97d44fde394545b7170595683439"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>puk</b> [8] =&quot;18928005&quot;</td></tr>
+<tr class="separator:a02aa97d44fde394545b7170595683439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1be262136666311b24143e58586ff3f"><td class="memItemLeft" align="right" valign="top"><a id="af1be262136666311b24143e58586ff3f"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>serial</b> [17] =&quot;0FFFFF8FEEBEB2DC0&quot;</td></tr>
+<tr class="separator:af1be262136666311b24143e58586ff3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed35a5990fe40d271ed6d1dbb9da87c"><td class="memItemLeft" align="right" valign="top"><a id="aaed35a5990fe40d271ed6d1dbb9da87c"></a>
+uint8&#160;</td><td class="memItemRight" valign="bottom"><b>pasword_corte</b> [5] ={4,'1','2','3','4'}</td></tr>
+<tr class="separator:aaed35a5990fe40d271ed6d1dbb9da87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador. </p>
+<p>Insepet LTDA </p><dl class="section date"><dt>Fecha</dt><dd>28/2/2016 </dd></dl>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a689d30a3abeeb050fc1be0f6a774ceb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689d30a3abeeb050fc1be0f6a774ceb1">&#9670;&nbsp;</a></span>init_pantallas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_pantallas </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicialización de las pantallas, muestra la imagen de espera de las posiciones. </p>
+<p>init_pantallas </p>
+
+</div>
+</div>
+<a id="aa39af270863d85e73f03f9f2d580d780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39af270863d85e73f03f9f2d580d780">&#9670;&nbsp;</a></span>init_surt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_surt </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicialización de la comunicación con el surtidor detecta las 4 posiciones del equipo para iniciar el GRP. </p>
+<p>init_surt </p>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal, se llaman las inicializaciones de periféricos y memorias según las variables de control de pantalla hace el polling a la posición activa. </p>
+<p>main </p>
+<p>Variable de control para el intercambio de pantalla entre las posiciones (fisicas) 1 y 3</p>
+<p>Variable de control para el intercambio de pantalla entre las posiciones (fisicas) 2 y 4 </p>
+
+</div>
+</div>
+<a id="aff7caf93b8678045da245eaeb2c9fcdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff7caf93b8678045da245eaeb2c9fcdf">&#9670;&nbsp;</a></span>polling_pos1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void polling_pos1 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de estado de la primera posición del dispensador. </p>
+<p>polling_pos1 </p>
+
+</div>
+</div>
+<a id="ab062053bb61c33f060cc524814811e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab062053bb61c33f060cc524814811e18">&#9670;&nbsp;</a></span>polling_pos2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void polling_pos2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de estado de la segunda posición del dispensador. </p>
+<p>polling_pos2 </p>
+
+</div>
+</div>
+<a id="a9aaf63f7f4a4dff4153cde0235e21334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aaf63f7f4a4dff4153cde0235e21334">&#9670;&nbsp;</a></span>polling_pos3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void polling_pos3 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de estado de la tercera posición del dispensador. </p>
+<p>polling_pos3 </p>
+
+</div>
+</div>
+<a id="a12716cf6a2e08e3513bf535f7d14fc7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12716cf6a2e08e3513bf535f7d14fc7b">&#9670;&nbsp;</a></span>polling_pos4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void polling_pos4 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de estado de la cuarta posición del dispensador. </p>
+<p>polling_pos4 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1d925fc0e51ea2a049fe81d254485123.html">Workspace01</a></li><li class="navelem"><a class="el" href="dir_b4bd24ae46d1b6b4b5d11fc8f41ee296.html">PGRP700.cydsn</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>
