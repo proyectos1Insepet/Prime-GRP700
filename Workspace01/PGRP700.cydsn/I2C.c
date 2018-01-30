@@ -5,7 +5,6 @@
 * @brief Archivo principal, maneja librerías y ejecuta el polling de pantallas y dispensador
 */
 
-
 /*
 *********************************************************************************************************
 *                                             INCLUDE FILES
@@ -94,7 +93,6 @@ uint8 leer_fecha(){
 * @brief Función para escribir la hora vía I2C, escribe la hora de rventa.hora
 * @return 0 para error de escritura 1 si no hubo problema al escribir la hora
 */
-
 uint8 write_hora( void ){
 	uint8 status, dato[3],i;
 	dato[0]=1;

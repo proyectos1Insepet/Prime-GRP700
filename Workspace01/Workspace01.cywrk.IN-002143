@@ -260,6 +260,40 @@
 <VisibleNodeIds>
 <v>Workspace01</v>
 <v>Workspace01\PGRP700</v>
+<v>Workspace01\PGRP700\CortexM3</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Bootloadable_1.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Clock_1.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\cybootloader.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C_1.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C_1_BOOT.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C_1_INT.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C_1_MASTER.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C_1_PM.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\I2C_1_SLAVE.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\IB1.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\IB2.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\ibuton.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Impresora.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Impresora_BOOT.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Impresora_INT.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Impresora_IntClock.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\Impresora_PM.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
+<v>Workspace01\PGRP700\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_1.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -305,7 +339,15 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\PGRP700.cydsn\main.c" />
+<name v=".\PGRP700.cydsn\ibuton.c" />
+<name v=".\PGRP700.cydsn\LCD.c" />
+<name v=".\PGRP700.cydsn\Print.c" />
+<name v=".\PGRP700.cydsn\protocolo.c" />
+<name v=".\PGRP700.cydsn\Protocolo.h" />
+<name v=".\PGRP700.cydsn\VariablesG.h" />
+</OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
